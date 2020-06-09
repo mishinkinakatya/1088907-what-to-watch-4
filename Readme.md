@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Екатерина Мишинкина](https://up.htmlacademy.ru/react/4/user/1088907).
-* Наставник: `Неизвестно`.
+* Наставник: [Николай Папаха](https://up.htmlacademy.ru/react/4/user/1224641).
 
 ---
 
