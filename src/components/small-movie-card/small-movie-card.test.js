@@ -7,6 +7,7 @@ it(`Render SmallMovieCard`, () => {
     .create(
         <SmallMovieCard
           title={`Movie_title-1`}
+          onTitleClick={() => {}}
         />
     )
     .toJSON();

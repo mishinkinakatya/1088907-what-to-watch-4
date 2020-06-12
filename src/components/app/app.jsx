@@ -2,12 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import MainPage from "../main-page/main-page.jsx";
 
+const titleHandler = () => {};
 
 const App = (props) => {
   const {title, genre, year, movieTitles} = props;
 
   return (
-    <MainPage title={title} genre={genre} year={year} movieTitles={movieTitles} />
+    <MainPage title={title} genre={genre} year={year} movieTitles={movieTitles} onTitleClick={titleHandler} />
   );
 };
 

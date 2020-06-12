@@ -10,6 +10,7 @@ it(`Render MainPage`, () => {
           genre={`Movie_genre`}
           year={2013}
           movieTitles={[`Movie_title-1`, `Movie_title-2`, `Movie_title-3`]}
+          onTitleClick={() => {}}
         />
     )
     .toJSON();
