@@ -1,12 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import MainPage from "./main-page.jsx";
-
-const promoMovie = {
-  TITLE: `Movie_title`,
-  GENRE: `Movie_genre`,
-  YEAR: 2013,
-};
+import MoviesList from "./movies-list.jsx";
 
 const movies = [
   {
@@ -23,12 +17,11 @@ const movies = [
   }
 ];
 
-describe(`MainPage`, () => {
-  it(`Render MainPage`, () => {
+describe(`MovieList`, () => {
+  it(`Render MovieList`, () => {
     const tree = renderer
       .create(
-          <MainPage
-            promoMovie={promoMovie}
+          <MoviesList
             movies={movies}
             onTitleClick={() => {}}
           />

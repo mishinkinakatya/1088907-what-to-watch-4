@@ -6,8 +6,8 @@ const SmallMovieCard = (props) => {
 
   return (
     <React.Fragment>
-      <article className="small-movie-card catalog__movies-card">
-        <div className="small-movie-card__image" onMouseOver={onCardMouseOver}>
+      <article className="small-movie-card catalog__movies-card" onMouseOver={onCardMouseOver}>
+        <div className="small-movie-card__image">
           <img src={movie.image} alt={movie.title} width="280" height="175" />
         </div>
         <h3 className="small-movie-card__title">

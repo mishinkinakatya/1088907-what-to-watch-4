@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render App 1`] = `
+exports[`App Render App 1`] = `
 Array [
   <section
     className="movie-card"
@@ -259,14 +259,15 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseOver={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              alt="Movie_title-1"
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="Movie_image-1"
               width="280"
             />
           </div>
@@ -284,14 +285,15 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseOver={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              alt="Movie_title-2"
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="Movie_image-2"
               width="280"
             />
           </div>
@@ -309,14 +311,15 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseOver={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              alt="Movie_title-3"
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="Movie_image-3"
               width="280"
             />
           </div>

@@ -1,16 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render SmallMovieCard 1`] = `
+exports[`SmallMovieCard Render SmallMovieCard 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
+  onMouseOver={[Function]}
 >
   <div
     className="small-movie-card__image"
   >
     <img
-      alt="Fantastic Beasts: The Crimes of Grindelwald"
+      alt="Movie_title-1"
       height="175"
-      src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      src="Movie_image-1"
       width="280"
     />
   </div>
