@@ -5,18 +5,20 @@ import MainPage from "../main-page/main-page.jsx";
 const titleHandler = () => {};
 
 const App = (props) => {
-  const {title, genre, year, movieTitles} = props;
+  const {promoMovie, movies} = props;
 
   return (
-    <MainPage title={title} genre={genre} year={year} movieTitles={movieTitles} onTitleClick={titleHandler} />
+    <MainPage promoMovie={promoMovie} movies={movies} onTitleClick={titleHandler} />
   );
 };
 
 App.propTypes = {
-  title: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
-  movieTitles: PropTypes.arrayOf(PropTypes.string).isRequired,
+  promoMovie: PropTypes.shape({
+    TITLE: PropTypes.string.isRequired,
+    GENRE: PropTypes.string.isRequired,
+    YEAR: PropTypes.number.isRequired,
+  }).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default App;

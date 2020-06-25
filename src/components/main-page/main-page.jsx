@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
+import MoviesList from "../movies-list/movies-list.jsx";
 
 const MainPage = (props) => {
-  const {title, genre, year, movieTitles, onTitleClick} = props;
+  const {promoMovie, movies, onTitleClick} = props;
 
   return (
     <React.Fragment>
@@ -37,10 +37,10 @@ const MainPage = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{title}</h2>
+              <h2 className="movie-card__title">{promoMovie.TITLE}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{genre}</span>
-                <span className="movie-card__year">{year}</span>
+                <span className="movie-card__genre">{promoMovie.GENRE}</span>
+                <span className="movie-card__year">{promoMovie.YEAR}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -99,9 +99,7 @@ const MainPage = (props) => {
             </li>
           </ul>
 
-          <div className="catalog__movies-list">
-            {movieTitles.map((it, i) => <SmallMovieCard key={it + i} title={it} onTitleClick={onTitleClick} />)}
-          </div>
+          <MoviesList movies={movies} onTitleClick={onTitleClick} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -127,10 +125,17 @@ const MainPage = (props) => {
 };
 
 MainPage.propTypes = {
-  title: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
-  movieTitles: PropTypes.arrayOf(PropTypes.string).isRequired,
+  promoMovie: PropTypes.shape({
+    TITLE: PropTypes.string.isRequired,
+    GENRE: PropTypes.string.isRequired,
+    YEAR: PropTypes.number.isRequired,
+  }).isRequired,
+  movies: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+      })
+  ).isRequired,
   onTitleClick: PropTypes.func.isRequired,
 };
 
