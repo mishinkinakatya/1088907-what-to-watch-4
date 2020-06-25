@@ -1,4 +1,4 @@
-export const PromoMovie = {
+export const promoMovie = {
   TITLE: `The Grand Budapest Hotel`,
   GENRE: `Drama`,
   YEAR: 2014
