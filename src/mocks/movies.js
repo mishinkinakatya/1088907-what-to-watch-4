@@ -1,7 +1,7 @@
 export const promoMovie = {
-  TITLE: `The Grand Budapest Hotel`,
-  GENRE: `Drama`,
-  YEAR: 2014
+  title: `The Grand Budapest Hotel`,
+  genre: `Drama`,
+  year: 2014
 };
 
 export const movies = [

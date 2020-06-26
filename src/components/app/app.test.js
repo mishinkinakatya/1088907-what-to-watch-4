@@ -3,9 +3,9 @@ import renderer from "react-test-renderer";
 import App from "./app.jsx";
 
 const promoMovie = {
-  TITLE: `Movie_title`,
-  GENRE: `Movie_genre`,
-  YEAR: 2013,
+  title: `Movie_title`,
+  genre: `Movie_genre`,
+  year: 2013,
 };
 
 const movies = [
