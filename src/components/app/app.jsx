@@ -1,16 +1,31 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {Switch, Route, BrowserRouter} from "react-router-dom";
 import MainPage from "../main-page/main-page.jsx";
+import MoviePage from "../movie-page/movie-page.jsx";
 
-const titleHandler = () => {};
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
 
-const App = (props) => {
-  const {promoMovie, movies} = props;
+  render() {
+    const {promoMovie, movies} = this.props;
 
-  return (
-    <MainPage promoMovie={promoMovie} movies={movies} onTitleClick={titleHandler} />
-  );
-};
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <MainPage promoMovie={promoMovie} movies={movies} onTitleClick={() => {}} />
+          </Route>
+          <Route exact path="/movie-page">
+            <MoviePage promoMovie={promoMovie} />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+}
 
 App.propTypes = {
   promoMovie: PropTypes.shape({

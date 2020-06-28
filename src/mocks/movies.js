@@ -1,9 +1,3 @@
-export const promoMovie = {
-  title: `The Grand Budapest Hotel`,
-  genre: `Drama`,
-  year: 2014
-};
-
 export const movies = [
   {
     image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
