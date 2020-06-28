@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import MoviesList from "../movies-list/movies-list.jsx";
 
 const MainPage = (props) => {
-  const {promoMovie, movies, onTitleClick} = props;
+  const {promoMovie, movies, onCardClick} = props;
 
   return (
     <React.Fragment>
@@ -99,7 +99,7 @@ const MainPage = (props) => {
             </li>
           </ul>
 
-          <MoviesList movies={movies} onTitleClick={onTitleClick} />
+          <MoviesList movies={movies} onCardClick={onCardClick} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -141,10 +141,27 @@ MainPage.propTypes = {
   movies: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      })
+        genre: PropTypes.string.isRequired,
+        year: PropTypes.number.isRequired,
+        poster: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          image: PropTypes.string.isRequired,
+        }).isRequired,
+        bgPoster: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          image: PropTypes.string.isRequired,
+        }).isRequired,
+        rating: PropTypes.shape({
+          score: PropTypes.number.isRequired,
+          level: PropTypes.string.isRequired,
+          count: PropTypes.number.isRequired,
+        }).isRequired,
+        description: PropTypes.string.isRequired,
+        director: PropTypes.string.isRequired,
+        starring: PropTypes.string.isRequired,
+      }).isRequired
   ).isRequired,
-  onTitleClick: PropTypes.func.isRequired,
+  onCardClick: PropTypes.func.isRequired,
 };
 
 export default MainPage;

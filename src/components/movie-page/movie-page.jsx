@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const MoviePage = (props) => {
-  const {promoMovie} = props;
+  const {movie} = props;
 
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src={promoMovie.bgPoster.image} alt={promoMovie.bgPoster.title} />
+            <img src={movie.bgPoster.image} alt={movie.bgPoster.title} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -32,10 +32,10 @@ const MoviePage = (props) => {
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{promoMovie.title}</h2>
+              <h2 className="movie-card__title">{movie.title}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{promoMovie.genre}</span>
-                <span className="movie-card__year">{promoMovie.year}</span>
+                <span className="movie-card__genre">{movie.genre}</span>
+                <span className="movie-card__year">{movie.year}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -60,7 +60,7 @@ const MoviePage = (props) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={promoMovie.poster.image} alt={promoMovie.poster.title} width="218" height="327" />
+              <img src={movie.poster.image} alt={movie.poster.title} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
@@ -79,19 +79,19 @@ const MoviePage = (props) => {
               </nav>
 
               <div className="movie-rating">
-                <div className="movie-rating__score">{promoMovie.rating.score}</div>
+                <div className="movie-rating__score">{movie.rating.score}</div>
                 <p className="movie-rating__meta">
-                  <span className="movie-rating__level">{promoMovie.rating.level}</span>
-                  <span className="movie-rating__count">{promoMovie.rating.count} ratings</span>
+                  <span className="movie-rating__level">{movie.rating.level}</span>
+                  <span className="movie-rating__count">{movie.rating.count} ratings</span>
                 </p>
               </div>
 
               <div className="movie-card__text">
-                <p>{promoMovie.description}</p>
+                <p>{movie.description}</p>
 
-                <p className="movie-card__director"><strong>Director: {promoMovie.director}</strong></p>
+                <p className="movie-card__director"><strong>Director: {movie.director}</strong></p>
 
-                <p className="movie-card__starring"><strong>Starring: {promoMovie.starring}</strong></p>
+                <p className="movie-card__starring"><strong>Starring: {movie.starring}</strong></p>
               </div>
             </div>
           </div>
@@ -160,7 +160,7 @@ const MoviePage = (props) => {
 };
 
 MoviePage.propTypes = {
-  promoMovie: PropTypes.shape({
+  movie: PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,
@@ -173,7 +173,7 @@ MoviePage.propTypes = {
       image: PropTypes.string.isRequired,
     }).isRequired,
     rating: PropTypes.shape({
-      score: PropTypes.string.isRequired,
+      score: PropTypes.number.isRequired,
       level: PropTypes.string.isRequired,
       count: PropTypes.number.isRequired,
     }).isRequired,

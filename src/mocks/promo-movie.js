@@ -11,7 +11,7 @@ export const promoMovie = {
     title: `The Grand Budapest Hotel`,
   },
   rating: {
-    score: `8,9`,
+    score: 8.9,
     level: `Very good`,
     count: 240
   },
