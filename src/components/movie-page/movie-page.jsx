@@ -1,8 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+
 const MoviePage = (props) => {
   const {movie} = props;
+
+  const calculateRatingLevel = () => {
+    const score = movie.rating.score;
+    if (score >= 0 && score < 3) {
+      return `Bad`;
+    }
+    if (score >= 3 && score < 5) {
+      return `Normal`;
+    }
+    if (score >= 5 && score < 8) {
+      return `Good`;
+    }
+    if (score >= 8 && score < 10) {
+      return `Very good`;
+    }
+    if (score === 10) {
+      return `Awesome`;
+    }
+    return null;
+  };
 
   return (
     <React.Fragment>
@@ -81,7 +102,7 @@ const MoviePage = (props) => {
               <div className="movie-rating">
                 <div className="movie-rating__score">{movie.rating.score}</div>
                 <p className="movie-rating__meta">
-                  <span className="movie-rating__level">{movie.rating.level}</span>
+                  <span className="movie-rating__level">{calculateRatingLevel()}</span>
                   <span className="movie-rating__count">{movie.rating.count} ratings</span>
                 </p>
               </div>
@@ -174,7 +195,6 @@ MoviePage.propTypes = {
     }).isRequired,
     rating: PropTypes.shape({
       score: PropTypes.number.isRequired,
-      level: PropTypes.string.isRequired,
       count: PropTypes.number.isRequired,
     }).isRequired,
     description: PropTypes.string.isRequired,

@@ -153,7 +153,6 @@ MainPage.propTypes = {
         }).isRequired,
         rating: PropTypes.shape({
           score: PropTypes.number.isRequired,
-          level: PropTypes.string.isRequired,
           count: PropTypes.number.isRequired,
         }).isRequired,
         description: PropTypes.string.isRequired,
