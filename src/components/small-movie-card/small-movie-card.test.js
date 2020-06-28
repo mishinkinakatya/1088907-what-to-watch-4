@@ -4,7 +4,23 @@ import SmallMovieCard from "./small-movie-card.jsx";
 
 const movie = {
   title: `Movie_title-1`,
-  image: `Movie_image-1`,
+  genre: `Genre`,
+  year: 1111,
+  poster: {
+    image: `Movie_image-1`,
+    title: `Movie_title-1`,
+  },
+  bgPoster: {
+    image: `Movie_image-1`,
+    title: `Movie_title-1`,
+  },
+  rating: {
+    score: 1.1,
+    count: 111
+  },
+  description: `Description of Movie_title-1.`,
+  director: `Director of Movie_title-1.`,
+  starring: `Starring of Movie_title-1.`,
 };
 
 describe(`SmallMovieCard`, () => {
@@ -13,7 +29,7 @@ describe(`SmallMovieCard`, () => {
       .create(
           <SmallMovieCard
             movie={movie}
-            onTitleClick={() => {}}
+            onCardClick={() => {}}
             onCardMouseOver={() => {}}
           />
       )
