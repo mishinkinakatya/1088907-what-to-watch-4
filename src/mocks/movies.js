@@ -18,6 +18,7 @@ export const movies = [
     description: `Description of Fantastic Beasts: The Crimes of Grindelwald.`,
     director: `Director of Fantastic Beasts: The Crimes of Grindelwald.`,
     starring: `Starring of Fantastic Beasts: The Crimes of Grindelwald.`,
+    preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
     title: `Bohemian Rhapsody`,
@@ -38,6 +39,7 @@ export const movies = [
     description: `Description of Bohemian Rhapsody.`,
     director: `Director of Bohemian Rhapsody.`,
     starring: `Starring of Bohemian Rhapsody.`,
+    preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
     title: `Macbeth`,
@@ -58,6 +60,7 @@ export const movies = [
     description: `Description of Macbeth.`,
     director: `Director of Macbeth.`,
     starring: `Starring of Macbeth.`,
+    preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
     title: `Aviator`,
@@ -78,6 +81,7 @@ export const movies = [
     description: `Description of Aviator.`,
     director: `Director of Aviator.`,
     starring: `Starring of Aviator.`,
+    preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
     title: `We need to talk about Kevin`,
@@ -98,6 +102,7 @@ export const movies = [
     description: `Description of We need to talk about Kevin.`,
     director: `Director of We need to talk about Kevin.`,
     starring: `Starring of We need to talk about Kevin.`,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
     title: `What We Do in the Shadows`,
@@ -118,6 +123,7 @@ export const movies = [
     description: `Description of What We Do in the Shadows.`,
     director: `Director of What We Do in the Shadows.`,
     starring: `Starring of What We Do in the Shadows.`,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
     title: `Revenant`,
@@ -138,6 +144,7 @@ export const movies = [
     description: `Description of Revenant.`,
     director: `Director of Revenant.`,
     starring: `Starring of Revenant.`,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
     title: `Johnny English`,
@@ -158,5 +165,6 @@ export const movies = [
     description: `Description of Johnny English.`,
     director: `Director of Johnny English.`,
     starring: `Starring of Johnny English.`,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
 ];
