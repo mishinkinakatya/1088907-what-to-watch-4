@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import SmallMovieCard from "./small-movie-card.jsx";
+import MoviePage from "./movie-page.jsx";
 
 const movie = {
   title: `Movie_title-1`,
@@ -23,14 +23,12 @@ const movie = {
   starring: `Starring of Movie_title-1.`,
 };
 
-describe(`SmallMovieCard`, () => {
-  it(`Render SmallMovieCard`, () => {
+describe(`MoviePage`, () => {
+  it(`Render MoviePage`, () => {
     const tree = renderer
       .create(
-          <SmallMovieCard
+          <MoviePage
             movie={movie}
-            onCardClick={() => {}}
-            onCardMouseOver={() => {}}
           />
       )
       .toJSON();
