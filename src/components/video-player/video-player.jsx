@@ -1,66 +1,69 @@
-import React, {PureComponent} from "react";
+import React, {PureComponent, createRef} from "react";
 import PropTypes from "prop-types";
+
+const TIMEOUT = 1000;
 
 class VideoPlayer extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      progress: 0,
-      isPlaying: props.isPlaying,
-      isAudio: props.isAudio,
-    };
+    this._videoRef = createRef();
+    this._timeoutPlayHandler = null;
+  }
+
+  componentDidMount() {
+    const {preview} = this.props;
+    const video = this._videoRef.current;
+
+    video.src = preview;
+    video.muted = true;
+
+    video.onplay = () => this.setState({
+      isPlaying: true,
+    });
+  }
+
+  componentWillUnmount() {
+    const video = this._videoRef.current;
+
+    video.src = ``;
+    video.muted = false;
+    video.onplay = null;
+  }
+
+  componentDidUpdate() {
+    const video = this._videoRef.current;
+
+    if (this.props.isPlaying) {
+      this._timeoutPlayHandler = setTimeout(() => video.play(), TIMEOUT);
+    } else {
+      if (this._timeoutPlayHandler) {
+        clearTimeout(this._timeoutPlayHandler);
+        this._timeoutPlayHandler = null;
+      }
+      video.load();
+    }
   }
 
   render() {
-    const {movie} = this.props;
-
+    const {poster} = this.props;
     return (
-      <div className="player">
-        <video src={movie.preview} className="player__video" poster={movie.poster.image}></video>
-
-        <button type="button" className="player__exit">Exit</button>
-        <div className="player__controls">
-          <div className="player__controls-row">
-            <div className="player__time">
-              <progress className="player__progress" value="30" max="100"></progress>
-              <div className="player__toggler" style="left: 30%;">Toggler</div>
-            </div>
-            <div className="player__time-value">1:30:29</div>
-          </div>
-
-          <div className="player__controls-row">
-            <button type="button" className="player__play">
-              <svg viewBox="0 0 19 19" width="19" height="19">
-                <use xlinkHref="#play-s"></use>
-              </svg>
-              <span>Play</span>
-            </button>
-            <div className="player__name">Transpotting</div>
-
-            <button type="button" className="player__full-screen">
-              <svg viewBox="0 0 27 27" width="27" height="27">
-                <use xlinkHref="#full-screen"></use>
-              </svg>
-              <span>Full screen</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <video
+        className={`player__video`}
+        ref={this._videoRef}
+        poster={poster.image}
+      />
     );
   }
 }
 
 VideoPlayer.propTypes = {
-  movie: PropTypes.shape({
-    poster: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-    }).isRequired,
-    preview: PropTypes.string.isRequired,
+  poster: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
   }).isRequired,
+  preview: PropTypes.string.isRequired,
   isPlaying: PropTypes.bool.isRequired,
-  isAudio: PropTypes.bool.isRequired,
 };
 
 export default VideoPlayer;

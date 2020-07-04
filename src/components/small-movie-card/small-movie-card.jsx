@@ -1,25 +1,65 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import VideoPlayer from "../video-player/video-player.jsx";
 
-const SmallMovieCard = (props) => {
-  const {movie, onCardClick, onCardMouseOver} = props;
+class SmallMovieCard extends PureComponent {
+  constructor(props) {
+    super(props);
 
-  const handleCardClick = (evt) => {
+    this.state = {
+      isPlaying: false,
+    };
+
+    this._handleCardClick = this._handleCardClick.bind(this);
+  }
+
+  render() {
+    const {movie, onCardHover} = this.props;
+    return (
+      <article className="small-movie-card catalog__movies-card"
+        onClick={this._handleCardClick}
+        onMouseEnter={() => {
+          onCardHover(movie);
+          this.setState({
+            isPlaying: true,
+          });
+        }
+        }
+        onMouseLeave={() => {
+          onCardHover({});
+          this.setState({
+            isPlaying: false,
+          });
+        }
+        }
+      >
+        <div className="small-movie-card__image">
+          <VideoPlayer
+            preview={movie.preview}
+            poster={movie.poster}
+            isPlaying={this.state.isPlaying}
+          />
+          <img
+            src={movie.bgPoster.image}
+            alt={movie.bgPoster.title}
+            width="280"
+            height="175" />
+        </div>
+        <h3 className="small-movie-card__title">
+          <a className="small-movie-card__link" href="movie-page.html">{movie.bgPoster.title}</a>
+        </h3>
+      </article >
+    );
+  }
+
+  _handleCardClick(evt) {
+    const {movie, onCardClick} = this.props;
     evt.preventDefault();
     onCardClick(movie);
-  };
+  }
 
-  return (
-    <article className="small-movie-card catalog__movies-card" onClick={handleCardClick} onMouseOver={onCardMouseOver}>
-      <div className="small-movie-card__image">
-        <img src={movie.bgPoster.image} alt={movie.bgPoster.title} width="280" height="175" />
-      </div>
-      <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href="movie-page.html">{movie.bgPoster.title}</a>
-      </h3>
-    </article>
-  );
-};
+}
+
 
 SmallMovieCard.propTypes = {
   movie: PropTypes.shape({
@@ -41,9 +81,10 @@ SmallMovieCard.propTypes = {
     description: PropTypes.string.isRequired,
     director: PropTypes.string.isRequired,
     starring: PropTypes.string.isRequired,
+    preview: PropTypes.string.isRequired,
   }).isRequired,
   onCardClick: PropTypes.func.isRequired,
-  onCardMouseOver: PropTypes.func.isRequired,
+  onCardHover: PropTypes.func.isRequired,
 };
 
 export default SmallMovieCard;

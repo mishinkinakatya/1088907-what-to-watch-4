@@ -20,7 +20,7 @@ class MoviesList extends PureComponent {
               key={it.title + i}
               movie={it}
               onCardClick={onCardClick}
-              onCardMouseOver={() => {
+              onCardHover={() => {
                 this.setState({activeMovie: it});
               }} />
           );
