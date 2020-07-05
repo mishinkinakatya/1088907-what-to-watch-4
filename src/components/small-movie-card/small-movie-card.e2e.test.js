@@ -83,4 +83,30 @@ describe(`SmallMovieCardComponent`, () => {
 
     expect(onCardHover.mock.calls.length).toBe(1);
   });
+
+  it(`Should videoplayer be in state play and pause`, () => {
+    const onCardHover = jest.fn();
+
+    const smallMovieCard = shallow(
+        <SmallMovieCard
+          movie={movie}
+          onCardClick={() => {}}
+          onCardHover={onCardHover}
+        />
+    );
+
+    const card = smallMovieCard.find(`.small-movie-card`);
+
+    card.simulate(`mouseenter`);
+
+    expect(onCardHover.mock.calls.length).toBe(1);
+    expect(smallMovieCard.state().isPlaying).toBe(true);
+    expect(onCardHover).toHaveBeenCalledWith(movie);
+
+    card.simulate(`mouseleave`);
+
+    expect(onCardHover.mock.calls.length).toBe(2);
+    expect(smallMovieCard.state().isPlaying).toBe(false);
+    expect(onCardHover).toHaveBeenCalledWith({});
+  });
 });
