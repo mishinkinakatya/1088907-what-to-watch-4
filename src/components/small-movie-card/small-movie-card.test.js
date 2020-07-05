@@ -21,6 +21,7 @@ const movie = {
   description: `Description of Movie_title-1.`,
   director: `Director of Movie_title-1.`,
   starring: `Starring of Movie_title-1.`,
+  preview: `Preview of Movie_title-1.`,
 };
 
 describe(`SmallMovieCard`, () => {
@@ -30,9 +31,12 @@ describe(`SmallMovieCard`, () => {
           <SmallMovieCard
             movie={movie}
             onCardClick={() => {}}
-            onCardMouseOver={() => {}}
-          />
-      )
+            onCardHover={() => {}}
+          />, {
+            createNodeMock: () => {
+              return {};
+            }
+          })
       .toJSON();
 
     expect(tree).toMatchSnapshot();

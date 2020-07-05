@@ -21,6 +21,7 @@ const promoMovie = {
   description: `Description of Movie_title.`,
   director: `Director of Movie_title.`,
   starring: `Starring of Movie_title.`,
+  preview: `Preview of Movie_title.`,
 };
 
 const movies = [
@@ -94,8 +95,11 @@ describe(`MainPage`, () => {
             promoMovie={promoMovie}
             movies={movies}
             onCardClick={() => {}}
-          />
-      )
+          />, {
+            createNodeMock: () => {
+              return {};
+            }
+          })
       .toJSON();
 
     expect(tree).toMatchSnapshot();
