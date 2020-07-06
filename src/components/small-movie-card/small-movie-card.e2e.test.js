@@ -101,12 +101,10 @@ describe(`SmallMovieCardComponent`, () => {
 
     expect(onCardHover.mock.calls.length).toBe(1);
     expect(smallMovieCard.state().isPlaying).toBe(true);
-    // expect(onCardHover).toHaveBeenCalledWith(movie);
 
     card.simulate(`mouseleave`);
 
     expect(onCardHover.mock.calls.length).toBe(2);
     expect(smallMovieCard.state().isPlaying).toBe(false);
-    expect(onCardHover).toHaveBeenCalledWith({});
   });
 });
