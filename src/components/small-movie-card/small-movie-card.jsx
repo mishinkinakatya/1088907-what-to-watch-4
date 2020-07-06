@@ -19,7 +19,7 @@ class SmallMovieCard extends PureComponent {
       <article className="small-movie-card catalog__movies-card"
         onClick={this._handleCardClick}
         onMouseEnter={() => {
-          onCardHover(movie);
+          onCardHover();
           this.setState({
             isPlaying: true,
           });

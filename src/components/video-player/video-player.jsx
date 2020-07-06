@@ -17,10 +17,6 @@ class VideoPlayer extends PureComponent {
 
     video.src = preview;
     video.muted = true;
-
-    video.onplay = () => this.setState({
-      isPlaying: true,
-    });
   }
 
   componentWillUnmount() {
@@ -28,7 +24,6 @@ class VideoPlayer extends PureComponent {
 
     video.src = ``;
     video.muted = false;
-    video.onplay = null;
   }
 
   componentDidUpdate() {
@@ -49,7 +44,7 @@ class VideoPlayer extends PureComponent {
     const {poster} = this.props;
     return (
       <video
-        className={`player__video`}
+        className="player__video"
         ref={this._videoRef}
         poster={poster.image}
       />
