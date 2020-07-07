@@ -21,6 +21,7 @@ const promoMovie = {
   description: `Description of Movie_title.`,
   director: `Director of Movie_title.`,
   starring: `Starring of Movie_title.`,
+  preview: `Preview of Movie_title.`,
 };
 
 const movies = [
@@ -43,6 +44,7 @@ const movies = [
     description: `Description of Movie_title-1.`,
     director: `Director of Movie_title-1.`,
     starring: `Starring of Movie_title-1.`,
+    preview: `Preview of Movie_title-1.`,
   },
   {
     title: `Movie_title-2`,
@@ -63,6 +65,7 @@ const movies = [
     description: `Description of Movie_title-2.`,
     director: `Director of Movie_title-2.`,
     starring: `Starring of Movie_title-2.`,
+    preview: `Preview of Movie_title-2.`,
   },
   {
     title: `Movie_title-3`,
@@ -83,6 +86,7 @@ const movies = [
     description: `Description of Movie_title-3.`,
     director: `Director of Movie_title-3.`,
     starring: `Starring of Movie_title-3.`,
+    preview: `Preview of Movie_title-3.`,
   }
 ];
 
@@ -94,8 +98,11 @@ describe(`MainPage`, () => {
             promoMovie={promoMovie}
             movies={movies}
             onCardClick={() => {}}
-          />
-      )
+          />, {
+            createNodeMock: () => {
+              return {};
+            }
+          })
       .toJSON();
 
     expect(tree).toMatchSnapshot();

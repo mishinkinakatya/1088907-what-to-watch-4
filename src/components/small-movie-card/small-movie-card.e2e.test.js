@@ -22,6 +22,7 @@ const movie = {
   description: `Description of Movie_title-1.`,
   director: `Director of Movie_title-1.`,
   starring: `Starring of Movie_title-1.`,
+  preview: `Preview of Movie_title-1.`,
 };
 
 Enzyme.configure({
@@ -36,7 +37,7 @@ describe(`SmallMovieCardComponent`, () => {
         <SmallMovieCard
           movie={movie}
           onCardClick={onTitleClick}
-          onCardMouseOver={() => {}}
+          onCardHover={() => {}}
         />
     );
 
@@ -54,7 +55,7 @@ describe(`SmallMovieCardComponent`, () => {
         <SmallMovieCard
           movie={movie}
           onCardClick={onCardClick}
-          onCardMouseOver={() => {}}
+          onCardHover={() => {}}
         />
     );
 
@@ -65,21 +66,45 @@ describe(`SmallMovieCardComponent`, () => {
     expect(onCardClick.mock.calls.length).toBe(1);
   });
 
-  it(`Movie gets into the handler on mouseover`, () => {
-    const onCardMouseOver = jest.fn();
+  it(`Movie gets into the handler on mouseenter`, () => {
+    const onCardHover = jest.fn();
 
     const smallMovieCard = shallow(
         <SmallMovieCard
           movie={movie}
           onCardClick={() => {}}
-          onCardMouseOver={onCardMouseOver}
+          onCardHover={onCardHover}
         />
     );
 
     const card = smallMovieCard.find(`.small-movie-card`);
 
-    card.simulate(`mouseover`, movie);
+    card.simulate(`mouseenter`, movie);
 
-    expect(onCardMouseOver.mock.calls.length).toBe(1);
+    expect(onCardHover.mock.calls.length).toBe(1);
+  });
+
+  it(`Should videoplayer be in state play and pause`, () => {
+    const onCardHover = jest.fn();
+
+    const smallMovieCard = shallow(
+        <SmallMovieCard
+          movie={movie}
+          onCardClick={() => {}}
+          onCardHover={onCardHover}
+        />
+    );
+
+    const card = smallMovieCard.find(`.small-movie-card`);
+
+    card.simulate(`mouseenter`);
+
+    expect(onCardHover.mock.calls.length).toBe(1);
+    expect(smallMovieCard.state().isPlaying).toBe(true);
+
+    card.simulate(`mouseleave`);
+
+    expect(onCardHover.mock.calls.length).toBe(2);
+    expect(smallMovieCard.state().isPlaying).toBe(false);
   });
 });
