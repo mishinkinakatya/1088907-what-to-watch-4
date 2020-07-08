@@ -25,7 +25,7 @@ export const movies = [
   {
     id: 2,
     title: `Bohemian Rhapsody`,
-    genre: `Dramas`,
+    genre: `Documentary`,
     year: 2012,
     runTimeInMs: 5400012,
     poster: {
@@ -48,7 +48,7 @@ export const movies = [
   {
     id: 3,
     title: `Macbeth`,
-    genre: `Crime`,
+    genre: `Documentary`,
     year: 2013,
     runTimeInMs: 5400013,
     poster: {
@@ -71,7 +71,7 @@ export const movies = [
   {
     id: 4,
     title: `Aviator`,
-    genre: `Horror`,
+    genre: `Documentary`,
     year: 2014,
     runTimeInMs: 5400014,
     poster: {
@@ -94,7 +94,7 @@ export const movies = [
   {
     id: 5,
     title: `We need to talk about Kevin`,
-    genre: `Romance`,
+    genre: `Documentary`,
     year: 2015,
     runTimeInMs: 5400015,
     poster: {

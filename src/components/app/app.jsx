@@ -4,6 +4,8 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 
+const COUNT_VISIBLE_SIMILAR_MOVIES = 4;
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -13,12 +15,14 @@ class App extends PureComponent {
   }
 
   render() {
-    const {promoMovie, promoMovieReviews, reviews} = this.props;
+    const {promoMovie, promoMovieReviews, movies, reviews} = this.props;
     const {activeMovie} = this.state;
 
-    const movie = activeMovie ? activeMovie : promoMovie;
+    const currentMovie = activeMovie ? activeMovie : promoMovie;
     const movieReviews = activeMovie ? reviews : promoMovieReviews;
-    const reviewsOfMovie = movieReviews.map((review) => review.movieId === movie.id ? review : null).filter((review) => review !== null);
+    const reviewsOfMovie = movieReviews.map((review) => review.movieId === currentMovie.id ? review : null).filter((review) => review !== null);
+    const similarMovies = movies.filter((movie) => movie.genre === currentMovie.genre && movie.id !== currentMovie.id).slice(0, COUNT_VISIBLE_SIMILAR_MOVIES);
+
     return (
       <BrowserRouter>
         <Switch>
@@ -26,7 +30,7 @@ class App extends PureComponent {
             {this._renderApp()}
           </Route>
           <Route exact path="/movie-page">
-            <MoviePage movie={movie} reviews={reviewsOfMovie} />
+            <MoviePage movie={currentMovie} reviews={reviewsOfMovie} similarMovies={similarMovies} onCardClick={this._handleCardClick}/>
           </Route>
         </Switch>
       </BrowserRouter>
@@ -37,12 +41,13 @@ class App extends PureComponent {
     const {promoMovie, promoMovieReviews, movies, reviews} = this.props;
     const {activeMovie} = this.state;
 
-    const movie = activeMovie ? activeMovie : promoMovie;
+    const currentMovie = activeMovie ? activeMovie : promoMovie;
     const movieReviews = activeMovie ? reviews : promoMovieReviews;
-    const reviewsOfMovie = movieReviews.map((review) => review.movieId === movie.id ? review : null).filter((review) => review !== null);
+    const reviewsOfMovie = movieReviews.map((review) => review.movieId === currentMovie.id ? review : null).filter((review) => review !== null);
+    const similarMovies = movies.filter((movie) => movie.genre === currentMovie.genre && movie.id !== currentMovie.id).slice(0, COUNT_VISIBLE_SIMILAR_MOVIES);
 
     if (this.state.activeMovie) {
-      return <MoviePage movie={this.state.activeMovie} reviews={reviewsOfMovie} />;
+      return <MoviePage movie={currentMovie} reviews={reviewsOfMovie} similarMovies={similarMovies} onCardClick={this._handleCardClick}/>;
     }
 
     return <MainPage promoMovie={promoMovie} movies={movies} onCardClick={this._handleCardClick} />;
