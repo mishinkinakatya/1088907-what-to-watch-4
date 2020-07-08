@@ -7,7 +7,7 @@ const createReviewTemplate = (review) => {
   // Перевести дату в человекочитаемый вид
 
   return (
-    <div className="review">
+    <div className="review" key={dateInMs}>
       <blockquote className="review__quote">
         <p className="review__text">{comment}</p>
 
@@ -25,29 +25,30 @@ const createReviewTemplate = (review) => {
 const MovieReviews = (props) => {
   const {reviews} = props;
 
-  const firstPartReviews = reviews.slice(0, reviews.length / 2 - 1);
-  const secondPartReviews = reviews.slice(reviews.length / 2);
+  const firstPartReviews = reviews.slice(0, reviews.length / 2 + 1);
+  const secondPartReviews = reviews.slice(reviews.length / 2 + 1);
 
   return (
     <div className="movie-card__reviews movie-card__row">
       <div className="movie-card__reviews-col">
-        {firstPartReviews.map((review) => createReviewTemplate(review)).join(`\n`)}
+        {firstPartReviews.map((review) => createReviewTemplate(review))}
       </div>
       <div className="movie-card__reviews-col">
-        {secondPartReviews.map((review) => createReviewTemplate(review)).join(`\n`)}
+        {secondPartReviews.map((review) => createReviewTemplate(review))}
       </div>
     </div>
   );
 };
 
 MovieReviews.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.shape({
-    movieId: PropTypes.number.isRequired,
-    author: PropTypes.string.isRequired,
-    dateInMs: PropTypes.number.isRequired,
-    ratingScore: PropTypes.number.isRequired,
-    comment: PropTypes.string.isRequired,
-  })
+  reviews: PropTypes.arrayOf(
+      PropTypes.shape({
+        movieId: PropTypes.number.isRequired,
+        author: PropTypes.string.isRequired,
+        dateInMs: PropTypes.number.isRequired,
+        ratingScore: PropTypes.number.isRequired,
+        comment: PropTypes.string.isRequired,
+      })
   )
 };
 

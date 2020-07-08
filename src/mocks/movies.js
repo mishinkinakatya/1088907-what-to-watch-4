@@ -19,7 +19,7 @@ export const movies = [
     },
     description: `Description of Fantastic Beasts: The Crimes of Grindelwald.`,
     director: `Director of Fantastic Beasts: The Crimes of Grindelwald.`,
-    starrings: `[Starring 1, Starring 2, Starring 3, Starring 4, Starring 5, Starring 6, Starring 7, Starring 8]`,
+    starrings: [`Starring 1`, `Starring 2`, `Starring 3`, `Starring 4`, `Starring 5`, `Starring 6`, `Starring 7`, `Starring 8`],
     preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
@@ -42,7 +42,7 @@ export const movies = [
     },
     description: `Description of Bohemian Rhapsody.`,
     director: `Director of Bohemian Rhapsody.`,
-    starrings: `[Starring 1, Starring 2, Starring 3, Starring 4, Starring 5, Starring 6, Starring 7]`,
+    starrings: [`Starring 1`, `Starring 2`, `Starring 3`, `Starring 4`, `Starring 5`, `Starring 6`, `Starring 7`],
     preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
@@ -65,7 +65,7 @@ export const movies = [
     },
     description: `Description of Macbeth.`,
     director: `Director of Macbeth.`,
-    starrings: `[Starring 1, Starring 2, Starring 3, Starring 4, Starring 5, Starring 6]`,
+    starrings: [`Starring 1`, `Starring 2`, `Starring 3`, `Starring 4`, `Starring 5`, `Starring 6`],
     preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
@@ -88,7 +88,7 @@ export const movies = [
     },
     description: `Description of Aviator.`,
     director: `Director of Aviator.`,
-    starrings: `[Starring 1, Starring 2, Starring 3, Starring 4, Starring 5]`,
+    starrings: [`Starring 1`, `Starring 2`, `Starring 3`, `Starring 4`, `Starring 5`],
     preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
@@ -111,7 +111,7 @@ export const movies = [
     },
     description: `Description of We need to talk about Kevin.`,
     director: `Director of We need to talk about Kevin.`,
-    starrings: `[Starring 1, Starring 2, Starring 3, Starring 4]`,
+    starrings: [`Starring 1`, `Starring 2`, `Starring 3`, `Starring 4`],
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
@@ -134,7 +134,7 @@ export const movies = [
     },
     description: `Description of What We Do in the Shadows.`,
     director: `Director of What We Do in the Shadows.`,
-    starrings: `[Starring 1, Starring 2, Starring 3]`,
+    starrings: [`Starring 1`, `Starring 2`, `Starring 3`],
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
@@ -157,7 +157,7 @@ export const movies = [
     },
     description: `Description of Revenant.`,
     director: `Director of Revenant.`,
-    starrings: `[Starring 1, Starring 2]`,
+    starrings: [`Starring 1`, `Starring 2`],
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
@@ -180,7 +180,7 @@ export const movies = [
     },
     description: `Description of Johnny English.`,
     director: `Director of Johnny English.`,
-    starrings: `[Starring 1]`,
+    starrings: [`Starring 1`],
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
 ];

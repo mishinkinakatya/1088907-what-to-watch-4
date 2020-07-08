@@ -157,7 +157,9 @@ MainPage.propTypes = {
         }).isRequired,
         description: PropTypes.string.isRequired,
         director: PropTypes.string.isRequired,
-        starring: PropTypes.string.isRequired,
+        starrings: PropTypes.arrayOf(
+            PropTypes.string.isRequired
+        ).isRequired,
       }).isRequired
   ).isRequired,
   onCardClick: PropTypes.func.isRequired,

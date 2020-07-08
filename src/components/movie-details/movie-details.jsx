@@ -2,32 +2,31 @@ import React from "react";
 import PropTypes from "prop-types";
 
 
+const castDateTimeFormat = (value) => {
+  return value < 10 ? `0${value}` : String(value);
+};
+
+const getPointDurationInHM = (time) => {
+  const MS_IN_HOUR = 3600000;
+  const MS_IN_MINUTE = 60000;
+
+  const hourCount = castDateTimeFormat(Math.trunc(time / MS_IN_HOUR));
+  time -= hourCount * MS_IN_HOUR;
+  const minutesCount = castDateTimeFormat(Math.trunc(time / MS_IN_MINUTE));
+
+  return hourCount > 0 ? `${hourCount}H ${minutesCount}M` : `${minutesCount}M`;
+};
+
+
 const MovieDetails = (props) => {
   const {movie} = props;
   const {director, starrings, runTimeInMs, genre, year} = movie;
 
   const transformStarrings = () => {
-    return starrings.map((starring) => {
-      return (
-        {starring}, <br />
-      );
-    });
+    // return starrings.map((starring) => starring.join(`\n`));
+    return starrings;
   };
 
-  const castDateTimeFormat = (value) => {
-    return value < 10 ? `0${value}` : String(value);
-  };
-
-  const getPointDurationInHM = () => {
-    const MS_IN_HOUR = 3600000;
-    const MS_IN_MINUTE = 60000;
-
-    const hourCount = castDateTimeFormat(Math.trunc(runTimeInMs / MS_IN_HOUR));
-    runTimeInMs -= hourCount * MS_IN_HOUR;
-    const minutesCount = castDateTimeFormat(Math.trunc(runTimeInMs / MS_IN_MINUTE));
-
-    return hourCount > 0 ? `${hourCount}H ${minutesCount}M` : `${minutesCount}M`;
-  };
 
   return (
     <div className="movie-card__text movie-card__row">
@@ -47,7 +46,7 @@ const MovieDetails = (props) => {
       <div className="movie-card__text-col">
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Run Time</strong>
-          <span className="movie-card__details-value">{getPointDurationInHM()}</span>
+          <span className="movie-card__details-value">{getPointDurationInHM(runTimeInMs)}</span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Genre</strong>

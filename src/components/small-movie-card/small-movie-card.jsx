@@ -80,7 +80,9 @@ SmallMovieCard.propTypes = {
     }).isRequired,
     description: PropTypes.string.isRequired,
     director: PropTypes.string.isRequired,
-    starring: PropTypes.string.isRequired,
+    starrings: PropTypes.arrayOf(
+        PropTypes.string.isRequired
+    ).isRequired,
     preview: PropTypes.string.isRequired,
   }).isRequired,
   onCardClick: PropTypes.func.isRequired,

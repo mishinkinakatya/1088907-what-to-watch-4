@@ -21,7 +21,7 @@ const movie = {
   },
   description: `Description of Movie_title-1.`,
   director: `Director of Movie_title-1.`,
-  starring: `Starring of Movie_title-1.`,
+  starrings: `Starring of Movie_title-1.`,
   preview: `Preview of Movie_title-1.`,
 };
 
