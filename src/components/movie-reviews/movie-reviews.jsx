@@ -1,5 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
+import {reviewsTypes} from "../../types/types.js";
+
 
 const createReviewTemplate = (review) => {
   const {comment, author, dateInMs, ratingScore} = review;
@@ -40,16 +41,9 @@ const MovieReviews = (props) => {
   );
 };
 
+
 MovieReviews.propTypes = {
-  reviews: PropTypes.arrayOf(
-      PropTypes.shape({
-        movieId: PropTypes.number.isRequired,
-        author: PropTypes.string.isRequired,
-        dateInMs: PropTypes.number.isRequired,
-        ratingScore: PropTypes.number.isRequired,
-        comment: PropTypes.string.isRequired,
-      })
-  )
+  reviews: reviewsTypes,
 };
 
 export default MovieReviews;

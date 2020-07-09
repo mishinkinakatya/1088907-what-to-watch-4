@@ -1,5 +1,6 @@
 import React, {PureComponent, createRef} from "react";
-import PropTypes from "prop-types";
+import {posterTypes, previewTypes, isPlayingTypes} from "../../types/types";
+
 
 const TIMEOUT = 1000;
 
@@ -52,13 +53,11 @@ class VideoPlayer extends PureComponent {
   }
 }
 
+
 VideoPlayer.propTypes = {
-  poster: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
-  preview: PropTypes.string.isRequired,
-  isPlaying: PropTypes.bool.isRequired,
+  poster: posterTypes,
+  preview: previewTypes,
+  isPlaying: isPlayingTypes,
 };
 
 export default VideoPlayer;

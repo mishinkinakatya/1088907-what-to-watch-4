@@ -1,8 +1,9 @@
 import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {moviesTypes, reviewsTypes, promoMovieTypes, promoMovieReviewsTypes} from "../../types/types.js";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
+
 
 const COUNT_VISIBLE_SIMILAR_MOVIES = 4;
 
@@ -58,54 +59,12 @@ class App extends PureComponent {
   }
 }
 
+
 App.propTypes = {
-  promoMovie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-  }).isRequired,
-  promoMovieReviews: PropTypes.arrayOf(
-      PropTypes.shape({
-        movieId: PropTypes.number.isRequired,
-        author: PropTypes.string.isRequired,
-        dateInMs: PropTypes.number.isRequired,
-        ratingScore: PropTypes.number.isRequired,
-        comment: PropTypes.string.isRequired,
-      }).isRequired
-  ).isRequired,
-  movies: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-        year: PropTypes.number.isRequired,
-        poster: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          image: PropTypes.string.isRequired,
-        }).isRequired,
-        bgPoster: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          image: PropTypes.string.isRequired,
-        }).isRequired,
-        rating: PropTypes.shape({
-          score: PropTypes.number.isRequired,
-          count: PropTypes.number.isRequired,
-        }).isRequired,
-        description: PropTypes.string.isRequired,
-        director: PropTypes.string.isRequired,
-        starrings: PropTypes.arrayOf(
-            PropTypes.string.isRequired
-        ).isRequired,
-      }).isRequired
-  ).isRequired,
-  reviews: PropTypes.arrayOf(
-      PropTypes.shape({
-        movieId: PropTypes.number.isRequired,
-        author: PropTypes.string.isRequired,
-        dateInMs: PropTypes.number.isRequired,
-        ratingScore: PropTypes.number.isRequired,
-        comment: PropTypes.string.isRequired,
-      }).isRequired
-  ).isRequired,
+  promoMovie: promoMovieTypes,
+  promoMovieReviews: promoMovieReviewsTypes,
+  movies: moviesTypes,
+  reviews: reviewsTypes,
 };
 
 export default App;

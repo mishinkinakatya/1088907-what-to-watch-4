@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import {movieTypes} from "../../types/types.js";
 
 
 const MovieOverview = (props) => {
@@ -47,18 +47,9 @@ const MovieOverview = (props) => {
   );
 };
 
+
 MovieOverview.propTypes = {
-  movie: PropTypes.shape({
-    rating: PropTypes.shape({
-      score: PropTypes.number.isRequired,
-      count: PropTypes.number.isRequired,
-    }).isRequired,
-    description: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    starrings: PropTypes.arrayOf(
-        PropTypes.string.isRequired
-    ).isRequired,
-  }).isRequired,
+  movie: movieTypes,
 };
 
 export default MovieOverview;

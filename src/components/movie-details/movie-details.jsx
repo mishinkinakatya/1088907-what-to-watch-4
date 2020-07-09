@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import {movieTypes} from "../../types/types.js";
 
 
 const castDateTimeFormat = (value) => {
@@ -16,7 +16,6 @@ const getPointDurationInHM = (time) => {
 
   return hourCount > 0 ? `${hourCount}H ${minutesCount}M` : `${minutesCount}M`;
 };
-
 
 const MovieDetails = (props) => {
   const {movie} = props;
@@ -61,16 +60,9 @@ const MovieDetails = (props) => {
   );
 };
 
+
 MovieDetails.propTypes = {
-  movie: PropTypes.shape({
-    genre: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-    runTimeInMs: PropTypes.number.isRequired,
-    director: PropTypes.string.isRequired,
-    starrings: PropTypes.arrayOf(
-        PropTypes.string.isRequired
-    ).isRequired,
-  }).isRequired,
+  movie: movieTypes,
 };
 
 export default MovieDetails;

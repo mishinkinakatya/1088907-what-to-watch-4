@@ -1,17 +1,17 @@
 import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
+import {movieTypes, reviewsTypes, similarMoviesTypes, onCardClickTypes} from "../../types/types.js";
 import Tabs from "../tabs/tabs.jsx";
 import MovieOverview from "../movie-overview/movie-overview.jsx";
 import MovieDetails from "../movie-details/movie-details.jsx";
 import MovieReviews from "../movie-reviews/movie-reviews.jsx";
 import MoviesList from "../movies-list/movies-list.jsx";
 
+
 const TABS = {
   OVERVIEW: `Overview`,
   DETAILS: `Details`,
   REVIEWS: `Reviews`,
 };
-
 
 class MoviePage extends PureComponent {
   constructor(props) {
@@ -141,63 +141,12 @@ class MoviePage extends PureComponent {
   }
 }
 
+
 MoviePage.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-    poster: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-    }).isRequired,
-    bgPoster: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-    }).isRequired,
-    rating: PropTypes.shape({
-      score: PropTypes.number.isRequired,
-      count: PropTypes.number.isRequired,
-    }).isRequired,
-    description: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    starrings: PropTypes.arrayOf(
-        PropTypes.string.isRequired
-    ).isRequired,
-  }).isRequired,
-  reviews: PropTypes.arrayOf(
-      PropTypes.shape({
-        movieId: PropTypes.number.isRequired,
-        author: PropTypes.string.isRequired,
-        dateInMs: PropTypes.number.isRequired,
-        ratingScore: PropTypes.number.isRequired,
-        comment: PropTypes.string.isRequired,
-      }).isRequired
-  ).isRequired,
-  similarMovies: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-        year: PropTypes.number.isRequired,
-        poster: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          image: PropTypes.string.isRequired,
-        }).isRequired,
-        bgPoster: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          image: PropTypes.string.isRequired,
-        }).isRequired,
-        rating: PropTypes.shape({
-          score: PropTypes.number.isRequired,
-          count: PropTypes.number.isRequired,
-        }).isRequired,
-        description: PropTypes.string.isRequired,
-        director: PropTypes.string.isRequired,
-        starrings: PropTypes.arrayOf(
-            PropTypes.string.isRequired
-        ).isRequired,
-      }).isRequired
-  ).isRequired,
-  onCardClick: PropTypes.func.isRequired
+  movie: movieTypes,
+  reviews: reviewsTypes,
+  similarMovies: similarMoviesTypes,
+  onCardClick: onCardClickTypes,
 };
 
 export default MoviePage;

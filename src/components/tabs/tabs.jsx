@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import {tabsTypes, activeTabTypes, onTabClickTypes} from "../../types/types.js";
 
 
 const ACTIVE_MOVIE_NAV_ITEM = `movie-nav__item--active`;
@@ -26,10 +26,11 @@ const Tabs = (props) => {
   );
 };
 
+
 Tabs.propTypes = {
-  tabs: PropTypes.object.isRequired,
-  activeTab: PropTypes.string.isRequired,
-  onTabClick: PropTypes.func.isRequired,
+  tabs: tabsTypes,
+  activeTab: activeTabTypes,
+  onTabClick: onTabClickTypes,
 };
 
 export default Tabs;
