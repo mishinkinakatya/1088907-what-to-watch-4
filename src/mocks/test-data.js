@@ -3,7 +3,7 @@ export const movie = {
   title: `Movie_title-1`,
   genre: `Genre`,
   year: 1111,
-  runTimeInMs: 10000000,
+  runTimeInMin: 10000000,
   poster: {
     image: `Movie_image-1`,
     title: `Movie_title-1`,
@@ -28,7 +28,7 @@ export const movies = [
     title: `Movie_title-1`,
     genre: `Genre-1`,
     year: 1111,
-    runTimeInMs: 10000000,
+    runTimeInMin: 10000000,
     poster: {
       image: `Movie_image-1`,
       title: `Movie_title-1`,
@@ -51,7 +51,7 @@ export const movies = [
     title: `Movie_title-2`,
     genre: `Genre-2`,
     year: 2222,
-    runTimeInMs: 20000000,
+    runTimeInMin: 20000000,
     poster: {
       image: `Movie_image-2`,
       title: `Movie_title-2`,
@@ -74,7 +74,7 @@ export const movies = [
     title: `Movie_title-3`,
     genre: `Genre-1`,
     year: 3333,
-    runTimeInMs: 30000000,
+    runTimeInMin: 30000000,
     poster: {
       image: `Movie_image-3`,
       title: `Movie_title-3`,
@@ -172,7 +172,7 @@ export const promoMovie = {
   title: `Movie_title`,
   genre: `Genre`,
   year: 5555,
-  runTimeInMs: 50000000,
+  runTimeInMin: 50000000,
   poster: {
     image: `Movie_image`,
     title: `Movie_title`,

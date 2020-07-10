@@ -2,30 +2,27 @@ import React from "react";
 import {movieTypes} from "../../types/types.js";
 
 
-const castDateTimeFormat = (value) => {
-  return value < 10 ? `0${value}` : String(value);
-};
-
 const getPointDurationInHM = (time) => {
-  const MS_IN_HOUR = 3600000;
-  const MS_IN_MINUTE = 60000;
+  const MIN_IN_HOUR = 60;
 
-  const hourCount = castDateTimeFormat(Math.trunc(time / MS_IN_HOUR));
-  time -= hourCount * MS_IN_HOUR;
-  const minutesCount = castDateTimeFormat(Math.trunc(time / MS_IN_MINUTE));
+  const hourCount = Math.trunc(time / MIN_IN_HOUR);
+  time -= hourCount * MIN_IN_HOUR;
+  const minutesCount = time;
 
-  return hourCount > 0 ? `${hourCount}H ${minutesCount}M` : `${minutesCount}M`;
+  if (hourCount > 0) {
+    if (minutesCount !== 0) {
+      return `${hourCount}h ${minutesCount}m`;
+    } else {
+      return `${hourCount}h`;
+    }
+  } else {
+    return `${minutesCount}m`;
+  }
 };
 
 const MovieDetails = (props) => {
   const {movie} = props;
-  const {director, starrings, runTimeInMs, genre, year} = movie;
-
-  const transformStarrings = () => {
-    // return starrings.map((starring) => starring.join(`\n`));
-    return starrings;
-  };
-
+  const {director, starrings, runTimeInMin, genre, year} = movie;
 
   return (
     <div className="movie-card__text movie-card__row">
@@ -37,7 +34,7 @@ const MovieDetails = (props) => {
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Starring</strong>
           <span className="movie-card__details-value">
-            {transformStarrings()}
+            {starrings.join(`\n`)}
           </span>
         </p>
       </div>
@@ -45,7 +42,7 @@ const MovieDetails = (props) => {
       <div className="movie-card__text-col">
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Run Time</strong>
-          <span className="movie-card__details-value">{getPointDurationInHM(runTimeInMs)}</span>
+          <span className="movie-card__details-value">{getPointDurationInHM(runTimeInMin)}</span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Genre</strong>

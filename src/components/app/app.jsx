@@ -12,17 +12,12 @@ class App extends PureComponent {
     super(props);
 
     this.state = {activeMovie: null};
+
     this._handleCardClick = this._handleCardClick.bind(this);
   }
 
   render() {
-    const {promoMovie, promoMovieReviews, movies, reviews} = this.props;
-    const {activeMovie} = this.state;
-
-    const currentMovie = activeMovie ? activeMovie : promoMovie;
-    const movieReviews = activeMovie ? reviews : promoMovieReviews;
-    const reviewsOfMovie = movieReviews.map((review) => review.movieId === currentMovie.id ? review : null).filter((review) => review !== null);
-    const similarMovies = movies.filter((movie) => movie.genre === currentMovie.genre && movie.id !== currentMovie.id).slice(0, COUNT_VISIBLE_SIMILAR_MOVIES);
+    const {currentMovie, currentMovieReviews, similarMovies} = this._getDataForMoviePage();
 
     return (
       <BrowserRouter>
@@ -31,24 +26,35 @@ class App extends PureComponent {
             {this._renderApp()}
           </Route>
           <Route exact path="/movie-page">
-            <MoviePage movie={currentMovie} reviews={reviewsOfMovie} similarMovies={similarMovies} onCardClick={this._handleCardClick}/>
+            <MoviePage movie={currentMovie} reviews={currentMovieReviews} similarMovies={similarMovies} onCardClick={this._handleCardClick}/>
           </Route>
         </Switch>
       </BrowserRouter>
     );
   }
 
-  _renderApp() {
+  _getDataForMoviePage() {
     const {promoMovie, promoMovieReviews, movies, reviews} = this.props;
     const {activeMovie} = this.state;
 
     const currentMovie = activeMovie ? activeMovie : promoMovie;
-    const movieReviews = activeMovie ? reviews : promoMovieReviews;
-    const reviewsOfMovie = movieReviews.map((review) => review.movieId === currentMovie.id ? review : null).filter((review) => review !== null);
+    const moviesReviews = activeMovie ? reviews : promoMovieReviews;
+    const currentMovieReviews = moviesReviews.map((review) => review.movieId === currentMovie.id ? review : null).filter((review) => review !== null);
     const similarMovies = movies.filter((movie) => movie.genre === currentMovie.genre && movie.id !== currentMovie.id).slice(0, COUNT_VISIBLE_SIMILAR_MOVIES);
 
+    return ({
+      currentMovie,
+      currentMovieReviews,
+      similarMovies,
+    });
+  }
+
+  _renderApp() {
+    const {promoMovie, movies} = this.props;
+    const {currentMovie, currentMovieReviews, similarMovies} = this._getDataForMoviePage();
+
     if (this.state.activeMovie) {
-      return <MoviePage movie={currentMovie} reviews={reviewsOfMovie} similarMovies={similarMovies} onCardClick={this._handleCardClick}/>;
+      return <MoviePage movie={currentMovie} reviews={currentMovieReviews} similarMovies={similarMovies} onCardClick={this._handleCardClick}/>;
     }
 
     return <MainPage promoMovie={promoMovie} movies={movies} onCardClick={this._handleCardClick} />;

@@ -4,7 +4,7 @@ export const movies = [
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
     genre: `Documentary`,
     year: 2011,
-    runTimeInMs: 5400011,
+    runTimeInMin: 90,
     poster: {
       image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
       title: `Fantastic Beasts: The Crimes of Grindelwald`,
@@ -19,7 +19,7 @@ export const movies = [
     },
     description: `Description of Fantastic Beasts: The Crimes of Grindelwald.`,
     director: `Director of Fantastic Beasts: The Crimes of Grindelwald.`,
-    starrings: [`Starring 1`, `Starring 2`, `Starring 3`, `Starring 4`, `Starring 5`, `Starring 6`, `Starring 7`, `Starring 8`],
+    starrings: [`Starring Star1`, `Starring Star2`, `Starring Star3`, `Starring Star4`, `Starring Star5`, `Starring Star6`, `Starring Star7`, `Starring Star8`],
     preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
@@ -27,7 +27,7 @@ export const movies = [
     title: `Bohemian Rhapsody`,
     genre: `Documentary`,
     year: 2012,
-    runTimeInMs: 5400012,
+    runTimeInMin: 120,
     poster: {
       image: `img/bohemian-rhapsody.jpg`,
       title: `Bohemian Rhapsody`,
@@ -42,7 +42,7 @@ export const movies = [
     },
     description: `Description of Bohemian Rhapsody.`,
     director: `Director of Bohemian Rhapsody.`,
-    starrings: [`Starring 1`, `Starring 2`, `Starring 3`, `Starring 4`, `Starring 5`, `Starring 6`, `Starring 7`],
+    starrings: [`Starring Star1`, `Starring Star2`, `Starring Star3`, `Starring Star4`, `Starring Star5`, `Starring Star6`, `Starring Star7`],
     preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
@@ -50,7 +50,7 @@ export const movies = [
     title: `Macbeth`,
     genre: `Documentary`,
     year: 2013,
-    runTimeInMs: 5400013,
+    runTimeInMin: 165,
     poster: {
       image: `img/macbeth.jpg`,
       title: `Macbeth`,
@@ -65,7 +65,7 @@ export const movies = [
     },
     description: `Description of Macbeth.`,
     director: `Director of Macbeth.`,
-    starrings: [`Starring 1`, `Starring 2`, `Starring 3`, `Starring 4`, `Starring 5`, `Starring 6`],
+    starrings: [`Starring Star1`, `Starring Star2`, `Starring Star3`, `Starring Star4`, `Starring Star5`, `Starring Star6`],
     preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
@@ -73,7 +73,7 @@ export const movies = [
     title: `Aviator`,
     genre: `Documentary`,
     year: 2014,
-    runTimeInMs: 5400014,
+    runTimeInMin: 58,
     poster: {
       image: `img/aviator.jpg`,
       title: `Aviator`,
@@ -88,7 +88,7 @@ export const movies = [
     },
     description: `Description of Aviator.`,
     director: `Director of Aviator.`,
-    starrings: [`Starring 1`, `Starring 2`, `Starring 3`, `Starring 4`, `Starring 5`],
+    starrings: [`Starring Star1`, `Starring Star2`, `Starring Star3`, `Starring Star4`, `Starring Star5`],
     preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
   {
@@ -96,7 +96,7 @@ export const movies = [
     title: `We need to talk about Kevin`,
     genre: `Documentary`,
     year: 2015,
-    runTimeInMs: 5400015,
+    runTimeInMin: 143,
     poster: {
       image: `img/we-need-to-talk-about-kevin.jpg`,
       title: `We need to talk about Kevin`,
@@ -111,7 +111,7 @@ export const movies = [
     },
     description: `Description of We need to talk about Kevin.`,
     director: `Director of We need to talk about Kevin.`,
-    starrings: [`Starring 1`, `Starring 2`, `Starring 3`, `Starring 4`],
+    starrings: [`Starring Star1`, `Starring Star2`, `Starring Star3`, `Starring Star4`],
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
@@ -119,7 +119,7 @@ export const movies = [
     title: `What We Do in the Shadows`,
     genre: `Sci-Fi`,
     year: 2016,
-    runTimeInMs: 5400016,
+    runTimeInMin: 202,
     poster: {
       image: `img/what-we-do-in-the-shadows.jpg`,
       title: `What We Do in the Shadows`,
@@ -134,7 +134,7 @@ export const movies = [
     },
     description: `Description of What We Do in the Shadows.`,
     director: `Director of What We Do in the Shadows.`,
-    starrings: [`Starring 1`, `Starring 2`, `Starring 3`],
+    starrings: [`Starring Star1`, `Starring Star2`, `Starring Star3`],
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
@@ -142,7 +142,7 @@ export const movies = [
     title: `Revenant`,
     genre: `THrillers`,
     year: 2017,
-    runTimeInMs: 5400017,
+    runTimeInMin: 99,
     poster: {
       image: `img/revenant.jpg`,
       title: `Revenant`,
@@ -157,7 +157,7 @@ export const movies = [
     },
     description: `Description of Revenant.`,
     director: `Director of Revenant.`,
-    starrings: [`Starring 1`, `Starring 2`],
+    starrings: [`Starring Star1`, `Starring Star2`],
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
@@ -165,7 +165,7 @@ export const movies = [
     title: `Johnny English`,
     genre: `Comedies`,
     year: 2018,
-    runTimeInMs: 5400018,
+    runTimeInMin: 174,
     poster: {
       image: `img/johnny-english.jpg`,
       title: `Johnny English`,
@@ -180,7 +180,7 @@ export const movies = [
     },
     description: `Description of Johnny English.`,
     director: `Director of Johnny English.`,
-    starrings: [`Starring 1`],
+    starrings: [`Starring Star1`],
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
 ];

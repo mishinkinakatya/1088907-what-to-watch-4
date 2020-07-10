@@ -5,7 +5,7 @@ export const promoMovieTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
-  runTimeInMs: PropTypes.number.isRequired,
+  runTimeInMin: PropTypes.number.isRequired,
   poster: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
@@ -31,7 +31,7 @@ export const movieTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
-  runTimeInMs: PropTypes.number.isRequired,
+  runTimeInMin: PropTypes.number.isRequired,
   poster: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
@@ -58,7 +58,7 @@ export const moviesTypes = PropTypes.arrayOf(
       title: PropTypes.string.isRequired,
       genre: PropTypes.string.isRequired,
       year: PropTypes.number.isRequired,
-      runTimeInMs: PropTypes.number.isRequired,
+      runTimeInMin: PropTypes.number.isRequired,
       poster: PropTypes.shape({
         title: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
@@ -87,7 +87,7 @@ export const similarMoviesTypes = PropTypes.arrayOf(
       title: PropTypes.string.isRequired,
       genre: PropTypes.string.isRequired,
       year: PropTypes.number.isRequired,
-      runTimeInMs: PropTypes.number.isRequired,
+      runTimeInMin: PropTypes.number.isRequired,
       poster: PropTypes.shape({
         title: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
@@ -113,7 +113,7 @@ export const promoMovieReviewsTypes = PropTypes.arrayOf(
     PropTypes.shape({
       movieId: PropTypes.number.isRequired,
       author: PropTypes.string.isRequired,
-      dateInMs: PropTypes.number.isRequired,
+      dateUTC: PropTypes.object.isRequired,
       ratingScore: PropTypes.number.isRequired,
       comment: PropTypes.string.isRequired,
     }).isRequired
@@ -123,7 +123,7 @@ export const reviewsTypes = PropTypes.arrayOf(
     PropTypes.shape({
       movieId: PropTypes.number.isRequired,
       author: PropTypes.string.isRequired,
-      dateInMs: PropTypes.number.isRequired,
+      dateUTC: PropTypes.object.isRequired,
       ratingScore: PropTypes.number.isRequired,
       comment: PropTypes.string.isRequired,
     }).isRequired

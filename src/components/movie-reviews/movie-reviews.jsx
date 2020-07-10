@@ -2,23 +2,48 @@ import React from "react";
 import {reviewsTypes} from "../../types/types.js";
 
 
+const MONTHS_NAME = {
+  "01": `January`,
+  "02": `February`,
+  "03": `March`,
+  "04": `April`,
+  "05": `May`,
+  "06": `June`,
+  "07": `July`,
+  "08": `August`,
+  "09": `September`,
+  "10": `October`,
+  "11": `November`,
+  "12": `December`,
+};
+
+const castDateTimeFormat = (value) => {
+  return value < 10 ? `0${value}` : String(value);
+};
+
 const createReviewTemplate = (review) => {
-  const {comment, author, dateInMs, ratingScore} = review;
-  // TODO
-  // Перевести дату в человекочитаемый вид
+  const {comment, author, dateUTC, ratingScore} = review;
+
+  const date = castDateTimeFormat(dateUTC.getDate());
+  const month = castDateTimeFormat(dateUTC.getMonth() + 1);
+  const year = castDateTimeFormat(dateUTC.getFullYear());
+
+  const dateYYYYMMDD = `${year}-${month}-${date}`;
+
+  const visibleDate = `${MONTHS_NAME[month]} ${date}, ${year}`;
 
   return (
-    <div className="review" key={dateInMs}>
+    <div className="review" key={dateUTC}>
       <blockquote className="review__quote">
         <p className="review__text">{comment}</p>
 
         <footer className="review__details">
           <cite className="review__author">{author}</cite>
-          <time className="review__date" dateTime="2016-12-24">{dateInMs}</time>
+          <time className="review__date" dateTime={dateYYYYMMDD}>{visibleDate}</time>
         </footer>
       </blockquote>
 
-      <div className="review__rating">{ratingScore}</div>
+      <div className="review__rating">{ratingScore.toString()}</div>
     </div>
   );
 };
@@ -26,8 +51,12 @@ const createReviewTemplate = (review) => {
 const MovieReviews = (props) => {
   const {reviews} = props;
 
-  const firstPartReviews = reviews.slice(0, reviews.length / 2 + 1);
-  const secondPartReviews = reviews.slice(reviews.length / 2 + 1);
+  const firstPartReviewsLength = reviews.length % 2 === 0
+    ? reviews.length / 2
+    : reviews.length / 2 + 1;
+
+  const firstPartReviews = reviews.slice(0, firstPartReviewsLength);
+  const secondPartReviews = reviews.slice(firstPartReviewsLength);
 
   return (
     <div className="movie-card__reviews movie-card__row">
