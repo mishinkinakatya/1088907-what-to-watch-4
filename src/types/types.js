@@ -80,7 +80,6 @@ export const moviesTypes = PropTypes.arrayOf(
     }).isRequired
 ).isRequired;
 
-
 export const similarMoviesTypes = PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
