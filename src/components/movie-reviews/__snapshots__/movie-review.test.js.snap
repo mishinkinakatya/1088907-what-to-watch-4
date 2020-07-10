@@ -28,9 +28,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2018-05-18"
+            dateTime="2011-01-01"
           >
-            May 18, 2018
+            January 01, 2011
           </time>
         </footer>
       </blockquote>
@@ -61,9 +61,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2052-01-02"
+            dateTime="2012-02-02"
           >
-            January 02, 2052
+            February 02, 2012
           </time>
         </footer>
       </blockquote>
@@ -94,9 +94,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2073-02-06"
+            dateTime="2013-03-03"
           >
-            February 06, 2073
+            March 03, 2013
           </time>
         </footer>
       </blockquote>
@@ -127,9 +127,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="3413-08-02"
+            dateTime="2014-04-04"
           >
-            August 02, 3413
+            April 04, 2014
           </time>
         </footer>
       </blockquote>
@@ -160,9 +160,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="3593-08-16"
+            dateTime="2015-05-05"
           >
-            August 16, 3593
+            May 05, 2015
           </time>
         </footer>
       </blockquote>
@@ -197,9 +197,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="1972-02-02"
+            dateTime="2016-06-06"
           >
-            February 02, 1972
+            June 06, 2016
           </time>
         </footer>
       </blockquote>
@@ -230,9 +230,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2210-05-31"
+            dateTime="2017-07-07"
           >
-            May 31, 2210
+            July 07, 2017
           </time>
         </footer>
       </blockquote>
@@ -263,9 +263,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2248-02-25"
+            dateTime="2018-08-08"
           >
-            February 25, 2248
+            August 08, 2018
           </time>
         </footer>
       </blockquote>
@@ -296,9 +296,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2273-09-06"
+            dateTime="2019-09-09"
           >
-            September 06, 2273
+            September 09, 2019
           </time>
         </footer>
       </blockquote>
@@ -329,9 +329,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2023-06-13"
+            dateTime="2020-10-10"
           >
-            June 13, 2023
+            October 10, 2020
           </time>
         </footer>
       </blockquote>
