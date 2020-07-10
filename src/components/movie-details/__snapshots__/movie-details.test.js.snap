@@ -33,10 +33,10 @@ exports[`MovieDetails Render MovieDetails 1`] = `
         className="movie-card__details-value"
       >
         Starring-1
-        Starring-2
-        Starring-3
-        Starring-4
-        Starring-5
+Starring-2
+Starring-3
+Starring-4
+Starring-5
       </span>
     </p>
   </div>
@@ -54,7 +54,7 @@ exports[`MovieDetails Render MovieDetails 1`] = `
       <span
         className="movie-card__details-value"
       >
-        02H 46M
+        1h 51m
       </span>
     </p>
     <p

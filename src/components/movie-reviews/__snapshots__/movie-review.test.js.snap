@@ -28,9 +28,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2020-04-11"
           >
-            1586616380000
+            April 11, 2020
           </time>
         </footer>
       </blockquote>
@@ -61,9 +61,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2051-12-19"
           >
-            2586616350000
+            December 19, 2051
           </time>
         </footer>
       </blockquote>
@@ -94,9 +94,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2083-08-27"
           >
-            3586616340000
+            August 27, 2083
           </time>
         </footer>
       </blockquote>
@@ -127,9 +127,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2115-05-07"
           >
-            4586616340000
+            May 07, 2115
           </time>
         </footer>
       </blockquote>
@@ -160,9 +160,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2147-01-13"
           >
-            5586616370000
+            January 13, 2147
           </time>
         </footer>
       </blockquote>
@@ -172,6 +172,10 @@ exports[`MovieReviews Render MovieReviews 1`] = `
         1
       </div>
     </div>
+  </div>
+  <div
+    className="movie-card__reviews-col"
+  >
     <div
       className="review"
     >
@@ -193,9 +197,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2178-09-21"
           >
-            6586616370000
+            September 21, 2178
           </time>
         </footer>
       </blockquote>
@@ -205,10 +209,6 @@ exports[`MovieReviews Render MovieReviews 1`] = `
         2
       </div>
     </div>
-  </div>
-  <div
-    className="movie-card__reviews-col"
-  >
     <div
       className="review"
     >
@@ -230,9 +230,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2210-05-31"
           >
-            7586616370000
+            May 31, 2210
           </time>
         </footer>
       </blockquote>
@@ -263,9 +263,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2242-02-06"
           >
-            8586616370000
+            February 06, 2242
           </time>
         </footer>
       </blockquote>
@@ -296,9 +296,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2273-10-15"
           >
-            9586616370000
+            October 15, 2273
           </time>
         </footer>
       </blockquote>
@@ -329,9 +329,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2016-12-24"
+            dateTime="2023-06-13"
           >
-            1686616360000
+            June 13, 2023
           </time>
         </footer>
       </blockquote>
