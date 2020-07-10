@@ -98,14 +98,14 @@ export const reviews = [
   {
     movieId: 11,
     author: `Reviewer-1`,
-    dateUTC: new Date(1586616380000),
+    dateUTC: new Date(1526616380000),
     ratingScore: 1.0,
     comment: `Comment Author-1 to Movie-11.`,
   },
   {
     movieId: 11,
     author: `Reviewer-2`,
-    dateUTC: new Date(2586616350000),
+    dateUTC: new Date(2587776350400),
     ratingScore: 2.0,
     comment: `Comment Author-2 to Movie-11.`,
   },
@@ -119,7 +119,7 @@ export const reviews = [
   {
     movieId: 11,
     author: `Reviewer-4`,
-    dateUTC: new Date(4586616340000),
+    dateUTC: new Date(4555519340000),
     ratingScore: 5.0,
     comment: `Comment Author-4 to Movie-11.`,
   },
