@@ -49,208 +49,6 @@ exports[`MovieReviews Render MovieReviews 1`] = `
         <p
           className="review__text"
         >
-          Comment Author-2 to Movie-11.
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Reviewer-2
-          </cite>
-          <time
-            className="review__date"
-            dateTime="2052-01-02"
-          >
-            January 02, 2052
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        2
-      </div>
-    </div>
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          Comment Author-3 to Movie-11.
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Reviewer-3
-          </cite>
-          <time
-            className="review__date"
-            dateTime="2083-08-27"
-          >
-            August 27, 2083
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        3
-      </div>
-    </div>
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          Comment Author-4 to Movie-11.
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Reviewer-4
-          </cite>
-          <time
-            className="review__date"
-            dateTime="2114-05-12"
-          >
-            May 12, 2114
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        5
-      </div>
-    </div>
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          Comment Author-1 to Movie-22.
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Reviewer-1
-          </cite>
-          <time
-            className="review__date"
-            dateTime="2147-01-13"
-          >
-            January 13, 2147
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        1
-      </div>
-    </div>
-  </div>
-  <div
-    className="movie-card__reviews-col"
-  >
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          Comment Author-2 to Movie-22.
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Reviewer-2
-          </cite>
-          <time
-            className="review__date"
-            dateTime="2178-09-21"
-          >
-            September 21, 2178
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        2
-      </div>
-    </div>
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          Comment Author-3 to Movie-22.
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Reviewer-3
-          </cite>
-          <time
-            className="review__date"
-            dateTime="2210-05-31"
-          >
-            May 31, 2210
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        3
-      </div>
-    </div>
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
           Comment Author-4 to Movie-22.
         </p>
         <footer
@@ -263,9 +61,9 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2242-02-06"
+            dateTime="2248-02-25"
           >
-            February 06, 2242
+            February 25, 2248
           </time>
         </footer>
       </blockquote>
@@ -275,39 +73,10 @@ exports[`MovieReviews Render MovieReviews 1`] = `
         4
       </div>
     </div>
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          Comment Author-5 to Movie-22.
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Reviewer-5
-          </cite>
-          <time
-            className="review__date"
-            dateTime="2273-10-15"
-          >
-            October 15, 2273
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        5
-      </div>
-    </div>
+  </div>
+  <div
+    className="movie-card__reviews-col"
+  >
     <div
       className="review"
     >
