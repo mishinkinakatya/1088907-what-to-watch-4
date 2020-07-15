@@ -215,7 +215,7 @@ export const promoMovieReviews = [
   },
 ];
 
-export const TABS = {
+export const TabsName = {
   OVERVIEW: `Overview`,
   DETAILS: `Details`,
   REVIEWS: `Reviews`,

@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Tabs from "./tabs.jsx";
-import {TABS} from "../../mocks/test-data.js";
+import {TabsName} from "../../mocks/test-data.js";
 
 
 describe(`Tabs`, () => {
@@ -9,8 +9,8 @@ describe(`Tabs`, () => {
     const tree = renderer
       .create(
           <Tabs
-            tabs={TABS}
-            activeTab={TABS.OVERVIEW}
+            tabs={TabsName}
+            activeTab={TabsName.OVERVIEW}
             onTabClick={() => {}}
           />
       )
@@ -23,8 +23,8 @@ describe(`Tabs`, () => {
     const tree = renderer
       .create(
           <Tabs
-            tabs={TABS}
-            activeTab={TABS.DETAILS}
+            tabs={TabsName}
+            activeTab={TabsName.DETAILS}
             onTabClick={() => {}}
           />
       )
@@ -37,8 +37,8 @@ describe(`Tabs`, () => {
     const tree = renderer
       .create(
           <Tabs
-            tabs={TABS}
-            activeTab={TABS.REVIEWS}
+            tabs={TabsName}
+            activeTab={TabsName.REVIEWS}
             onTabClick={() => {}}
           />
       )

@@ -7,7 +7,7 @@ import MovieReviews from "../movie-reviews/movie-reviews.jsx";
 import MoviesList from "../movies-list/movies-list.jsx";
 
 
-const TABS = {
+const TabsName = {
   OVERVIEW: `Overview`,
   DETAILS: `Details`,
   REVIEWS: `Reviews`,
@@ -20,7 +20,7 @@ class MoviePage extends PureComponent {
     this._handleTabClick = this._handleTabClick.bind(this);
 
     this.state = {
-      activeTabItem: TABS.OVERVIEW,
+      activeTabItem: TabsName.OVERVIEW,
     };
   }
 
@@ -87,7 +87,7 @@ class MoviePage extends PureComponent {
               </div>
 
               <div className="movie-card__desc">
-                <Tabs tabs={TABS} activeTab={this.state.activeTabItem} onTabClick={this._handleTabClick} />
+                <Tabs tabs={TabsName} activeTab={this.state.activeTabItem} onTabClick={this._handleTabClick} />
                 {this._renderTabContent()}
 
               </div>
@@ -131,9 +131,9 @@ class MoviePage extends PureComponent {
 
     const {activeTabItem} = this.state;
     switch (activeTabItem) {
-      case TABS.DETAILS:
+      case TabsName.DETAILS:
         return <MovieDetails movie={movie} />;
-      case TABS.REVIEWS:
+      case TabsName.REVIEWS:
         return <MovieReviews reviews={reviews} />;
       default:
         return <MovieOverview movie={movie} />;

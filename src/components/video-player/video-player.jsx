@@ -25,6 +25,8 @@ class VideoPlayer extends PureComponent {
 
     video.src = ``;
     video.muted = false;
+    clearTimeout(this._timeoutPlayHandler);
+    this._timeoutPlayHandler = null;
   }
 
   componentDidUpdate() {

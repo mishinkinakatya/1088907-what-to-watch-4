@@ -2,7 +2,7 @@ import React from "react";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import MoviePage from "./movie-page.jsx";
-import {movie, movies, reviews, TABS} from "../../mocks/test-data.js";
+import {movie, movies, reviews, TabsName} from "../../mocks/test-data.js";
 import MovieOverview from "../movie-overview/movie-overview.jsx";
 import MovieDetails from "../movie-details/movie-details.jsx";
 import MovieReviews from "../movie-reviews/movie-reviews.jsx";
@@ -14,7 +14,7 @@ Enzyme.configure({
 
 describe(`MoviePageComponent`, () => {
   it(`The state changes when the tab is clicked`, () => {
-    const tabsName = Object.values(TABS);
+    const tabsName = Object.values(TabsName);
 
     const moviePage = mount(
         <MoviePage
@@ -43,13 +43,13 @@ describe(`MoviePageComponent`, () => {
         />
     );
 
-    moviePage.setState({activeTabItem: TABS.OVERVIEW});
+    moviePage.setState({activeTabItem: TabsName.OVERVIEW});
     expect(moviePage.find(MovieOverview)).toHaveLength(1);
 
-    moviePage.setState({activeTabItem: TABS.DETAILS});
+    moviePage.setState({activeTabItem: TabsName.DETAILS});
     expect(moviePage.find(MovieDetails)).toHaveLength(1);
 
-    moviePage.setState({activeTabItem: TABS.REVIEWS});
+    moviePage.setState({activeTabItem: TabsName.REVIEWS});
     expect(moviePage.find(MovieReviews)).toHaveLength(1);
 
     moviePage.setState({activeTabItem: ``});
