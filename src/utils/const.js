@@ -1,0 +1,6 @@
+export const DEFAULT_GENRE = `All genres`;
+
+export const ActionType = {
+  CHANGE_ACTIVE_GENRE: `CHANGE_ACTIVE_GENRE`,
+  GET_MOVIES_LIST_OF_ACTIVE_GENRE: `GET_MOVIES_LIST_OF_ACTIVE_GENRE`,
+};

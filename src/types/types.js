@@ -128,6 +128,10 @@ export const reviewsTypes = PropTypes.arrayOf(
     }).isRequired
 ).isRequired;
 
+export const allGenresListTypes = PropTypes.arrayOf(
+    PropTypes.string.isRequired
+).isRequired;
+
 export const posterTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
@@ -139,6 +143,8 @@ export const activeTabTypes = PropTypes.string.isRequired;
 
 export const previewTypes = PropTypes.string.isRequired;
 
+export const activeGenreTypes = PropTypes.string.isRequired;
+
 export const isPlayingTypes = PropTypes.bool.isRequired;
 
 export const onCardClickTypes = PropTypes.func.isRequired;
@@ -146,3 +152,5 @@ export const onCardClickTypes = PropTypes.func.isRequired;
 export const onCardHoverTypes = PropTypes.func.isRequired;
 
 export const onTabClickTypes = PropTypes.func.isRequired;
+
+export const onGenreClickTypes = PropTypes.func.isRequired;
