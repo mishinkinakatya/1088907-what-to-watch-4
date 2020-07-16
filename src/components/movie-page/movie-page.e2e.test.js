@@ -2,10 +2,10 @@ import React from "react";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import MoviePage from "./movie-page.jsx";
-import {movie, movies, reviews, TabsName} from "../../mocks/test-data.js";
 import MovieOverview from "../movie-overview/movie-overview.jsx";
 import MovieDetails from "../movie-details/movie-details.jsx";
 import MovieReviews from "../movie-reviews/movie-reviews.jsx";
+import {movieMock, moviesMock, reviewsMock, TabsNameMock} from "../../mocks/test-data.js";
 
 
 Enzyme.configure({
@@ -14,13 +14,13 @@ Enzyme.configure({
 
 describe(`MoviePageComponent`, () => {
   it(`The state changes when the tab is clicked`, () => {
-    const tabsName = Object.values(TabsName);
+    const tabsName = Object.values(TabsNameMock);
 
     const moviePage = mount(
         <MoviePage
-          movie={movie}
-          reviews={reviews}
-          similarMovies={movies}
+          movie={movieMock}
+          reviews={reviewsMock}
+          similarMovies={moviesMock}
           onCardClick={() => {}}
         />
     );
@@ -36,20 +36,20 @@ describe(`MoviePageComponent`, () => {
 
     const moviePage = mount(
         <MoviePage
-          movie={movie}
-          reviews={reviews}
-          similarMovies={movies}
+          movie={movieMock}
+          reviews={reviewsMock}
+          similarMovies={moviesMock}
           onCardClick={() => {}}
         />
     );
 
-    moviePage.setState({activeTabItem: TabsName.OVERVIEW});
+    moviePage.setState({activeTabItem: TabsNameMock.OVERVIEW});
     expect(moviePage.find(MovieOverview)).toHaveLength(1);
 
-    moviePage.setState({activeTabItem: TabsName.DETAILS});
+    moviePage.setState({activeTabItem: TabsNameMock.DETAILS});
     expect(moviePage.find(MovieDetails)).toHaveLength(1);
 
-    moviePage.setState({activeTabItem: TabsName.REVIEWS});
+    moviePage.setState({activeTabItem: TabsNameMock.REVIEWS});
     expect(moviePage.find(MovieReviews)).toHaveLength(1);
 
     moviePage.setState({activeTabItem: ``});

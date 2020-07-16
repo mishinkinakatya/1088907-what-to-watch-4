@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import MoviePage from "./movie-page.jsx";
-import {movie, movies, reviews} from "../../mocks/test-data.js";
+import {movieMock, moviesMock, reviewsMock} from "../../mocks/test-data.js";
 
 
 describe(`MoviePage`, () => {
@@ -9,9 +9,9 @@ describe(`MoviePage`, () => {
     const tree = renderer
       .create(
           <MoviePage
-            movie={movie}
-            reviews={reviews}
-            similarMovies={movies}
+            movie={movieMock}
+            reviews={reviewsMock}
+            similarMovies={moviesMock}
             onCardClick={() => {}}
           />, {
             createNodeMock: () => {

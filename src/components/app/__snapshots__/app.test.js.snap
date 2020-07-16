@@ -154,103 +154,124 @@ Array [
         className="catalog__genres-list"
       >
         <li
+          className="catalog__genres-item "
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+            onClick={[Function]}
+          >
+            Genre-1
+          </a>
+        </li>
+        <li
           className="catalog__genres-item catalog__genres-item--active"
         >
           <a
             className="catalog__genres-link"
             href="#"
+            onClick={[Function]}
           >
-            All genres
+            Genre-2
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item "
         >
           <a
             className="catalog__genres-link"
             href="#"
+            onClick={[Function]}
           >
-            Comedies
+            Genre-3
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item "
         >
           <a
             className="catalog__genres-link"
             href="#"
+            onClick={[Function]}
           >
-            Crime
+            Genre-4
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item "
         >
           <a
             className="catalog__genres-link"
             href="#"
+            onClick={[Function]}
           >
-            Documentary
+            Genre-5
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item "
         >
           <a
             className="catalog__genres-link"
             href="#"
+            onClick={[Function]}
           >
-            Dramas
+            Genre-6
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item "
         >
           <a
             className="catalog__genres-link"
             href="#"
+            onClick={[Function]}
           >
-            Horror
+            Genre-7
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item "
         >
           <a
             className="catalog__genres-link"
             href="#"
+            onClick={[Function]}
           >
-            Kids & Family
+            Genre-8
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item "
         >
           <a
             className="catalog__genres-link"
             href="#"
+            onClick={[Function]}
           >
-            Romance
+            Genre-9
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item "
         >
           <a
             className="catalog__genres-link"
             href="#"
+            onClick={[Function]}
           >
-            Sci-Fi
+            Genre-10
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item "
         >
           <a
             className="catalog__genres-link"
             href="#"
+            onClick={[Function]}
           >
-            Thrillers
+            Genre-11
           </a>
         </li>
       </ul>
@@ -347,6 +368,254 @@ Array [
               href="movie-page.html"
             >
               Movie_title-3
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Movie_image-4"
+            />
+            <img
+              alt="Movie_title-4"
+              height="175"
+              src="Movie_image-4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Movie_title-4
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Movie_image-5"
+            />
+            <img
+              alt="Movie_title-5"
+              height="175"
+              src="Movie_image-5"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Movie_title-5
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Movie_image-6"
+            />
+            <img
+              alt="Movie_title-6"
+              height="175"
+              src="Movie_image-6"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Movie_title-6
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Movie_image-7"
+            />
+            <img
+              alt="Movie_title-7"
+              height="175"
+              src="Movie_image-7"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Movie_title-7
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Movie_image-8"
+            />
+            <img
+              alt="Movie_title-8"
+              height="175"
+              src="Movie_image-8"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Movie_title-8
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Movie_image-9"
+            />
+            <img
+              alt="Movie_title-9"
+              height="175"
+              src="Movie_image-9"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Movie_title-9
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Movie_image-10"
+            />
+            <img
+              alt="Movie_title-10"
+              height="175"
+              src="Movie_image-10"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Movie_title-10
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Movie_image-11"
+            />
+            <img
+              alt="Movie_title-11"
+              height="175"
+              src="Movie_image-11"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Movie_title-11
             </a>
           </h3>
         </article>

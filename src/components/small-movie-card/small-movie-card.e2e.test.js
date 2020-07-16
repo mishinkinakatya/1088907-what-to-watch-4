@@ -2,7 +2,7 @@ import React from "react";
 import Enzyme, {shallow, mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import SmallMovieCard from "./small-movie-card.jsx";
-import {movie} from "../../mocks/test-data.js";
+import {movieMock} from "../../mocks/test-data.js";
 
 
 Enzyme.configure({
@@ -15,7 +15,7 @@ describe(`SmallMovieCardComponent`, () => {
 
     const smallMovieCard = mount(
         <SmallMovieCard
-          movie={movie}
+          movie={movieMock}
           onCardClick={onTitleClick}
           onCardHover={() => {}}
         />
@@ -33,7 +33,7 @@ describe(`SmallMovieCardComponent`, () => {
 
     const smallMovieCard = mount(
         <SmallMovieCard
-          movie={movie}
+          movie={movieMock}
           onCardClick={onCardClick}
           onCardHover={() => {}}
         />
@@ -51,7 +51,7 @@ describe(`SmallMovieCardComponent`, () => {
 
     const smallMovieCard = shallow(
         <SmallMovieCard
-          movie={movie}
+          movie={movieMock}
           onCardClick={() => {}}
           onCardHover={onCardHover}
         />
@@ -59,7 +59,7 @@ describe(`SmallMovieCardComponent`, () => {
 
     const card = smallMovieCard.find(`.small-movie-card`);
 
-    card.simulate(`mouseenter`, movie);
+    card.simulate(`mouseenter`, movieMock);
 
     expect(onCardHover.mock.calls.length).toBe(1);
   });
@@ -69,7 +69,7 @@ describe(`SmallMovieCardComponent`, () => {
 
     const smallMovieCard = shallow(
         <SmallMovieCard
-          movie={movie}
+          movie={movieMock}
           onCardClick={() => {}}
           onCardHover={onCardHover}
         />

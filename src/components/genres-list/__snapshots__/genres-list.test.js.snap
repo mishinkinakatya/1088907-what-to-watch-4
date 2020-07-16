@@ -1,0 +1,1409 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GenresList Render GenresList for each genre 1`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-1
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-2
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-3
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-4
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-5
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-6
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-7
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-8
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-9
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-10
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-11
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`GenresList Render GenresList for each genre 2`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-1
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-2
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-3
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-4
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-5
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-6
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-7
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-8
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-9
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-10
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-11
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`GenresList Render GenresList for each genre 3`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-1
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-2
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-3
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-4
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-5
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-6
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-7
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-8
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-9
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-10
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-11
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`GenresList Render GenresList for each genre 4`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-1
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-2
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-3
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-4
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-5
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-6
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-7
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-8
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-9
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-10
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-11
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`GenresList Render GenresList for each genre 5`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-1
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-2
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-3
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-4
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-5
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-6
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-7
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-8
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-9
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-10
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-11
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`GenresList Render GenresList for each genre 6`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-1
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-2
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-3
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-4
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-5
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-6
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-7
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-8
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-9
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-10
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-11
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`GenresList Render GenresList for each genre 7`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-1
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-2
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-3
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-4
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-5
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-6
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-7
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-8
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-9
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-10
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-11
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`GenresList Render GenresList for each genre 8`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-1
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-2
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-3
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-4
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-5
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-6
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-7
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-8
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-9
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-10
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-11
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`GenresList Render GenresList for each genre 9`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-1
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-2
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-3
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-4
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-5
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-6
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-7
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-8
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-9
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-10
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-11
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`GenresList Render GenresList for each genre 10`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-1
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-2
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-3
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-4
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-5
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-6
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-7
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-8
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-9
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-10
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-11
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`GenresList Render GenresList for each genre 11`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-1
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-2
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-3
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-4
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-5
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-6
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-7
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-8
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-9
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item "
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-10
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#"
+      onClick={[Function]}
+    >
+      Genre-11
+    </a>
+  </li>
+</ul>
+`;

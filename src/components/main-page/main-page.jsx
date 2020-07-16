@@ -1,5 +1,5 @@
 import React from "react";
-import {promoMovieTypes, moviesTypes, activeGenreTypes, onCardClickTypes, onGenreClickTypes, allGenresListTypes} from "../../types/types.js";
+import {promoMovieTypes, moviesTypes, activeGenreTypes, onCardClickTypes, onGenreClickTypes, allGenresTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
 
@@ -68,7 +68,7 @@ const MainPage = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList allGenresList={allGenres} activeGenre={activeGenre} onGenreClick={onGenreClick} />
+          <GenresList allGenres={allGenres} activeGenre={activeGenre} onGenreClick={onGenreClick} />
 
           <MoviesList movies={movies} onCardClick={onCardClick} />
 
@@ -102,7 +102,7 @@ MainPage.propTypes = {
   activeGenre: activeGenreTypes,
   onCardClick: onCardClickTypes,
   onGenreClick: onGenreClickTypes,
-  allGenres: allGenresListTypes,
+  allGenres: allGenresTypes,
 };
 
 export default MainPage;

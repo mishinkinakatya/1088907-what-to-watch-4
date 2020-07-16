@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
-import {moviesTypes, reviewsTypes, promoMovieTypes, promoMovieReviewsTypes, activeGenreTypes, allGenresListTypes, onGenreClickTypes} from "../../types/types.js";
+import {moviesTypes, reviewsTypes, promoMovieTypes, promoMovieReviewsTypes, activeGenreTypes, allGenresTypes, onGenreClickTypes} from "../../types/types.js";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 import {ActionCreator} from "../../store/actions.js";
@@ -92,7 +92,7 @@ App.propTypes = {
   reviews: reviewsTypes,
   activeGenre: activeGenreTypes,
   onGenreClick: onGenreClickTypes,
-  allGenres: allGenresListTypes,
+  allGenres: allGenresTypes,
 };
 
 

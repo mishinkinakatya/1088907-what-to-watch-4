@@ -128,7 +128,7 @@ export const reviewsTypes = PropTypes.arrayOf(
     }).isRequired
 ).isRequired;
 
-export const allGenresListTypes = PropTypes.arrayOf(
+export const allGenresTypes = PropTypes.arrayOf(
     PropTypes.string.isRequired
 ).isRequired;
 
