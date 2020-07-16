@@ -1,6 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
+import {promoMovieTypes, moviesTypes, onCardClickTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
+
 
 const MainPage = (props) => {
   const {promoMovie, movies, onCardClick} = props;
@@ -124,43 +125,11 @@ const MainPage = (props) => {
   );
 };
 
+
 MainPage.propTypes = {
-  promoMovie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-    poster: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-    }).isRequired,
-    bgPoster: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-  movies: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-        year: PropTypes.number.isRequired,
-        poster: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          image: PropTypes.string.isRequired,
-        }).isRequired,
-        bgPoster: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          image: PropTypes.string.isRequired,
-        }).isRequired,
-        rating: PropTypes.shape({
-          score: PropTypes.number.isRequired,
-          count: PropTypes.number.isRequired,
-        }).isRequired,
-        description: PropTypes.string.isRequired,
-        director: PropTypes.string.isRequired,
-        starring: PropTypes.string.isRequired,
-      }).isRequired
-  ).isRequired,
-  onCardClick: PropTypes.func.isRequired,
+  promoMovie: promoMovieTypes,
+  movies: moviesTypes,
+  onCardClick: onCardClickTypes,
 };
 
 export default MainPage;

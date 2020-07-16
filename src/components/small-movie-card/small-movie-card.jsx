@@ -1,6 +1,7 @@
 import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
+import {movieTypes, onCardClickTypes, onCardHoverTypes} from "../../types/types.js";
 import VideoPlayer from "../video-player/video-player.jsx";
+
 
 class SmallMovieCard extends PureComponent {
   constructor(props) {
@@ -62,29 +63,9 @@ class SmallMovieCard extends PureComponent {
 
 
 SmallMovieCard.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-    poster: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-    }).isRequired,
-    bgPoster: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-    }).isRequired,
-    rating: PropTypes.shape({
-      score: PropTypes.number.isRequired,
-      count: PropTypes.number.isRequired,
-    }).isRequired,
-    description: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    starring: PropTypes.string.isRequired,
-    preview: PropTypes.string.isRequired,
-  }).isRequired,
-  onCardClick: PropTypes.func.isRequired,
-  onCardHover: PropTypes.func.isRequired,
+  movie: movieTypes,
+  onCardClick: onCardClickTypes,
+  onCardHover: onCardHoverTypes,
 };
 
 export default SmallMovieCard;

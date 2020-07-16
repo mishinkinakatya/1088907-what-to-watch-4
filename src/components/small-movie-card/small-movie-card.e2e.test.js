@@ -2,28 +2,8 @@ import React from "react";
 import Enzyme, {shallow, mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import SmallMovieCard from "./small-movie-card.jsx";
+import {movie} from "../../mocks/test-data.js";
 
-const movie = {
-  title: `Movie_title-1`,
-  genre: `Genre`,
-  year: 1111,
-  poster: {
-    image: `Movie_image-1`,
-    title: `Movie_title-1`,
-  },
-  bgPoster: {
-    image: `Movie_image-1`,
-    title: `Movie_title-1`,
-  },
-  rating: {
-    score: 1.1,
-    count: 111
-  },
-  description: `Description of Movie_title-1.`,
-  director: `Director of Movie_title-1.`,
-  starring: `Starring of Movie_title-1.`,
-  preview: `Preview of Movie_title-1.`,
-};
 
 Enzyme.configure({
   adapter: new Adapter(),
