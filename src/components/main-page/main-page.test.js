@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import MainPage from "./main-page.jsx";
-import {moviesMock, promoMovieMock, allGenresMock, activeGenreMock} from "../../mocks/test-data.js";
+import {moviesMock, promoMovieMock, allGenresMock, activeGenreMock, countMoviesOfActiveGenreMock, countOfVisibleMoviesOnMainPageMock} from "../../mocks/test-data.js";
 
 
 describe(`MainPage`, () => {
@@ -9,12 +9,15 @@ describe(`MainPage`, () => {
     const tree = renderer
       .create(
           <MainPage
-            promoMovie={promoMovieMock}
-            movies={moviesMock}
-            allGenres={allGenresMock}
             activeGenre={activeGenreMock}
+            allGenres={allGenresMock}
+            movies={moviesMock}
+            countMoviesOfActiveGenre={countMoviesOfActiveGenreMock}
+            countOfVisibleMoviesOnMainPage={countOfVisibleMoviesOnMainPageMock}
+            promoMovie={promoMovieMock}
             onCardClick={() => {}}
             onGenreClick={() => {}}
+            onShowMoreButtonClick={() => {}}
           />, {
             createNodeMock: () => {
               return {};

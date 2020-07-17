@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import App from "./app.jsx";
-import {activeGenreMock, movieMock, promoMovieReviewsMock, allGenresMock, moviesMock, promoMovieMock, reviewsMock} from "../../mocks/test-data.js";
+import {activeGenreMock, movieMock, promoMovieReviewsMock, allGenresMock, moviesMock, promoMovieMock, reviewsMock, countMoviesOfActiveGenreMock, countOfVisibleMoviesOnMainPageMock} from "../../mocks/test-data.js";
 
 
 const mockStore = configureStore([]);
@@ -19,6 +19,8 @@ describe(`App`, () => {
       promoMovie: promoMovieMock,
       promoMovieReviews: promoMovieReviewsMock,
       reviews: reviewsMock,
+      countMoviesOfActiveGenre: countMoviesOfActiveGenreMock,
+      countOfVisibleMoviesOnMainPage: countOfVisibleMoviesOnMainPageMock,
     });
     const tree = renderer
       .create(

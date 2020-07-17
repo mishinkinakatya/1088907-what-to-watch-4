@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import MoviesList from "./movies-list.jsx";
-import {moviesMock} from "../../mocks/test-data.js";
+import {moviesMock, countOfVisibleMoviesOnMainPageMock} from "../../mocks/test-data.js";
 
 
 describe(`MovieList`, () => {
@@ -10,6 +10,7 @@ describe(`MovieList`, () => {
       .create(
           <MoviesList
             movies={moviesMock}
+            countOfVisibleMoviesOnMainPage={countOfVisibleMoviesOnMainPageMock}
             onCardClick={() => {}}
           />, {
             createNodeMock: () => {
