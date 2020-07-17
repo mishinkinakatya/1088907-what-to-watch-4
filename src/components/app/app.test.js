@@ -1,19 +1,30 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
 import App from "./app.jsx";
-import {movies, reviews, promoMovie, promoMovieReviews} from "../../mocks/test-data.js";
+import {activeGenreMock, movieMock, promoMovieReviewsMock, allGenresMock, moviesMock, promoMovieMock, reviewsMock} from "../../mocks/test-data.js";
 
+
+const mockStore = configureStore([]);
 
 describe(`App`, () => {
   it(`Render App`, () => {
+    const store = mockStore({
+      activeGenre: activeGenreMock,
+      allGenres: allGenresMock,
+      movie: movieMock,
+      movies: moviesMock,
+      moviesOfActiveGenre: moviesMock,
+      promoMovie: promoMovieMock,
+      promoMovieReviews: promoMovieReviewsMock,
+      reviews: reviewsMock,
+    });
     const tree = renderer
       .create(
-          <App
-            promoMovie={promoMovie}
-            movies={movies}
-            promoMovieReviews={promoMovieReviews}
-            reviews={reviews}
-          />, {
+          <Provider store={store}>
+            <App />
+          </Provider>, {
             createNodeMock: () => {
               return {};
             }

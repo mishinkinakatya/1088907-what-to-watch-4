@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import VideoPlayer from "./video-player.jsx";
-import {movie} from "../../mocks/test-data.js";
+import {movieMock} from "../../mocks/test-data.js";
 
 
 describe(`VideoPlayer`, () => {
@@ -9,8 +9,8 @@ describe(`VideoPlayer`, () => {
     const tree = renderer
       .create(
           <VideoPlayer
-            preview={movie.preview}
-            poster={movie.poster}
+            preview={movieMock.preview}
+            poster={movieMock.poster}
             isPlaying={true}
           />, {
             createNodeMock: () => {

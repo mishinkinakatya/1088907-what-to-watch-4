@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import MovieDetails from "./movie-details.jsx";
-import {movie} from "../../mocks/test-data.js";
+import {movieMock} from "../../mocks/test-data.js";
 
 
 describe(`MovieDetails`, () => {
@@ -9,7 +9,7 @@ describe(`MovieDetails`, () => {
     const tree = renderer
       .create(
           <MovieDetails
-            movie={movie}
+            movie={movieMock}
           />
       )
       .toJSON();

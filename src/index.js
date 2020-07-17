@@ -1,17 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
-import {movies} from "./mocks/movies.js";
-import {reviews} from "./mocks/reviews.js";
-import {promoMovie} from "./mocks/promo-movie.js";
-import {promoMovieReviews} from "./mocks/promo-movie-reviews.js";
+import {createStore} from "redux";
+import {genreReducer} from "./store/reducer.js";
+import {Provider} from "react-redux";
+
+
+const store = createStore(
+    genreReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+);
 
 ReactDOM.render(
-    <App
-      promoMovie={promoMovie}
-      movies={movies}
-      promoMovieReviews={promoMovieReviews}
-      reviews={reviews}
-    />,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.querySelector(`#root`)
 );
