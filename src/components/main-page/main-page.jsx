@@ -1,11 +1,12 @@
 import React from "react";
-import {promoMovieTypes, moviesTypes, activeGenreTypes, onCardClickTypes, onGenreClickTypes, allGenresTypes} from "../../types/types.js";
+import {promoMovieTypes, moviesTypes, activeGenreTypes, onCardClickTypes, onGenreClickTypes, allGenresTypes, onShowMoreButtonClickTypes, countMoviesOnMainPageTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
+import ShowMoreButton from "../show-more-button/show-more-button.jsx";
 
 
 const MainPage = (props) => {
-  const {promoMovie, movies, activeGenre, allGenres, onCardClick, onGenreClick} = props;
+  const {promoMovie, movies, activeGenre, allGenres, countMoviesOfActiveGenre, countOfVisibleMoviesOnMainPage, onCardClick, onGenreClick, onShowMoreButtonClick} = props;
 
   return (
     <React.Fragment>
@@ -70,11 +71,9 @@ const MainPage = (props) => {
 
           <GenresList allGenres={allGenres} activeGenre={activeGenre} onGenreClick={onGenreClick} />
 
-          <MoviesList movies={movies} onCardClick={onCardClick} />
+          <MoviesList movies={movies} countOfVisibleMoviesOnMainPage={countOfVisibleMoviesOnMainPage} onCardClick={onCardClick} />
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          <ShowMoreButton countOfVisibleMoviesOnMainPage={countOfVisibleMoviesOnMainPage} countMoviesOfActiveGenre={countMoviesOfActiveGenre} onShowMoreButtonClick={onShowMoreButtonClick}/>
         </section>
 
         <footer className="page-footer">
@@ -102,7 +101,11 @@ MainPage.propTypes = {
   activeGenre: activeGenreTypes,
   onCardClick: onCardClickTypes,
   onGenreClick: onGenreClickTypes,
+  onShowMoreButtonClick: onShowMoreButtonClickTypes,
   allGenres: allGenresTypes,
+  countMoviesOfActiveGenre: countMoviesOnMainPageTypes,
+  countOfVisibleMoviesOnMainPage: countMoviesOnMainPageTypes,
+
 };
 
 export default MainPage;

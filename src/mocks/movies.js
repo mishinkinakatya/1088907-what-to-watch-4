@@ -183,4 +183,27 @@ export const movies = [
     starrings: [`Starring Star1`],
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
+  {
+    id: 9,
+    title: `Orlando`,
+    genre: `Fantasy`,
+    year: 2019,
+    runTimeInMin: 115,
+    poster: {
+      image: `img/orlando.jpg`,
+      title: `Orlando`,
+    },
+    bgPoster: {
+      image: `img/orlando.jpg`,
+      title: `Orlando`,
+    },
+    rating: {
+      score: 7.7,
+      count: 67
+    },
+    description: `Description of Orlando.`,
+    director: `Director of Orlando.`,
+    starrings: [`Starring Star1`, `Starring Star9`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  },
 ];

@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {moviesTypes, onCardClickTypes} from "../../types/types.js";
+import {moviesTypes, onCardClickTypes, countMoviesOnMainPageTypes} from "../../types/types.js";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
 
 
@@ -11,11 +11,13 @@ class MoviesList extends PureComponent {
   }
 
   render() {
-    const {movies, onCardClick} = this.props;
+    const {movies, countOfVisibleMoviesOnMainPage, onCardClick} = this.props;
+
+    const visibleMovies = movies.slice(0, countOfVisibleMoviesOnMainPage);
 
     return (
       <div className="catalog__movies-list">
-        {movies.map((it, i) => {
+        {visibleMovies.map((it, i) => {
           return (
             <SmallMovieCard
               key={it.title + i}
@@ -34,6 +36,7 @@ class MoviesList extends PureComponent {
 
 MoviesList.propTypes = {
   movies: moviesTypes,
+  countOfVisibleMoviesOnMainPage: countMoviesOnMainPageTypes,
   onCardClick: onCardClickTypes,
 };
 

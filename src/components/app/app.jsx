@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
-import {moviesTypes, reviewsTypes, promoMovieTypes, promoMovieReviewsTypes, activeGenreTypes, allGenresTypes, onGenreClickTypes} from "../../types/types.js";
+import {moviesTypes, reviewsTypes, promoMovieTypes, promoMovieReviewsTypes, activeGenreTypes, allGenresTypes, onGenreClickTypes, onShowMoreButtonClickTypes, countMoviesOnMainPageTypes} from "../../types/types.js";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 import {ActionCreator} from "../../store/actions.js";
@@ -57,7 +57,7 @@ class App extends PureComponent {
   }
 
   _renderApp() {
-    const {promoMovie, moviesOfActiveGenre, activeGenre, allGenres, onGenreClick} = this.props;
+    const {promoMovie, moviesOfActiveGenre, activeGenre, allGenres, countMoviesOfActiveGenre, countOfVisibleMoviesOnMainPage, onGenreClick, onShowMoreButtonClick} = this.props;
     const {currentMovie, currentMovieReviews, similarMovies} = this._getDataForMoviePage();
 
     if (this.state.activeMovie) {
@@ -76,6 +76,9 @@ class App extends PureComponent {
       activeGenre={activeGenre}
       onCardClick={this._handleCardClick}
       onGenreClick={onGenreClick}
+      onShowMoreButtonClick={onShowMoreButtonClick}
+      countMoviesOfActiveGenre={countMoviesOfActiveGenre}
+      countOfVisibleMoviesOnMainPage={countOfVisibleMoviesOnMainPage}
     />;
   }
 
@@ -93,16 +96,21 @@ App.propTypes = {
   activeGenre: activeGenreTypes,
   onGenreClick: onGenreClickTypes,
   allGenres: allGenresTypes,
+  onShowMoreButtonClick: onShowMoreButtonClickTypes,
+  countMoviesOfActiveGenre: countMoviesOnMainPageTypes,
+  countOfVisibleMoviesOnMainPage: countMoviesOnMainPageTypes,
 };
 
 
 const mapStateToProps = (state) => {
   return {
+    activeGenre: state.activeGenre,
+    allGenres: state.allGenres,
+    countMoviesOfActiveGenre: state.countMoviesOfActiveGenre,
+    countOfVisibleMoviesOnMainPage: state.countOfVisibleMoviesOnMainPage,
+    moviesOfActiveGenre: state.moviesOfActiveGenre,
     promoMovie: state.promoMovie,
     promoMovieReviews: state.promoMovieReviews,
-    allGenres: state.allGenres,
-    activeGenre: state.activeGenre,
-    moviesOfActiveGenre: state.moviesOfActiveGenre,
     reviews: state.reviews,
   };
 };
@@ -111,6 +119,11 @@ const mapDispatchToProps = (dispatch) => ({
   onGenreClick(activeGenre) {
     dispatch(ActionCreator.actionChangeActiveGenre(activeGenre));
     dispatch(ActionCreator.actionGetMoviesListOfActiveGenre(activeGenre));
+    dispatch(ActionCreator.actionGetCountMoviesOfActiveGenre(activeGenre));
+    dispatch(ActionCreator.actionGetCountOfVisibleMovies(activeGenre));
+  },
+  onShowMoreButtonClick(countMoviesOfActiveGenre, countOfVisibleMoviesOnMainPage) {
+    dispatch(ActionCreator.actionIncrementCountOfVisibleMovies(countMoviesOfActiveGenre, countOfVisibleMoviesOnMainPage));
   }
 });
 

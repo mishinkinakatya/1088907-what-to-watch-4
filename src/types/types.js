@@ -145,6 +145,8 @@ export const previewTypes = PropTypes.string.isRequired;
 
 export const activeGenreTypes = PropTypes.string.isRequired;
 
+export const countMoviesOnMainPageTypes = PropTypes.number;
+
 export const isPlayingTypes = PropTypes.bool.isRequired;
 
 export const onCardClickTypes = PropTypes.func.isRequired;
@@ -154,3 +156,5 @@ export const onCardHoverTypes = PropTypes.func.isRequired;
 export const onTabClickTypes = PropTypes.func.isRequired;
 
 export const onGenreClickTypes = PropTypes.func.isRequired;
+
+export const onShowMoreButtonClickTypes = PropTypes.func.isRequired;
