@@ -3,14 +3,11 @@ import {onShowMoreButtonClickTypes, countMoviesOnMainPageTypes} from "../../type
 
 
 const ShowMoreButton = (props) => {
-  const {countMoviesOfActiveGenre, countOfVisibleMoviesOnMainPage, onShowMoreButtonClick} = props;
+  const {countMoviesOfActiveGenre, maxCountOfVisibleMovies, onShowMoreButtonClick} = props;
 
-  return countMoviesOfActiveGenre > countOfVisibleMoviesOnMainPage
+  return countMoviesOfActiveGenre > maxCountOfVisibleMovies
     ? <div className="catalog__more">
-      <button className="catalog__button" type="button" onClick={(evt) => {
-        evt.preventDefault();
-        onShowMoreButtonClick(countMoviesOfActiveGenre, countOfVisibleMoviesOnMainPage);
-      }}>Show more</button>
+      <button className="catalog__button" type="button" onClick={onShowMoreButtonClick}>Show more</button>
     </div>
     : ``;
 };
@@ -18,7 +15,7 @@ const ShowMoreButton = (props) => {
 
 ShowMoreButton.propTypes = {
   countMoviesOfActiveGenre: countMoviesOnMainPageTypes,
-  countOfVisibleMoviesOnMainPage: countMoviesOnMainPageTypes,
+  maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
   onShowMoreButtonClick: onShowMoreButtonClickTypes,
 };
 

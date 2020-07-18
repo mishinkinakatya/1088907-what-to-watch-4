@@ -11,9 +11,9 @@ class MoviesList extends PureComponent {
   }
 
   render() {
-    const {movies, countOfVisibleMoviesOnMainPage, onCardClick} = this.props;
+    const {movies, maxCountOfVisibleMovies, onCardClick} = this.props;
 
-    const visibleMovies = movies.slice(0, countOfVisibleMoviesOnMainPage);
+    const visibleMovies = movies.slice(0, maxCountOfVisibleMovies);
 
     return (
       <div className="catalog__movies-list">
@@ -36,7 +36,7 @@ class MoviesList extends PureComponent {
 
 MoviesList.propTypes = {
   movies: moviesTypes,
-  countOfVisibleMoviesOnMainPage: countMoviesOnMainPageTypes,
+  maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
   onCardClick: onCardClickTypes,
 };
 

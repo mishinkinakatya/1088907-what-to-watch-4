@@ -6,7 +6,7 @@ import ShowMoreButton from "../show-more-button/show-more-button.jsx";
 
 
 const MainPage = (props) => {
-  const {promoMovie, movies, activeGenre, allGenres, countMoviesOfActiveGenre, countOfVisibleMoviesOnMainPage, onCardClick, onGenreClick, onShowMoreButtonClick} = props;
+  const {promoMovie, movies, activeGenre, allGenres, countMoviesOfActiveGenre, maxCountOfVisibleMovies, onCardClick, onGenreClick, onShowMoreButtonClick} = props;
 
   return (
     <React.Fragment>
@@ -71,9 +71,9 @@ const MainPage = (props) => {
 
           <GenresList allGenres={allGenres} activeGenre={activeGenre} onGenreClick={onGenreClick} />
 
-          <MoviesList movies={movies} countOfVisibleMoviesOnMainPage={countOfVisibleMoviesOnMainPage} onCardClick={onCardClick} />
+          <MoviesList movies={movies} maxCountOfVisibleMovies={maxCountOfVisibleMovies} onCardClick={onCardClick} />
 
-          <ShowMoreButton countOfVisibleMoviesOnMainPage={countOfVisibleMoviesOnMainPage} countMoviesOfActiveGenre={countMoviesOfActiveGenre} onShowMoreButtonClick={onShowMoreButtonClick}/>
+          <ShowMoreButton maxCountOfVisibleMovies={maxCountOfVisibleMovies} countMoviesOfActiveGenre={countMoviesOfActiveGenre} onShowMoreButtonClick={onShowMoreButtonClick}/>
         </section>
 
         <footer className="page-footer">
@@ -104,7 +104,7 @@ MainPage.propTypes = {
   onShowMoreButtonClick: onShowMoreButtonClickTypes,
   allGenres: allGenresTypes,
   countMoviesOfActiveGenre: countMoviesOnMainPageTypes,
-  countOfVisibleMoviesOnMainPage: countMoviesOnMainPageTypes,
+  maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
 
 };
 

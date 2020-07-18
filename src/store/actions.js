@@ -1,5 +1,4 @@
-import {ActionType} from "../utils/const.js";
-import {getIncrementForCountOfVisibleMovies} from "../utils/fn.js";
+import {ActionType, INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE} from "../utils/const.js";
 
 
 export const ActionCreator = {
@@ -9,10 +8,10 @@ export const ActionCreator = {
       payload: newActiveGenre,
     };
   },
-  actionIncrementCountOfVisibleMovies: (countMoviesOfActiveGenre, countOfVisibleMoviesOnMainPage) => {
+  actionChangeMaxCountOfVisibleMovies: () => {
     return {
-      type: ActionType.INCREMENT_COUNT_OF_VISIBLE_MOVIES,
-      payload: getIncrementForCountOfVisibleMovies(countMoviesOfActiveGenre, countOfVisibleMoviesOnMainPage),
+      type: ActionType.CHANGE_MAX_COUNT_OF_VISIBLE_MOVIES,
+      payload: INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE,
     };
   },
 };

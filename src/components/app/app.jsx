@@ -58,7 +58,7 @@ class App extends PureComponent {
   }
 
   _renderApp() {
-    const {movies, promoMovie, activeGenre, allGenres, countOfVisibleMoviesOnMainPage, onGenreClick, onShowMoreButtonClick} = this.props;
+    const {movies, promoMovie, activeGenre, allGenres, maxCountOfVisibleMovies, onGenreClick, onShowMoreButtonClick} = this.props;
     const {currentMovie, currentMovieReviews, similarMovies} = this._getDataForMoviePage();
 
     if (this.state.activeMovie) {
@@ -79,7 +79,7 @@ class App extends PureComponent {
       onGenreClick={onGenreClick}
       onShowMoreButtonClick={onShowMoreButtonClick}
       countMoviesOfActiveGenre={getMoviesListOfActiveGenre(movies, activeGenre).length}
-      countOfVisibleMoviesOnMainPage={countOfVisibleMoviesOnMainPage}
+      maxCountOfVisibleMovies={maxCountOfVisibleMovies}
     />;
   }
 
@@ -98,7 +98,7 @@ App.propTypes = {
   onGenreClick: onGenreClickTypes,
   allGenres: allGenresTypes,
   onShowMoreButtonClick: onShowMoreButtonClickTypes,
-  countOfVisibleMoviesOnMainPage: countMoviesOnMainPageTypes,
+  maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
 };
 
 
@@ -107,7 +107,7 @@ const mapStateToProps = (state) => {
     movies: state.movies,
     activeGenre: state.activeGenre,
     allGenres: state.allGenres,
-    countOfVisibleMoviesOnMainPage: state.countOfVisibleMoviesOnMainPage,
+    maxCountOfVisibleMovies: state.maxCountOfVisibleMovies,
     promoMovie: state.promoMovie,
     promoMovieReviews: state.promoMovieReviews,
     reviews: state.reviews,
@@ -118,8 +118,8 @@ const mapDispatchToProps = (dispatch) => ({
   onGenreClick(activeGenre) {
     dispatch(ActionCreator.actionChangeActiveGenre(activeGenre));
   },
-  onShowMoreButtonClick(countMoviesOfActiveGenre, countOfVisibleMoviesOnMainPage) {
-    dispatch(ActionCreator.actionIncrementCountOfVisibleMovies(countMoviesOfActiveGenre, countOfVisibleMoviesOnMainPage));
+  onShowMoreButtonClick() {
+    dispatch(ActionCreator.actionChangeMaxCountOfVisibleMovies());
   }
 });
 

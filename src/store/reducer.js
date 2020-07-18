@@ -10,7 +10,7 @@ const initialState = {
   movies,
   activeGenre: DEFAULT_GENRE,
   allGenres: getAllGenresList(movies),
-  countOfVisibleMoviesOnMainPage: movies.length > INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE ? INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE : movies.length,
+  maxCountOfVisibleMovies: movies.length > INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE ? INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE : movies.length,
   promoMovie,
   promoMovieReviews,
   reviews,
@@ -19,13 +19,12 @@ const initialState = {
 export const genreReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_ACTIVE_GENRE:
-
       return Object.assign({}, state, {
         activeGenre: action.payload,
-        countOfVisibleMoviesOnMainPage: movies.length > INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE ? INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE : movies.length,
+        maxCountOfVisibleMovies: movies.length > INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE ? INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE : movies.length,
       });
-    case ActionType.INCREMENT_COUNT_OF_VISIBLE_MOVIES:
-      return Object.assign({}, state, {countOfVisibleMoviesOnMainPage: state.countOfVisibleMoviesOnMainPage + action.payload});
+    case ActionType.CHANGE_MAX_COUNT_OF_VISIBLE_MOVIES:
+      return Object.assign({}, state, {maxCountOfVisibleMovies: state.maxCountOfVisibleMovies + action.payload});
   }
   return state;
 };
