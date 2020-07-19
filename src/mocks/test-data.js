@@ -409,4 +409,8 @@ export const allGenresMock = [`Genre-1`, `Genre-2`, `Genre-3`, `Genre-4`, `Genre
 
 export const activeGenreMock = `Genre-2`;
 
+export const countMoviesOfActiveGenreMock = moviesMock.length;
+
+export const countOfVisibleMoviesOnMainPageMock = 8;
+
 

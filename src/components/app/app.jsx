@@ -1,10 +1,11 @@
 import React, {PureComponent} from "react";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
-import {moviesTypes, reviewsTypes, promoMovieTypes, promoMovieReviewsTypes, activeGenreTypes, allGenresTypes, onGenreClickTypes} from "../../types/types.js";
+import {moviesTypes, reviewsTypes, promoMovieTypes, promoMovieReviewsTypes, activeGenreTypes, allGenresTypes, onGenreClickTypes, onShowMoreButtonClickTypes, countMoviesOnMainPageTypes} from "../../types/types.js";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 import {ActionCreator} from "../../store/actions.js";
 import {connect} from "react-redux";
+import {getMoviesListOfActiveGenre} from "../../utils/fn.js";
 
 
 const COUNT_VISIBLE_SIMILAR_MOVIES = 4;
@@ -41,13 +42,13 @@ class App extends PureComponent {
   }
 
   _getDataForMoviePage() {
-    const {promoMovie, promoMovieReviews, moviesOfActiveGenre, reviews} = this.props;
+    const {movies, promoMovie, promoMovieReviews, reviews} = this.props;
     const {activeMovie} = this.state;
 
     const currentMovie = activeMovie ? activeMovie : promoMovie;
     const moviesReviews = activeMovie ? reviews : promoMovieReviews;
     const currentMovieReviews = moviesReviews.map((review) => review.movieId === currentMovie.id ? review : null).filter((review) => review !== null);
-    const similarMovies = moviesOfActiveGenre.filter((movie) => movie.genre === currentMovie.genre && movie.id !== currentMovie.id).slice(0, COUNT_VISIBLE_SIMILAR_MOVIES);
+    const similarMovies = movies.filter((movie) => movie.genre === currentMovie.genre && movie.id !== currentMovie.id).slice(0, COUNT_VISIBLE_SIMILAR_MOVIES);
 
     return ({
       currentMovie,
@@ -57,7 +58,7 @@ class App extends PureComponent {
   }
 
   _renderApp() {
-    const {promoMovie, moviesOfActiveGenre, activeGenre, allGenres, onGenreClick} = this.props;
+    const {movies, promoMovie, activeGenre, allGenres, maxCountOfVisibleMovies, onGenreClick, onShowMoreButtonClick} = this.props;
     const {currentMovie, currentMovieReviews, similarMovies} = this._getDataForMoviePage();
 
     if (this.state.activeMovie) {
@@ -71,11 +72,14 @@ class App extends PureComponent {
 
     return <MainPage
       promoMovie={promoMovie}
-      movies={moviesOfActiveGenre}
+      movies={getMoviesListOfActiveGenre(movies, activeGenre)}
       allGenres={allGenres}
       activeGenre={activeGenre}
       onCardClick={this._handleCardClick}
       onGenreClick={onGenreClick}
+      onShowMoreButtonClick={onShowMoreButtonClick}
+      countMoviesOfActiveGenre={getMoviesListOfActiveGenre(movies, activeGenre).length}
+      maxCountOfVisibleMovies={maxCountOfVisibleMovies}
     />;
   }
 
@@ -86,23 +90,26 @@ class App extends PureComponent {
 
 
 App.propTypes = {
+  movies: moviesTypes,
   promoMovie: promoMovieTypes,
   promoMovieReviews: promoMovieReviewsTypes,
-  moviesOfActiveGenre: moviesTypes,
   reviews: reviewsTypes,
   activeGenre: activeGenreTypes,
   onGenreClick: onGenreClickTypes,
   allGenres: allGenresTypes,
+  onShowMoreButtonClick: onShowMoreButtonClickTypes,
+  maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
 };
 
 
 const mapStateToProps = (state) => {
   return {
+    movies: state.movies,
+    activeGenre: state.activeGenre,
+    allGenres: state.allGenres,
+    maxCountOfVisibleMovies: state.maxCountOfVisibleMovies,
     promoMovie: state.promoMovie,
     promoMovieReviews: state.promoMovieReviews,
-    allGenres: state.allGenres,
-    activeGenre: state.activeGenre,
-    moviesOfActiveGenre: state.moviesOfActiveGenre,
     reviews: state.reviews,
   };
 };
@@ -110,7 +117,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   onGenreClick(activeGenre) {
     dispatch(ActionCreator.actionChangeActiveGenre(activeGenre));
-    dispatch(ActionCreator.actionGetMoviesListOfActiveGenre(activeGenre));
+  },
+  onShowMoreButtonClick() {
+    dispatch(ActionCreator.actionChangeMaxCountOfVisibleMovies());
   }
 });
 

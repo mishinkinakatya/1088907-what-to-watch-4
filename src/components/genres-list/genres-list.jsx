@@ -5,7 +5,7 @@ import {allGenresTypes, activeGenreTypes, onGenreClickTypes} from "../../types/t
 const ACTIVE_GENRE_ITEM = `catalog__genres-item--active`;
 
 const GenresList = (props) => {
-  const {allGenres, activeGenre, onGenreClick} = props;
+  const {activeGenre, allGenres, onGenreClick} = props;
 
   return (
     <ul className="catalog__genres-list">
@@ -25,8 +25,8 @@ const GenresList = (props) => {
 
 
 GenresList.propTypes = {
-  allGenres: allGenresTypes,
   activeGenre: activeGenreTypes,
+  allGenres: allGenresTypes,
   onGenreClick: onGenreClickTypes,
 };
 
