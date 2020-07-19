@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import App from "./app.jsx";
-import {activeGenreMock, movieMock, promoMovieReviewsMock, allGenresMock, moviesMock, promoMovieMock, reviewsMock, countMoviesOfActiveGenreMock, countOfVisibleMoviesOnMainPageMock} from "../../mocks/test-data.js";
+import {activeGenreMock, movieMock, promoMovieReviewsMock, allGenresMock, moviesMock, promoMovieMock, reviewsMock, countOfVisibleMoviesOnMainPageMock} from "../../mocks/test-data.js";
 
 
 const mockStore = configureStore([]);
@@ -15,12 +15,10 @@ describe(`App`, () => {
       allGenres: allGenresMock,
       movie: movieMock,
       movies: moviesMock,
-      moviesOfActiveGenre: moviesMock,
       promoMovie: promoMovieMock,
       promoMovieReviews: promoMovieReviewsMock,
       reviews: reviewsMock,
-      countMoviesOfActiveGenre: countMoviesOfActiveGenreMock,
-      countOfVisibleMoviesOnMainPage: countOfVisibleMoviesOnMainPageMock,
+      maxCountOfVisibleMovies: countOfVisibleMoviesOnMainPageMock,
     });
     const tree = renderer
       .create(

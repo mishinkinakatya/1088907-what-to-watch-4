@@ -13,7 +13,7 @@ describe(`MainPage`, () => {
             allGenres={allGenresMock}
             movies={moviesMock}
             countMoviesOfActiveGenre={countMoviesOfActiveGenreMock}
-            countOfVisibleMoviesOnMainPage={countOfVisibleMoviesOnMainPageMock}
+            maxCountOfVisibleMovies={countOfVisibleMoviesOnMainPageMock}
             promoMovie={promoMovieMock}
             onCardClick={() => {}}
             onGenreClick={() => {}}

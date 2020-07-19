@@ -10,7 +10,7 @@ describe(`ShowMoreButton`, () => {
     const tree = renderer
       .create(
           <ShowMoreButton
-            countOfVisibleMoviesOnMainPage={countOfVisibleMoviesOnMainPageMock}
+            maxCountOfVisibleMovies={countOfVisibleMoviesOnMainPageMock}
             countMoviesOfActiveGenre={countMoviesOfActiveGenreMock}
             onShowMoreButtonClick={onShowMoreButtonClickTypes}
           />

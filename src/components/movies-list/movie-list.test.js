@@ -10,7 +10,7 @@ describe(`MovieList`, () => {
       .create(
           <MoviesList
             movies={moviesMock}
-            countOfVisibleMoviesOnMainPage={countOfVisibleMoviesOnMainPageMock}
+            maxCountOfVisibleMovies={countOfVisibleMoviesOnMainPageMock}
             onCardClick={() => {}}
           />, {
             createNodeMock: () => {

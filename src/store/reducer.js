@@ -24,7 +24,9 @@ export const genreReducer = (state = initialState, action) => {
         maxCountOfVisibleMovies: movies.length > INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE ? INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE : movies.length,
       });
     case ActionType.CHANGE_MAX_COUNT_OF_VISIBLE_MOVIES:
-      return Object.assign({}, state, {maxCountOfVisibleMovies: state.maxCountOfVisibleMovies + action.payload});
+      return Object.assign({}, state, {
+        maxCountOfVisibleMovies: state.maxCountOfVisibleMovies + action.payload
+      });
   }
   return state;
 };
