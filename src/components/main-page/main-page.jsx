@@ -105,7 +105,6 @@ MainPage.propTypes = {
   allGenres: allGenresTypes,
   countMoviesOfActiveGenre: countMoviesOnMainPageTypes,
   maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
-
 };
 
 export default MainPage;

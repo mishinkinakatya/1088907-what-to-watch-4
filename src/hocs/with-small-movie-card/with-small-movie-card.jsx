@@ -8,7 +8,6 @@ const withSmallMovieCard = (Component) => {
       super(props);
 
       this.handleMouseEvent = this.handleMouseEvent.bind(this);
-      this.handleCardClick = this.handleCardClick.bind(this);
 
       this.state = {
         isPlaying: false,
@@ -21,12 +20,6 @@ const withSmallMovieCard = (Component) => {
       });
     }
 
-    handleCardClick(evt) {
-      const {movie, onCardClick} = this.props;
-      evt.preventDefault();
-      onCardClick(movie);
-    }
-
     render() {
       const {isPlaying} = this.state;
 
@@ -34,7 +27,6 @@ const withSmallMovieCard = (Component) => {
         {...this.props}
         isPlaying={isPlaying}
         onCardMouseEvent={this.handleMouseEvent}
-        onCardClick={this.handleCardClick}
       />;
     }
   }

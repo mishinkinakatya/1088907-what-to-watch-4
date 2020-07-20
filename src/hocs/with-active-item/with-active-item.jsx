@@ -1,5 +1,4 @@
 import React, {PureComponent} from "react";
-import {TabsName} from "../../utils/const";
 
 
 const withActiveItem = (Component) => {
@@ -10,7 +9,7 @@ const withActiveItem = (Component) => {
       this.handleItemClick = this.handleItemClick.bind(this);
 
       this.state = {
-        activeItem: TabsName.OVERVIEW,
+        activeItem: null,
       };
     }
 
@@ -26,7 +25,7 @@ const withActiveItem = (Component) => {
       return <Component
         {...this.props}
         activeItem={activeItem}
-        onItemEvent={this.handleItemClick}
+        onActiveItemEvent={this.handleItemClick}
       />;
     }
   }

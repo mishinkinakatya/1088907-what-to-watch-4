@@ -1,21 +1,22 @@
 import React from "react";
-import {movieTypes, onCardMouseEventTypes, onCardClickTypes, onCardHoverTypes, isPlayingTypes} from "../../types/types.js";
+import {movieTypes, onCardMouseEventTypes, onCardClickTypes, isPlayingTypes} from "../../types/types.js";
 import VideoPlayer from "../video-player/video-player.jsx";
 import withSmallMovieCard from "../../hocs/with-small-movie-card/with-small-movie-card.jsx";
 
 
 const SmallMovieCard = (props) => {
-  const {movie, onCardHover, isPlaying, onCardMouseEvent, onCardClick} = props;
+  const {movie, isPlaying, onCardMouseEvent, onCardClick} = props;
   return (
     <article className="small-movie-card catalog__movies-card"
-      onClick={onCardClick}
+      onClick={(evt) => {
+        evt.preventDefault();
+        onCardClick(movie);
+      }}
       onMouseEnter={() => {
-        onCardHover();
         onCardMouseEvent(true);
       }
       }
       onMouseLeave={() => {
-        onCardHover({});
         onCardMouseEvent(false);
       }
       }
@@ -45,7 +46,6 @@ SmallMovieCard.propTypes = {
   isPlaying: isPlayingTypes,
   onCardMouseEvent: onCardMouseEventTypes,
   onCardClick: onCardClickTypes,
-  onCardHover: onCardHoverTypes,
 };
 
 export default withSmallMovieCard(SmallMovieCard);

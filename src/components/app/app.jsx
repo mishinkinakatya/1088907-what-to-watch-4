@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
-import {moviesTypes, reviewsTypes, promoMovieTypes, promoMovieReviewsTypes, activeGenreTypes, allGenresTypes, onGenreClickTypes, onShowMoreButtonClickTypes, countMoviesOnMainPageTypes} from "../../types/types.js";
+import {moviesTypes, reviewsTypes, promoMovieTypes, promoMovieReviewsTypes, activeGenreTypes, allGenresTypes, onGenreClickTypes, onShowMoreButtonClickTypes, countMoviesOnMainPageTypes, onCardClickTypes, activeMovieTypes} from "../../types/types.js";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 import {ActionCreator} from "../../store/actions.js";
@@ -13,13 +13,10 @@ const COUNT_VISIBLE_SIMILAR_MOVIES = 4;
 class App extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.state = {activeMovie: null};
-
-    this._handleCardClick = this._handleCardClick.bind(this);
   }
 
   render() {
+    const {onCardClick} = this.props;
     const {currentMovie, currentMovieReviews, similarMovies} = this._getDataForMoviePage();
 
     return (
@@ -33,7 +30,7 @@ class App extends PureComponent {
               movie={currentMovie}
               reviews={currentMovieReviews}
               similarMovies={similarMovies}
-              onCardClick={this._handleCardClick}
+              onCardClick={onCardClick}
             />;
           </Route>
         </Switch>
@@ -42,8 +39,7 @@ class App extends PureComponent {
   }
 
   _getDataForMoviePage() {
-    const {movies, promoMovie, promoMovieReviews, reviews} = this.props;
-    const {activeMovie} = this.state;
+    const {movies, promoMovie, promoMovieReviews, reviews, activeMovie} = this.props;
 
     const currentMovie = activeMovie ? activeMovie : promoMovie;
     const moviesReviews = activeMovie ? reviews : promoMovieReviews;
@@ -58,15 +54,15 @@ class App extends PureComponent {
   }
 
   _renderApp() {
-    const {movies, promoMovie, activeGenre, allGenres, maxCountOfVisibleMovies, onGenreClick, onShowMoreButtonClick} = this.props;
+    const {movies, promoMovie, activeGenre, allGenres, maxCountOfVisibleMovies, onGenreClick, onShowMoreButtonClick, onCardClick, activeMovie} = this.props;
     const {currentMovie, currentMovieReviews, similarMovies} = this._getDataForMoviePage();
 
-    if (this.state.activeMovie) {
+    if (activeMovie) {
       return <MoviePage
         movie={currentMovie}
         reviews={currentMovieReviews}
         similarMovies={similarMovies}
-        onCardClick={this._handleCardClick}
+        onCardClick={onCardClick}
       />;
     }
 
@@ -75,16 +71,12 @@ class App extends PureComponent {
       movies={getMoviesListOfActiveGenre(movies, activeGenre)}
       allGenres={allGenres}
       activeGenre={activeGenre}
-      onCardClick={this._handleCardClick}
+      onCardClick={onCardClick}
       onGenreClick={onGenreClick}
       onShowMoreButtonClick={onShowMoreButtonClick}
       countMoviesOfActiveGenre={getMoviesListOfActiveGenre(movies, activeGenre).length}
       maxCountOfVisibleMovies={maxCountOfVisibleMovies}
     />;
-  }
-
-  _handleCardClick(movie) {
-    this.setState({activeMovie: movie});
   }
 }
 
@@ -94,8 +86,10 @@ App.propTypes = {
   promoMovie: promoMovieTypes,
   promoMovieReviews: promoMovieReviewsTypes,
   reviews: reviewsTypes,
+  activeMovie: activeMovieTypes,
   activeGenre: activeGenreTypes,
   onGenreClick: onGenreClickTypes,
+  onCardClick: onCardClickTypes,
   allGenres: allGenresTypes,
   onShowMoreButtonClick: onShowMoreButtonClickTypes,
   maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
@@ -105,6 +99,7 @@ App.propTypes = {
 const mapStateToProps = (state) => {
   return {
     movies: state.movies,
+    activeMovie: state.activeMovie,
     activeGenre: state.activeGenre,
     allGenres: state.allGenres,
     maxCountOfVisibleMovies: state.maxCountOfVisibleMovies,
@@ -117,6 +112,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   onGenreClick(activeGenre) {
     dispatch(ActionCreator.actionChangeActiveGenre(activeGenre));
+  },
+  onCardClick(activeMovie) {
+    dispatch(ActionCreator.actionChangeActiveMovie(activeMovie));
   },
   onShowMoreButtonClick() {
     dispatch(ActionCreator.actionChangeMaxCountOfVisibleMovies());

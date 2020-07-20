@@ -1,11 +1,10 @@
 import React from "react";
-import {moviesTypes, onCardClickTypes, countMoviesOnMainPageTypes, onItemClickTypes} from "../../types/types.js";
+import {moviesTypes, onCardClickTypes, countMoviesOnMainPageTypes} from "../../types/types.js";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
-import withActiveItem from "../../hocs/with-active-item/with-active-item.jsx";
 
 
 const MoviesList = (props) => {
-  const {movies, maxCountOfVisibleMovies, onCardClick, onItemEvent} = props;
+  const {movies, maxCountOfVisibleMovies, onCardClick} = props;
 
   const visibleMovies = movies.slice(0, maxCountOfVisibleMovies);
 
@@ -17,7 +16,7 @@ const MoviesList = (props) => {
             key={it.title + i}
             movie={it}
             onCardClick={onCardClick}
-            onCardHover={onItemEvent} />
+          />
         );
       })}
     </div>
@@ -29,7 +28,7 @@ MoviesList.propTypes = {
   movies: moviesTypes,
   maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
   onCardClick: onCardClickTypes,
-  onItemEvent: onItemClickTypes,
 };
 
-export default withActiveItem(MoviesList);
+
+export default MoviesList;

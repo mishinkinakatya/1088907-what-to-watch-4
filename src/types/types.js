@@ -52,6 +52,32 @@ export const movieTypes = PropTypes.shape({
   preview: PropTypes.string.isRequired,
 }).isRequired;
 
+export const activeMovieTypes = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  runTimeInMin: PropTypes.number.isRequired,
+  poster: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+  bgPoster: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+  rating: PropTypes.shape({
+    score: PropTypes.number.isRequired,
+    count: PropTypes.number.isRequired,
+  }).isRequired,
+  description: PropTypes.string.isRequired,
+  director: PropTypes.string.isRequired,
+  starrings: PropTypes.arrayOf(
+      PropTypes.string.isRequired
+  ).isRequired,
+  preview: PropTypes.string.isRequired,
+});
+
 export const moviesTypes = PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -139,7 +165,7 @@ export const posterTypes = PropTypes.shape({
 
 export const tabsTypes = PropTypes.object.isRequired;
 
-export const activeItemTypes = PropTypes.string.isRequired;
+export const activeItemTypes = PropTypes.string;
 
 export const previewTypes = PropTypes.string.isRequired;
 

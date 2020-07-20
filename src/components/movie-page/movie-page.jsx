@@ -21,7 +21,7 @@ const renderTabContent = (movie, reviews, activeItem) => {
 };
 
 const MoviePage = (props) => {
-  const {movie, similarMovies, reviews, onCardClick, activeItem, onItemEvent} = props;
+  const {movie, similarMovies, reviews, onCardClick, activeItem, onActiveItemEvent} = props;
 
   return (
     <React.Fragment>
@@ -83,8 +83,8 @@ const MoviePage = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <Tabs tabs={TabsName} activeTab={activeItem} onItemEvent={onItemEvent} />
-              {renderTabContent(movie, reviews, activeItem)}
+              <Tabs tabs={TabsName} activeTab={activeItem || TabsName.OVERVIEW} onActiveItemEvent={onActiveItemEvent} />
+              {renderTabContent(movie, reviews, activeItem || TabsName.OVERVIEW)}
 
             </div>
           </div>
@@ -123,7 +123,7 @@ MoviePage.propTypes = {
   similarMovies: similarMoviesTypes,
   onCardClick: onCardClickTypes,
   activeItem: activeItemTypes,
-  onItemEvent: onItemClickTypes,
+  onActiveItemEvent: onItemClickTypes,
 };
 
 export default withActiveItem(MoviePage);

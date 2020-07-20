@@ -8,6 +8,7 @@ import {promoMovieReviews} from "../mocks/promo-movie-reviews.js";
 
 const initialState = {
   movies,
+  activeMovie: null,
   activeGenre: DEFAULT_GENRE,
   allGenres: getAllGenresList(movies),
   maxCountOfVisibleMovies: movies.length > INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE ? INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE : movies.length,
@@ -22,6 +23,10 @@ export const genreReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         activeGenre: action.payload,
         maxCountOfVisibleMovies: movies.length > INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE ? INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE : movies.length,
+      });
+    case ActionType.CHANGE_ACTIVE_MOVIE:
+      return Object.assign({}, state, {
+        activeMovie: action.payload
       });
     case ActionType.CHANGE_MAX_COUNT_OF_VISIBLE_MOVIES:
       return Object.assign({}, state, {

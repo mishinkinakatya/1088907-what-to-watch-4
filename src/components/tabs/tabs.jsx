@@ -5,7 +5,7 @@ import {tabsTypes, activeItemTypes, onItemClickTypes} from "../../types/types.js
 const ACTIVE_MOVIE_NAV_ITEM = `movie-nav__item--active`;
 
 const Tabs = (props) => {
-  const {tabs, activeTab, onItemEvent} = props;
+  const {tabs, activeTab, onActiveItemEvent} = props;
   const tabsName = Object.values(tabs);
 
   return (
@@ -16,7 +16,7 @@ const Tabs = (props) => {
             <li key={tab} className={`movie-nav__item ${tab === activeTab ? ACTIVE_MOVIE_NAV_ITEM : ``}`}>
               <a href="#" className="movie-nav__link" onClick={(evt) => {
                 evt.preventDefault();
-                onItemEvent(tab);
+                onActiveItemEvent(tab);
               }}>{tab}</a>
             </li>
           );
@@ -30,7 +30,7 @@ const Tabs = (props) => {
 Tabs.propTypes = {
   tabs: tabsTypes,
   activeTab: activeItemTypes,
-  onItemEvent: onItemClickTypes,
+  onActiveItemEvent: onItemClickTypes,
 };
 
 export default Tabs;

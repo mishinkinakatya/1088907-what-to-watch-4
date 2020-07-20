@@ -8,6 +8,12 @@ export const ActionCreator = {
       payload: newActiveGenre,
     };
   },
+  actionChangeActiveMovie: (newActiveMovie) => {
+    return {
+      type: ActionType.CHANGE_ACTIVE_MOVIE,
+      payload: newActiveMovie,
+    };
+  },
   actionChangeMaxCountOfVisibleMovies: () => {
     return {
       type: ActionType.CHANGE_MAX_COUNT_OF_VISIBLE_MOVIES,
