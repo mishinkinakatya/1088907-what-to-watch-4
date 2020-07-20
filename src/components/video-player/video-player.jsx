@@ -1,65 +1,24 @@
-import React, {PureComponent, createRef} from "react";
-import {posterTypes, previewTypes, isPlayingTypes} from "../../types/types";
+import React from "react";
+import {posterTypes, videoRefTypes} from "../../types/types";
+import withPlayer from "../../hocs/with-player/with-player.jsx";
 
 
-const TIMEOUT = 1000;
+const VideoPlayer = (props) => {
+  const {poster, videoRef} = props;
 
-class VideoPlayer extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this._videoRef = createRef();
-    this._timeoutPlayHandler = null;
-  }
-
-  componentDidMount() {
-    const {preview} = this.props;
-    const video = this._videoRef.current;
-
-    video.src = preview;
-    video.muted = true;
-  }
-
-  componentWillUnmount() {
-    const video = this._videoRef.current;
-
-    video.src = ``;
-    video.muted = false;
-    clearTimeout(this._timeoutPlayHandler);
-    this._timeoutPlayHandler = null;
-  }
-
-  componentDidUpdate() {
-    const video = this._videoRef.current;
-
-    if (this.props.isPlaying) {
-      this._timeoutPlayHandler = setTimeout(() => video.play(), TIMEOUT);
-    } else {
-      if (this._timeoutPlayHandler) {
-        clearTimeout(this._timeoutPlayHandler);
-        this._timeoutPlayHandler = null;
-      }
-      video.load();
-    }
-  }
-
-  render() {
-    const {poster} = this.props;
-    return (
-      <video
-        className="player__video"
-        ref={this._videoRef}
-        poster={poster.image}
-      />
-    );
-  }
-}
+  return (
+    <video
+      className="player__video"
+      ref={videoRef}
+      poster={poster.image}
+    />
+  );
+};
 
 
 VideoPlayer.propTypes = {
   poster: posterTypes,
-  preview: previewTypes,
-  isPlaying: isPlayingTypes,
+  videoRef: videoRefTypes,
 };
 
-export default VideoPlayer;
+export default withPlayer(VideoPlayer);

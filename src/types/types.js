@@ -139,7 +139,7 @@ export const posterTypes = PropTypes.shape({
 
 export const tabsTypes = PropTypes.object.isRequired;
 
-export const activeTabTypes = PropTypes.string.isRequired;
+export const activeItemTypes = PropTypes.string.isRequired;
 
 export const previewTypes = PropTypes.string.isRequired;
 
@@ -153,8 +153,12 @@ export const onCardClickTypes = PropTypes.func.isRequired;
 
 export const onCardHoverTypes = PropTypes.func.isRequired;
 
-export const onTabClickTypes = PropTypes.func.isRequired;
+export const onItemClickTypes = PropTypes.func.isRequired;
 
 export const onGenreClickTypes = PropTypes.func.isRequired;
 
 export const onShowMoreButtonClickTypes = PropTypes.func.isRequired;
+
+export const onCardMouseEventTypes = PropTypes.func.isRequired;
+
+export const videoRefTypes = PropTypes.object.isRequired;
