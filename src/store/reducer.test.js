@@ -1,4 +1,4 @@
-import {moviesMock, activeGenreMock} from "../mocks/test-data.js";
+import {moviesMock, activeGenreMock, movieMock} from "../mocks/test-data.js";
 import {DEFAULT_GENRE, ActionType} from "../utils/const.js";
 import {getAllGenresList} from "../utils/fn.js";
 import {genreReducer} from "./reducer.js";
@@ -11,6 +11,7 @@ describe(`genreReducer`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
     expect(genreReducer(void 0, {})).toEqual({
       movies,
+      activeMovie: null,
       activeGenre: `All genres`,
       allGenres: getAllGenresList(movies),
       maxCountOfVisibleMovies: 8,
@@ -29,6 +30,17 @@ describe(`genreReducer`, () => {
     })).toEqual({
       activeGenre: `Genre-1`,
       maxCountOfVisibleMovies: 8,
+    });
+  });
+
+  it(`Reducer change activeMovie`, () => {
+    expect(genreReducer({
+      activeMovie: activeGenreMock,
+    }, {
+      type: ActionType.CHANGE_ACTIVE_MOVIE,
+      payload: movieMock,
+    })).toEqual({
+      activeMovie: movieMock,
     });
   });
 

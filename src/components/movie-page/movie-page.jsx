@@ -5,7 +5,7 @@ import MovieOverview from "../movie-overview/movie-overview.jsx";
 import MovieDetails from "../movie-details/movie-details.jsx";
 import MovieReviews from "../movie-reviews/movie-reviews.jsx";
 import MoviesList from "../movies-list/movies-list.jsx";
-import withActiveItem from "../../hocs/with-active-item/with-active-item.jsx";
+import withActiveItem from "../../hocs/with-active-item/with-active-item.js";
 import {TabsName} from "../../utils/const.js";
 
 

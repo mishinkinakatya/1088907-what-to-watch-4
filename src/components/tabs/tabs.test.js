@@ -11,7 +11,7 @@ describe(`Tabs`, () => {
           <Tabs
             tabs={TabsNameMock}
             activeTab={TabsNameMock.OVERVIEW}
-            onTabClick={() => {}}
+            onActiveItemEvent={() => {}}
           />
       )
       .toJSON();
@@ -25,7 +25,7 @@ describe(`Tabs`, () => {
           <Tabs
             tabs={TabsNameMock}
             activeTab={TabsNameMock.DETAILS}
-            onTabClick={() => {}}
+            onActiveItemEvent={() => {}}
           />
       )
       .toJSON();
@@ -39,7 +39,7 @@ describe(`Tabs`, () => {
           <Tabs
             tabs={TabsNameMock}
             activeTab={TabsNameMock.REVIEWS}
-            onTabClick={() => {}}
+            onActiveItemEvent={() => {}}
           />
       )
       .toJSON();

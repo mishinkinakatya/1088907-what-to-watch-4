@@ -14,9 +14,9 @@ const withSmallMovieCard = (Component) => {
       };
     }
 
-    handleMouseEvent(val) {
+    handleMouseEvent(isPlaying) {
       this.setState({
-        isPlaying: val,
+        isPlaying,
       });
     }
 

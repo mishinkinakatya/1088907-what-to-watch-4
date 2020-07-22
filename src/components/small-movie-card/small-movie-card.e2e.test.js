@@ -1,7 +1,7 @@
 import React from "react";
-import Enzyme, {shallow, mount} from "enzyme";
+import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import SmallMovieCard from "./small-movie-card.jsx";
+import {SmallMovieCard} from "./small-movie-card.jsx";
 import {movieMock} from "../../mocks/test-data.js";
 
 
@@ -12,12 +12,14 @@ Enzyme.configure({
 describe(`SmallMovieCardComponent`, () => {
   it(`Should title be pressed`, () => {
     const onTitleClick = jest.fn();
+    const onCardMouseEvent = jest.fn();
 
     const smallMovieCard = mount(
         <SmallMovieCard
           movie={movieMock}
+          isPlaying={true}
           onCardClick={onTitleClick}
-          onCardHover={() => {}}
+          onCardMouseEvent={onCardMouseEvent}
         />
     );
 
@@ -30,12 +32,14 @@ describe(`SmallMovieCardComponent`, () => {
 
   it(`Should card be pressed`, () => {
     const onCardClick = jest.fn();
+    const onCardMouseEvent = jest.fn();
 
     const smallMovieCard = mount(
         <SmallMovieCard
           movie={movieMock}
+          isPlaying={true}
           onCardClick={onCardClick}
-          onCardHover={() => {}}
+          onCardMouseEvent={onCardMouseEvent}
         />
     );
 
@@ -46,45 +50,21 @@ describe(`SmallMovieCardComponent`, () => {
     expect(onCardClick.mock.calls.length).toBe(1);
   });
 
-  it(`Movie gets into the handler on mouseenter`, () => {
-    const onCardHover = jest.fn();
+  // TODO: Проверять, что при клике по карточке передается movie
+  // it(`Movie gets into the handler on onclick`, () => {
+  //   const onCardClick = jest.fn();
 
-    const smallMovieCard = shallow(
-        <SmallMovieCard
-          movie={movieMock}
-          onCardClick={() => {}}
-          onCardHover={onCardHover}
-        />
-    );
+  //   const smallMovieCard = shallow(
+  //       <SmallMovieCard
+  //         movie={movieMock}
+  //         onCardClick={onCardClick}
+  //       />
+  //   );
 
-    const card = smallMovieCard.find(`.small-movie-card`);
+  //   const card = smallMovieCard.find(`.small-movie-card`);
 
-    card.simulate(`mouseenter`, movieMock);
+  //   card.simulate(`click`);
 
-    expect(onCardHover.mock.calls.length).toBe(1);
-  });
-
-  it(`Should videoplayer be in state play and pause`, () => {
-    const onCardHover = jest.fn();
-
-    const smallMovieCard = shallow(
-        <SmallMovieCard
-          movie={movieMock}
-          onCardClick={() => {}}
-          onCardHover={onCardHover}
-        />
-    );
-
-    const card = smallMovieCard.find(`.small-movie-card`);
-
-    card.simulate(`mouseenter`);
-
-    expect(onCardHover.mock.calls.length).toBe(1);
-    expect(smallMovieCard.state().isPlaying).toBe(true);
-
-    card.simulate(`mouseleave`);
-
-    expect(onCardHover.mock.calls.length).toBe(2);
-    expect(smallMovieCard.state().isPlaying).toBe(false);
-  });
+  //   expect(onCardClick.mock.calls.length).toBe(1);
+  // });
 });

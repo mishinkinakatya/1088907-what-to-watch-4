@@ -1,3 +1,5 @@
+import {createRef} from "react";
+
 export const movieMock = {
   id: 1,
   title: `Movie_title-1`,
@@ -413,4 +415,9 @@ export const countMoviesOfActiveGenreMock = moviesMock.length;
 
 export const countOfVisibleMoviesOnMainPageMock = 8;
 
+export const posterMock = {
+  image: `Movie_image-1`,
+  title: `Movie_title-1`,
+};
 
+export const videoRefMock = createRef();
