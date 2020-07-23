@@ -1,4 +1,4 @@
-import React from "React";
+import React from "react";
 import renderer from "react-test-renderer";
 import withActiveItem from "./with-active-item.js";
 import {movieMock} from "../../mocks/test-data.js";

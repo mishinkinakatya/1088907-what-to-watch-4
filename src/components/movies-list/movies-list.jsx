@@ -1,12 +1,14 @@
 import React from "react";
-import {moviesTypes, onCardClickTypes, countMoviesOnMainPageTypes} from "../../types/types.js";
+import {moviesTypes, onCardClickTypes, countMoviesOnMainPageTypes, activeGenreTypes} from "../../types/types.js";
+import {ActionCreator} from "../../store/actions.js";
+import {connect} from "react-redux";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
+import {getMoviesListOfActiveGenre} from "../../utils/fn.js";
 
 
 const MoviesList = (props) => {
-  const {movies, maxCountOfVisibleMovies, onCardClick} = props;
-
-  const visibleMovies = movies.slice(0, maxCountOfVisibleMovies);
+  const {movies, activeGenre, maxCountOfVisibleMovies, onCardClick} = props;
+  const visibleMovies = getMoviesListOfActiveGenre(movies, activeGenre).slice(0, maxCountOfVisibleMovies);
 
   return (
     <div className="catalog__movies-list">
@@ -26,9 +28,25 @@ const MoviesList = (props) => {
 
 MoviesList.propTypes = {
   movies: moviesTypes,
+  activeGenre: activeGenreTypes,
   maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
   onCardClick: onCardClickTypes,
 };
 
 
-export default MoviesList;
+const mapStateToProps = (state) => {
+  return {
+    movies: state.movies,
+    activeGenre: state.activeGenre,
+    maxCountOfVisibleMovies: state.maxCountOfVisibleMovies,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  onCardClick(activeMovie) {
+    dispatch(ActionCreator.actionChangeActiveMovie(activeMovie));
+  }
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);

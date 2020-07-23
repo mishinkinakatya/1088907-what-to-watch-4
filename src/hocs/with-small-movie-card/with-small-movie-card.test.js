@@ -1,4 +1,4 @@
-import React from "React";
+import React from "react";
 import renderer from "react-test-renderer";
 import withSmallMovieCard from "./with-small-movie-card.js";
 import {movieMock} from "../../mocks/test-data.js";
