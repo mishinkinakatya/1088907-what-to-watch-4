@@ -1,14 +1,14 @@
 import React from "react";
+import {connect} from "react-redux";
 import {movieTypes, reviewsTypes, onCardClickTypes, activeItemTypes, onItemClickTypes} from "../../types/types.js";
 import Tabs from "../tabs/tabs.jsx";
 import MovieOverview from "../movie-overview/movie-overview.jsx";
 import MovieDetails from "../movie-details/movie-details.jsx";
 import MovieReviews from "../movie-reviews/movie-reviews.jsx";
-import MoviesList from "../movies-list/movies-list.jsx";
+import SimilarMoviesList from "../similar-movies-list/similar-movies-list.jsx";
 import withActiveItem from "../../hocs/with-active-item/with-active-item.js";
 import {TabsName} from "../../utils/const.js";
 import {ActionCreator} from "../../store/actions.js";
-import {connect} from "react-redux";
 
 
 const renderTabContent = (movie, reviews, activeItem) => {
@@ -97,7 +97,7 @@ const MoviePage = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          {/* <MoviesList /> */}
+          <SimilarMoviesList />
         </section>
 
         <footer className="page-footer">
