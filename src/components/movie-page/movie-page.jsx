@@ -1,29 +1,13 @@
 import React from "react";
 import {connect} from "react-redux";
-import {movieTypes, reviewsTypes, onCardClickTypes, activeItemTypes, onItemClickTypes} from "../../types/types.js";
+import {movieTypes} from "../../types/types.js";
 import Tabs from "../tabs/tabs.jsx";
-import MovieOverview from "../movie-overview/movie-overview.jsx";
-import MovieDetails from "../movie-details/movie-details.jsx";
-import MovieReviews from "../movie-reviews/movie-reviews.jsx";
 import SimilarMoviesList from "../similar-movies-list/similar-movies-list.jsx";
-import withActiveItem from "../../hocs/with-active-item/with-active-item.js";
-import {TabsName} from "../../utils/const.js";
 import {ActionCreator} from "../../store/actions.js";
 
 
-const renderTabContent = (movie, reviews, activeItem) => {
-  switch (activeItem) {
-    case TabsName.DETAILS:
-      return <MovieDetails movie={movie} />;
-    case TabsName.REVIEWS:
-      return <MovieReviews reviews={reviews} />;
-    default:
-      return <MovieOverview movie={movie} />;
-  }
-};
-
 const MoviePage = (props) => {
-  const {activeMovie, reviews, activeItem, onActiveItemEvent} = props;
+  const {activeMovie} = props;
 
   return (
     <React.Fragment>
@@ -85,9 +69,7 @@ const MoviePage = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <Tabs tabs={TabsName} activeTab={activeItem || TabsName.OVERVIEW} onActiveItemEvent={onActiveItemEvent} />
-              {renderTabContent(activeMovie, reviews, activeItem || TabsName.OVERVIEW)}
-
+              <Tabs />
             </div>
           </div>
         </div>
@@ -121,24 +103,12 @@ const MoviePage = (props) => {
 
 MoviePage.propTypes = {
   activeMovie: movieTypes,
-  reviews: reviewsTypes,
-  onCardClick: onCardClickTypes,
-  activeItem: activeItemTypes,
-  onActiveItemEvent: onItemClickTypes,
 };
 
 
 const mapStateToProps = (state) => {
-  const currentMovie = state.activeMovie || state.promoMovie;
-  const moviesReviews = state.activeMovie ? state.reviews : state.promoMovieReviews;
-  const currentMovieReviews = moviesReviews.map((review) => review.movieId === currentMovie.id ? review : null).filter((review) => review !== null);
   return {
-    movies: state.movies,
-    activeMovie: currentMovie,
-    activeGenre: state.activeGenre,
-    promoMovie: state.promoMovie,
-    promoMovieReviews: state.promoMovieReviews,
-    reviews: currentMovieReviews,
+    activeMovie: state.activeMovie || state.promoMovie,
   };
 };
 
@@ -149,4 +119,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
-export default withActiveItem(connect(mapStateToProps, mapDispatchToProps)(MoviePage));
+export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);
