@@ -48,5 +48,5 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-
+export {MoviesList};
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);

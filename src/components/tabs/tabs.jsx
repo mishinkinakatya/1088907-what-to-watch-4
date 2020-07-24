@@ -76,4 +76,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
+export {Tabs};
 export default withActiveItem(connect(mapStateToProps, mapDispatchToProps)(Tabs));

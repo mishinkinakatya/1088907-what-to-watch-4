@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Tabs from "./tabs.jsx";
-import {TabsNameMock} from "../../mocks/test-data.js";
+import {Tabs} from "./tabs.jsx";
+import {TabsNameMock, movieMock, reviewsMock} from "../../mocks/test-data.js";
 
 
 describe(`Tabs`, () => {
@@ -9,8 +9,9 @@ describe(`Tabs`, () => {
     const tree = renderer
       .create(
           <Tabs
-            tabs={TabsNameMock}
-            activeTab={TabsNameMock.OVERVIEW}
+            activeMovie={movieMock}
+            reviews={reviewsMock}
+            activeItem={TabsNameMock.OVERVIEW}
             onActiveItemEvent={() => {}}
           />
       )
@@ -23,8 +24,9 @@ describe(`Tabs`, () => {
     const tree = renderer
       .create(
           <Tabs
-            tabs={TabsNameMock}
-            activeTab={TabsNameMock.DETAILS}
+            activeMovie={movieMock}
+            reviews={reviewsMock}
+            activeItem={TabsNameMock.DETAILS}
             onActiveItemEvent={() => {}}
           />
       )
@@ -37,8 +39,9 @@ describe(`Tabs`, () => {
     const tree = renderer
       .create(
           <Tabs
-            tabs={TabsNameMock}
-            activeTab={TabsNameMock.REVIEWS}
+            activeMovie={movieMock}
+            reviews={reviewsMock}
+            activeItem={TabsNameMock.REVIEWS}
             onActiveItemEvent={() => {}}
           />
       )

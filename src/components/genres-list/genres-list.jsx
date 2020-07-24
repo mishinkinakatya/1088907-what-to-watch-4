@@ -45,4 +45,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export {GenresList};
 export default connect(mapStateToProps, mapDispatchToProps)(GenresList);

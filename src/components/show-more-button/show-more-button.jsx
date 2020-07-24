@@ -40,4 +40,6 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
+
+export {ShowMoreButton};
 export default connect(mapStateToProps, mapDispatchToProps)(ShowMoreButton);

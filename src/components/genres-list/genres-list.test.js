@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import GenresList from "./genres-list.jsx";
+import {GenresList} from "./genres-list.jsx";
 import {allGenresMock} from "../../mocks/test-data.js";
 
 
@@ -13,8 +13,11 @@ describe(`GenresList`, () => {
               allGenres={allGenresMock}
               activeGenre={genre}
               onGenreClick={() => {}}
-            />
-        )
+            />, {
+              createNodeMock: () => {
+                return {};
+              }
+            })
         .toJSON();
       expect(tree).toMatchSnapshot();
     });

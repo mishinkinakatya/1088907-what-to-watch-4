@@ -52,4 +52,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
+export {SimilarMoviesList};
 export default connect(mapStateToProps, mapDispatchToProps)(SimilarMoviesList);

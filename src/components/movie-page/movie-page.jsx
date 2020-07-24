@@ -119,4 +119,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
+export {MoviePage};
 export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);

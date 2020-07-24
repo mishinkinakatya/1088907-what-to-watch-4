@@ -1,133 +1,614 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs Render Tabs Details 1`] = `
-<nav
-  className="movie-nav movie-card__nav"
->
-  <ul
-    className="movie-nav__list"
+Array [
+  <nav
+    className="movie-nav movie-card__nav"
   >
-    <li
-      className="movie-nav__item "
+    <ul
+      className="movie-nav__list"
     >
-      <a
-        className="movie-nav__link"
-        href="#"
-        onClick={[Function]}
+      <li
+        className="movie-nav__item "
       >
-        Overview
-      </a>
-    </li>
-    <li
-      className="movie-nav__item movie-nav__item--active"
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        className="movie-nav__item movie-nav__item--active"
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Details
+        </a>
+      </li>
+      <li
+        className="movie-nav__item "
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>,
+  <div
+    className="movie-card__text movie-card__row"
+  >
+    <div
+      className="movie-card__text-col"
     >
-      <a
-        className="movie-nav__link"
-        href="#"
-        onClick={[Function]}
+      <p
+        className="movie-card__details-item"
       >
-        Details
-      </a>
-    </li>
-    <li
-      className="movie-nav__item "
+        <strong
+          className="movie-card__details-name"
+        >
+          Director
+        </strong>
+        <span
+          className="movie-card__details-value"
+        >
+          Director of Movie_title-1.
+        </span>
+      </p>
+      <p
+        className="movie-card__details-item"
+      >
+        <strong
+          className="movie-card__details-name"
+        >
+          Starring
+        </strong>
+        <span
+          className="movie-card__details-value"
+        >
+          Starring-1
+Starring-2
+Starring-3
+Starring-4
+Starring-5
+        </span>
+      </p>
+    </div>
+    <div
+      className="movie-card__text-col"
     >
-      <a
-        className="movie-nav__link"
-        href="#"
-        onClick={[Function]}
+      <p
+        className="movie-card__details-item"
       >
-        Reviews
-      </a>
-    </li>
-  </ul>
-</nav>
+        <strong
+          className="movie-card__details-name"
+        >
+          Run Time
+        </strong>
+        <span
+          className="movie-card__details-value"
+        >
+          1h 51m
+        </span>
+      </p>
+      <p
+        className="movie-card__details-item"
+      >
+        <strong
+          className="movie-card__details-name"
+        >
+          Genre
+        </strong>
+        <span
+          className="movie-card__details-value"
+        >
+          Genre
+        </span>
+      </p>
+      <p
+        className="movie-card__details-item"
+      >
+        <strong
+          className="movie-card__details-name"
+        >
+          Released
+        </strong>
+        <span
+          className="movie-card__details-value"
+        >
+          1111
+        </span>
+      </p>
+    </div>
+  </div>,
+]
 `;
 
 exports[`Tabs Render Tabs Overview 1`] = `
-<nav
-  className="movie-nav movie-card__nav"
->
-  <ul
-    className="movie-nav__list"
+Array [
+  <nav
+    className="movie-nav movie-card__nav"
   >
-    <li
-      className="movie-nav__item movie-nav__item--active"
+    <ul
+      className="movie-nav__list"
     >
-      <a
-        className="movie-nav__link"
-        href="#"
-        onClick={[Function]}
+      <li
+        className="movie-nav__item movie-nav__item--active"
       >
-        Overview
-      </a>
-    </li>
-    <li
-      className="movie-nav__item "
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        className="movie-nav__item "
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Details
+        </a>
+      </li>
+      <li
+        className="movie-nav__item "
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>,
+  <div
+    className="movie-rating"
+  >
+    <div
+      className="movie-rating__score"
     >
-      <a
-        className="movie-nav__link"
-        href="#"
-        onClick={[Function]}
-      >
-        Details
-      </a>
-    </li>
-    <li
-      className="movie-nav__item "
+      1.1
+    </div>
+    <p
+      className="movie-rating__meta"
     >
-      <a
-        className="movie-nav__link"
-        href="#"
-        onClick={[Function]}
+      <span
+        className="movie-rating__level"
       >
-        Reviews
-      </a>
-    </li>
-  </ul>
-</nav>
+        Bad
+      </span>
+      <span
+        className="movie-rating__count"
+      >
+        111
+         ratings
+      </span>
+    </p>
+  </div>,
+  <div
+    className="movie-card__text"
+  >
+    <p>
+      Description of Movie_title-1.
+    </p>
+    <p
+      className="movie-card__director"
+    >
+      <strong>
+        Director: 
+        Director of Movie_title-1.
+      </strong>
+    </p>
+    <p
+      className="movie-card__starring"
+    >
+      <strong>
+        Starring: 
+        Starring-1, Starring-2, Starring-3, Starring-4 and other
+      </strong>
+    </p>
+  </div>,
+]
 `;
 
 exports[`Tabs Render Tabs Reviews 1`] = `
-<nav
-  className="movie-nav movie-card__nav"
->
-  <ul
-    className="movie-nav__list"
+Array [
+  <nav
+    className="movie-nav movie-card__nav"
   >
-    <li
-      className="movie-nav__item "
+    <ul
+      className="movie-nav__list"
     >
-      <a
-        className="movie-nav__link"
-        href="#"
-        onClick={[Function]}
+      <li
+        className="movie-nav__item "
       >
-        Overview
-      </a>
-    </li>
-    <li
-      className="movie-nav__item "
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        className="movie-nav__item "
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Details
+        </a>
+      </li>
+      <li
+        className="movie-nav__item movie-nav__item--active"
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>,
+  <div
+    className="movie-card__reviews movie-card__row"
+  >
+    <div
+      className="movie-card__reviews-col"
     >
-      <a
-        className="movie-nav__link"
-        href="#"
-        onClick={[Function]}
+      <div
+        className="review"
       >
-        Details
-      </a>
-    </li>
-    <li
-      className="movie-nav__item movie-nav__item--active"
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            Comment Author-1 to Movie-11.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Reviewer-1
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2011-01-01"
+            >
+              January 01, 2011
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          1
+        </div>
+      </div>
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            Comment Author-2 to Movie-11.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Reviewer-2
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2012-02-02"
+            >
+              February 02, 2012
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          2
+        </div>
+      </div>
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            Comment Author-3 to Movie-11.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Reviewer-3
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2013-03-03"
+            >
+              March 03, 2013
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          3
+        </div>
+      </div>
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            Comment Author-4 to Movie-11.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Reviewer-4
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2014-04-04"
+            >
+              April 04, 2014
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          5
+        </div>
+      </div>
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            Comment Author-1 to Movie-22.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Reviewer-1
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2015-05-05"
+            >
+              May 05, 2015
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          1
+        </div>
+      </div>
+    </div>
+    <div
+      className="movie-card__reviews-col"
     >
-      <a
-        className="movie-nav__link"
-        href="#"
-        onClick={[Function]}
+      <div
+        className="review"
       >
-        Reviews
-      </a>
-    </li>
-  </ul>
-</nav>
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            Comment Author-2 to Movie-22.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Reviewer-2
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2016-06-06"
+            >
+              June 06, 2016
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          2
+        </div>
+      </div>
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            Comment Author-3 to Movie-22.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Reviewer-3
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2017-07-07"
+            >
+              July 07, 2017
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          3
+        </div>
+      </div>
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            Comment Author-4 to Movie-22.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Reviewer-4
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2018-08-08"
+            >
+              August 08, 2018
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          4
+        </div>
+      </div>
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            Comment Author-5 to Movie-22.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Reviewer-5
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2019-09-09"
+            >
+              September 09, 2019
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          5
+        </div>
+      </div>
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            Comment Author-3 to Movie-33.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Reviewer-3
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2020-10-10"
+            >
+              October 10, 2020
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          3
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;

@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux";
 import {promoMovieTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
@@ -99,4 +100,12 @@ MainPage.propTypes = {
   promoMovie: promoMovieTypes,
 };
 
-export default MainPage;
+
+const mapStateToProps = (state) => {
+  return {
+    promoMovie: state.promoMovie,
+  };
+};
+
+export {MainPage};
+export default connect(mapStateToProps)(MainPage);
