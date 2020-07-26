@@ -1,18 +1,19 @@
 import React from "react";
-import {moviesTypes, onCardClickTypes, countMoviesOnMainPageTypes, activeGenreTypes} from "../../types/types.js";
+import {moviesTypes, onCardClickTypes, countMoviesOnMainPageTypes, activeGenreTypes, movieTypes} from "../../types/types.js";
 import {ActionCreator} from "../../store/actions.js";
 import {connect} from "react-redux";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
-import {getMoviesListOfActiveGenre} from "../../utils/fn.js";
 
 
-const MoviesList = (props) => {
-  const {movies, activeGenre, maxCountOfVisibleMovies, onCardClick} = props;
-  const visibleMovies = getMoviesListOfActiveGenre(movies, activeGenre).slice(0, maxCountOfVisibleMovies);
+const COUNT_VISIBLE_SIMILAR_MOVIES = 4;
+
+const SimilarMoviesList = (props) => {
+  const {movies, activeMovie, onCardClick} = props;
+  const similarMovies = movies.filter((movie) => movie.genre === activeMovie.genre && movie.id !== activeMovie.id).slice(0, COUNT_VISIBLE_SIMILAR_MOVIES);
 
   return (
     <div className="catalog__movies-list">
-      {visibleMovies.map((it, i) => {
+      {similarMovies.map((it, i) => {
         return (
           <SmallMovieCard
             key={it.title + i}
@@ -26,7 +27,8 @@ const MoviesList = (props) => {
 };
 
 
-MoviesList.propTypes = {
+SimilarMoviesList.propTypes = {
+  activeMovie: movieTypes,
   movies: moviesTypes,
   activeGenre: activeGenreTypes,
   maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
@@ -37,6 +39,7 @@ MoviesList.propTypes = {
 const mapStateToProps = (state) => {
   return {
     movies: state.movies,
+    activeMovie: state.activeMovie || state.promoMovie,
     activeGenre: state.activeGenre,
     maxCountOfVisibleMovies: state.maxCountOfVisibleMovies,
   };
@@ -48,5 +51,6 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-export {MoviesList};
-export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
+
+export {SimilarMoviesList};
+export default connect(mapStateToProps, mapDispatchToProps)(SimilarMoviesList);

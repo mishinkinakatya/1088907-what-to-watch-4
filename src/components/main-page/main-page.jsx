@@ -1,12 +1,13 @@
 import React from "react";
-import {promoMovieTypes, moviesTypes, activeGenreTypes, onCardClickTypes, onGenreClickTypes, allGenresTypes, onShowMoreButtonClickTypes, countMoviesOnMainPageTypes} from "../../types/types.js";
+import {connect} from "react-redux";
+import {promoMovieTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
 import ShowMoreButton from "../show-more-button/show-more-button.jsx";
 
 
 const MainPage = (props) => {
-  const {promoMovie, movies, activeGenre, allGenres, countMoviesOfActiveGenre, maxCountOfVisibleMovies, onCardClick, onGenreClick, onShowMoreButtonClick} = props;
+  const {promoMovie} = props;
 
   return (
     <React.Fragment>
@@ -69,11 +70,11 @@ const MainPage = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList allGenres={allGenres} activeGenre={activeGenre} onGenreClick={onGenreClick} />
+          <GenresList />
 
-          <MoviesList movies={movies} maxCountOfVisibleMovies={maxCountOfVisibleMovies} onCardClick={onCardClick} />
+          <MoviesList />
 
-          <ShowMoreButton maxCountOfVisibleMovies={maxCountOfVisibleMovies} countMoviesOfActiveGenre={countMoviesOfActiveGenre} onShowMoreButtonClick={onShowMoreButtonClick}/>
+          <ShowMoreButton />
         </section>
 
         <footer className="page-footer">
@@ -97,15 +98,14 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   promoMovie: promoMovieTypes,
-  movies: moviesTypes,
-  activeGenre: activeGenreTypes,
-  onCardClick: onCardClickTypes,
-  onGenreClick: onGenreClickTypes,
-  onShowMoreButtonClick: onShowMoreButtonClickTypes,
-  allGenres: allGenresTypes,
-  countMoviesOfActiveGenre: countMoviesOnMainPageTypes,
-  maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
-
 };
 
-export default MainPage;
+
+const mapStateToProps = (state) => {
+  return {
+    promoMovie: state.promoMovie,
+  };
+};
+
+export {MainPage};
+export default connect(mapStateToProps)(MainPage);

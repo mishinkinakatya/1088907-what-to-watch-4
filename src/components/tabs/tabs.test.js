@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Tabs from "./tabs.jsx";
-import {TabsNameMock} from "../../mocks/test-data.js";
+import {Tabs} from "./tabs.jsx";
+import {TabsNameMock, movieMock, reviewsMock} from "../../mocks/test-data.js";
 
 
 describe(`Tabs`, () => {
@@ -9,9 +9,10 @@ describe(`Tabs`, () => {
     const tree = renderer
       .create(
           <Tabs
-            tabs={TabsNameMock}
-            activeTab={TabsNameMock.OVERVIEW}
-            onTabClick={() => {}}
+            activeMovie={movieMock}
+            reviews={reviewsMock}
+            activeItem={TabsNameMock.OVERVIEW}
+            onActiveItemEvent={() => {}}
           />
       )
       .toJSON();
@@ -23,9 +24,10 @@ describe(`Tabs`, () => {
     const tree = renderer
       .create(
           <Tabs
-            tabs={TabsNameMock}
-            activeTab={TabsNameMock.DETAILS}
-            onTabClick={() => {}}
+            activeMovie={movieMock}
+            reviews={reviewsMock}
+            activeItem={TabsNameMock.DETAILS}
+            onActiveItemEvent={() => {}}
           />
       )
       .toJSON();
@@ -37,9 +39,10 @@ describe(`Tabs`, () => {
     const tree = renderer
       .create(
           <Tabs
-            tabs={TabsNameMock}
-            activeTab={TabsNameMock.REVIEWS}
-            onTabClick={() => {}}
+            activeMovie={movieMock}
+            reviews={reviewsMock}
+            activeItem={TabsNameMock.REVIEWS}
+            onActiveItemEvent={() => {}}
           />
       )
       .toJSON();

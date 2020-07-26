@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SimilarMoviesList Render SimilarMoviesList 1`] = `
+<div
+  className="catalog__movies-list"
+/>
+`;
