@@ -1,13 +1,13 @@
 import React from "react";
 import {connect} from "react-redux";
-import {movieTypes} from "../../types/types.js";
+import {movieTypes, onPlayButtonClickTypes} from "../../types/types.js";
 import Tabs from "../tabs/tabs.jsx";
 import SimilarMoviesList from "../similar-movies-list/similar-movies-list.jsx";
 import {ActionCreator} from "../../store/actions.js";
 
 
 const MoviePage = (props) => {
-  const {activeMovie} = props;
+  const {activeMovie, onPlayButtonClick} = props;
 
   return (
     <React.Fragment>
@@ -44,7 +44,7 @@ const MoviePage = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <button className="btn btn--play movie-card__button" type="button" onClick={onPlayButtonClick}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
@@ -103,6 +103,7 @@ const MoviePage = (props) => {
 
 MoviePage.propTypes = {
   activeMovie: movieTypes,
+  onPlayButtonClick: onPlayButtonClickTypes,
 };
 
 
@@ -115,6 +116,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   onCardClick(activeMovie) {
     dispatch(ActionCreator.actionChangeActiveMovie(activeMovie));
+  },
+  onPlayButtonClick() {
+    dispatch(ActionCreator.actionOpenVideoPlayerPage());
   },
 });
 

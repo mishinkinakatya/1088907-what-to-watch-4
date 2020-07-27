@@ -175,6 +175,8 @@ export const countMoviesOnMainPageTypes = PropTypes.number;
 
 export const isPlayingTypes = PropTypes.bool.isRequired;
 
+export const isVideoPlayerPageOpenTypes = PropTypes.bool.isRequired;
+
 export const onCardClickTypes = PropTypes.func.isRequired;
 
 export const onCardHoverTypes = PropTypes.func.isRequired;
@@ -187,4 +189,22 @@ export const onShowMoreButtonClickTypes = PropTypes.func.isRequired;
 
 export const onCardMouseEventTypes = PropTypes.func.isRequired;
 
+export const onPlayButtonClickTypes = PropTypes.func.isRequired;
+
+export const onExitButtonClickTypes = PropTypes.func.isRequired;
+
+export const onFullScreenButtonClickTypes = PropTypes.func.isRequired;
+
+export const onPlayPauseButtonClickTypes = PropTypes.func.isRequired;
+
+export const renderVideoPlayerTypes = PropTypes.func.isRequired;
+
 export const videoRefTypes = PropTypes.object.isRequired;
+
+export const currentTimeValueTypes = PropTypes.number.isRequired;
+
+export const runTimeTypes = PropTypes.number.isRequired;
+
+export const playerTimeValueTypes = PropTypes.string.isRequired;
+
+export const togglerValueInPercentsTypes = PropTypes.string.isRequired;

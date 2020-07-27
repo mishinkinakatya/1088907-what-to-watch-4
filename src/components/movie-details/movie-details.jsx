@@ -1,22 +1,19 @@
 import React from "react";
 import {movieTypes} from "../../types/types.js";
+import {calculateDurationInHMS} from "../../utils/fn.js";
 
 
 const getPointDurationInHM = (time) => {
-  const MIN_IN_HOUR = 60;
+  const duration = calculateDurationInHMS(time);
 
-  const hourCount = Math.trunc(time / MIN_IN_HOUR);
-  time -= hourCount * MIN_IN_HOUR;
-  const minutesCount = time;
-
-  if (hourCount > 0) {
-    if (minutesCount !== 0) {
-      return `${hourCount}h ${minutesCount}m`;
+  if (duration.hours > 0) {
+    if (duration.minutes !== `00`) {
+      return `${duration.hours}h ${duration.minutes}m`;
     } else {
-      return `${hourCount}h`;
+      return `${duration.hours}h`;
     }
   } else {
-    return `${minutesCount}m`;
+    return `${duration.minutes}m`;
   }
 };
 

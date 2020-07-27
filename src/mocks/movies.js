@@ -4,7 +4,7 @@ export const movies = [
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
     genre: `Documentary`,
     year: 2011,
-    runTimeInMin: 90,
+    runTimeInMin: 90 * 60,
     poster: {
       image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
       title: `Fantastic Beasts: The Crimes of Grindelwald`,
@@ -27,7 +27,7 @@ export const movies = [
     title: `Bohemian Rhapsody`,
     genre: `Documentary`,
     year: 2012,
-    runTimeInMin: 120,
+    runTimeInMin: 120 * 60,
     poster: {
       image: `img/bohemian-rhapsody.jpg`,
       title: `Bohemian Rhapsody`,
@@ -50,7 +50,7 @@ export const movies = [
     title: `Macbeth`,
     genre: `Documentary`,
     year: 2013,
-    runTimeInMin: 165,
+    runTimeInMin: 165 * 60,
     poster: {
       image: `img/macbeth.jpg`,
       title: `Macbeth`,
@@ -73,7 +73,7 @@ export const movies = [
     title: `Aviator`,
     genre: `Documentary`,
     year: 2014,
-    runTimeInMin: 58,
+    runTimeInMin: 58 * 60,
     poster: {
       image: `img/aviator.jpg`,
       title: `Aviator`,
@@ -96,7 +96,7 @@ export const movies = [
     title: `We need to talk about Kevin`,
     genre: `Documentary`,
     year: 2015,
-    runTimeInMin: 143,
+    runTimeInMin: 143 * 60,
     poster: {
       image: `img/we-need-to-talk-about-kevin.jpg`,
       title: `We need to talk about Kevin`,
@@ -119,7 +119,7 @@ export const movies = [
     title: `What We Do in the Shadows`,
     genre: `Sci-Fi`,
     year: 2016,
-    runTimeInMin: 202,
+    runTimeInMin: 202 * 60,
     poster: {
       image: `img/what-we-do-in-the-shadows.jpg`,
       title: `What We Do in the Shadows`,
@@ -142,7 +142,7 @@ export const movies = [
     title: `Revenant`,
     genre: `THrillers`,
     year: 2017,
-    runTimeInMin: 99,
+    runTimeInMin: 99 * 60,
     poster: {
       image: `img/revenant.jpg`,
       title: `Revenant`,
@@ -165,7 +165,7 @@ export const movies = [
     title: `Johnny English`,
     genre: `Comedies`,
     year: 2018,
-    runTimeInMin: 174,
+    runTimeInMin: 174 * 60,
     poster: {
       image: `img/johnny-english.jpg`,
       title: `Johnny English`,
@@ -188,7 +188,7 @@ export const movies = [
     title: `Orlando`,
     genre: `Fantasy`,
     year: 2019,
-    runTimeInMin: 115,
+    runTimeInMin: 115 * 60,
     poster: {
       image: `img/orlando.jpg`,
       title: `Orlando`,
