@@ -77,7 +77,6 @@ const withPlayerPage = (Component) => {
         onPlayPauseButtonClick={this._handlePlayPauseButtonClick}
         playerTimeValue={playerTimeValue}
         togglerValueInPercents={togglerValueInPercents}
-
       />;
     }
 

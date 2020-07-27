@@ -7,8 +7,8 @@ import {movieMock} from "../../mocks/test-data.js";
 const MockComponent = () => <div />;
 const MockComponentWrapped = withActiveItem(MockComponent);
 
-describe(`MockComponentWrapped`, () => {
-  it(`Render MockComponentWrapped`, () => {
+describe(`withActiveItem MockComponentWrapped`, () => {
+  it(`Render withActiveItem MockComponentWrapped`, () => {
     const tree = renderer
       .create((
         <MockComponentWrapped

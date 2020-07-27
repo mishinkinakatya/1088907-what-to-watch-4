@@ -112,4 +112,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
+export {PlayerPage};
 export default connect(mapStateToProps, mapDispatchToProps)(withPlayerPage(PlayerPage));

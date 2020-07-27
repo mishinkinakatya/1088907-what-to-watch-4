@@ -13,7 +13,7 @@ Enzyme.configure({
 const MockComponent = () => <div />;
 const MockComponentWrapped = withActiveItem(MockComponent);
 
-describe(`MockComponentWrapped`, () => {
+describe(`withActiveItem MockComponentWrapped`, () => {
   it(`The correct screen is displayed in each state`, () => {
 
     const moviePage = shallow(

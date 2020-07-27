@@ -18,7 +18,7 @@ const initialState = {
   isVideoPlayerPageOpen: false,
 };
 
-export const genreReducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_ACTIVE_GENRE:
       return Object.assign({}, state, {
