@@ -5,7 +5,7 @@ export const movieMock = {
   title: `Movie_title-1`,
   genre: `Genre`,
   year: 1111,
-  runTimeInMin: 111,
+  runTimeInSec: 111 * 60,
   poster: {
     image: `Movie_image-1`,
     title: `Movie_title-1`,
@@ -30,7 +30,7 @@ export const moviesMock = [
     title: `Movie_title-1`,
     genre: `Genre-1`,
     year: 1111,
-    runTimeInMin: 111,
+    runTimeInSec: 111 * 60,
     poster: {
       image: `Movie_image-1`,
       title: `Movie_title-1`,
@@ -53,7 +53,7 @@ export const moviesMock = [
     title: `Movie_title-2`,
     genre: `Genre-2`,
     year: 2222,
-    runTimeInMin: 222,
+    runTimeInSec: 222 * 60,
     poster: {
       image: `Movie_image-2`,
       title: `Movie_title-2`,
@@ -76,7 +76,7 @@ export const moviesMock = [
     title: `Movie_title-3`,
     genre: `Genre-1`,
     year: 3333,
-    runTimeInMin: 333,
+    runTimeInSec: 333 * 60,
     poster: {
       image: `Movie_image-3`,
       title: `Movie_title-3`,
@@ -99,7 +99,7 @@ export const moviesMock = [
     title: `Movie_title-4`,
     genre: `Genre-4`,
     year: 4444,
-    runTimeInMin: 444,
+    runTimeInSec: 444 * 60,
     poster: {
       image: `Movie_image-4`,
       title: `Movie_title-4`,
@@ -122,7 +122,7 @@ export const moviesMock = [
     title: `Movie_title-5`,
     genre: `Genre-5`,
     year: 5555,
-    runTimeInMin: 555,
+    runTimeInSec: 555 * 60,
     poster: {
       image: `Movie_image-5`,
       title: `Movie_title-5`,
@@ -145,7 +145,7 @@ export const moviesMock = [
     title: `Movie_title-6`,
     genre: `Genre-6`,
     year: 6666,
-    runTimeInMin: 666,
+    runTimeInSec: 666 * 60,
     poster: {
       image: `Movie_image-6`,
       title: `Movie_title-6`,
@@ -168,7 +168,7 @@ export const moviesMock = [
     title: `Movie_title-7`,
     genre: `Genre-7`,
     year: 7777,
-    runTimeInMin: 777,
+    runTimeInSec: 777 * 60,
     poster: {
       image: `Movie_image-7`,
       title: `Movie_title-7`,
@@ -191,7 +191,7 @@ export const moviesMock = [
     title: `Movie_title-8`,
     genre: `Genre-8`,
     year: 8888,
-    runTimeInMin: 888,
+    runTimeInSec: 888 * 60,
     poster: {
       image: `Movie_image-8`,
       title: `Movie_title-8`,
@@ -214,7 +214,7 @@ export const moviesMock = [
     title: `Movie_title-9`,
     genre: `Genre-9`,
     year: 9999,
-    runTimeInMin: 999,
+    runTimeInSec: 999 * 60,
     poster: {
       image: `Movie_image-9`,
       title: `Movie_title-9`,
@@ -237,7 +237,7 @@ export const moviesMock = [
     title: `Movie_title-10`,
     genre: `Genre-10`,
     year: 1010,
-    runTimeInMin: 101,
+    runTimeInSec: 101 * 60,
     poster: {
       image: `Movie_image-10`,
       title: `Movie_title-10`,
@@ -260,7 +260,7 @@ export const moviesMock = [
     title: `Movie_title-11`,
     genre: `Genre-11`,
     year: 1111,
-    runTimeInMin: 111,
+    runTimeInSec: 111 * 60,
     poster: {
       image: `Movie_image-11`,
       title: `Movie_title-11`,
@@ -358,7 +358,7 @@ export const promoMovieMock = {
   title: `Movie_title`,
   genre: `Genre`,
   year: 5555,
-  runTimeInMin: 55,
+  runTimeInSec: 55 * 60,
   poster: {
     image: `Movie_image`,
     title: `Movie_title`,

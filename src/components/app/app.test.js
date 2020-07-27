@@ -20,6 +20,7 @@ describe(`App`, () => {
       promoMovieReviews: promoMovieReviewsMock,
       reviews: reviewsMock,
       maxCountOfVisibleMovies: countOfVisibleMoviesOnMainPageMock,
+      isVideoPlayerPageOpen: false,
     });
 
     const tree = renderer

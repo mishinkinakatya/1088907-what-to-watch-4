@@ -48,4 +48,5 @@ SmallMovieCard.propTypes = {
   onCardClick: onCardClickTypes,
 };
 
+export {SmallMovieCard};
 export default withSmallMovieCard(SmallMovieCard);

@@ -18,6 +18,7 @@ describe(`genreReducer`, () => {
       promoMovie,
       promoMovieReviews,
       reviews,
+      isVideoPlayerPageOpen: false,
     });
   });
 

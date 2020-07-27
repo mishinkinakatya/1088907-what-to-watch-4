@@ -5,7 +5,7 @@ export const promoMovieTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
-  runTimeInMin: PropTypes.number.isRequired,
+  runTimeInSec: PropTypes.number.isRequired,
   poster: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
@@ -31,7 +31,7 @@ export const movieTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
-  runTimeInMin: PropTypes.number.isRequired,
+  runTimeInSec: PropTypes.number.isRequired,
   poster: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
@@ -57,7 +57,7 @@ export const activeMovieTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
-  runTimeInMin: PropTypes.number.isRequired,
+  runTimeInSec: PropTypes.number.isRequired,
   poster: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
@@ -84,7 +84,7 @@ export const moviesTypes = PropTypes.arrayOf(
       title: PropTypes.string.isRequired,
       genre: PropTypes.string.isRequired,
       year: PropTypes.number.isRequired,
-      runTimeInMin: PropTypes.number.isRequired,
+      runTimeInSec: PropTypes.number.isRequired,
       poster: PropTypes.shape({
         title: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
@@ -112,7 +112,7 @@ export const similarMoviesTypes = PropTypes.arrayOf(
       title: PropTypes.string.isRequired,
       genre: PropTypes.string.isRequired,
       year: PropTypes.number.isRequired,
-      runTimeInMin: PropTypes.number.isRequired,
+      runTimeInSec: PropTypes.number.isRequired,
       poster: PropTypes.shape({
         title: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,

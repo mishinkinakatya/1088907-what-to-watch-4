@@ -22,6 +22,7 @@ describe(`MoviePage`, () => {
           <Provider store={store}>
             <MoviePage
               activeMovie={movieMock}
+              onPlayButtonClick={() => {}}
             />
           </Provider>, {
             createNodeMock: () => {
