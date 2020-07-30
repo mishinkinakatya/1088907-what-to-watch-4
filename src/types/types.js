@@ -24,7 +24,7 @@ export const promoMovieTypes = PropTypes.shape({
       PropTypes.string.isRequired
   ).isRequired,
   preview: PropTypes.string.isRequired,
-}).isRequired;
+});
 
 export const movieTypes = PropTypes.shape({
   id: PropTypes.number.isRequired,

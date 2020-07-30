@@ -5,8 +5,6 @@ import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
 import ShowMoreButton from "../show-more-button/show-more-button.jsx";
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
-import {getPromoMovie} from "../../store/reducer/data/selectors.js";
-
 
 const MainPage = (props) => {
   const {promoMovie, onPlayButtonClick} = props;
@@ -99,16 +97,10 @@ const MainPage = (props) => {
 
 
 MainPage.propTypes = {
-  promoMovie: promoMovieTypes,
+  promoMovie: promoMovieTypes.isRequired,
   onPlayButtonClick: onPlayButtonClickTypes,
 };
 
-
-const mapStateToProps = (state) => {
-  return {
-    promoMovie: getPromoMovie(state),
-  };
-};
 
 const mapDispatchToProps = (dispatch) => ({
   onPlayButtonClick() {
@@ -117,4 +109,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {MainPage};
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default connect(null, mapDispatchToProps)(MainPage);

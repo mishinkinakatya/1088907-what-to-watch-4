@@ -37,7 +37,7 @@ GenresList.propTypes = {
 const mapStateToProps = (state) => {
   return {
     activeGenre: getActiveGenre(state),
-    allGenres: getAllGenres,
+    allGenres: getAllGenres(state),
   };
 };
 

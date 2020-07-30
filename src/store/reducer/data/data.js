@@ -6,7 +6,7 @@ import {createReview} from "../../../adapters/reviews.js";
 
 const initialState = {
   movies: [],
-  promoMovie: {},
+  promoMovie: null,
   reviews: [],
 };
 
@@ -14,7 +14,7 @@ export const Operations = {
   loadMovies: () => (dispatch, getState, api) => {
     return api.get(`/films`)
     .then((response) => {
-      dispatch(ActionCreator.actionLoadMovies(createMovie(response.data)));
+      dispatch(ActionCreator.actionLoadMovies(response.data.map(createMovie)));
     });
   },
   loadReviews: (movieId) => (dispatch, getState, api) => {
