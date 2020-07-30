@@ -1,13 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
-import {promoMovieTypes} from "../../types/types.js";
+import {promoMovieTypes, onPlayButtonClickTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
 import ShowMoreButton from "../show-more-button/show-more-button.jsx";
+import {ActionCreator} from "../../store/actions.js";
 
 
 const MainPage = (props) => {
-  const {promoMovie} = props;
+  const {promoMovie, onPlayButtonClick} = props;
 
   return (
     <React.Fragment>
@@ -48,7 +49,7 @@ const MainPage = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <button className="btn btn--play movie-card__button" type="button" onClick={onPlayButtonClick}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
@@ -98,6 +99,7 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   promoMovie: promoMovieTypes,
+  onPlayButtonClick: onPlayButtonClickTypes,
 };
 
 
@@ -107,5 +109,11 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  onPlayButtonClick() {
+    dispatch(ActionCreator.actionOpenVideoPlayerPage());
+  },
+});
+
 export {MainPage};
-export default connect(mapStateToProps)(MainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

@@ -15,9 +15,10 @@ const initialState = {
   promoMovie,
   promoMovieReviews,
   reviews,
+  isVideoPlayerPageOpen: false,
 };
 
-export const genreReducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_ACTIVE_GENRE:
       return Object.assign({}, state, {
@@ -31,6 +32,14 @@ export const genreReducer = (state = initialState, action) => {
     case ActionType.CHANGE_MAX_COUNT_OF_VISIBLE_MOVIES:
       return Object.assign({}, state, {
         maxCountOfVisibleMovies: state.maxCountOfVisibleMovies + action.payload
+      });
+    case ActionType.OPEN_VIDEO_PLAYER_PAGE:
+      return Object.assign({}, state, {
+        isVideoPlayerPageOpen: action.payload,
+      });
+    case ActionType.CLOSE_VIDEO_PLAYER_PAGE:
+      return Object.assign({}, state, {
+        isVideoPlayerPageOpen: action.payload,
       });
   }
   return state;

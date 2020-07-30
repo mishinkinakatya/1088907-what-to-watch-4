@@ -21,6 +21,7 @@ describe(`MainPage`, () => {
           <Provider store={store}>
             <MainPage
               promoMovie={promoMovieMock}
+              onPlayButtonClick={() => {}}
             />
           </Provider>
           , {

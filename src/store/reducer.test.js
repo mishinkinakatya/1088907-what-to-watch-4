@@ -1,15 +1,15 @@
 import {moviesMock, activeGenreMock, movieMock} from "../mocks/test-data.js";
 import {DEFAULT_GENRE, ActionType} from "../utils/const.js";
 import {getAllGenresList} from "../utils/fn.js";
-import {genreReducer} from "./reducer.js";
+import {reducer} from "./reducer.js";
 import {movies} from "../mocks/movies.js";
 import {reviews} from "../mocks/reviews.js";
 import {promoMovie} from "../mocks/promo-movie.js";
 import {promoMovieReviews} from "../mocks/promo-movie-reviews.js";
 
-describe(`genreReducer`, () => {
+describe(`Reducer`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
-    expect(genreReducer(void 0, {})).toEqual({
+    expect(reducer(void 0, {})).toEqual({
       movies,
       activeMovie: null,
       activeGenre: `All genres`,
@@ -18,11 +18,12 @@ describe(`genreReducer`, () => {
       promoMovie,
       promoMovieReviews,
       reviews,
+      isVideoPlayerPageOpen: false,
     });
   });
 
   it(`Reducer change activeGenre`, () => {
-    expect(genreReducer({
+    expect(reducer({
       activeGenre: activeGenreMock,
     }, {
       type: ActionType.CHANGE_ACTIVE_GENRE,
@@ -34,7 +35,7 @@ describe(`genreReducer`, () => {
   });
 
   it(`Reducer change activeMovie`, () => {
-    expect(genreReducer({
+    expect(reducer({
       activeMovie: activeGenreMock,
     }, {
       type: ActionType.CHANGE_ACTIVE_MOVIE,
@@ -44,8 +45,30 @@ describe(`genreReducer`, () => {
     });
   });
 
+  it(`Reducer change isVideoPlayerPageOpen - close player`, () => {
+    expect(reducer({
+      isVideoPlayerPageOpen: true,
+    }, {
+      type: ActionType.CLOSE_VIDEO_PLAYER_PAGE,
+      payload: false,
+    })).toEqual({
+      isVideoPlayerPageOpen: false,
+    });
+  });
+
+  it(`Reducer change isVideoPlayerPageOpen - open player`, () => {
+    expect(reducer({
+      isVideoPlayerPageOpen: false,
+    }, {
+      type: ActionType.OPEN_VIDEO_PLAYER_PAGE,
+      payload: true,
+    })).toEqual({
+      isVideoPlayerPageOpen: true,
+    });
+  });
+
   it(`Reducer change maxCountOfVisibleMovies by button ShowMore`, () => {
-    expect(genreReducer({
+    expect(reducer({
       maxCountOfVisibleMovies: 8,
     }, {
       type: ActionType.CHANGE_MAX_COUNT_OF_VISIBLE_MOVIES,
@@ -56,7 +79,7 @@ describe(`genreReducer`, () => {
   });
 
   it(`getAllGenresList return not more 10 items, including "All genres"`, () => {
-    expect(genreReducer({
+    expect(reducer({
       activeGenre: DEFAULT_GENRE,
       allGenres: getAllGenresList(moviesMock),
       countMoviesOfActiveGenre: 9,

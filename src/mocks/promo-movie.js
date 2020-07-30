@@ -3,9 +3,9 @@ export const promoMovie = {
   title: `The Grand Budapest Hotel`,
   genre: `Drama`,
   year: 2014,
-  runTimeInMin: 90,
+  runTimeInSec: 90 * 60,
   poster: {
-    image: `img/the-grand-budapest-hotel-poster.jpg`,
+    image: `img/macbeth.jpg`,
     title: `The Grand Budapest Hotel poster`,
   },
   bgPoster: {

@@ -1,28 +1,25 @@
 import React from "react";
 import {movieTypes} from "../../types/types.js";
+import {calculateDurationInHMS} from "../../utils/fn.js";
 
 
 const getPointDurationInHM = (time) => {
-  const MIN_IN_HOUR = 60;
+  const duration = calculateDurationInHMS(time);
 
-  const hourCount = Math.trunc(time / MIN_IN_HOUR);
-  time -= hourCount * MIN_IN_HOUR;
-  const minutesCount = time;
-
-  if (hourCount > 0) {
-    if (minutesCount !== 0) {
-      return `${hourCount}h ${minutesCount}m`;
+  if (duration.hours > 0) {
+    if (duration.minutes !== `00`) {
+      return `${duration.hours}h ${duration.minutes}m`;
     } else {
-      return `${hourCount}h`;
+      return `${duration.hours}h`;
     }
   } else {
-    return `${minutesCount}m`;
+    return `${duration.minutes}m`;
   }
 };
 
 const MovieDetails = (props) => {
   const {movie} = props;
-  const {director, starrings, runTimeInMin, genre, year} = movie;
+  const {director, starrings, runTimeInSec, genre, year} = movie;
 
   return (
     <div className="movie-card__text movie-card__row">
@@ -42,7 +39,7 @@ const MovieDetails = (props) => {
       <div className="movie-card__text-col">
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Run Time</strong>
-          <span className="movie-card__details-value">{getPointDurationInHM(runTimeInMin)}</span>
+          <span className="movie-card__details-value">{getPointDurationInHM(runTimeInSec)}</span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Genre</strong>

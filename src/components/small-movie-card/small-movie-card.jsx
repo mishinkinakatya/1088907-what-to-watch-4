@@ -4,7 +4,7 @@ import VideoPlayer from "../video-player/video-player.jsx";
 import withSmallMovieCard from "../../hocs/with-small-movie-card/with-small-movie-card.js";
 
 
-export const SmallMovieCard = (props) => {
+const SmallMovieCard = (props) => {
   const {movie, isPlaying, onCardMouseEvent, onCardClick} = props;
   return (
     <article className="small-movie-card catalog__movies-card"
@@ -48,4 +48,5 @@ SmallMovieCard.propTypes = {
   onCardClick: onCardClickTypes,
 };
 
+export {SmallMovieCard};
 export default withSmallMovieCard(SmallMovieCard);
