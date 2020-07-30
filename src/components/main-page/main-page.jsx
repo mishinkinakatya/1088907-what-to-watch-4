@@ -4,7 +4,8 @@ import {promoMovieTypes, onPlayButtonClickTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
 import ShowMoreButton from "../show-more-button/show-more-button.jsx";
-import {ActionCreator} from "../../store/actions.js";
+import {ActionCreator} from "../../store/actions/cinema/cinema.js";
+import {getPromoMovie} from "../../store/reducer/data/selectors.js";
 
 
 const MainPage = (props) => {
@@ -105,7 +106,7 @@ MainPage.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    promoMovie: state.promoMovie,
+    promoMovie: getPromoMovie(state),
   };
 };
 

@@ -1,3 +1,14 @@
+export const createReview = (data) => {
+  return {
+    movieId: data.id,
+    author: data.user.name,
+    dateUTC: data.date,
+    ratingScore: data.rating,
+    comment: data.comment,
+  };
+};
+
+
 export const reviews = [
   {
     movieId: 1,

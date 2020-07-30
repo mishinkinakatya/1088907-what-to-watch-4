@@ -1,8 +1,10 @@
 import React from "react";
 import {onShowMoreButtonClickTypes, countMoviesOnMainPageTypes, moviesTypes, activeGenreTypes} from "../../types/types";
-import {ActionCreator} from "../../store/actions.js";
+import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {connect} from "react-redux";
-import {getMoviesListOfActiveGenre} from "../../utils/fn";
+import {getMoviesListOfActiveGenre, getMaxCountOfVisibleMovies} from "../../utils/fn";
+import {getMovies} from "../../store/reducer/data/selectors";
+import {getActiveGenre} from "../../store/reducer/cinema/selectors";
 
 
 const ShowMoreButton = (props) => {
@@ -28,9 +30,9 @@ ShowMoreButton.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movies,
-    activeGenre: state.activeGenre,
-    maxCountOfVisibleMovies: state.maxCountOfVisibleMovies,
+    movies: getMovies(state),
+    activeGenre: getActiveGenre(state),
+    maxCountOfVisibleMovies: getMaxCountOfVisibleMovies(state),
   };
 };
 

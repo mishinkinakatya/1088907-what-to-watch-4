@@ -3,7 +3,9 @@ import {connect} from "react-redux";
 import {movieTypes, onPlayButtonClickTypes} from "../../types/types.js";
 import Tabs from "../tabs/tabs.jsx";
 import SimilarMoviesList from "../similar-movies-list/similar-movies-list.jsx";
-import {ActionCreator} from "../../store/actions.js";
+import {ActionCreator} from "../../store/actions/cinema/cinema.js";
+import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
+import {getPromoMovie} from "../../store/reducer/data/selectors.js";
 
 
 const MoviePage = (props) => {
@@ -109,7 +111,7 @@ MoviePage.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    activeMovie: state.activeMovie || state.promoMovie,
+    activeMovie: getActiveMovie(state) || getPromoMovie(state),
   };
 };
 

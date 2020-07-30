@@ -1,9 +1,11 @@
 import React from "react";
 import {moviesTypes, onCardClickTypes, countMoviesOnMainPageTypes, activeGenreTypes} from "../../types/types.js";
-import {ActionCreator} from "../../store/actions.js";
+import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {connect} from "react-redux";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
 import {getMoviesListOfActiveGenre} from "../../utils/fn.js";
+import {getMovies} from "../../store/reducer/data/selectors.js";
+import {getActiveGenre, getMaxCountOfVisibleMovies} from "../../store/reducer/cinema/selectors.js";
 
 
 const MoviesList = (props) => {
@@ -36,9 +38,9 @@ MoviesList.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movies,
-    activeGenre: state.activeGenre,
-    maxCountOfVisibleMovies: state.maxCountOfVisibleMovies,
+    movies: getMovies(state),
+    activeGenre: getActiveGenre(state),
+    maxCountOfVisibleMovies: getMaxCountOfVisibleMovies(state),
   };
 };
 

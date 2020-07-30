@@ -5,6 +5,7 @@ import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 import PlayerPage from "../player-page/player-page.jsx";
 import {connect} from "react-redux";
+import {getActiveMovie, getIsVideoPlayerPageOpen} from "../../store/reducer/cinema/selectors.js";
 
 
 const App = (props) => {
@@ -46,8 +47,8 @@ App.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    activeMovie: state.activeMovie,
-    isVideoPlayerPageOpen: state.isVideoPlayerPageOpen,
+    activeMovie: getActiveMovie(state),
+    isVideoPlayerPageOpen: getIsVideoPlayerPageOpen(state),
   };
 };
 
