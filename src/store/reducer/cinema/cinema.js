@@ -1,5 +1,4 @@
 import {DEFAULT_GENRE, ActionType, INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE} from "../../../utils/const.js";
-import {getMaxCountOfVisibleMovies} from "../../../utils/fn.js";
 
 
 const initialState = {
@@ -14,7 +13,7 @@ export const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_ACTIVE_GENRE:
       return Object.assign({}, state, {
         activeGenre: action.payload,
-        maxCountOfVisibleMovies: getMaxCountOfVisibleMovies(),
+        maxCountOfVisibleMovies: state.maxCountOfVisibleMovies,
       });
     case ActionType.CHANGE_ACTIVE_MOVIE:
       return Object.assign({}, state, {
@@ -24,11 +23,7 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         maxCountOfVisibleMovies: state.maxCountOfVisibleMovies + action.payload
       });
-    case ActionType.OPEN_VIDEO_PLAYER_PAGE:
-      return Object.assign({}, state, {
-        isVideoPlayerPageOpen: action.payload,
-      });
-    case ActionType.CLOSE_VIDEO_PLAYER_PAGE:
+    case ActionType.CHANGE_STATUS_VIDEO_PLAYER_PAGE:
       return Object.assign({}, state, {
         isVideoPlayerPageOpen: action.payload,
       });

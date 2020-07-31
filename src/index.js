@@ -22,6 +22,7 @@ const store = createStore(
 
 store.dispatch(DataOperations.loadMovies());
 store.dispatch(DataOperations.loadPromoMovie());
+// store.dispatch(DataOperations.loadReviews(0));
 
 ReactDOM.render(
     <Provider store={store}>

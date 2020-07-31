@@ -104,7 +104,7 @@ MainPage.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   onPlayButtonClick() {
-    dispatch(ActionCreator.actionOpenVideoPlayerPage());
+    dispatch(ActionCreator.openVideoPlayerPage());
   },
 });
 

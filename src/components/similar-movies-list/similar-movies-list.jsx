@@ -3,9 +3,9 @@ import {moviesTypes, onCardClickTypes, countMoviesOnMainPageTypes, activeGenreTy
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {connect} from "react-redux";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
-import {getActiveMovie, getActiveGenre} from "../../store/reducer/cinema/selectors.js";
-import {getPromoMovie, getMovies} from "../../store/reducer/data/selectors.js";
-import {getMaxCountOfVisibleMovies} from "../../utils/fn.js";
+import {getActiveMovie, getActiveGenre, getMaxCountOfVisibleMovies} from "../../store/reducer/cinema/selectors.js";
+import {getMovies} from "../../store/reducer/data/selectors.js";
+import {getPromoMovie} from "../../store/reducer/data/selectors.js";
 
 
 const COUNT_VISIBLE_SIMILAR_MOVIES = 4;
@@ -50,7 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   onCardClick(activeMovie) {
-    dispatch(ActionCreator.actionChangeActiveMovie(activeMovie));
+    dispatch(ActionCreator.changeActiveMovie(activeMovie));
   }
 });
 

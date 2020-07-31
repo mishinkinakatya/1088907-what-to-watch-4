@@ -14,19 +14,19 @@ export const Operations = {
   loadMovies: () => (dispatch, getState, api) => {
     return api.get(`/films`)
     .then((response) => {
-      dispatch(ActionCreator.actionLoadMovies(response.data.map(createMovie)));
+      dispatch(ActionCreator.loadMovies(response.data.map(createMovie)));
     });
   },
   loadReviews: (movieId) => (dispatch, getState, api) => {
     return api.get(`/comments/${movieId}`)
     .then((response) => {
-      dispatch(ActionCreator.actionLoadReviews(createReview(response.data)));
+      dispatch(ActionCreator.loadReviews(response.data.map(createReview)));
     });
   },
   loadPromoMovie: () => (dispatch, getState, api) => {
     return api.get(`/films/promo`)
     .then((response) => {
-      dispatch(ActionCreator.actionLoadPromoMovie(createMovie(response.data)));
+      dispatch(ActionCreator.loadPromoMovie(createMovie(response.data)));
     });
   },
 };

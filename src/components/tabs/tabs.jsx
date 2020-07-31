@@ -72,7 +72,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   onCardClick(activeMovie) {
-    dispatch(ActionCreator.actionChangeActiveMovie(activeMovie));
+    dispatch(ActionCreator.changeActiveMovie(activeMovie));
   },
 });
 

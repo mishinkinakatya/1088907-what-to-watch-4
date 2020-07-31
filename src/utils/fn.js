@@ -1,5 +1,4 @@
-import {DEFAULT_GENRE, MINUTES_ON_HOUR, SECONDS_ON_MINUTE, INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE} from "../utils/const.js";
-import {movies} from "../adapters/movies.js";
+import {MINUTES_ON_HOUR, SECONDS_ON_MINUTE} from "../utils/const.js";
 
 
 const castDateTimeFormat = (value) => {
@@ -19,12 +18,4 @@ export const calculateDurationInHMS = (duration) => {
     minutes: castDateTimeFormat(minutesCount),
     seconds: castDateTimeFormat(secondsCount),
   };
-};
-
-export const getMoviesListOfActiveGenre = (allMovies, activeGenre) => {
-  return activeGenre === DEFAULT_GENRE ? allMovies : allMovies.filter((movie) => movie.genre === activeGenre);
-};
-
-export const getMaxCountOfVisibleMovies = () => {
-  return movies.length > INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE ? INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE : movies.length;
 };

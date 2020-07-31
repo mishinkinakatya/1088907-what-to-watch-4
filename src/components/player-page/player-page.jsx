@@ -109,7 +109,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   onExitButtonClick() {
-    dispatch(ActionCreator.actionCloseVideoPlayerPage());
+    dispatch(ActionCreator.closeVideoPlayerPage());
   },
 });
 
