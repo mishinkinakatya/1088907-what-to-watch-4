@@ -1,21 +1,7 @@
 import React from "react";
 import {movieTypes} from "../../types/types.js";
-import {calculateDurationInHMS} from "../../utils/fn.js";
+import {getPointDurationInHM} from "../../utils/fn.js";
 
-
-const getPointDurationInHM = (time) => {
-  const duration = calculateDurationInHMS(time);
-
-  if (duration.hours > 0) {
-    if (duration.minutes !== `00`) {
-      return `${duration.hours}h ${duration.minutes}m`;
-    } else {
-      return `${duration.hours}h`;
-    }
-  } else {
-    return `${duration.minutes}m`;
-  }
-};
 
 const MovieDetails = (props) => {
   const {movie} = props;

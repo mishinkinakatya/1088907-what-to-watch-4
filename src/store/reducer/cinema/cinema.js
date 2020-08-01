@@ -13,7 +13,7 @@ export const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_ACTIVE_GENRE:
       return Object.assign({}, state, {
         activeGenre: action.payload,
-        maxCountOfVisibleMovies: state.maxCountOfVisibleMovies,
+        maxCountOfVisibleMovies: INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE,
       });
     case ActionType.CHANGE_ACTIVE_MOVIE:
       return Object.assign({}, state, {

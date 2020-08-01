@@ -1,7 +1,6 @@
 import {ActionType} from "../../../utils/const.js";
 import {ActionCreator} from "../../actions/data/data.js";
-import {createMovie} from "../../../adapters/movies.js";
-import {createReview} from "../../../adapters/reviews.js";
+import {createMovie, createReview} from "../../../adapters/adapters.js";
 
 
 const initialState = {

@@ -1,5 +1,6 @@
 import {MINUTES_ON_HOUR, SECONDS_ON_MINUTE} from "../utils/const.js";
 
+const MONTHS_NAME = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
 
 const castDateTimeFormat = (value) => {
   return value < 10 ? `0${value}` : String(value);
@@ -18,4 +19,38 @@ export const calculateDurationInHMS = (duration) => {
     minutes: castDateTimeFormat(minutesCount),
     seconds: castDateTimeFormat(secondsCount),
   };
+};
+
+export const getPointDurationInHM = (time) => {
+  const duration = calculateDurationInHMS(time);
+
+  if (duration.hours > 0) {
+    if (duration.minutes !== `00`) {
+      return `${duration.hours}h ${duration.minutes}m`;
+    } else {
+      return `${duration.hours}h`;
+    }
+  } else {
+    return `${duration.minutes}m`;
+  }
+};
+
+const calculateDateMonthYear = (dateInUTC) => {
+  return {
+    date: castDateTimeFormat(dateInUTC.getDate()),
+    month: castDateTimeFormat(dateInUTC.getMonth()),
+    year: castDateTimeFormat(dateInUTC.getFullYear()),
+  };
+};
+
+export const getDateInYYYYMMDD = (dateInUTC) => {
+  const incomingDate = calculateDateMonthYear(dateInUTC);
+
+  return `${incomingDate.year}-${incomingDate.month + 1}-${incomingDate.date}`;
+};
+
+export const getDateInMonthDDYYYY = (dateInUTC) => {
+  const incomingDate = calculateDateMonthYear(dateInUTC);
+
+  return `${MONTHS_NAME[incomingDate.month]} ${incomingDate.date}, ${incomingDate.year}`;
 };
