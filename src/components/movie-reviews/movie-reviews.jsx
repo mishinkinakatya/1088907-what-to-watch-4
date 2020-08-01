@@ -27,7 +27,6 @@ const createReviewTemplate = (review) => {
 
 const MovieReviews = (props) => {
   const {reviews} = props;
-
   const firstPartReviewsLength = reviews.length % 2 === 0
     ? reviews.length / 2
     : reviews.length / 2 + 1;

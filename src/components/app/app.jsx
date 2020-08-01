@@ -7,7 +7,7 @@ import PlayerPage from "../player-page/player-page.jsx";
 import {connect} from "react-redux";
 import {getActiveMovie, getIsVideoPlayerPageOpen} from "../../store/reducer/cinema/selectors.js";
 import {getPromoMovie} from "../../store/reducer/data/selectors.js";
-import ErrorPage from "../error-page/error-page.jsx";
+import LoadingPage from "../loading-page/loading-page.jsx";
 
 
 const App = (props) => {
@@ -26,7 +26,7 @@ const App = (props) => {
     }
 
     return (
-      <ErrorPage />
+      <LoadingPage />
     );
   };
 
@@ -37,7 +37,16 @@ const App = (props) => {
           {renderApp()}
         </Route>
         <Route exact path="/movie-page">
-          <MoviePage />;
+          {() => {
+            if (activeMovie || promoMovie) {
+              return <MoviePage />;
+            } else {
+              return (
+                <LoadingPage />
+              );
+            }
+          }
+          }
         </Route>
         <Route exact path="/player-page">
           <PlayerPage />;

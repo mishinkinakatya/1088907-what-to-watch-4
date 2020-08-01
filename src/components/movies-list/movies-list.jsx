@@ -4,6 +4,7 @@ import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {connect} from "react-redux";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
 import {getMoviesListOfActiveGenre, getMaxCountOfVisibleMovies} from "../../store/reducer/cinema/selectors.js";
+import {Operations as DataOperations} from "../../store/reducer/data/data.js";
 
 
 const MoviesList = (props) => {
@@ -43,6 +44,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   onCardClick(activeMovie) {
     dispatch(ActionCreator.changeActiveMovie(activeMovie));
+    dispatch(DataOperations.loadReviews(activeMovie.id));
   }
 });
 

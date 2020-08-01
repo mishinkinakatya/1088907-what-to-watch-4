@@ -6,6 +6,7 @@ import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
 import {getActiveMovie, getActiveGenre, getMaxCountOfVisibleMovies} from "../../store/reducer/cinema/selectors.js";
 import {getMovies} from "../../store/reducer/data/selectors.js";
 import {getPromoMovie} from "../../store/reducer/data/selectors.js";
+import {Operations as DataOperations} from "../../store/reducer/data/data.js";
 
 
 const COUNT_VISIBLE_SIMILAR_MOVIES = 4;
@@ -51,6 +52,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   onCardClick(activeMovie) {
     dispatch(ActionCreator.changeActiveMovie(activeMovie));
+    dispatch(DataOperations.loadReviews(activeMovie.id));
   }
 });
 

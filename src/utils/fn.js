@@ -37,20 +37,20 @@ export const getPointDurationInHM = (time) => {
 
 const calculateDateMonthYear = (dateInUTC) => {
   return {
-    date: castDateTimeFormat(dateInUTC.getDate()),
-    month: castDateTimeFormat(dateInUTC.getMonth()),
-    year: castDateTimeFormat(dateInUTC.getFullYear()),
+    date: dateInUTC.slice(8, 10),
+    month: dateInUTC.slice(5, 7),
+    year: dateInUTC.slice(0, 4),
   };
 };
 
 export const getDateInYYYYMMDD = (dateInUTC) => {
   const incomingDate = calculateDateMonthYear(dateInUTC);
 
-  return `${incomingDate.year}-${incomingDate.month + 1}-${incomingDate.date}`;
+  return `${incomingDate.year}-${incomingDate.month}-${incomingDate.date}`;
 };
 
 export const getDateInMonthDDYYYY = (dateInUTC) => {
   const incomingDate = calculateDateMonthYear(dateInUTC);
 
-  return `${MONTHS_NAME[incomingDate.month]} ${incomingDate.date}, ${incomingDate.year}`;
+  return `${MONTHS_NAME[Number(incomingDate.month) - 1]} ${incomingDate.date}, ${incomingDate.year}`;
 };

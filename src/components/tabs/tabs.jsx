@@ -61,12 +61,10 @@ Tabs.propTypes = {
 
 const mapStateToProps = (state) => {
   const currentMovie = getActiveMovie(state) || getPromoMovie(state);
-  const moviesReviews = getReviews(state);
-  const currentMovieReviews = moviesReviews.map((review) => review.movieId === currentMovie.id ? review : null).filter((review) => review !== null);
   return {
     activeMovie: currentMovie,
     promoMovie: getPromoMovie(state),
-    reviews: currentMovieReviews,
+    reviews: getReviews(state),
   };
 };
 

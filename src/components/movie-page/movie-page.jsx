@@ -116,9 +116,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onCardClick(activeMovie) {
-    dispatch(ActionCreator.changeActiveMovie(activeMovie));
-  },
   onPlayButtonClick() {
     dispatch(ActionCreator.openVideoPlayerPage());
   },

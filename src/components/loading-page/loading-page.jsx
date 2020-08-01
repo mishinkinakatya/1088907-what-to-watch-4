@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const ErrorPage = () => {
+const LoadingPage = () => {
   return (
     <React.Fragment>
       <section className="movie-card">
@@ -54,4 +54,4 @@ const ErrorPage = () => {
 };
 
 
-export default ErrorPage;
+export default LoadingPage;
