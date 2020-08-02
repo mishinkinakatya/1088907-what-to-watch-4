@@ -1,22 +1,12 @@
-import {DEFAULT_GENRE, MINUTES_ON_HOUR, SECONDS_ON_MINUTE} from "../utils/const.js";
+import {MINUTES_ON_HOUR, SECONDS_ON_MINUTE} from "../utils/const.js";
 
-const COUNT_OF_VISIBLE_GENRES = 10;
+const MONTHS_NAME = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
 
 const castDateTimeFormat = (value) => {
   return value < 10 ? `0${value}` : String(value);
 };
 
-export const getMoviesListOfActiveGenre = (movies, activeGenre) => {
-  return activeGenre === DEFAULT_GENRE ? movies : movies.filter((movie) => movie.genre === activeGenre);
-};
-
-export const getAllGenresList = (allMovies) => {
-  const allGenres = [DEFAULT_GENRE].concat(Array.from(new Set(allMovies.map((movie) => movie.genre))));
-  return allGenres.length > COUNT_OF_VISIBLE_GENRES ? allGenres.slice(0, COUNT_OF_VISIBLE_GENRES) : allGenres;
-};
-
 export const calculateDurationInHMS = (duration) => {
-
 
   const hoursCount = Math.trunc(duration / MINUTES_ON_HOUR / SECONDS_ON_MINUTE);
   duration -= hoursCount * MINUTES_ON_HOUR * SECONDS_ON_MINUTE;
@@ -29,4 +19,38 @@ export const calculateDurationInHMS = (duration) => {
     minutes: castDateTimeFormat(minutesCount),
     seconds: castDateTimeFormat(secondsCount),
   };
+};
+
+export const getPointDurationInHM = (time) => {
+  const duration = calculateDurationInHMS(time);
+
+  if (duration.hours > 0) {
+    if (duration.minutes !== `00`) {
+      return `${duration.hours}h ${duration.minutes}m`;
+    } else {
+      return `${duration.hours}h`;
+    }
+  } else {
+    return `${duration.minutes}m`;
+  }
+};
+
+const calculateDateMonthYear = (dateInUTC) => {
+  return {
+    date: dateInUTC.slice(8, 10),
+    month: dateInUTC.slice(5, 7),
+    year: dateInUTC.slice(0, 4),
+  };
+};
+
+export const getDateInYYYYMMDD = (dateInUTC) => {
+  const incomingDate = calculateDateMonthYear(dateInUTC);
+
+  return `${incomingDate.year}-${incomingDate.month}-${incomingDate.date}`;
+};
+
+export const getDateInMonthDDYYYY = (dateInUTC) => {
+  const incomingDate = calculateDateMonthYear(dateInUTC);
+
+  return `${MONTHS_NAME[Number(incomingDate.month) - 1]} ${incomingDate.date}, ${incomingDate.year}`;
 };

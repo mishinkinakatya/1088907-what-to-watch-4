@@ -1,7 +1,9 @@
 import React from "react";
 import {allGenresTypes, activeGenreTypes, onGenreClickTypes} from "../../types/types.js";
-import {ActionCreator} from "../../store/actions.js";
+import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {connect} from "react-redux";
+import {getActiveGenre} from "../../store/reducer/cinema/selectors.js";
+import {getAllGenres} from "../../store/reducer/data/selectors.js";
 
 
 const ACTIVE_GENRE_ITEM = `catalog__genres-item--active`;
@@ -34,14 +36,14 @@ GenresList.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    activeGenre: state.activeGenre,
-    allGenres: state.allGenres,
+    activeGenre: getActiveGenre(state),
+    allGenres: getAllGenres(state),
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreClick(activeGenre) {
-    dispatch(ActionCreator.actionChangeActiveGenre(activeGenre));
+    dispatch(ActionCreator.changeActiveGenre(activeGenre));
   },
 });
 

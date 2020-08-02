@@ -1,14 +1,15 @@
 import React from "react";
 import {onShowMoreButtonClickTypes, countMoviesOnMainPageTypes, moviesTypes, activeGenreTypes} from "../../types/types";
-import {ActionCreator} from "../../store/actions.js";
+import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {connect} from "react-redux";
-import {getMoviesListOfActiveGenre} from "../../utils/fn";
+import {getMoviesListOfActiveGenre, getMaxCountOfVisibleMovies} from "../../store/reducer/cinema/selectors";
+import {getActiveGenre} from "../../store/reducer/cinema/selectors";
 
 
 const ShowMoreButton = (props) => {
-  const {movies, activeGenre, maxCountOfVisibleMovies, onShowMoreButtonClick} = props;
+  const {movies, maxCountOfVisibleMovies, onShowMoreButtonClick} = props;
 
-  const countMoviesOfActiveGenre = getMoviesListOfActiveGenre(movies, activeGenre).length;
+  const countMoviesOfActiveGenre = movies.length;
 
   return countMoviesOfActiveGenre > maxCountOfVisibleMovies
     ? <div className="catalog__more">
@@ -28,15 +29,15 @@ ShowMoreButton.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movies,
-    activeGenre: state.activeGenre,
-    maxCountOfVisibleMovies: state.maxCountOfVisibleMovies,
+    movies: getMoviesListOfActiveGenre(state),
+    activeGenre: getActiveGenre(state),
+    maxCountOfVisibleMovies: getMaxCountOfVisibleMovies(state),
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   onShowMoreButtonClick() {
-    dispatch(ActionCreator.actionChangeMaxCountOfVisibleMovies());
+    dispatch(ActionCreator.changeMaxCountOfVisibleMovies());
   }
 });
 

@@ -1,46 +1,9 @@
-import {DEFAULT_GENRE, ActionType, INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE} from "../utils/const.js";
-import {getAllGenresList} from "../utils/fn.js";
-import {movies} from "../mocks/movies.js";
-import {reviews} from "../mocks/reviews.js";
-import {promoMovie} from "../mocks/promo-movie.js";
-import {promoMovieReviews} from "../mocks/promo-movie-reviews.js";
+import {combineReducers} from "redux";
+import {reducer as data} from "./reducer/data/data.js";
+import {reducer as cinema} from "./reducer/cinema/cinema.js";
+import NameSpace from "./name-space.js";
 
-
-const initialState = {
-  movies,
-  activeMovie: null,
-  activeGenre: DEFAULT_GENRE,
-  allGenres: getAllGenresList(movies),
-  maxCountOfVisibleMovies: movies.length > INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE ? INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE : movies.length,
-  promoMovie,
-  promoMovieReviews,
-  reviews,
-  isVideoPlayerPageOpen: false,
-};
-
-export const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ActionType.CHANGE_ACTIVE_GENRE:
-      return Object.assign({}, state, {
-        activeGenre: action.payload,
-        maxCountOfVisibleMovies: movies.length > INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE ? INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE : movies.length,
-      });
-    case ActionType.CHANGE_ACTIVE_MOVIE:
-      return Object.assign({}, state, {
-        activeMovie: action.payload
-      });
-    case ActionType.CHANGE_MAX_COUNT_OF_VISIBLE_MOVIES:
-      return Object.assign({}, state, {
-        maxCountOfVisibleMovies: state.maxCountOfVisibleMovies + action.payload
-      });
-    case ActionType.OPEN_VIDEO_PLAYER_PAGE:
-      return Object.assign({}, state, {
-        isVideoPlayerPageOpen: action.payload,
-      });
-    case ActionType.CLOSE_VIDEO_PLAYER_PAGE:
-      return Object.assign({}, state, {
-        isVideoPlayerPageOpen: action.payload,
-      });
-  }
-  return state;
-};
+export default combineReducers({
+  [NameSpace.DATA]: data,
+  [NameSpace.CINEMA]: cinema,
+});

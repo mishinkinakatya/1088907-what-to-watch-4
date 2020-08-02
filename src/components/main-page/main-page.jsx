@@ -4,8 +4,7 @@ import {promoMovieTypes, onPlayButtonClickTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
 import ShowMoreButton from "../show-more-button/show-more-button.jsx";
-import {ActionCreator} from "../../store/actions.js";
-
+import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 
 const MainPage = (props) => {
   const {promoMovie, onPlayButtonClick} = props;
@@ -98,22 +97,16 @@ const MainPage = (props) => {
 
 
 MainPage.propTypes = {
-  promoMovie: promoMovieTypes,
+  promoMovie: promoMovieTypes.isRequired,
   onPlayButtonClick: onPlayButtonClickTypes,
 };
 
 
-const mapStateToProps = (state) => {
-  return {
-    promoMovie: state.promoMovie,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => ({
   onPlayButtonClick() {
-    dispatch(ActionCreator.actionOpenVideoPlayerPage());
+    dispatch(ActionCreator.openVideoPlayerPage());
   },
 });
 
 export {MainPage};
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default connect(null, mapDispatchToProps)(MainPage);

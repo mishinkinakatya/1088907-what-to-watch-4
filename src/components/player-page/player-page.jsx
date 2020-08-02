@@ -1,8 +1,10 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
 import {movieTypes, onExitButtonClickTypes, onFullScreenButtonClickTypes, renderVideoPlayerTypes, isVideoPlayerPageOpenTypes, isPlayingTypes, onPlayPauseButtonClickTypes, currentTimeValueTypes, runTimeTypes, playerTimeValueTypes, togglerValueInPercentsTypes} from "../../types/types";
-import {ActionCreator} from "../../store/actions";
+import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import withPlayerPage from "../../hocs/with-player-page/with-player-page.js";
+import {getActiveMovie, getIsVideoPlayerPageOpen} from "../../store/reducer/cinema/selectors";
+import {getPromoMovie} from "../../store/reducer/data/selectors";
 
 
 class PlayerPage extends PureComponent {
@@ -100,14 +102,14 @@ PlayerPage.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    activeMovie: state.activeMovie || state.promoMovie,
-    isVideoPlayerPageOpen: state.isVideoPlayerPageOpen,
+    activeMovie: getActiveMovie(state) || getPromoMovie(state),
+    isVideoPlayerPageOpen: getIsVideoPlayerPageOpen(state),
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   onExitButtonClick() {
-    dispatch(ActionCreator.actionCloseVideoPlayerPage());
+    dispatch(ActionCreator.closeVideoPlayerPage());
   },
 });
 

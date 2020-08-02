@@ -24,7 +24,7 @@ export const promoMovieTypes = PropTypes.shape({
       PropTypes.string.isRequired
   ).isRequired,
   preview: PropTypes.string.isRequired,
-}).isRequired;
+});
 
 export const movieTypes = PropTypes.shape({
   id: PropTypes.number.isRequired,
@@ -148,7 +148,7 @@ export const reviewsTypes = PropTypes.arrayOf(
     PropTypes.shape({
       movieId: PropTypes.number.isRequired,
       author: PropTypes.string.isRequired,
-      dateUTC: PropTypes.object.isRequired,
+      dateUTC: PropTypes.string.isRequired,
       ratingScore: PropTypes.number.isRequired,
       comment: PropTypes.string.isRequired,
     }).isRequired

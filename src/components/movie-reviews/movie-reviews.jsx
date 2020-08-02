@@ -1,23 +1,13 @@
 import React from "react";
 import {reviewsTypes} from "../../types/types.js";
+import {getDateInYYYYMMDD, getDateInMonthDDYYYY} from "../../utils/fn.js";
 
-
-const MONTHS_NAME = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
-
-const castDateTimeFormat = (value) => {
-  return value < 10 ? `0${value}` : String(value);
-};
 
 const createReviewTemplate = (review) => {
   const {comment, author, dateUTC, ratingScore} = review;
 
-  const date = castDateTimeFormat(dateUTC.getDate());
-  const month = castDateTimeFormat(dateUTC.getMonth() + 1);
-  const year = castDateTimeFormat(dateUTC.getFullYear());
-
-  const dateYYYYMMDD = `${year}-${month}-${date}`;
-
-  const visibleDate = `${MONTHS_NAME[dateUTC.getMonth()]} ${date}, ${year}`;
+  const dateYYYYMMDD = getDateInYYYYMMDD(dateUTC);
+  const visibleDate = getDateInMonthDDYYYY(dateUTC);
 
   return (
     <div className="review" key={dateUTC}>
@@ -37,7 +27,6 @@ const createReviewTemplate = (review) => {
 
 const MovieReviews = (props) => {
   const {reviews} = props;
-
   const firstPartReviewsLength = reviews.length % 2 === 0
     ? reviews.length / 2
     : reviews.length / 2 + 1;
