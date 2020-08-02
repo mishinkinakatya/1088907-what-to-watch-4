@@ -14,9 +14,15 @@ export const ActionType = {
   LOAD_MOVIES: `LOAD_MOVIES`,
   LOAD_REVIEWS: `LOAD_REVIEWS`,
   LOAD_PROMO_MOVIE: `LOAD_PROMO_MOVIE`,
+  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
 };
 
 export const INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE = 8;
 
 export const SECONDS_ON_MINUTE = 60;
 export const MINUTES_ON_HOUR = 60;
+
+export const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
+};
