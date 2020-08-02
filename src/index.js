@@ -10,7 +10,7 @@ import reducer from "./store/reducer.js";
 import {Provider} from "react-redux";
 import {Operations as DataOperations} from "./store/reducer/data/data.js";
 import {Operations as UserOperations} from "./store/reducer/user/user.js";
-import {ActionCreator} from "./store/actions/cinema/cinema.js";
+import {ActionCreator} from "./store/actions/user/user.js";
 import {AuthorizationStatus} from "./utils/const.js";
 
 
@@ -27,9 +27,9 @@ const store = createStore(
     )
 );
 
+store.dispatch(UserOperations.checkAuth());
 store.dispatch(DataOperations.loadMovies());
 store.dispatch(DataOperations.loadPromoMovie());
-store.dispatch(UserOperations.checkAuth());
 
 ReactDOM.render(
     <Provider store={store}>

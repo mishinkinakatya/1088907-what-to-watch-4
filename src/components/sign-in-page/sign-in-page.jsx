@@ -1,7 +1,7 @@
 import React, {PureComponent, createRef} from "react";
 import {Operations as UserOperations} from "../../store/reducer/user/user.js";
 import {connect} from "react-redux";
-import {onSubmitTypes} from "../../types/types.js";
+import {onSignInClickTypes} from "../../types/types.js";
 
 class SignInPage extends PureComponent {
   constructor(props) {
@@ -10,15 +10,15 @@ class SignInPage extends PureComponent {
     this.loginRef = createRef();
     this.passwordRef = createRef();
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSignInClick = this.handleSignInClick.bind(this);
   }
 
-  handleSubmit(evt) {
-    const {onSubmit} = this.props;
+  handleSignInClick(evt) {
+    const {onSignInClick} = this.props;
 
     evt.preventDefault();
 
-    onSubmit({
+    onSignInClick({
       login: this.loginRef.current.value,
       password: this.passwordRef.current.value,
     });
@@ -53,7 +53,7 @@ class SignInPage extends PureComponent {
                 </div>
               </div>
               <div className="sign-in__submit">
-                <button className="sign-in__btn" type="submit" onSubmit={this.handleSubmit}>Sign in</button>
+                <button className="sign-in__btn" type="submit" onClick={this.handleSignInClick}>Sign in</button>
               </div>
             </form>
           </div>
@@ -78,12 +78,12 @@ class SignInPage extends PureComponent {
 }
 
 SignInPage.propTypes = {
-  onSubmit: onSubmitTypes,
+  onSignInClick: onSignInClickTypes,
 };
 
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit(login) {
+  onSignInClick(login) {
     dispatch(UserOperations.login(login));
   },
 });

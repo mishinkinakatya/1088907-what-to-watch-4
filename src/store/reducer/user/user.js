@@ -1,5 +1,6 @@
 import {ActionType, AuthorizationStatus} from "../../../utils/const.js";
 import {ActionCreator} from "../../actions/user/user.js";
+import {ActionCreator as ActionCreatorCinema} from "../../actions/cinema/cinema.js";
 
 
 const initialState = {
@@ -24,6 +25,9 @@ export const Operations = {
     })
       .then(() => {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+      })
+      .then(() => {
+        dispatch(ActionCreatorCinema.closeSignInPage());
       });
   },
 };

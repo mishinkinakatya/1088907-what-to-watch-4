@@ -201,7 +201,7 @@ export const onPlayPauseButtonClickTypes = PropTypes.func.isRequired;
 
 export const onSignInButtonClickTypes = PropTypes.func.isRequired;
 
-export const onSubmitTypes = PropTypes.func.isRequired;
+export const onSignInClickTypes = PropTypes.func.isRequired;
 
 export const renderVideoPlayerTypes = PropTypes.func.isRequired;
 
@@ -215,4 +215,4 @@ export const playerTimeValueTypes = PropTypes.string.isRequired;
 
 export const togglerValueInPercentsTypes = PropTypes.string.isRequired;
 
-export const authorizationStatusTypes = PropTypes.object.isRequired;
+export const authorizationStatusTypes = PropTypes.string.isRequired;
