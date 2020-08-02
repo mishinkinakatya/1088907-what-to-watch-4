@@ -1,13 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
-import {promoMovieTypes, onPlayButtonClickTypes} from "../../types/types.js";
+import {promoMovieTypes, onPlayButtonClickTypes, onSignInButtonClickTypes, authorizationStatusTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
 import ShowMoreButton from "../show-more-button/show-more-button.jsx";
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
+import {getAuthorizationStatus} from "../../store/reducer/user/selectors.js";
 
 const MainPage = (props) => {
-  const {promoMovie, onPlayButtonClick} = props;
+  const {promoMovie, onPlayButtonClick, authorizationStatus, onSignInButtonClick} = props;
 
   return (
     <React.Fragment>
@@ -27,11 +28,16 @@ const MainPage = (props) => {
             </a>
           </div>
 
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+          {authorizationStatus.AUTH
+            ? <div className="user-block">
+              <div className="user-block__avatar">
+                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+              </div>
             </div>
-          </div>
+            : <div className="user-block">
+              <a href="#" className="user-block__link" onClick={onSignInButtonClick}>Sign in</a>
+            </div>
+          }
         </header>
 
         <div className="movie-card__wrap">
@@ -99,14 +105,25 @@ const MainPage = (props) => {
 MainPage.propTypes = {
   promoMovie: promoMovieTypes.isRequired,
   onPlayButtonClick: onPlayButtonClickTypes,
+  onSignInButtonClick: onSignInButtonClickTypes,
+  authorizationStatus: authorizationStatusTypes,
 };
 
+
+const mapStateToProps = (state) => {
+  return {
+    authorizationStatus: getAuthorizationStatus(state),
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   onPlayButtonClick() {
     dispatch(ActionCreator.openVideoPlayerPage());
   },
+  onSignInButtonClick() {
+    dispatch(ActionCreator.openSignInPage());
+  },
 });
 
 export {MainPage};
-export default connect(null, mapDispatchToProps)(MainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

@@ -177,6 +177,8 @@ export const isPlayingTypes = PropTypes.bool.isRequired;
 
 export const isVideoPlayerPageOpenTypes = PropTypes.bool.isRequired;
 
+export const isSignInPageOpenTypes = PropTypes.bool.isRequired;
+
 export const onCardClickTypes = PropTypes.func.isRequired;
 
 export const onCardHoverTypes = PropTypes.func.isRequired;
@@ -197,6 +199,10 @@ export const onFullScreenButtonClickTypes = PropTypes.func.isRequired;
 
 export const onPlayPauseButtonClickTypes = PropTypes.func.isRequired;
 
+export const onSignInButtonClickTypes = PropTypes.func.isRequired;
+
+export const onSubmitTypes = PropTypes.func.isRequired;
+
 export const renderVideoPlayerTypes = PropTypes.func.isRequired;
 
 export const videoRefTypes = PropTypes.object.isRequired;
@@ -208,3 +214,5 @@ export const runTimeTypes = PropTypes.number.isRequired;
 export const playerTimeValueTypes = PropTypes.string.isRequired;
 
 export const togglerValueInPercentsTypes = PropTypes.string.isRequired;
+
+export const authorizationStatusTypes = PropTypes.object.isRequired;

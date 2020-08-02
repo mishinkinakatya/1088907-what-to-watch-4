@@ -6,6 +6,7 @@ const initialState = {
   activeGenre: DEFAULT_GENRE,
   maxCountOfVisibleMovies: INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE,
   isVideoPlayerPageOpen: false,
+  isSignInPageOpen: false,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -26,6 +27,10 @@ export const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_STATUS_VIDEO_PLAYER_PAGE:
       return Object.assign({}, state, {
         isVideoPlayerPageOpen: action.payload,
+      });
+    case ActionType.CHANGE_STATUS_SIGN_IN_PAGE:
+      return Object.assign({}, state, {
+        isSignInPageOpen: action.payload,
       });
   }
   return state;
