@@ -9,9 +9,16 @@ import {createStore} from "redux";
 import reducer from "./store/reducer.js";
 import {Provider} from "react-redux";
 import {Operations as DataOperations} from "./store/reducer/data/data.js";
+import {Operations as UserOperations} from "./store/reducer/user/user.js";
+import {ActionCreator} from "./store/actions/user/user.js";
+import {AuthorizationStatus} from "./utils/const.js";
 
 
-const api = createAPI(() => {});
+const onUnauthorized = () => {
+  store.dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
+};
+
+const api = createAPI(onUnauthorized);
 
 const store = createStore(
     reducer,
@@ -20,6 +27,7 @@ const store = createStore(
     )
 );
 
+store.dispatch(UserOperations.checkAuth());
 store.dispatch(DataOperations.loadMovies());
 store.dispatch(DataOperations.loadPromoMovie());
 

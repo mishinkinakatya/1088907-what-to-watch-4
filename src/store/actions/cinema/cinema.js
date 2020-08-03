@@ -32,4 +32,16 @@ export const ActionCreator = {
       payload: false,
     };
   },
+  openSignInPage: () => {
+    return {
+      type: ActionType.CHANGE_STATUS_SIGN_IN_PAGE,
+      payload: true,
+    };
+  },
+  closeSignInPage: () => {
+    return {
+      type: ActionType.CHANGE_STATUS_SIGN_IN_PAGE,
+      payload: false,
+    };
+  },
 };

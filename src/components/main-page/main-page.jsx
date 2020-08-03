@@ -1,14 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
-import {promoMovieTypes, onPlayButtonClickTypes} from "../../types/types.js";
+import {promoMovieTypes, onPlayButtonClickTypes, authorizationStatusTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
 import ShowMoreButton from "../show-more-button/show-more-button.jsx";
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
+import PageHeader from "../page-header/page-header.jsx";
 
 const MainPage = (props) => {
-  const {promoMovie, onPlayButtonClick} = props;
-
+  const {promoMovie, onPlayButtonClick, authorizationStatus} = props;
   return (
     <React.Fragment>
       <section className="movie-card">
@@ -18,21 +18,7 @@ const MainPage = (props) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <header className="page-header movie-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
-        </header>
+        <PageHeader authorizationStatus={authorizationStatus} />
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">
@@ -99,6 +85,7 @@ const MainPage = (props) => {
 MainPage.propTypes = {
   promoMovie: promoMovieTypes.isRequired,
   onPlayButtonClick: onPlayButtonClickTypes,
+  authorizationStatus: authorizationStatusTypes,
 };
 
 
