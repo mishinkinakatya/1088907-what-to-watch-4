@@ -1,7 +1,9 @@
 import React, {PureComponent, createRef} from "react";
 import {Operations as UserOperations} from "../../store/reducer/user/user.js";
 import {connect} from "react-redux";
-import {onSignInClickTypes} from "../../types/types.js";
+import {onSignInClickTypes, isAuthorizationErrorTypes, onInputDataChangeTypes} from "../../types/types.js";
+import {getIsAuthorizationError} from "../../store/reducer/user/selectors.js";
+import {ActionCreator} from "../../store/actions/user/user.js";
 
 class SignInPage extends PureComponent {
   constructor(props) {
@@ -25,6 +27,8 @@ class SignInPage extends PureComponent {
   }
 
   render() {
+    const {isAuthorizationError, onInputDataChange} = this.props;
+
     return (
       <React.Fragment>
         <div className="user-page">
@@ -42,9 +46,17 @@ class SignInPage extends PureComponent {
 
           <div className="sign-in user-page__content">
             <form action="#" className="sign-in__form">
+
+              {isAuthorizationError
+                ? <div className="sign-in__message">
+                  <p>Please enter a valid email address</p>
+                </div>
+                : ``
+              }
+
               <div className="sign-in__fields">
-                <div className="sign-in__field">
-                  <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" ref={this.loginRef} />
+                <div className={isAuthorizationError ? `sign-in__field sign-in__field--error` : `sign-in__field`}>
+                  <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" ref={this.loginRef} onChange={onInputDataChange} />
                   <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
                 </div>
                 <div className="sign-in__field">
@@ -79,13 +91,24 @@ class SignInPage extends PureComponent {
 
 SignInPage.propTypes = {
   onSignInClick: onSignInClickTypes,
+  onInputDataChange: onInputDataChangeTypes,
+  isAuthorizationError: isAuthorizationErrorTypes,
 };
 
+
+const mapStateToProps = (state) => {
+  return {
+    isAuthorizationError: getIsAuthorizationError(state),
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   onSignInClick(login) {
     dispatch(UserOperations.login(login));
   },
+  onInputDataChange() {
+    dispatch(ActionCreator.hideAuthorizationError());
+  }
 });
 
-export default connect(null, mapDispatchToProps)(SignInPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SignInPage);

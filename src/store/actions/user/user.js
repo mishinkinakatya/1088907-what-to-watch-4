@@ -7,4 +7,16 @@ export const ActionCreator = {
       payload: status,
     };
   },
+  showAuthorizationError: () => {
+    return {
+      type: ActionType.CHANGE_STATUS_AUTHORIZATION_ERROR,
+      payload: true,
+    };
+  },
+  hideAuthorizationError: () => {
+    return {
+      type: ActionType.CHANGE_STATUS_AUTHORIZATION_ERROR,
+      payload: false,
+    };
+  },
 };

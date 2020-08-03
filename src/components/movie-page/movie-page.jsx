@@ -1,15 +1,16 @@
 import React from "react";
 import {connect} from "react-redux";
-import {movieTypes, onPlayButtonClickTypes} from "../../types/types.js";
+import {movieTypes, onPlayButtonClickTypes, authorizationStatusTypes} from "../../types/types.js";
 import Tabs from "../tabs/tabs.jsx";
 import SimilarMoviesList from "../similar-movies-list/similar-movies-list.jsx";
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
 import {getPromoMovie} from "../../store/reducer/data/selectors.js";
+import PageHeader from "../page-header/page-header.jsx";
 
 
 const MoviePage = (props) => {
-  const {activeMovie, onPlayButtonClick} = props;
+  const {activeMovie, onPlayButtonClick, authorizationStatus} = props;
 
   return (
     <React.Fragment>
@@ -21,21 +22,7 @@ const MoviePage = (props) => {
 
           <h1 className="visually-hidden">WTW</h1>
 
-          <header className="page-header movie-card__head">
-            <div className="logo">
-              <a href="main.html" className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </a>
-            </div>
-
-            <div className="user-block">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-              </div>
-            </div>
-          </header>
+          <PageHeader authorizationStatus={authorizationStatus} />
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
@@ -106,6 +93,7 @@ const MoviePage = (props) => {
 MoviePage.propTypes = {
   activeMovie: movieTypes,
   onPlayButtonClick: onPlayButtonClickTypes,
+  authorizationStatus: authorizationStatusTypes,
 };
 
 

@@ -179,6 +179,8 @@ export const isVideoPlayerPageOpenTypes = PropTypes.bool.isRequired;
 
 export const isSignInPageOpenTypes = PropTypes.bool.isRequired;
 
+export const isAuthorizationErrorTypes = PropTypes.bool.isRequired;
+
 export const onCardClickTypes = PropTypes.func.isRequired;
 
 export const onCardHoverTypes = PropTypes.func.isRequired;
@@ -204,6 +206,8 @@ export const onSignInButtonClickTypes = PropTypes.func.isRequired;
 export const onSignInClickTypes = PropTypes.func.isRequired;
 
 export const renderVideoPlayerTypes = PropTypes.func.isRequired;
+
+export const onInputDataChangeTypes = PropTypes.func.isRequired;
 
 export const videoRefTypes = PropTypes.object.isRequired;
 

@@ -5,6 +5,7 @@ import {ActionCreator as ActionCreatorCinema} from "../../actions/cinema/cinema.
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
+  isAuthorizationError: false,
 };
 
 export const Operations = {
@@ -28,6 +29,9 @@ export const Operations = {
       })
       .then(() => {
         dispatch(ActionCreatorCinema.closeSignInPage());
+      })
+      .catch(() => {
+        dispatch(ActionCreator.showAuthorizationError());
       });
   },
 };
@@ -37,6 +41,10 @@ export const reducer = (state = initialState, action) => {
     case ActionType.REQUIRED_AUTHORIZATION:
       return Object.assign({}, state, {
         authorizationStatus: action.payload,
+      });
+    case ActionType.CHANGE_STATUS_AUTHORIZATION_ERROR:
+      return Object.assign({}, state, {
+        isAuthorizationError: action.payload,
       });
   }
 
