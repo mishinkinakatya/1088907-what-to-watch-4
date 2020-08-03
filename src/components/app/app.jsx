@@ -10,6 +10,7 @@ import {getPromoMovie} from "../../store/reducer/data/selectors.js";
 import LoadingPage from "../loading-page/loading-page.jsx";
 import SignInPage from "../sign-in-page/sign-in-page.jsx";
 import {getAuthorizationStatus} from "../../store/reducer/user/selectors.js";
+import AddReview from "../add-review/add-review.jsx";
 
 
 const App = (props) => {
@@ -58,6 +59,18 @@ const App = (props) => {
         </Route>
         <Route exact path="/sign-in-page">
           <SignInPage />;
+        </Route>
+        <Route exact path="/add-review">
+          {() => {
+            if (activeMovie || promoMovie) {
+              return <AddReview activeMovie={activeMovie || promoMovie} />;
+            } else {
+              return (
+                <LoadingPage />
+              );
+            }
+          }
+          }
         </Route>
       </Switch>
     </BrowserRouter>
