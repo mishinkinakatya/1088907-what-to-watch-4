@@ -1,4 +1,4 @@
-import {ActionType} from "../../../utils/const.js";
+import {ActionType, SendingStatus} from "../../../utils/const.js";
 import {ActionCreator} from "../../actions/data/data.js";
 import {createMovie, createReview} from "../../../adapters/adapters.js";
 
@@ -7,6 +7,7 @@ const initialState = {
   movies: [],
   promoMovie: null,
   reviews: [],
+  addReviewStatus: SendingStatus.NO_SENDING,
 };
 
 export const Operations = {
@@ -28,6 +29,19 @@ export const Operations = {
       dispatch(ActionCreator.loadPromoMovie(createMovie(response.data)));
     });
   },
+  postReview: (movieId, reviewData) => (dispatch, getState, api) => {
+    dispatch(ActionCreator.changeStatusOfSendingReview(SendingStatus.SENDING));
+    return api.post(`comments/${movieId}`, {
+      rating: reviewData.ratingScore,
+      comment: reviewData.comment,
+    })
+    .then(() => {
+      dispatch(ActionCreator.changeStatusOfSendingReview(SendingStatus.SUCCESS));
+    })
+    .catch(() => {
+      dispatch(ActionCreator.changeStatusOfSendingReview(SendingStatus.FAIL));
+    });
+  },
 };
 
 export const reducer = (state = initialState, action) => {
@@ -43,6 +57,10 @@ export const reducer = (state = initialState, action) => {
     case ActionType.LOAD_PROMO_MOVIE:
       return Object.assign({}, state, {
         promoMovie: action.payload,
+      });
+    case ActionType.CHANGE_STATUS_OF_SENDING_REVIEW:
+      return Object.assign({}, state, {
+        addReviewStatus: action.payload,
       });
   }
   return state;

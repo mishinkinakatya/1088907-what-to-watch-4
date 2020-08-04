@@ -20,4 +20,10 @@ export const ActionCreator = {
       payload: promoMovie,
     };
   },
+  changeStatusOfSendingReview: (status) => {
+    return {
+      type: ActionType.CHANGE_STATUS_OF_SENDING_REVIEW,
+      payload: status,
+    };
+  },
 };
