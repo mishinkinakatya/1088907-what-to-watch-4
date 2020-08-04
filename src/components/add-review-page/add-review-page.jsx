@@ -1,20 +1,22 @@
 import React from "react";
-import {movieTypes, addReviewStatusTypes, onRatingScoreChangeTypes, isSubmitButtonDisabledTypes, onCommentChangeTypes, onSubmitClickTypes} from "../../types/types";
+import {movieTypes, addReviewStatusTypes, onRatingScoreChangeTypes, isSubmitButtonDisabledTypes, onCommentChangeTypes, onSubmitClickTypes, ratingScoreTypes} from "../../types/types";
 import withAddReview from "../../hocs/with-add-review/with-add-review";
 import {Review, SendingStatus} from "../../utils/const";
 
 
-const createRatingStarTemplate = (score) => {
+const createRatingStarTemplate = (score, ratingScore) => {
+  const isChecked = score === ratingScore;
+
   return (
     <React.Fragment key={score}>
-      <input className="rating__input" id={`star-${score}`} type="radio" name="rating" value={score} />
+      <input className="rating__input" id={`star-${score}`} type="radio" name="rating" value={score} checked={isChecked} readOnly/>
       <label className="rating__label" htmlFor={`star-${score}`}>Rating {score}</label>
     </React.Fragment>
   );
 };
 
 const AddReviewPage = (props) => {
-  const {activeMovie, isSubmitButtonDisabled, onRatingScoreChange, onCommentChange, onSubmitClick, addReviewStatus} = props;
+  const {activeMovie, isSubmitButtonDisabled, onRatingScoreChange, onCommentChange, onSubmitClick, addReviewStatus, ratingScore} = props;
   return (
     <section className="movie-card movie-card--full">
       <div className="movie-card__header">
@@ -60,7 +62,7 @@ const AddReviewPage = (props) => {
         <form action="#" className="add-review__form">
           <div className="rating">
             <div className="rating__stars" onChange={onRatingScoreChange} disabled={addReviewStatus === SendingStatus.SENDING}>
-              {Array.from(Array(Review.MAX_COUNT_OF_RATING_STARS)).map((_, index) => createRatingStarTemplate(index + 1))}
+              {Array.from(Array(Review.MAX_COUNT_OF_RATING_STARS)).map((_, index) => createRatingStarTemplate(index + 1, ratingScore))}
             </div>
           </div>
 
@@ -92,6 +94,7 @@ AddReviewPage.propTypes = {
   onRatingScoreChange: onRatingScoreChangeTypes,
   onCommentChange: onCommentChangeTypes,
   onSubmitClick: onSubmitClickTypes,
+  ratingScore: ratingScoreTypes,
 };
 
 

@@ -16,7 +16,7 @@ const withAddReview = (Component) => {
       this.handleSubmitClick = this.handleSubmitClick.bind(this);
 
       this.state = {
-        ratingScore: null,
+        ratingScore: 3,
         comment: null,
         isSubmitButtonDisabled: true,
         isCommentSatisfactory: false,
@@ -59,7 +59,7 @@ const withAddReview = (Component) => {
 
       return <Component
         {...this.props}
-        ratingScore={ratingScore}
+        ratingScore={Number(ratingScore)}
         isSubmitButtonDisabled={isSubmitButtonDisabled}
         onRatingScoreChange={this.handleRatingScoreChange}
         onCommentChange={this.handleCommentChange}
