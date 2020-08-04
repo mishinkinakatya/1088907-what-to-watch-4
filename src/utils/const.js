@@ -17,6 +17,7 @@ export const ActionType = {
   LOAD_REVIEWS: `LOAD_REVIEWS`,
   LOAD_PROMO_MOVIE: `LOAD_PROMO_MOVIE`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  CHANGE_STATUS_OF_SENDING_REVIEW: `CHANGE_STATUS_OF_SENDING_REVIEW`,
 };
 
 export const INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE = 8;
@@ -27,4 +28,17 @@ export const MINUTES_ON_HOUR = 60;
 export const AuthorizationStatus = {
   AUTH: `AUTH`,
   NO_AUTH: `NO_AUTH`,
+};
+
+export const SendingStatus = {
+  NO_SENDING: `NO_SENDING`,
+  SENDING: `SENDING`,
+  SUCCESS: `SUCCESS`,
+  FAIL: `FAIL`,
+};
+
+export const Review = {
+  MAX_COUNT_OF_RATING_STARS: 5,
+  MIN_LENGTH: 50,
+  MAX_LENGTH: 400,
 };

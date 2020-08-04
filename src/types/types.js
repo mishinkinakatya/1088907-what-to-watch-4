@@ -175,6 +175,8 @@ export const countMoviesOnMainPageTypes = PropTypes.number;
 
 export const isPlayingTypes = PropTypes.bool.isRequired;
 
+export const isSubmitButtonDisabledTypes = PropTypes.bool.isRequired;
+
 export const isVideoPlayerPageOpenTypes = PropTypes.bool.isRequired;
 
 export const isSignInPageOpenTypes = PropTypes.bool.isRequired;
@@ -205,6 +207,14 @@ export const onSignInButtonClickTypes = PropTypes.func.isRequired;
 
 export const onSignInClickTypes = PropTypes.func.isRequired;
 
+export const onReviewPostTypes = PropTypes.func.isRequired;
+
+export const onRatingScoreChangeTypes = PropTypes.func.isRequired;
+
+export const onCommentChangeTypes = PropTypes.func.isRequired;
+
+export const onSubmitClickTypes = PropTypes.func.isRequired;
+
 export const renderVideoPlayerTypes = PropTypes.func.isRequired;
 
 export const onInputDataChangeTypes = PropTypes.func.isRequired;
@@ -215,8 +225,12 @@ export const currentTimeValueTypes = PropTypes.number.isRequired;
 
 export const runTimeTypes = PropTypes.number.isRequired;
 
+export const ratingScoreTypes = PropTypes.number.isRequired;
+
 export const playerTimeValueTypes = PropTypes.string.isRequired;
 
 export const togglerValueInPercentsTypes = PropTypes.string.isRequired;
 
 export const authorizationStatusTypes = PropTypes.string.isRequired;
+
+export const addReviewStatusTypes = PropTypes.string.isRequired;

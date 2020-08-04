@@ -18,6 +18,10 @@ export const getPromoMovie = (state) => {
   return state[NAME_SPACE].promoMovie;
 };
 
+export const getAddReviewStatus = (state) => {
+  return state[NAME_SPACE].addReviewStatus;
+};
+
 export const getAllGenres = createSelector(
     getMovies,
     (movies) => {
