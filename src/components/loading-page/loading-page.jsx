@@ -1,21 +1,17 @@
 import React from "react";
+import PageFooter from "../page-footer/page-footer.jsx";
+import PageHeader from "../page-header/page-header.jsx";
+import {authorizationStatusTypes} from "../../types/types.js";
 
 
-const LoadingPage = () => {
+const LoadingPage = (props) => {
+  const {authorizationStatus} = props;
   return (
     <React.Fragment>
       <section className="movie-card">
         <h1 className="visually-hidden">WTW</h1>
 
-        <header className="page-header movie-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-        </header>
+        <PageHeader authorizationStatus={authorizationStatus} />
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">
@@ -29,22 +25,15 @@ const LoadingPage = () => {
 
       <div className="page-content">
 
-        <footer className="page-footer">
-          <div className="logo">
-            <a className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <PageFooter />
       </div>
     </React.Fragment>
   );
+};
+
+
+LoadingPage.propTypes = {
+  authorizationStatus: authorizationStatusTypes,
 };
 
 

@@ -1,9 +1,12 @@
 import React, {PureComponent, createRef} from "react";
 import {Operations as UserOperations} from "../../store/reducer/user/user.js";
 import {connect} from "react-redux";
-import {onSignInClickTypes, isAuthorizationErrorTypes, onInputDataChangeTypes} from "../../types/types.js";
+import {onSignInClickTypes, isAuthorizationErrorTypes, onInputDataChangeTypes, authorizationStatusTypes} from "../../types/types.js";
 import {getIsAuthorizationError} from "../../store/reducer/user/selectors.js";
 import {ActionCreator} from "../../store/actions/user/user.js";
+import PageHeader from "../page-header/page-header.jsx";
+import PageFooter from "../page-footer/page-footer.jsx";
+import {AppPages} from "../../utils/const.js";
 
 class SignInPage extends PureComponent {
   constructor(props) {
@@ -27,22 +30,12 @@ class SignInPage extends PureComponent {
   }
 
   render() {
-    const {isAuthorizationError, onInputDataChange} = this.props;
+    const {isAuthorizationError, onInputDataChange, authorizationStatus} = this.props;
 
     return (
       <React.Fragment>
         <div className="user-page">
-          <header className="page-header user-page__head">
-            <div className="logo">
-              <a href="main.html" className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </a>
-            </div>
-
-            <h1 className="page-title user-page__title">Sign in</h1>
-          </header>
+          <PageHeader authorizationStatus={authorizationStatus} activePage={AppPages.SIGN_IN_PAGE} />
 
           <div className="sign-in user-page__content">
             <form action="#" className="sign-in__form">
@@ -70,19 +63,7 @@ class SignInPage extends PureComponent {
             </form>
           </div>
 
-          <footer className="page-footer">
-            <div className="logo">
-              <a href="main.html" className="logo__link logo__link--light">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </a>
-            </div>
-
-            <div className="copyright">
-              <p>© 2019 What to watch Ltd.</p>
-            </div>
-          </footer>
+          <PageFooter />
         </div>
       </React.Fragment>
     );
@@ -93,6 +74,7 @@ SignInPage.propTypes = {
   onSignInClick: onSignInClickTypes,
   onInputDataChange: onInputDataChangeTypes,
   isAuthorizationError: isAuthorizationErrorTypes,
+  authorizationStatus: authorizationStatusTypes,
 };
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import {moviesTypes, countMoviesOnMainPageTypes, onCardClickTypes} from "../../types/types.js";
+import {moviesTypes, countMoviesOnMainPageTypes, onCardClickTypes, activePageTypes} from "../../types/types.js";
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {connect} from "react-redux";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
@@ -31,8 +31,10 @@ const MoviesList = (props) => {
 
 MoviesList.propTypes = {
   movies: moviesTypes,
+  favoriteMovies: moviesTypes,
   maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
   onCardClick: onCardClickTypes,
+  activePage: activePageTypes,
 };
 
 
@@ -49,7 +51,6 @@ const mapDispatchToProps = (dispatch) => ({
   onCardClick(activeMovie) {
     dispatch(ActionCreator.changeActiveMovie(activeMovie));
     dispatch(DataOperations.loadReviews(activeMovie.id));
-    dispatch(ActionCreator.goToMoviePage());
   }
 });
 

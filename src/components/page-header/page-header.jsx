@@ -1,63 +1,75 @@
 import React from "react";
-import {connect} from "react-redux";
-import {onSignInButtonClickTypes, authorizationStatusTypes, onAvatarClickTypes} from "../../types/types.js";
-import {ActionCreator} from "../../store/actions/cinema/cinema.js";
+import {authorizationStatusTypes, activePageTypes, movieNotRequiredTypes} from "../../types/types.js";
 import {AuthorizationStatus, AppRoute, AppPages} from "../../utils/const.js";
 import {Link} from "react-router-dom";
-import {getActivePage} from "../../store/reducer/cinema/selectors.js";
+
+
+const HeaderClass = {
+  [AppPages.MAIN_PAGE]: `page-header movie-card__head`,
+  [AppPages.MOVIE_PAGE]: `page-header movie-card__head`,
+  [AppPages.SIGN_IN_PAGE]: `page-header user-page__head`,
+  [AppPages.MY_LIST_PAGE]: `page-header user-page__head`,
+  [AppPages.ADD_REVIEW_PAGE]: `page-header`,
+};
+
+const getHeaderSpecific = (activePage, activeMovie) => {
+  switch (activePage) {
+    case AppPages.SIGN_IN_PAGE:
+      return <h1 className="page-title user-page__title">Sign in</h1>;
+    case AppPages.MY_LIST_PAGE:
+      return <h1 className="page-title user-page__title">My list</h1>;
+    case AppPages.ADD_REVIEW_PAGE:
+      return <nav className="breadcrumbs">
+        <ul className="breadcrumbs__list">
+          <li className="breadcrumbs__item">
+            <Link to={`${AppRoute.MOVIE_PAGE}/${activeMovie.id}`} href="movie-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</Link>
+          </li>
+          <li className="breadcrumbs__item">
+            <a className="breadcrumbs__link">Add review</a>
+          </li>
+        </ul>
+      </nav>;
+    default:
+      return ``;
+  }
+};
 
 const PageHeader = (props) => {
-  const {authorizationStatus, onAvatarClick, onSignInButtonClick, activePage} = props;
+  const {authorizationStatus, activePage, activeMovie} = props;
 
   return (
-    <header className="page-header movie-card__head">
+    <header className={HeaderClass[activePage]}>
       <div className="logo">
-        <a className="logo__link">
+        <Link to={AppRoute.MAIN_PAGE} className="logo__link">
           <span className="logo__letter logo__letter--1">W</span>
           <span className="logo__letter logo__letter--2">T</span>
           <span className="logo__letter logo__letter--3">W</span>
-        </a>
+        </Link>
       </div>
-      {activePage === AppPages.MY_LIST_PAGE
-        ? <h1 className="page-title user-page__title">My list</h1>
+      {getHeaderSpecific(activePage, activeMovie)}
+      {activePage !== AppPages.SIGN_IN_PAGE
+        ? <div className="user-block">
+          {authorizationStatus === AuthorizationStatus.AUTH
+            ? <Link to={AppRoute.MY_LIST_PAGE}>
+              <div className="user-block__avatar">
+                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+              </div>
+            </Link>
+            : <Link to={AppRoute.SIGN_IN_PAGE} className="user-block__link">Sign in</Link>
+          }
+        </div>
         : ``
       }
-      <div className="user-block">
-        {authorizationStatus === AuthorizationStatus.AUTH
-          ? <Link to={AppRoute.MY_LIST_PAGE}>
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" onClick={onAvatarClick} />
-            </div>
-          </Link>
-          : <Link to={AppRoute.SIGN_IN_PAGE} className="user-block__link" onClick={onSignInButtonClick}>Sign in</Link>
-        }
-      </div>
     </header>
   );
 };
 
 
 PageHeader.propTypes = {
-  onAvatarClick: onAvatarClickTypes,
-  onSignInButtonClick: onSignInButtonClickTypes,
   authorizationStatus: authorizationStatusTypes,
+  activePage: activePageTypes,
+  activeMovie: movieNotRequiredTypes,
 };
 
 
-const mapStateToProps = (state) => {
-  return {
-    activePage: getActivePage(state),
-  };
-};
-
-const mapDispatchToProps = (dispatch) => ({
-  onSignInButtonClick() {
-    dispatch(ActionCreator.goToSignInPage());
-  },
-  onAvatarClick() {
-    dispatch(ActionCreator.goToMyListPage());
-  },
-});
-
-export {PageHeader};
-export default connect(mapStateToProps, mapDispatchToProps)(PageHeader);
+export default PageHeader;

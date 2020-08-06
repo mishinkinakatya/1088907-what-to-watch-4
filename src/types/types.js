@@ -52,6 +52,32 @@ export const movieTypes = PropTypes.shape({
   preview: PropTypes.string.isRequired,
 }).isRequired;
 
+export const movieNotRequiredTypes = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  runTimeInSec: PropTypes.number.isRequired,
+  poster: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+  bgPoster: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+  rating: PropTypes.shape({
+    score: PropTypes.number.isRequired,
+    count: PropTypes.number.isRequired,
+  }).isRequired,
+  description: PropTypes.string.isRequired,
+  director: PropTypes.string.isRequired,
+  starrings: PropTypes.arrayOf(
+      PropTypes.string.isRequired
+  ).isRequired,
+  preview: PropTypes.string.isRequired,
+});
+
 export const activeMovieTypes = PropTypes.shape({
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
@@ -238,6 +264,8 @@ export const playerTimeValueTypes = PropTypes.string.isRequired;
 export const togglerValueInPercentsTypes = PropTypes.string.isRequired;
 
 export const pathTypes = PropTypes.string.isRequired;
+
+export const activePageTypes = PropTypes.string;
 
 export const authorizationStatusTypes = PropTypes.string.isRequired;
 

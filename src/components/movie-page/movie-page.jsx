@@ -1,17 +1,18 @@
 import React from "react";
 import {connect} from "react-redux";
-import {movieTypes, onPlayButtonClickTypes, authorizationStatusTypes} from "../../types/types.js";
+import {movieTypes, authorizationStatusTypes} from "../../types/types.js";
 import Tabs from "../tabs/tabs.jsx";
 import SimilarMoviesList from "../similar-movies-list/similar-movies-list.jsx";
-import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
 import {getPromoMovie} from "../../store/reducer/data/selectors.js";
 import PageHeader from "../page-header/page-header.jsx";
-import {AuthorizationStatus} from "../../utils/const.js";
+import {AuthorizationStatus, AppRoute, AppPages} from "../../utils/const.js";
+import {Link} from "react-router-dom";
+import PageFooter from "../page-footer/page-footer.jsx";
 
 
 const MoviePage = (props) => {
-  const {activeMovie, onPlayButtonClick, authorizationStatus} = props;
+  const {activeMovie, authorizationStatus} = props;
 
   return (
     <React.Fragment>
@@ -23,7 +24,7 @@ const MoviePage = (props) => {
 
           <h1 className="visually-hidden">WTW</h1>
 
-          <PageHeader authorizationStatus={authorizationStatus} />
+          <PageHeader authorizationStatus={authorizationStatus} activePage={AppPages.MOVIE_PAGE} />
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
@@ -34,12 +35,12 @@ const MoviePage = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button" onClick={onPlayButtonClick}>
+                <Link to={`${AppRoute.PLAYER_PAGE}/${activeMovie.id}`} className="btn btn--play movie-card__button" type="button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
-                </button>
+                </Link>
                 <button className="btn btn--list movie-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>
@@ -48,7 +49,7 @@ const MoviePage = (props) => {
                 </button>
 
                 {authorizationStatus === AuthorizationStatus.AUTH
-                  ? <a href="add-review.html" className="btn movie-card__button">Add review</a>
+                  ? <Link to={`${AppRoute.ADD_REVIEW_PAGE}/${activeMovie.id}/review`} className="btn movie-card__button">Add review</Link>
                   : ``
                 }
 
@@ -77,19 +78,7 @@ const MoviePage = (props) => {
           <SimilarMoviesList />
         </section>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <a href="main.html" className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <PageFooter />
       </div>
     </React.Fragment>
   );
@@ -98,7 +87,6 @@ const MoviePage = (props) => {
 
 MoviePage.propTypes = {
   activeMovie: movieTypes,
-  onPlayButtonClick: onPlayButtonClickTypes,
   authorizationStatus: authorizationStatusTypes,
 };
 
@@ -109,12 +97,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  onPlayButtonClick() {
-    dispatch(ActionCreator.openVideoPlayerPage());
-  },
-});
-
 
 export {MoviePage};
-export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);
+export default connect(mapStateToProps, null)(MoviePage);

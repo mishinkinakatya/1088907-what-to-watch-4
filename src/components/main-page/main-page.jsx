@@ -1,14 +1,15 @@
 import React from "react";
-import {connect} from "react-redux";
-import {promoMovieTypes, onPlayButtonClickTypes, authorizationStatusTypes} from "../../types/types.js";
+import {promoMovieTypes, authorizationStatusTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
 import ShowMoreButton from "../show-more-button/show-more-button.jsx";
-import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import PageHeader from "../page-header/page-header.jsx";
+import PageFooter from "../page-footer/page-footer.jsx";
+import {Link} from "react-router-dom";
+import {AppRoute, AppPages} from "../../utils/const.js";
 
 const MainPage = (props) => {
-  const {promoMovie, onPlayButtonClick, authorizationStatus} = props;
+  const {promoMovie, authorizationStatus} = props;
   return (
     <React.Fragment>
       <section className="movie-card">
@@ -18,7 +19,7 @@ const MainPage = (props) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <PageHeader authorizationStatus={authorizationStatus} />
+        <PageHeader authorizationStatus={authorizationStatus} activePage={AppPages.MAIN_PAGE} />
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">
@@ -34,12 +35,12 @@ const MainPage = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button" onClick={onPlayButtonClick}>
+                <Link to={`${AppRoute.PLAYER_PAGE}/${promoMovie.id}`} className="btn btn--play movie-card__button" type="button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
-                </button>
+                </Link>
                 <button className="btn btn--list movie-card__button" type="button">
                   {promoMovie.isFavorite
                     ? <svg viewBox="0 0 18 14" width="18" height="14">
@@ -69,19 +70,7 @@ const MainPage = (props) => {
           <ShowMoreButton />
         </section>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <a className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <PageFooter />
       </div>
     </React.Fragment>
   );
@@ -90,16 +79,8 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   promoMovie: promoMovieTypes.isRequired,
-  onPlayButtonClick: onPlayButtonClickTypes,
   authorizationStatus: authorizationStatusTypes,
 };
 
 
-const mapDispatchToProps = (dispatch) => ({
-  onPlayButtonClick() {
-    dispatch(ActionCreator.openVideoPlayerPage());
-  },
-});
-
-export {MainPage};
-export default connect(null, mapDispatchToProps)(MainPage);
+export default MainPage;

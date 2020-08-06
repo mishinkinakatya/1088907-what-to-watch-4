@@ -1,7 +1,8 @@
 import React from "react";
-import {movieTypes, addReviewStatusTypes, onRatingScoreChangeTypes, isSubmitButtonDisabledTypes, onCommentChangeTypes, onSubmitClickTypes, ratingScoreTypes} from "../../types/types";
+import {movieTypes, addReviewStatusTypes, onRatingScoreChangeTypes, isSubmitButtonDisabledTypes, onCommentChangeTypes, onSubmitClickTypes, ratingScoreTypes, authorizationStatusTypes} from "../../types/types";
 import withAddReview from "../../hocs/with-add-review/with-add-review";
-import {Review, SendingStatus} from "../../utils/const";
+import {Review, SendingStatus, AppPages} from "../../utils/const";
+import PageHeader from "../page-header/page-header.jsx";
 
 
 const createRatingStarTemplate = (score, ratingScore) => {
@@ -9,14 +10,14 @@ const createRatingStarTemplate = (score, ratingScore) => {
 
   return (
     <React.Fragment key={score}>
-      <input className="rating__input" id={`star-${score}`} type="radio" name="rating" value={score} checked={isChecked} readOnly/>
+      <input className="rating__input" id={`star-${score}`} type="radio" name="rating" value={score} checked={isChecked} readOnly />
       <label className="rating__label" htmlFor={`star-${score}`}>Rating {score}</label>
     </React.Fragment>
   );
 };
 
 const AddReviewPage = (props) => {
-  const {activeMovie, isSubmitButtonDisabled, onRatingScoreChange, onCommentChange, onSubmitClick, addReviewStatus, ratingScore} = props;
+  const {activeMovie, isSubmitButtonDisabled, onRatingScoreChange, onCommentChange, onSubmitClick, addReviewStatus, ratingScore, authorizationStatus} = props;
   return (
     <section className="movie-card movie-card--full">
       <div className="movie-card__header">
@@ -26,32 +27,7 @@ const AddReviewPage = (props) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <header className="page-header">
-          <div className="logo">
-            <a href="main.html" className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <nav className="breadcrumbs">
-            <ul className="breadcrumbs__list">
-              <li className="breadcrumbs__item">
-                <a href="movie-page.html" className="breadcrumbs__link">{activeMovie.title}</a>
-              </li>
-              <li className="breadcrumbs__item">
-                <a className="breadcrumbs__link">Add review</a>
-              </li>
-            </ul>
-          </nav>
-
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
-        </header>
+        <PageHeader authorizationStatus={authorizationStatus} activePage={AppPages.ADD_REVIEW_PAGE} activeMovie={activeMovie} />
 
         <div className="movie-card__poster movie-card__poster--small">
           <img src={activeMovie.poster.image} alt={activeMovie.title} width="218" height="327" />
@@ -95,6 +71,7 @@ AddReviewPage.propTypes = {
   onCommentChange: onCommentChangeTypes,
   onSubmitClick: onSubmitClickTypes,
   ratingScore: ratingScoreTypes,
+  authorizationStatus: authorizationStatusTypes,
 };
 
 
