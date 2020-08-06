@@ -1,11 +1,12 @@
 import React from "react";
 import {connect} from "react-redux";
-import {onSignInButtonClickTypes, authorizationStatusTypes} from "../../types/types.js";
+import {onSignInButtonClickTypes, authorizationStatusTypes, onAvatarClickTypes} from "../../types/types.js";
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
-import {AuthorizationStatus} from "../../utils/const.js";
+import {AuthorizationStatus, AppRoute} from "../../utils/const.js";
+import {Link} from "react-router-dom";
 
 const PageHeader = (props) => {
-  const {authorizationStatus, onSignInButtonClick} = props;
+  const {authorizationStatus, onAvatarClick, onSignInButtonClick} = props;
   return (
     <header className="page-header movie-card__head">
       <div className="logo">
@@ -15,23 +16,23 @@ const PageHeader = (props) => {
           <span className="logo__letter logo__letter--3">W</span>
         </a>
       </div>
-
-      {authorizationStatus === AuthorizationStatus.AUTH
-        ? <div className="user-block">
-          <div className="user-block__avatar">
-            <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-          </div>
-        </div>
-        : <div className="user-block">
-          <a href="#" className="user-block__link" onClick={onSignInButtonClick}>Sign in</a>
-        </div>
-      }
+      <div className="user-block">
+        {authorizationStatus === AuthorizationStatus.AUTH
+          ? <Link to={AppRoute.MY_LIST_PAGE}>
+            <div className="user-block__avatar">
+              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" onClick={onAvatarClick} />
+            </div>
+          </Link>
+          : <Link to={AppRoute.SIGN_IN_PAGE} className="user-block__link" onClick={onSignInButtonClick}>Sign in</Link>
+        }
+      </div>
     </header>
   );
 };
 
 
 PageHeader.propTypes = {
+  onAvatarClick: onAvatarClickTypes,
   onSignInButtonClick: onSignInButtonClickTypes,
   authorizationStatus: authorizationStatusTypes,
 };
@@ -39,7 +40,10 @@ PageHeader.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   onSignInButtonClick() {
-    dispatch(ActionCreator.openSignInPage());
+    dispatch(ActionCreator.goToSignInPage());
+  },
+  onAvatarClick() {
+    dispatch(ActionCreator.goToMyListPage());
   },
 });
 

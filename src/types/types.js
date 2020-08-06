@@ -183,6 +183,8 @@ export const isSignInPageOpenTypes = PropTypes.bool.isRequired;
 
 export const isAuthorizationErrorTypes = PropTypes.bool.isRequired;
 
+export const exactTypes = PropTypes.bool.isRequired;
+
 export const onCardClickTypes = PropTypes.func.isRequired;
 
 export const onCardHoverTypes = PropTypes.func.isRequired;
@@ -219,6 +221,10 @@ export const renderVideoPlayerTypes = PropTypes.func.isRequired;
 
 export const onInputDataChangeTypes = PropTypes.func.isRequired;
 
+export const renderTypes = PropTypes.func.isRequired;
+
+export const onAvatarClickTypes = PropTypes.func.isRequired;
+
 export const videoRefTypes = PropTypes.object.isRequired;
 
 export const currentTimeValueTypes = PropTypes.number.isRequired;
@@ -230,6 +236,8 @@ export const ratingScoreTypes = PropTypes.number.isRequired;
 export const playerTimeValueTypes = PropTypes.string.isRequired;
 
 export const togglerValueInPercentsTypes = PropTypes.string.isRequired;
+
+export const pathTypes = PropTypes.string.isRequired;
 
 export const authorizationStatusTypes = PropTypes.string.isRequired;
 

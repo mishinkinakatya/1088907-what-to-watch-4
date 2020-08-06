@@ -1,4 +1,4 @@
-import {ActionType, INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE} from "../../../utils/const.js";
+import {ActionType, INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE, AppPages} from "../../../utils/const.js";
 
 
 export const ActionCreator = {
@@ -32,16 +32,16 @@ export const ActionCreator = {
       payload: false,
     };
   },
-  openSignInPage: () => {
+  goToSignInPage: () => {
     return {
-      type: ActionType.CHANGE_STATUS_SIGN_IN_PAGE,
-      payload: true,
+      type: ActionType.GO_TO_SIGN_IN_PAGE,
+      payload: AppPages.SIGN_IN_PAGE,
     };
   },
-  closeSignInPage: () => {
+  goToMyListPage: () => {
     return {
-      type: ActionType.CHANGE_STATUS_SIGN_IN_PAGE,
-      payload: false,
+      type: ActionType.GO_TO_MY_LIST_PAGE,
+      payload: AppPages.MY_LIST_PAGE,
     };
   },
 };

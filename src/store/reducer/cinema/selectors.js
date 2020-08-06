@@ -18,10 +18,6 @@ export const getIsVideoPlayerPageOpen = (state) => {
   return state[NAME_SPACE].isVideoPlayerPageOpen;
 };
 
-export const getIsSignInPageOpen = (state) => {
-  return state[NAME_SPACE].isSignInPageOpen;
-};
-
 export const getMaxCountOfVisibleMovies = (state) => {
   return state[NAME_SPACE].maxCountOfVisibleMovies;
 };
