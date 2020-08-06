@@ -20,6 +20,12 @@ export const ActionCreator = {
       payload: promoMovie,
     };
   },
+  loadFaforite: (favouriteMovies) => {
+    return {
+      type: ActionType.LOAD_FAVORITE,
+      payload: favouriteMovies,
+    };
+  },
   changeStatusOfSendingReview: (status) => {
     return {
       type: ActionType.CHANGE_STATUS_OF_SENDING_REVIEW,

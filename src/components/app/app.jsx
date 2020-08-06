@@ -50,7 +50,7 @@ const App = (props) => {
           <SignInPage />;
         </Route>
         <Route exact path={AppRoute.MY_LIST_PAGE}>
-          <MyListPage />;
+          <MyListPage authorizationStatus={authorizationStatus} />;
         </Route>
         <Route exact path={`${AppRoute.MOVIE_PAGE}/:id`}>
           {() => {

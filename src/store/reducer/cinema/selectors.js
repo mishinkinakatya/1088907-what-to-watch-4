@@ -22,6 +22,10 @@ export const getMaxCountOfVisibleMovies = (state) => {
   return state[NAME_SPACE].maxCountOfVisibleMovies;
 };
 
+export const getActivePage = (state) => {
+  return state[NAME_SPACE].activePage;
+};
+
 export const getMoviesListOfActiveGenre = createSelector(
     getMovies,
     getActiveGenre,

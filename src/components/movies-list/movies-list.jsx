@@ -3,13 +3,15 @@ import {moviesTypes, countMoviesOnMainPageTypes, onCardClickTypes} from "../../t
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {connect} from "react-redux";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
-import {getMoviesListOfActiveGenre, getMaxCountOfVisibleMovies} from "../../store/reducer/cinema/selectors.js";
+import {getMoviesListOfActiveGenre, getMaxCountOfVisibleMovies, getActivePage} from "../../store/reducer/cinema/selectors.js";
 import {Operations as DataOperations} from "../../store/reducer/data/data.js";
-
+import {getFavoriteMovies} from "../../store/reducer/data/selectors.js";
+import {AppPages} from "../../utils/const.js";
 
 const MoviesList = (props) => {
-  const {movies, maxCountOfVisibleMovies, onCardClick} = props;
-  const visibleMovies = movies.slice(0, maxCountOfVisibleMovies);
+  const {movies, favoriteMovies, activePage, maxCountOfVisibleMovies, onCardClick} = props;
+
+  const visibleMovies = activePage === AppPages.MY_LIST_PAGE ? favoriteMovies : movies.slice(0, maxCountOfVisibleMovies);
 
   return (
     <div className="catalog__movies-list">
@@ -38,6 +40,8 @@ const mapStateToProps = (state) => {
   return {
     movies: getMoviesListOfActiveGenre(state),
     maxCountOfVisibleMovies: getMaxCountOfVisibleMovies(state),
+    favoriteMovies: getFavoriteMovies(state),
+    activePage: getActivePage(state),
   };
 };
 

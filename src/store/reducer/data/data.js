@@ -7,6 +7,7 @@ const initialState = {
   movies: [],
   promoMovie: null,
   reviews: [],
+  favoriteMovies: [],
   addReviewStatus: SendingStatus.NO_SENDING,
 };
 
@@ -27,6 +28,12 @@ export const Operations = {
     return api.get(`/films/promo`)
     .then((response) => {
       dispatch(ActionCreator.loadPromoMovie(createMovie(response.data)));
+    });
+  },
+  loadFaforite: () => (dispatch, getState, api) => {
+    return api.get(`/favorite`)
+    .then((response) => {
+      dispatch(ActionCreator.loadFaforite(response.data.map(createMovie)));
     });
   },
   postReview: (movieId, reviewData) => (dispatch, getState, api) => {
@@ -57,6 +64,10 @@ export const reducer = (state = initialState, action) => {
     case ActionType.LOAD_PROMO_MOVIE:
       return Object.assign({}, state, {
         promoMovie: action.payload,
+      });
+    case ActionType.LOAD_FAVORITE:
+      return Object.assign({}, state, {
+        favoriteMovies: action.payload,
       });
     case ActionType.CHANGE_STATUS_OF_SENDING_REVIEW:
       return Object.assign({}, state, {

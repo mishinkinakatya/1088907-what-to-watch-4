@@ -2,11 +2,13 @@ import React from "react";
 import {connect} from "react-redux";
 import {onSignInButtonClickTypes, authorizationStatusTypes, onAvatarClickTypes} from "../../types/types.js";
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
-import {AuthorizationStatus, AppRoute} from "../../utils/const.js";
+import {AuthorizationStatus, AppRoute, AppPages} from "../../utils/const.js";
 import {Link} from "react-router-dom";
+import {getActivePage} from "../../store/reducer/cinema/selectors.js";
 
 const PageHeader = (props) => {
-  const {authorizationStatus, onAvatarClick, onSignInButtonClick} = props;
+  const {authorizationStatus, onAvatarClick, onSignInButtonClick, activePage} = props;
+
   return (
     <header className="page-header movie-card__head">
       <div className="logo">
@@ -16,6 +18,10 @@ const PageHeader = (props) => {
           <span className="logo__letter logo__letter--3">W</span>
         </a>
       </div>
+      {activePage === AppPages.MY_LIST_PAGE
+        ? <h1 className="page-title user-page__title">My list</h1>
+        : ``
+      }
       <div className="user-block">
         {authorizationStatus === AuthorizationStatus.AUTH
           ? <Link to={AppRoute.MY_LIST_PAGE}>
@@ -38,6 +44,12 @@ PageHeader.propTypes = {
 };
 
 
+const mapStateToProps = (state) => {
+  return {
+    activePage: getActivePage(state),
+  };
+};
+
 const mapDispatchToProps = (dispatch) => ({
   onSignInButtonClick() {
     dispatch(ActionCreator.goToSignInPage());
@@ -48,4 +60,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {PageHeader};
-export default connect(null, mapDispatchToProps)(PageHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(PageHeader);
