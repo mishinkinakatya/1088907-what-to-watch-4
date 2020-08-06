@@ -45,6 +45,7 @@ const mapDispatchToProps = (dispatch) => ({
   onCardClick(activeMovie) {
     dispatch(ActionCreator.changeActiveMovie(activeMovie));
     dispatch(DataOperations.loadReviews(activeMovie.id));
+    dispatch(ActionCreator.goToMoviePage());
   }
 });
 

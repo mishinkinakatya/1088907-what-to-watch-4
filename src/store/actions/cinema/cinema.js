@@ -44,4 +44,10 @@ export const ActionCreator = {
       payload: AppPages.MY_LIST_PAGE,
     };
   },
+  goToMoviePage: () => {
+    return {
+      type: ActionType.GO_TO_MOVIE_PAGE,
+      payload: AppPages.MOVIE_PAGE,
+    };
+  },
 };

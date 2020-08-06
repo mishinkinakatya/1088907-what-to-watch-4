@@ -2,7 +2,7 @@ import React from "react";
 import {Switch, Route, Router} from "react-router-dom";
 import {activeMovieTypes, isVideoPlayerPageOpenTypes, promoMovieTypes, authorizationStatusTypes} from "../../types/types.js";
 import MainPage from "../main-page/main-page.jsx";
-// import MoviePage from "../movie-page/movie-page.jsx";
+import MoviePage from "../movie-page/movie-page.jsx";
 // import PlayerPage from "../player-page/player-page.jsx";
 import {connect} from "react-redux";
 import {getActiveMovie, getIsVideoPlayerPageOpen} from "../../store/reducer/cinema/selectors.js";
@@ -17,7 +17,7 @@ import MyListPage from "../my-list-page/my-list-page.jsx";
 
 
 const App = (props) => {
-  const {promoMovie, authorizationStatus} = props;
+  const {promoMovie, activeMovie, authorizationStatus} = props;
 
   // const renderApp = () => {
   //   if (isVideoPlayerPageOpen) {
@@ -25,10 +25,6 @@ const App = (props) => {
   //   }
   //   if (activeMovie) {
   //     return <MoviePage authorizationStatus={authorizationStatus} />;
-  //   }
-
-  //   if (promoMovie) {
-  //     return <MainPage authorizationStatus={authorizationStatus} promoMovie={promoMovie} />;
   //   }
 
   //   return (
@@ -56,7 +52,7 @@ const App = (props) => {
         <Route exact path={AppRoute.MY_LIST_PAGE}>
           <MyListPage />;
         </Route>
-        {/* <Route exact path={`${AppRoute.MOVIE_PAGE}/:id`}>
+        <Route exact path={`${AppRoute.MOVIE_PAGE}/:id`}>
           {() => {
             if (activeMovie || promoMovie) {
               return <MoviePage authorizationStatus={authorizationStatus} />;
@@ -67,7 +63,7 @@ const App = (props) => {
             }
           }}
         </Route>
-        <Route exact path={`${AppRoute.PLAYER_PAGE}/:id`}>
+        {/* <Route exact path={`${AppRoute.PLAYER_PAGE}/:id`}>
           <PlayerPage />;
         </Route>
         <Route exact path={`${AppRoute.ADD_REVIEW_PAGE}/:id/review`}>

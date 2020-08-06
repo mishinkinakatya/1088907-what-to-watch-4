@@ -36,6 +36,10 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         activePage: action.payload,
       });
+    case ActionType.GO_TO_MOVIE_PAGE:
+      return Object.assign({}, state, {
+        activePage: action.payload,
+      });
   }
   return state;
 };

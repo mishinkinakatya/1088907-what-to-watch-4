@@ -2,6 +2,8 @@ import React from "react";
 import {movieTypes, onCardMouseEventTypes, onCardClickTypes, isPlayingTypes} from "../../types/types.js";
 import VideoPlayer from "../video-player/video-player.jsx";
 import withSmallMovieCard from "../../hocs/with-small-movie-card/with-small-movie-card.js";
+import {Link} from "react-router-dom";
+import {AppRoute} from "../../utils/const.js";
 
 
 const SmallMovieCard = (props) => {
@@ -21,6 +23,7 @@ const SmallMovieCard = (props) => {
       }
       }
     >
+      {/* <Link to={`${AppRoute.MOVIE_PAGE}/${movie.id}`}> */}
       <div className="small-movie-card__image">
         <VideoPlayer
           preview={movie.preview}
@@ -36,6 +39,7 @@ const SmallMovieCard = (props) => {
       <h3 className="small-movie-card__title">
         <a className="small-movie-card__link" href="movie-page.html">{movie.bgPoster.title}</a>
       </h3>
+      {/* </Link> */}
     </article >
   );
 };

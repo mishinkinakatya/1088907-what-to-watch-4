@@ -21,6 +21,7 @@ export const createMovie = (data) => {
     director: data.director,
     starrings: data.starring,
     preview: data.preview_video_link,
+    isFaforite: data.is_favorite,
   };
 };
 
