@@ -19,7 +19,7 @@ const createRatingStarTemplate = (score, ratingScore) => {
 const AddReviewPage = (props) => {
   const {activeMovie, isSubmitButtonDisabled, onRatingScoreChange, onCommentChange, onSubmitClick, addReviewStatus, ratingScore, authorizationStatus} = props;
   return (
-    <section className="movie-card movie-card--full">
+    <section className="movie-card movie-card--full" style={{background: activeMovie.bgColor}}>
       <div className="movie-card__header">
         <div className="movie-card__bg">
           <img src={activeMovie.bgPosterImage} alt={activeMovie.title} />
@@ -34,7 +34,7 @@ const AddReviewPage = (props) => {
         </div>
       </div>
 
-      <div className="add-review">
+      <div className="add-review" style={{background: activeMovie.bgColor}}>
         <form action="#" className="add-review__form">
           <div className="rating">
             <div className="rating__stars" onChange={onRatingScoreChange} disabled={addReviewStatus === SendingStatus.SENDING}>

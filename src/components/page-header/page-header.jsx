@@ -1,7 +1,9 @@
 import React from "react";
-import {authorizationStatusTypes, activePageTypes, movieNotRequiredTypes} from "../../types/types.js";
+import {authorizationStatusTypes, activePageTypes, movieNotRequiredTypes, authInfoTypes} from "../../types/types.js";
 import {AuthorizationStatus, AppRoute, AppPages} from "../../utils/const.js";
 import {Link} from "react-router-dom";
+import {getAuthInfo} from "../../store/reducer/user/selectors.js";
+import {connect} from "react-redux";
 
 
 const HeaderClass = {
@@ -22,7 +24,7 @@ const getHeaderSpecific = (activePage, activeMovie) => {
       return <nav className="breadcrumbs">
         <ul className="breadcrumbs__list">
           <li className="breadcrumbs__item">
-            <Link to={`${AppRoute.MOVIE_PAGE}/${activeMovie.id}`} href="movie-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</Link>
+            <Link to={`${AppRoute.MOVIE_PAGE}/${activeMovie.id}`} href="movie-page.html" className="breadcrumbs__link">{activeMovie.title}</Link>
           </li>
           <li className="breadcrumbs__item">
             <a className="breadcrumbs__link">Add review</a>
@@ -35,7 +37,7 @@ const getHeaderSpecific = (activePage, activeMovie) => {
 };
 
 const PageHeader = (props) => {
-  const {authorizationStatus, activePage, activeMovie} = props;
+  const {authorizationStatus, activePage, activeMovie, authInfo} = props;
 
   return (
     <header className={HeaderClass[activePage]}>
@@ -52,7 +54,7 @@ const PageHeader = (props) => {
           {authorizationStatus === AuthorizationStatus.AUTH
             ? <Link to={AppRoute.MY_LIST_PAGE}>
               <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+                <img src={authInfo.avatarUrl} alt={authInfo.name} width="63" height="63" />
               </div>
             </Link>
             : <Link to={AppRoute.SIGN_IN_PAGE} className="user-block__link">Sign in</Link>
@@ -69,7 +71,15 @@ PageHeader.propTypes = {
   authorizationStatus: authorizationStatusTypes,
   activePage: activePageTypes,
   activeMovie: movieNotRequiredTypes,
+  authInfo: authInfoTypes,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    authInfo: getAuthInfo(state),
+  };
 };
 
 
-export default PageHeader;
+export {PageHeader};
+export default connect(mapStateToProps)(PageHeader);

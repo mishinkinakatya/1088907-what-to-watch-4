@@ -19,4 +19,10 @@ export const ActionCreator = {
       payload: false,
     };
   },
+  changeAuthInfo: (authInfo) => {
+    return {
+      type: ActionType.CHANGE_AUTH_INFO,
+      payload: authInfo,
+    };
+  },
 };

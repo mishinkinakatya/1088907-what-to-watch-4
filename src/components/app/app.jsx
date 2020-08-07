@@ -1,15 +1,15 @@
 import React from "react";
 import {Switch, Route, Router} from "react-router-dom";
-import {activeMovieTypes, promoMovieTypes, authorizationStatusTypes} from "../../types/types.js";
+import {activeMovieTypes, promoMovieTypes, authorizationStatusTypes, addReviewStatusTypes} from "../../types/types.js";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 import PlayerPage from "../player-page/player-page.jsx";
 import {connect} from "react-redux";
 import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
-import {getPromoMovie} from "../../store/reducer/data/selectors.js";
+import {getPromoMovie, getAddReviewStatus} from "../../store/reducer/data/selectors.js";
 import LoadingPage from "../loading-page/loading-page.jsx";
 import SignInPage from "../sign-in-page/sign-in-page.jsx";
-import {getAuthorizationStatus} from "../../store/reducer/user/selectors.js";
+import {getAuthorizationStatus, getAuthInfo} from "../../store/reducer/user/selectors.js";
 import AddReviewPage from "../add-review-page/add-review-page.jsx";
 import {AppRoute} from "../../utils/const.js";
 import history from "../../history.js";
@@ -22,25 +22,29 @@ const App = (props) => {
   return (
     <Router history={history}>
       <Switch>
-        <Route exact path={AppRoute.MAIN_PAGE}>
-          {() => {
+        <Route exact path={AppRoute.MAIN_PAGE}
+          render={() => {
             if (promoMovie) {
-              return <MainPage authorizationStatus={authorizationStatus} promoMovie={promoMovie}/>;
+              return <MainPage authorizationStatus={authorizationStatus} promoMovie={promoMovie} />;
             }
 
             return (
               <LoadingPage authorizationStatus={authorizationStatus} />
             );
           }}
-        </Route>
-        <Route exact path={AppRoute.SIGN_IN_PAGE}>
-          <SignInPage authorizationStatus={authorizationStatus} />;
-        </Route>
-        <Route exact path={AppRoute.MY_LIST_PAGE}>
-          <MyListPage authorizationStatus={authorizationStatus} />;
-        </Route>
-        <Route exact path={`${AppRoute.MOVIE_PAGE}/:id`}>
-          {() => {
+        />
+        <Route exact path={AppRoute.SIGN_IN_PAGE}
+          render={() => {
+            return <SignInPage authorizationStatus={authorizationStatus} />;
+          }}
+        />;
+        <Route exact path={AppRoute.MY_LIST_PAGE}
+          render={() => {
+            return <MyListPage authorizationStatus={authorizationStatus} />;
+          }}
+        />;
+        <Route exact path={`${AppRoute.MOVIE_PAGE}/:id`}
+          render={() => {
             if (activeMovie || promoMovie) {
               return <MoviePage authorizationStatus={authorizationStatus} />;
             } else {
@@ -48,13 +52,12 @@ const App = (props) => {
                 <LoadingPage authorizationStatus={authorizationStatus} />
               );
             }
-          }}
-        </Route>
+          }} />;
         <Route exact path={`${AppRoute.PLAYER_PAGE}/:id`}>
           <PlayerPage />;
         </Route>
-        <Route exact path={`${AppRoute.ADD_REVIEW_PAGE}/:id/review`}>
-          {() => {
+        <Route exact path={`${AppRoute.MOVIE_PAGE}/:id${AppRoute.ADD_REVIEW_PAGE}`}
+          render={() => {
             if (activeMovie || promoMovie) {
               return <AddReviewPage activeMovie={activeMovie || promoMovie} authorizationStatus={authorizationStatus} />;
             } else {
@@ -63,7 +66,7 @@ const App = (props) => {
               );
             }
           }}
-        </Route>
+        />
       </Switch>
     </Router>
   );
@@ -74,6 +77,7 @@ App.propTypes = {
   activeMovie: activeMovieTypes,
   promoMovie: promoMovieTypes,
   authorizationStatus: authorizationStatusTypes,
+  addReviewStatus: addReviewStatusTypes,
 };
 
 
@@ -82,6 +86,8 @@ const mapStateToProps = (state) => {
     activeMovie: getActiveMovie(state),
     promoMovie: getPromoMovie(state),
     authorizationStatus: getAuthorizationStatus(state),
+    addReviewStatus: getAddReviewStatus(state),
+    authInfo: getAuthInfo(state),
   };
 };
 

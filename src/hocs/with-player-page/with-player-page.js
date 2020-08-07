@@ -88,7 +88,7 @@ const withPlayerPage = (Component) => {
           className="player__video"
           ref={this._videoRef}
           poster={activeMovie.posterImage}
-          src={activeMovie.preview}
+          src={activeMovie.movieLink}
         />
       );
     }

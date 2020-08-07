@@ -17,6 +17,7 @@ export const ActionType = {
   LOAD_FAVORITE: `LOAD_FAVORITE`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   CHANGE_STATUS_OF_SENDING_REVIEW: `CHANGE_STATUS_OF_SENDING_REVIEW`,
+  CHANGE_AUTH_INFO: `CHANGE_AUTH_INFO`,
 };
 
 export const INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE = 8;
@@ -45,9 +46,9 @@ export const Review = {
 export const AppRoute = {
   MAIN_PAGE: `/`,
   SIGN_IN_PAGE: `/login`,
-  MY_LIST_PAGE: `/my-list`,
+  MY_LIST_PAGE: `/mylist`,
   MOVIE_PAGE: `/films`,
-  ADD_REVIEW_PAGE: `/add-review-page`,
+  ADD_REVIEW_PAGE: `/review`,
   PLAYER_PAGE: `/player`,
 };
 

@@ -128,6 +128,7 @@ export const promoMovieReviewsTypes = PropTypes.arrayOf(
     PropTypes.shape({
       movieId: PropTypes.number.isRequired,
       author: PropTypes.string.isRequired,
+      authorId: PropTypes.number.isRequired,
       dateUTC: PropTypes.object.isRequired,
       ratingScore: PropTypes.number.isRequired,
       comment: PropTypes.string.isRequired,
@@ -138,6 +139,7 @@ export const reviewsTypes = PropTypes.arrayOf(
     PropTypes.shape({
       movieId: PropTypes.number.isRequired,
       author: PropTypes.string.isRequired,
+      authorId: PropTypes.number.isRequired,
       dateUTC: PropTypes.string.isRequired,
       ratingScore: PropTypes.number.isRequired,
       comment: PropTypes.string.isRequired,
@@ -147,6 +149,13 @@ export const reviewsTypes = PropTypes.arrayOf(
 export const allGenresTypes = PropTypes.arrayOf(
     PropTypes.string.isRequired
 ).isRequired;
+
+export const authInfoTypes = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  email: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  avatarUrl: PropTypes.string.isRequired,
+});
 
 export const posterTypes = PropTypes.string.isRequired;
 

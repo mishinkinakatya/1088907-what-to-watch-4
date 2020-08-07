@@ -23,11 +23,11 @@ const SmallMovieCard = (props) => {
       }
       }
     >
-      <Link to={`${AppRoute.MOVIE_PAGE}/${movie.id}`}>
+      <Link to={`${AppRoute.MOVIE_PAGE}/${movie.id}`} >
         <div className="small-movie-card__image">
           <VideoPlayer
             preview={movie.preview}
-            poster={movie.posterImage}
+            poster={movie.previewImage}
             isPlaying={isPlaying}
           />
           <img
@@ -36,11 +36,11 @@ const SmallMovieCard = (props) => {
             width="280"
             height="175" />
         </div>
-        <h3 className="small-movie-card__title">
-          <a href="#" className="small-movie-card__link" >{movie.title}</a>
-        </h3>
       </Link>
-    </article >
+      <h3 className="small-movie-card__title">
+        <Link to={`${AppRoute.MOVIE_PAGE}/${movie.id}`} className="small-movie-card__link" >{movie.title}</Link>
+      </h3>
+    </article>
   );
 };
 

@@ -27,7 +27,7 @@ const MovieButtons = (props) => {
       </button>
 
       {authorizationStatus === AuthorizationStatus.AUTH
-        ? <Link to={`${AppRoute.ADD_REVIEW_PAGE}/${movie.id}/review`} className="btn movie-card__button">Add review</Link>
+        ? <Link to={`${AppRoute.MOVIE_PAGE}/${movie.id}${AppRoute.ADD_REVIEW_PAGE}`} className="btn movie-card__button">Add review</Link>
         : ``
       }
 

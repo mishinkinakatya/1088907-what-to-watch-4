@@ -1,6 +1,8 @@
-import {ActionType, SendingStatus} from "../../../utils/const.js";
+import React from "react";
+import {ActionType, SendingStatus, AppRoute} from "../../../utils/const.js";
 import {ActionCreator} from "../../actions/data/data.js";
 import {createMovie, createReview} from "../../../adapters/adapters.js";
+import {Redirect} from "react-router-dom";
 
 
 const initialState = {
@@ -44,6 +46,14 @@ export const Operations = {
     })
     .then(() => {
       dispatch(ActionCreator.changeStatusOfSendingReview(SendingStatus.SUCCESS));
+    })
+    .then(() => {
+      return (
+        <Redirect to={{
+          path: `${AppRoute.MOVIE_PAGE}/:${movieId}`,
+          state: {form: location}
+        }} />
+      );
     })
     .catch(() => {
       dispatch(ActionCreator.changeStatusOfSendingReview(SendingStatus.FAIL));

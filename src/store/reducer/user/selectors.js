@@ -9,3 +9,7 @@ export const getAuthorizationStatus = (state) => {
 export const getIsAuthorizationError = (state) => {
   return state[NAME_SPACE].isAuthorizationError;
 };
+
+export const getAuthInfo = (state) => {
+  return state[NAME_SPACE].authInfo;
+};

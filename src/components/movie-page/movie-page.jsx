@@ -16,7 +16,7 @@ const MoviePage = (props) => {
 
   return (
     <React.Fragment>
-      <section className="movie-card movie-card--full">
+      <section className="movie-card movie-card--full" style={{background: activeMovie.bgColor}}>
         <div className="movie-card__hero">
           <div className="movie-card__bg">
             <img src={activeMovie.bgPosterImage} alt={activeMovie.title} />
