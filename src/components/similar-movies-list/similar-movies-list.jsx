@@ -1,12 +1,11 @@
 import React from "react";
-import {moviesTypes, onCardClickTypes, countMoviesOnMainPageTypes, activeGenreTypes, movieTypes} from "../../types/types.js";
-import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {connect} from "react-redux";
+import {moviesTypes, onCardClickTypes, movieTypes} from "../../types/types.js";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
-import {getActiveMovie, getActiveGenre, getMaxCountOfVisibleMovies} from "../../store/reducer/cinema/selectors.js";
-import {getMovies} from "../../store/reducer/data/selectors.js";
-import {getPromoMovie} from "../../store/reducer/data/selectors.js";
+import {ActionCreator} from "../../store/actions/cinema/cinema.js";
+import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
 import {Operations as DataOperations} from "../../store/reducer/data/data.js";
+import {getMovies, getPromoMovie} from "../../store/reducer/data/selectors.js";
 
 
 const COUNT_VISIBLE_SIMILAR_MOVIES = 4;
@@ -34,8 +33,6 @@ const SimilarMoviesList = (props) => {
 SimilarMoviesList.propTypes = {
   activeMovie: movieTypes,
   movies: moviesTypes,
-  activeGenre: activeGenreTypes,
-  maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
   onCardClick: onCardClickTypes,
 };
 
@@ -44,8 +41,6 @@ const mapStateToProps = (state) => {
   return {
     movies: getMovies(state),
     activeMovie: getActiveMovie(state) || getPromoMovie(state),
-    activeGenre: getActiveGenre(state),
-    maxCountOfVisibleMovies: getMaxCountOfVisibleMovies(state),
   };
 };
 

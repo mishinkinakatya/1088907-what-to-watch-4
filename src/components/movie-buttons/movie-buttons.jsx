@@ -1,8 +1,9 @@
 import React from "react";
-import {AppRoute, AuthorizationStatus} from "../../utils/const";
-import {movieTypes, authorizationStatusTypes, isFavoriteTypes, onMyListButtonClickTypes} from "../../types/types";
 import {Link} from "react-router-dom";
+import {movieTypes, authorizationStatusTypes, isFavoriteTypes, onMyListButtonClickTypes} from "../../types/types";
 import withFavoriteMovie from "../../hocs/with-favorite-movie/with-favorite-movie.jsx";
+import {AppRoute, AuthorizationStatus} from "../../utils/const";
+
 
 const MovieButtons = (props) => {
   const {authorizationStatus, movie, isFavorite, onMyListButtonClick} = props;
@@ -30,7 +31,6 @@ const MovieButtons = (props) => {
         ? <Link to={`${AppRoute.MOVIE_PAGE}/${movie.id}${AppRoute.ADD_REVIEW_PAGE}`} className="btn movie-card__button">Add review</Link>
         : ``
       }
-
     </div>
   );
 };
@@ -44,4 +44,5 @@ MovieButtons.propTypes = {
 };
 
 
+export {MovieButtons};
 export default withFavoriteMovie(MovieButtons);

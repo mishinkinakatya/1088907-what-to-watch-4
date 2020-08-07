@@ -1,8 +1,8 @@
 import React from "react";
-import {moviesTypes, countMoviesOnMainPageTypes, onCardClickTypes, activePageTypes} from "../../types/types.js";
-import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {connect} from "react-redux";
+import {moviesTypes, countMoviesOnMainPageTypes, onCardClickTypes, activePageTypes} from "../../types/types.js";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
+import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {getMoviesListOfActiveGenre, getMaxCountOfVisibleMovies} from "../../store/reducer/cinema/selectors.js";
 import {Operations as DataOperations} from "../../store/reducer/data/data.js";
 import {getFavoriteMovies} from "../../store/reducer/data/selectors.js";

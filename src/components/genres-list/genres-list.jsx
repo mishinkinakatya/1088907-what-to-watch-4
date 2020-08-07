@@ -1,7 +1,7 @@
 import React from "react";
+import {connect} from "react-redux";
 import {allGenresTypes, activeGenreTypes, onGenreClickTypes} from "../../types/types.js";
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
-import {connect} from "react-redux";
 import {getActiveGenre} from "../../store/reducer/cinema/selectors.js";
 import {getAllGenres} from "../../store/reducer/data/selectors.js";
 

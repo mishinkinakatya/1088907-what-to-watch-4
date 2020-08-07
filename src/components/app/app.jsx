@@ -1,19 +1,19 @@
 import React from "react";
 import {Switch, Route, Router} from "react-router-dom";
+import {connect} from "react-redux";
+import history from "../../history.js";
 import {activeMovieTypes, promoMovieTypes, authorizationStatusTypes, addReviewStatusTypes} from "../../types/types.js";
+import AddReviewPage from "../add-review-page/add-review-page.jsx";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
+import MyListPage from "../my-list-page/my-list-page.jsx";
+import LoadingPage from "../loading-page/loading-page.jsx";
 import PlayerPage from "../player-page/player-page.jsx";
-import {connect} from "react-redux";
+import SignInPage from "../sign-in-page/sign-in-page.jsx";
 import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
 import {getPromoMovie, getAddReviewStatus} from "../../store/reducer/data/selectors.js";
-import LoadingPage from "../loading-page/loading-page.jsx";
-import SignInPage from "../sign-in-page/sign-in-page.jsx";
-import {getAuthorizationStatus, getAuthInfo} from "../../store/reducer/user/selectors.js";
-import AddReviewPage from "../add-review-page/add-review-page.jsx";
+import {getAuthorizationStatus} from "../../store/reducer/user/selectors.js";
 import {AppRoute} from "../../utils/const.js";
-import history from "../../history.js";
-import MyListPage from "../my-list-page/my-list-page.jsx";
 
 
 const App = (props) => {
@@ -87,7 +87,6 @@ const mapStateToProps = (state) => {
     promoMovie: getPromoMovie(state),
     authorizationStatus: getAuthorizationStatus(state),
     addReviewStatus: getAddReviewStatus(state),
-    authInfo: getAuthInfo(state),
   };
 };
 

@@ -63,7 +63,6 @@ const mapStateToProps = (state) => {
   const currentMovie = getActiveMovie(state) || getPromoMovie(state);
   return {
     activeMovie: currentMovie,
-    promoMovie: getPromoMovie(state),
     reviews: getReviews(state),
   };
 };

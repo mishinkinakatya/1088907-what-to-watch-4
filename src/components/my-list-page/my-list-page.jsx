@@ -1,7 +1,7 @@
 import React from "react";
+import {authorizationStatusTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import PageHeader from "../page-header/page-header.jsx";
-import {authorizationStatusTypes} from "../../types/types.js";
 import PageFooter from "../page-footer/page-footer.jsx";
 import {AppPages} from "../../utils/const.js";
 

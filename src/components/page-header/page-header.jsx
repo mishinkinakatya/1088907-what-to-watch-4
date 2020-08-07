@@ -1,9 +1,9 @@
 import React from "react";
-import {authorizationStatusTypes, activePageTypes, movieNotRequiredTypes, authInfoTypes} from "../../types/types.js";
-import {AuthorizationStatus, AppRoute, AppPages} from "../../utils/const.js";
-import {Link} from "react-router-dom";
-import {getAuthInfo} from "../../store/reducer/user/selectors.js";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
+import {authorizationStatusTypes, activePageTypes, movieNotRequiredTypes, authInfoTypes} from "../../types/types.js";
+import {getAuthInfo} from "../../store/reducer/user/selectors.js";
+import {AuthorizationStatus, AppRoute, AppPages} from "../../utils/const.js";
 
 
 const HeaderClass = {

@@ -1,7 +1,7 @@
 import React from "react";
-import PageFooter from "../page-footer/page-footer.jsx";
-import PageHeader from "../page-header/page-header.jsx";
 import {authorizationStatusTypes} from "../../types/types.js";
+import PageHeader from "../page-header/page-header.jsx";
+import PageFooter from "../page-footer/page-footer.jsx";
 
 
 const LoadingPage = (props) => {

@@ -1,8 +1,8 @@
 import React from "react";
-import {ActionType, SendingStatus, AppRoute} from "../../../utils/const.js";
+import {Redirect} from "react-router-dom";
 import {ActionCreator} from "../../actions/data/data.js";
 import {createMovie, createReview} from "../../../adapters/adapters.js";
-import {Redirect} from "react-router-dom";
+import {ActionType, SendingStatus, AppRoute} from "../../../utils/const.js";
 
 
 const initialState = {

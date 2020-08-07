@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
-import {movieTypes, onMyListButtonClickTypes} from "../../types/types";
 import {connect} from "react-redux";
+import {movieTypes, onMyListButtonClickTypes} from "../../types/types";
 import {Operations as DataOperations} from "../../store/reducer/data/data.js";
 
 

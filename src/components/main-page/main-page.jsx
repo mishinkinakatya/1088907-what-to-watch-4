@@ -1,12 +1,12 @@
 import React from "react";
 import {promoMovieTypes, authorizationStatusTypes} from "../../types/types.js";
-import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
-import ShowMoreButton from "../show-more-button/show-more-button.jsx";
+import MovieButtons from "../movie-buttons/movie-buttons.jsx";
+import MoviesList from "../movies-list/movies-list.jsx";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
+import ShowMoreButton from "../show-more-button/show-more-button.jsx";
 import {AppPages} from "../../utils/const.js";
-import MovieButtons from "../movie-buttons/movie-buttons.jsx";
 
 const MainPage = (props) => {
   const {promoMovie, authorizationStatus} = props;

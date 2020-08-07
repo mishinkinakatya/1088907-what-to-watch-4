@@ -1,10 +1,10 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
-import {movieTypes, onExitButtonClickTypes, onFullScreenButtonClickTypes, renderVideoPlayerTypes, isPlayingTypes, onPlayPauseButtonClickTypes, currentTimeValueTypes, runTimeTypes, playerTimeValueTypes, togglerValueInPercentsTypes} from "../../types/types";
+import {Link} from "react-router-dom";
+import {movieTypes, onFullScreenButtonClickTypes, renderVideoPlayerTypes, isPlayingTypes, onPlayPauseButtonClickTypes, currentTimeValueTypes, runTimeTypes, playerTimeValueTypes, togglerValueInPercentsTypes} from "../../types/types";
 import withPlayerPage from "../../hocs/with-player-page/with-player-page.js";
 import {getActiveMovie} from "../../store/reducer/cinema/selectors";
 import {getPromoMovie} from "../../store/reducer/data/selectors";
-import {Link} from "react-router-dom";
 import {AppRoute} from "../../utils/const";
 
 
@@ -92,7 +92,6 @@ PlayerPage.propTypes = {
   renderVideoPlayer: renderVideoPlayerTypes,
   onPlayPauseButtonClick: onPlayPauseButtonClickTypes,
   onFullScreenButtonClick: onFullScreenButtonClickTypes,
-  onExitButtonClick: onExitButtonClickTypes,
   currentTimeValue: currentTimeValueTypes,
   runTime: runTimeTypes,
   playerTimeValue: playerTimeValueTypes,

@@ -1,8 +1,8 @@
 import React from "react";
 import {movieTypes, addReviewStatusTypes, onRatingScoreChangeTypes, isSubmitButtonDisabledTypes, onCommentChangeTypes, onSubmitClickTypes, ratingScoreTypes, authorizationStatusTypes} from "../../types/types";
+import PageHeader from "../page-header/page-header.jsx";
 import withAddReview from "../../hocs/with-add-review/with-add-review";
 import {Review, SendingStatus, AppPages} from "../../utils/const";
-import PageHeader from "../page-header/page-header.jsx";
 
 
 const createRatingStarTemplate = (score, ratingScore) => {
@@ -74,5 +74,5 @@ AddReviewPage.propTypes = {
   authorizationStatus: authorizationStatusTypes,
 };
 
-
+export {AddReviewPage};
 export default withAddReview(AddReviewPage);

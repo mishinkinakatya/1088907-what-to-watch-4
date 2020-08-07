@@ -1,5 +1,5 @@
-import NameSpace from "../../name-space.js";
 import {createSelector} from "reselect";
+import NameSpace from "../../name-space.js";
 import {getMovies} from "../data/selectors.js";
 import {DEFAULT_GENRE} from "../../../utils/const.js";
 

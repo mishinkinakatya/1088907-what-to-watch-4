@@ -1,12 +1,13 @@
 import React, {PureComponent, createRef} from "react";
-import {Operations as UserOperations} from "../../store/reducer/user/user.js";
 import {connect} from "react-redux";
 import {onSignInClickTypes, isAuthorizationErrorTypes, onInputDataChangeTypes, authorizationStatusTypes} from "../../types/types.js";
-import {getIsAuthorizationError} from "../../store/reducer/user/selectors.js";
-import {ActionCreator} from "../../store/actions/user/user.js";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
+import {ActionCreator} from "../../store/actions/user/user.js";
+import {Operations as UserOperations} from "../../store/reducer/user/user.js";
+import {getIsAuthorizationError} from "../../store/reducer/user/selectors.js";
 import {AppPages} from "../../utils/const.js";
+
 
 class SignInPage extends PureComponent {
   constructor(props) {
@@ -93,4 +94,6 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
+
+export {SignInPage};
 export default connect(mapStateToProps, mapDispatchToProps)(SignInPage);

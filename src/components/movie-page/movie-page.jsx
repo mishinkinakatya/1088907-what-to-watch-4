@@ -1,14 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
 import {movieTypes, authorizationStatusTypes} from "../../types/types.js";
-import Tabs from "../tabs/tabs.jsx";
+import MovieButtons from "../movie-buttons/movie-buttons.jsx";
+import PageHeader from "../page-header/page-header.jsx";
+import PageFooter from "../page-footer/page-footer.jsx";
 import SimilarMoviesList from "../similar-movies-list/similar-movies-list.jsx";
+import Tabs from "../tabs/tabs.jsx";
 import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
 import {getPromoMovie} from "../../store/reducer/data/selectors.js";
-import PageHeader from "../page-header/page-header.jsx";
 import {AppPages} from "../../utils/const.js";
-import PageFooter from "../page-footer/page-footer.jsx";
-import MovieButtons from "../movie-buttons/movie-buttons.jsx";
 
 
 const MoviePage = (props) => {

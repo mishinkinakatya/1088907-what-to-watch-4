@@ -1,8 +1,8 @@
 import React from "react";
-import {ActionType, AuthorizationStatus, AppRoute} from "../../../utils/const.js";
-import {ActionCreator} from "../../actions/user/user.js";
 import {Redirect} from "react-router-dom";
+import {ActionCreator} from "../../actions/user/user.js";
 import {createAuthInfo} from "../../../adapters/adapters.js";
+import {ActionType, AuthorizationStatus, AppRoute} from "../../../utils/const.js";
 
 
 const initialState = {
