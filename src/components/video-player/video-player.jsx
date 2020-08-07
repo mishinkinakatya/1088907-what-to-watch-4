@@ -10,7 +10,7 @@ const VideoPlayer = (props) => {
     <video
       className="player__video"
       ref={videoRef}
-      poster={poster.image}
+      poster={poster}
     />
   );
 };

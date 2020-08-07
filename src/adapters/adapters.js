@@ -5,14 +5,8 @@ export const createMovie = (data) => {
     genre: data.genre,
     year: data.released,
     runTimeInSec: data.run_time * 60,
-    poster: {
-      image: data.poster_image,
-      title: ``,
-    },
-    bgPoster: {
-      image: data.background_image,
-      title: ``,
-    },
+    posterImage: data.poster_image,
+    bgPosterImage: data.background_image,
     rating: {
       score: data.rating,
       count: data.scores_count
@@ -21,7 +15,7 @@ export const createMovie = (data) => {
     director: data.director,
     starrings: data.starring,
     preview: data.preview_video_link,
-    isFaforite: data.is_favorite,
+    isFavorite: data.is_favorite,
   };
 };
 

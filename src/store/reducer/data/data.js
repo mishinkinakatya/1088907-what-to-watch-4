@@ -49,6 +49,16 @@ export const Operations = {
       dispatch(ActionCreator.changeStatusOfSendingReview(SendingStatus.FAIL));
     });
   },
+  postFavoriteStatusMovie: (movie, status) => (dispatch, getState, api) => {
+    return api.post(`favorite/${movie.id}/${status ? 1 : 0}`, {
+      movie,
+    })
+    .then((response) => {
+      dispatch(ActionCreator.loadFaforite(response.data.map(createMovie)));
+      dispatch(ActionCreator.loadMovies(response.data.map(createMovie)));
+      dispatch(ActionCreator.loadPromoMovie(createMovie(response.data)));
+    });
+  },
 };
 
 export const reducer = (state = initialState, action) => {

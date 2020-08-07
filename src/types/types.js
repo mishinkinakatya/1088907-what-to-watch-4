@@ -6,14 +6,8 @@ export const promoMovieTypes = PropTypes.shape({
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   runTimeInSec: PropTypes.number.isRequired,
-  poster: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
-  bgPoster: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
+  posterImage: PropTypes.string.isRequired,
+  bgPosterImage: PropTypes.string.isRequired,
   rating: PropTypes.shape({
     score: PropTypes.number.isRequired,
     count: PropTypes.number.isRequired,
@@ -32,14 +26,8 @@ export const movieTypes = PropTypes.shape({
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   runTimeInSec: PropTypes.number.isRequired,
-  poster: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
-  bgPoster: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
+  posterImage: PropTypes.string.isRequired,
+  bgPosterImage: PropTypes.string.isRequired,
   rating: PropTypes.shape({
     score: PropTypes.number.isRequired,
     count: PropTypes.number.isRequired,
@@ -58,14 +46,8 @@ export const movieNotRequiredTypes = PropTypes.shape({
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   runTimeInSec: PropTypes.number.isRequired,
-  poster: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
-  bgPoster: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
+  posterImage: PropTypes.string.isRequired,
+  bgPosterImage: PropTypes.string.isRequired,
   rating: PropTypes.shape({
     score: PropTypes.number.isRequired,
     count: PropTypes.number.isRequired,
@@ -84,14 +66,8 @@ export const activeMovieTypes = PropTypes.shape({
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   runTimeInSec: PropTypes.number.isRequired,
-  poster: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
-  bgPoster: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
+  posterImage: PropTypes.string.isRequired,
+  bgPosterImage: PropTypes.string.isRequired,
   rating: PropTypes.shape({
     score: PropTypes.number.isRequired,
     count: PropTypes.number.isRequired,
@@ -111,14 +87,8 @@ export const moviesTypes = PropTypes.arrayOf(
       genre: PropTypes.string.isRequired,
       year: PropTypes.number.isRequired,
       runTimeInSec: PropTypes.number.isRequired,
-      poster: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      }).isRequired,
-      bgPoster: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      }).isRequired,
+      posterImage: PropTypes.string.isRequired,
+      bgPosterImage: PropTypes.string.isRequired,
       rating: PropTypes.shape({
         score: PropTypes.number.isRequired,
         count: PropTypes.number.isRequired,
@@ -139,14 +109,8 @@ export const similarMoviesTypes = PropTypes.arrayOf(
       genre: PropTypes.string.isRequired,
       year: PropTypes.number.isRequired,
       runTimeInSec: PropTypes.number.isRequired,
-      poster: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      }).isRequired,
-      bgPoster: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      }).isRequired,
+      posterImage: PropTypes.string.isRequired,
+      bgPosterImage: PropTypes.string.isRequired,
       rating: PropTypes.shape({
         score: PropTypes.number.isRequired,
         count: PropTypes.number.isRequired,
@@ -184,10 +148,7 @@ export const allGenresTypes = PropTypes.arrayOf(
     PropTypes.string.isRequired
 ).isRequired;
 
-export const posterTypes = PropTypes.shape({
-  title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-}).isRequired;
+export const posterTypes = PropTypes.string.isRequired;
 
 export const tabsTypes = PropTypes.object.isRequired;
 
@@ -210,6 +171,8 @@ export const isSignInPageOpenTypes = PropTypes.bool.isRequired;
 export const isAuthorizationErrorTypes = PropTypes.bool.isRequired;
 
 export const exactTypes = PropTypes.bool.isRequired;
+
+export const isFavoriteTypes = PropTypes.bool.isRequired;
 
 export const onCardClickTypes = PropTypes.func.isRequired;
 
@@ -247,6 +210,8 @@ export const renderVideoPlayerTypes = PropTypes.func.isRequired;
 
 export const onInputDataChangeTypes = PropTypes.func.isRequired;
 
+export const onMyListButtonClickTypes = PropTypes.func.isRequired;
+
 export const renderTypes = PropTypes.func.isRequired;
 
 export const onAvatarClickTypes = PropTypes.func.isRequired;
@@ -267,6 +232,6 @@ export const pathTypes = PropTypes.string.isRequired;
 
 export const activePageTypes = PropTypes.string;
 
-export const authorizationStatusTypes = PropTypes.string.isRequired;
+export const authorizationStatusTypes = PropTypes.string;
 
 export const addReviewStatusTypes = PropTypes.string.isRequired;

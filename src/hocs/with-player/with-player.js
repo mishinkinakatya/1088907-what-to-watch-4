@@ -1,5 +1,5 @@
 import React, {PureComponent, createRef} from "react";
-import {posterTypes, previewTypes, isPlayingTypes} from "../../types/types";
+import {previewTypes, isPlayingTypes} from "../../types/types";
 
 
 const TIMEOUT = 1000;
@@ -53,7 +53,6 @@ const withPlayer = (Component) => {
   }
 
   WithPlayer.propTypes = {
-    poster: posterTypes,
     preview: previewTypes,
     isPlaying: isPlayingTypes,
   };

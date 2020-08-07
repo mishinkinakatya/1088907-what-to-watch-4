@@ -87,7 +87,7 @@ const withPlayerPage = (Component) => {
         <video
           className="player__video"
           ref={this._videoRef}
-          poster={activeMovie.poster.image}
+          poster={activeMovie.posterImage}
           src={activeMovie.preview}
         />
       );
@@ -120,8 +120,6 @@ const withPlayerPage = (Component) => {
     _handleFullScreenButtonClick() {
       this._videoRef.current.requestFullscreen();
     }
-
-
   }
 
   WithPlayerPage.propTypes = {

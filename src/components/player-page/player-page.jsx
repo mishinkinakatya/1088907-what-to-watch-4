@@ -1,8 +1,8 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
-import {movieTypes, onExitButtonClickTypes, onFullScreenButtonClickTypes, renderVideoPlayerTypes, isVideoPlayerPageOpenTypes, isPlayingTypes, onPlayPauseButtonClickTypes, currentTimeValueTypes, runTimeTypes, playerTimeValueTypes, togglerValueInPercentsTypes} from "../../types/types";
+import {movieTypes, onExitButtonClickTypes, onFullScreenButtonClickTypes, renderVideoPlayerTypes, isPlayingTypes, onPlayPauseButtonClickTypes, currentTimeValueTypes, runTimeTypes, playerTimeValueTypes, togglerValueInPercentsTypes} from "../../types/types";
 import withPlayerPage from "../../hocs/with-player-page/with-player-page.js";
-import {getActiveMovie, getIsVideoPlayerPageOpen} from "../../store/reducer/cinema/selectors";
+import {getActiveMovie} from "../../store/reducer/cinema/selectors";
 import {getPromoMovie} from "../../store/reducer/data/selectors";
 import {Link} from "react-router-dom";
 import {AppRoute} from "../../utils/const";
@@ -88,7 +88,6 @@ class PlayerPage extends PureComponent {
 
 PlayerPage.propTypes = {
   activeMovie: movieTypes,
-  isVideoPlayerPageOpen: isVideoPlayerPageOpenTypes,
   isPlaying: isPlayingTypes,
   renderVideoPlayer: renderVideoPlayerTypes,
   onPlayPauseButtonClick: onPlayPauseButtonClickTypes,
@@ -104,7 +103,6 @@ PlayerPage.propTypes = {
 const mapStateToProps = (state) => {
   return {
     activeMovie: getActiveMovie(state) || getPromoMovie(state),
-    isVideoPlayerPageOpen: getIsVideoPlayerPageOpen(state),
   };
 };
 

@@ -1,11 +1,11 @@
 import React from "react";
 import {Switch, Route, Router} from "react-router-dom";
-import {activeMovieTypes, isVideoPlayerPageOpenTypes, promoMovieTypes, authorizationStatusTypes} from "../../types/types.js";
+import {activeMovieTypes, promoMovieTypes, authorizationStatusTypes} from "../../types/types.js";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 import PlayerPage from "../player-page/player-page.jsx";
 import {connect} from "react-redux";
-import {getActiveMovie, getIsVideoPlayerPageOpen, getActivePage} from "../../store/reducer/cinema/selectors.js";
+import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
 import {getPromoMovie} from "../../store/reducer/data/selectors.js";
 import LoadingPage from "../loading-page/loading-page.jsx";
 import SignInPage from "../sign-in-page/sign-in-page.jsx";
@@ -72,7 +72,6 @@ const App = (props) => {
 
 App.propTypes = {
   activeMovie: activeMovieTypes,
-  isVideoPlayerPageOpen: isVideoPlayerPageOpenTypes,
   promoMovie: promoMovieTypes,
   authorizationStatus: authorizationStatusTypes,
 };
@@ -81,10 +80,8 @@ App.propTypes = {
 const mapStateToProps = (state) => {
   return {
     activeMovie: getActiveMovie(state),
-    isVideoPlayerPageOpen: getIsVideoPlayerPageOpen(state),
     promoMovie: getPromoMovie(state),
     authorizationStatus: getAuthorizationStatus(state),
-    activePage: getActivePage(state),
   };
 };
 

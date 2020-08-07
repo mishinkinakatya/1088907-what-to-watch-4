@@ -22,7 +22,7 @@ const AddReviewPage = (props) => {
     <section className="movie-card movie-card--full">
       <div className="movie-card__header">
         <div className="movie-card__bg">
-          <img src={activeMovie.bgPoster.image} alt={activeMovie.title} />
+          <img src={activeMovie.bgPosterImage} alt={activeMovie.title} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -30,7 +30,7 @@ const AddReviewPage = (props) => {
         <PageHeader authorizationStatus={authorizationStatus} activePage={AppPages.ADD_REVIEW_PAGE} activeMovie={activeMovie} />
 
         <div className="movie-card__poster movie-card__poster--small">
-          <img src={activeMovie.poster.image} alt={activeMovie.title} width="218" height="327" />
+          <img src={activeMovie.posterImage} alt={activeMovie.title} width="218" height="327" />
         </div>
       </div>
 

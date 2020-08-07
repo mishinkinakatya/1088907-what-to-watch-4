@@ -14,16 +14,8 @@ export const getActiveGenre = (state) => {
   return state[NAME_SPACE].activeGenre;
 };
 
-export const getIsVideoPlayerPageOpen = (state) => {
-  return state[NAME_SPACE].isVideoPlayerPageOpen;
-};
-
 export const getMaxCountOfVisibleMovies = (state) => {
   return state[NAME_SPACE].maxCountOfVisibleMovies;
-};
-
-export const getActivePage = (state) => {
-  return state[NAME_SPACE].activePage;
 };
 
 export const getMoviesListOfActiveGenre = createSelector(

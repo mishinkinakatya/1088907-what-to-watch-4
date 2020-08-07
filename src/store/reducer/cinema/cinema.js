@@ -5,7 +5,6 @@ const initialState = {
   activeMovie: null,
   activeGenre: DEFAULT_GENRE,
   maxCountOfVisibleMovies: INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE,
-  isVideoPlayerPageOpen: false,
 };
 
 export const reducer = (state = initialState, action) => {

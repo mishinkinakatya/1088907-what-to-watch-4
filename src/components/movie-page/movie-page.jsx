@@ -6,9 +6,9 @@ import SimilarMoviesList from "../similar-movies-list/similar-movies-list.jsx";
 import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
 import {getPromoMovie} from "../../store/reducer/data/selectors.js";
 import PageHeader from "../page-header/page-header.jsx";
-import {AuthorizationStatus, AppRoute, AppPages} from "../../utils/const.js";
-import {Link} from "react-router-dom";
+import {AppPages} from "../../utils/const.js";
 import PageFooter from "../page-footer/page-footer.jsx";
+import MovieButtons from "../movie-buttons/movie-buttons.jsx";
 
 
 const MoviePage = (props) => {
@@ -19,7 +19,7 @@ const MoviePage = (props) => {
       <section className="movie-card movie-card--full">
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src={activeMovie.bgPoster.image} alt={activeMovie.bgPoster.title} />
+            <img src={activeMovie.bgPosterImage} alt={activeMovie.title} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -34,26 +34,7 @@ const MoviePage = (props) => {
                 <span className="movie-card__year">{activeMovie.year}</span>
               </p>
 
-              <div className="movie-card__buttons">
-                <Link to={`${AppRoute.PLAYER_PAGE}/${activeMovie.id}`} className="btn btn--play movie-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </Link>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
-
-                {authorizationStatus === AuthorizationStatus.AUTH
-                  ? <Link to={`${AppRoute.ADD_REVIEW_PAGE}/${activeMovie.id}/review`} className="btn movie-card__button">Add review</Link>
-                  : ``
-                }
-
-              </div>
+              <MovieButtons authorizationStatus={authorizationStatus} movie={activeMovie} />
             </div>
           </div>
         </div >
@@ -61,7 +42,7 @@ const MoviePage = (props) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={activeMovie.poster.image} alt={activeMovie.poster.title} width="218" height="327" />
+              <img src={activeMovie.posterImage} alt={activeMovie.title} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">

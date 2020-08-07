@@ -27,17 +27,17 @@ const SmallMovieCard = (props) => {
         <div className="small-movie-card__image">
           <VideoPlayer
             preview={movie.preview}
-            poster={movie.poster}
+            poster={movie.posterImage}
             isPlaying={isPlaying}
           />
           <img
-            src={movie.bgPoster.image}
-            alt={movie.bgPoster.title}
+            src={movie.bgPosterImage}
+            alt={movie.title}
             width="280"
             height="175" />
         </div>
         <h3 className="small-movie-card__title">
-          <div className="small-movie-card__link" >{movie.bgPoster.title}</div>
+          <a href="#" className="small-movie-card__link" >{movie.title}</a>
         </h3>
       </Link>
     </article >
