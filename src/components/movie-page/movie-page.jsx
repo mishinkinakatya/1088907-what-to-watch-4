@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {movieRequiredTypes, stringNotRequiredTypes} from "../../types/types.js";
+import {movieRequiredTypes} from "../../types/types.js";
 import MovieButtons from "../movie-buttons/movie-buttons.jsx";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
@@ -11,7 +11,7 @@ import {AppPages} from "../../utils/const.js";
 
 
 const MoviePage = (props) => {
-  const {activeMovie, authorizationStatus} = props;
+  const {activeMovie} = props;
 
   return (
     <React.Fragment>
@@ -23,7 +23,7 @@ const MoviePage = (props) => {
 
           <h1 className="visually-hidden">WTW</h1>
 
-          <PageHeader authorizationStatus={authorizationStatus} activePage={AppPages.MOVIE_PAGE} />
+          <PageHeader activePage={AppPages.MOVIE_PAGE} />
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
@@ -33,7 +33,7 @@ const MoviePage = (props) => {
                 <span className="movie-card__year">{activeMovie.year}</span>
               </p>
 
-              <MovieButtons authorizationStatus={authorizationStatus} movie={activeMovie} />
+              <MovieButtons movie={activeMovie} activePage={AppPages.MOVIE_PAGE}/>
             </div>
           </div>
         </div >
@@ -67,7 +67,6 @@ const MoviePage = (props) => {
 
 MoviePage.propTypes = {
   activeMovie: movieRequiredTypes,
-  authorizationStatus: stringNotRequiredTypes,
 };
 
 

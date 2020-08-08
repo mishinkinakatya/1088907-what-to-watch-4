@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {stringNotRequiredTypes, movieNotRequiredTypes, authInfoNotRequiredTypes} from "../../types/types.js";
-import {getAuthInfo} from "../../store/reducer/user/selectors.js";
+import {getAuthInfo, getAuthorizationStatus} from "../../store/reducer/user/selectors.js";
 import {AuthorizationStatus, AppRoute, AppPages} from "../../utils/const.js";
 
 
@@ -77,9 +77,9 @@ PageHeader.propTypes = {
 const mapStateToProps = (state) => {
   return {
     authInfo: getAuthInfo(state),
+    authorizationStatus: getAuthorizationStatus(state),
   };
 };
-
 
 export {PageHeader};
 export default connect(mapStateToProps)(PageHeader);

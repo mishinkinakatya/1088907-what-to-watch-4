@@ -1,17 +1,17 @@
 import React from "react";
-import {movieNotRequiredTypes, stringNotRequiredTypes} from "../../types/types.js";
+import {connect} from "react-redux";
+import {movieNotRequiredTypes} from "../../types/types.js";
 import GenresList from "../genres-list/genres-list.jsx";
 import MovieButtons from "../movie-buttons/movie-buttons.jsx";
 import MoviesList from "../movies-list/movies-list.jsx";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
 import ShowMoreButton from "../show-more-button/show-more-button.jsx";
-import {AppPages} from "../../utils/const.js";
 import {getPromoMovie} from "../../store/reducer/data/selectors.js";
-import {connect} from "react-redux";
+import {AppPages} from "../../utils/const.js";
 
 const MainPage = (props) => {
-  const {promoMovie, authorizationStatus} = props;
+  const {promoMovie} = props;
 
   return (
     <React.Fragment>
@@ -22,7 +22,7 @@ const MainPage = (props) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <PageHeader authorizationStatus={authorizationStatus} activePage={AppPages.MAIN_PAGE} />
+        <PageHeader activePage={AppPages.MAIN_PAGE} />
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">
@@ -37,7 +37,7 @@ const MainPage = (props) => {
                 <span className="movie-card__year">{promoMovie.year}</span>
               </p>
 
-              <MovieButtons movie={promoMovie} />
+              <MovieButtons movie={promoMovie} activePage={AppPages.MAIN_PAGE}/>
 
             </div>
           </div>
@@ -64,7 +64,6 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   promoMovie: movieNotRequiredTypes.isRequired,
-  authorizationStatus: stringNotRequiredTypes,
 };
 
 

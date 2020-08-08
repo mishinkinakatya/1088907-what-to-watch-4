@@ -1,12 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 import {movieRequiredTypes, stringNotRequiredTypes, boolRequiredTypes, funcRequiredTypes} from "../../types/types";
 import withFavoriteMovie from "../../hocs/with-favorite-movie/with-favorite-movie.jsx";
-import {AppRoute, AuthorizationStatus} from "../../utils/const";
+import {getAuthorizationStatus} from "../../store/reducer/user/selectors";
+import {AppRoute, AuthorizationStatus, AppPages} from "../../utils/const";
 
 
 const MovieButtons = (props) => {
-  const {authorizationStatus, movie, isFavorite, onMyListButtonClick} = props;
+  const {authorizationStatus, movie, isFavorite, onMyListButtonClick, activePage} = props;
   return (
     <div className="movie-card__buttons">
       <Link to={`${AppRoute.PLAYER_PAGE}/${movie.id}`} className="btn btn--play movie-card__button" type="button">
@@ -27,7 +29,7 @@ const MovieButtons = (props) => {
         <span>My list</span>
       </button>
 
-      {authorizationStatus === AuthorizationStatus.AUTH
+      {authorizationStatus === AuthorizationStatus.AUTH && activePage === AppPages.MOVIE_PAGE
         ? <Link to={`${AppRoute.MOVIE_PAGE}/${movie.id}${AppRoute.ADD_REVIEW_PAGE}`} className="btn movie-card__button">Add review</Link>
         : ``
       }
@@ -41,8 +43,14 @@ MovieButtons.propTypes = {
   authorizationStatus: stringNotRequiredTypes,
   isFavorite: boolRequiredTypes,
   onMyListButtonClick: funcRequiredTypes,
+  activePage: stringNotRequiredTypes,
 };
 
+const mapStateToProps = (state) => {
+  return {
+    authorizationStatus: getAuthorizationStatus(state),
+  };
+};
 
 export {MovieButtons};
-export default withFavoriteMovie(MovieButtons);
+export default withFavoriteMovie(connect(mapStateToProps)(MovieButtons));

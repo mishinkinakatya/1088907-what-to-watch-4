@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {movieRequiredTypes, stringRequiredTypes, funcRequiredTypes, boolRequiredTypes, numberRequiredTypes, stringNotRequiredTypes} from "../../types/types";
+import {movieRequiredTypes, stringRequiredTypes, funcRequiredTypes, boolRequiredTypes, numberRequiredTypes} from "../../types/types";
 import PageHeader from "../page-header/page-header.jsx";
 import withAddReview from "../../hocs/with-add-review/with-add-review";
 import {getActiveMovieById} from "../../store/reducer/cinema/selectors";
@@ -25,7 +25,7 @@ const createRatingStarTemplate = (score, ratingScore) => {
 };
 
 const AddReviewPage = (props) => {
-  const {activeMovie, isSubmitButtonDisabled, onRatingScoreChange, onCommentChange, onSubmitClick, addReviewStatus, ratingScore, authorizationStatus} = props;
+  const {activeMovie, isSubmitButtonDisabled, onRatingScoreChange, onCommentChange, onSubmitClick, addReviewStatus, ratingScore} = props;
   return (
     <section className="movie-card movie-card--full" style={{background: activeMovie.bgColor}}>
       <div className="movie-card__header">
@@ -35,7 +35,7 @@ const AddReviewPage = (props) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <PageHeader authorizationStatus={authorizationStatus} activePage={AppPages.ADD_REVIEW_PAGE} activeMovie={activeMovie} />
+        <PageHeader activePage={AppPages.ADD_REVIEW_PAGE} activeMovie={activeMovie} />
 
         <div className="movie-card__poster movie-card__poster--small">
           <img src={activeMovie.posterImage} alt={activeMovie.title} width="218" height="327" />
@@ -79,7 +79,6 @@ AddReviewPage.propTypes = {
   onCommentChange: funcRequiredTypes,
   onSubmitClick: funcRequiredTypes,
   ratingScore: numberRequiredTypes,
-  authorizationStatus: stringNotRequiredTypes,
 };
 
 

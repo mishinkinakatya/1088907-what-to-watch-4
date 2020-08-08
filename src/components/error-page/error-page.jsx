@@ -1,17 +1,15 @@
 import React from "react";
-import {stringNotRequiredTypes} from "../../types/types.js";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
 
 
-const ErrorPage = (props) => {
-  const {authorizationStatus} = props;
+const ErrorPage = () => {
   return (
     <React.Fragment>
       <section className="movie-card">
         <h1 className="visually-hidden">WTW</h1>
 
-        <PageHeader authorizationStatus={authorizationStatus} />
+        <PageHeader />
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">
@@ -29,11 +27,6 @@ const ErrorPage = (props) => {
       </div>
     </React.Fragment>
   );
-};
-
-
-ErrorPage.propTypes = {
-  authorizationStatus: stringNotRequiredTypes,
 };
 
 

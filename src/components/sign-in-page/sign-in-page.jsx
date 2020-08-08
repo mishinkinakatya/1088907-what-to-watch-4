@@ -1,6 +1,6 @@
 import React, {PureComponent, createRef} from "react";
 import {connect} from "react-redux";
-import {funcRequiredTypes, boolRequiredTypes, stringNotRequiredTypes} from "../../types/types.js";
+import {funcRequiredTypes, boolRequiredTypes} from "../../types/types.js";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
 import {ActionCreator} from "../../store/actions/user/user.js";
@@ -31,12 +31,12 @@ class SignInPage extends PureComponent {
   }
 
   render() {
-    const {isAuthorizationError, onInputDataChange, authorizationStatus} = this.props;
+    const {isAuthorizationError, onInputDataChange} = this.props;
 
     return (
       <React.Fragment>
         <div className="user-page">
-          <PageHeader authorizationStatus={authorizationStatus} activePage={AppPages.SIGN_IN_PAGE} />
+          <PageHeader activePage={AppPages.SIGN_IN_PAGE} />
 
           <div className="sign-in user-page__content">
             <form action="#" className="sign-in__form">
@@ -75,7 +75,6 @@ SignInPage.propTypes = {
   onSignInClick: funcRequiredTypes,
   onInputDataChange: funcRequiredTypes,
   isAuthorizationError: boolRequiredTypes,
-  authorizationStatus: stringNotRequiredTypes,
 };
 
 
