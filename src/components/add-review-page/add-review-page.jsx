@@ -1,7 +1,9 @@
 import React from "react";
+import {connect} from "react-redux";
 import {movieRequiredTypes, stringRequiredTypes, funcRequiredTypes, boolRequiredTypes, numberRequiredTypes, stringNotRequiredTypes} from "../../types/types";
 import PageHeader from "../page-header/page-header.jsx";
 import withAddReview from "../../hocs/with-add-review/with-add-review";
+import {getActiveMovieById} from "../../store/reducer/cinema/selectors";
 import {SendingStatus, AppPages} from "../../utils/const";
 
 
@@ -80,5 +82,12 @@ AddReviewPage.propTypes = {
   authorizationStatus: stringNotRequiredTypes,
 };
 
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    activeMovie: getActiveMovieById(state, ownProps),
+  };
+};
+
 export {AddReviewPage};
-export default withAddReview(AddReviewPage);
+export default connect(mapStateToProps, null)(withAddReview(AddReviewPage));

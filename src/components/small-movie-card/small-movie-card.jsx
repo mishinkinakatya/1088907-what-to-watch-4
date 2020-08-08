@@ -7,13 +7,9 @@ import {AppRoute} from "../../utils/const.js";
 
 
 const SmallMovieCard = (props) => {
-  const {movie, isPlaying, onCardMouseEvent, onCardClick} = props;
+  const {movie, isPlaying, onCardMouseEvent} = props;
   return (
     <article className="small-movie-card catalog__movies-card"
-      onClick={(evt) => {
-        evt.preventDefault();
-        onCardClick(movie);
-      }}
       onMouseEnter={() => {
         onCardMouseEvent(true);
       }
@@ -49,7 +45,6 @@ SmallMovieCard.propTypes = {
   movie: movieRequiredTypes,
   isPlaying: boolRequiredTypes,
   onCardMouseEvent: funcRequiredTypes,
-  onCardClick: funcRequiredTypes,
 };
 
 

@@ -6,8 +6,12 @@ import {DEFAULT_GENRE} from "../../../utils/const.js";
 
 const NAME_SPACE = NameSpace.CINEMA;
 
-export const getActiveMovie = (state) => {
-  return state[NAME_SPACE].activeMovie || state[NAME_SPACE].promoMovie;
+export const getActiveMovieById = (state, ownProps) => {
+  const movies = getMovies(state);
+  const movieId = Number(ownProps.propsRoute.match.params.id);
+  const activeMovie = movies.find((movie) => movie.id === movieId);
+
+  return activeMovie;
 };
 
 export const getActiveGenre = (state) => {
@@ -26,3 +30,4 @@ export const getMoviesListOfActiveGenre = createSelector(
       return moviesOfActiveGenre;
     }
 );
+

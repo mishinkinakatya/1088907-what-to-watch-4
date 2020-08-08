@@ -2,7 +2,7 @@ import React, {Fragment} from "react";
 import {Switch, Route, Router, Link} from "react-router-dom";
 import {connect} from "react-redux";
 import history from "../../history.js";
-import {movieNotRequiredTypes, stringNotRequiredTypes, stringRequiredTypes} from "../../types/types.js";
+import {movieNotRequiredTypes, stringNotRequiredTypes, stringRequiredTypes, moviesRequiredTypes} from "../../types/types.js";
 import AddReviewPage from "../add-review-page/add-review-page.jsx";
 import ErrorPage from "../error-page/error-page.jsx";
 import MainPage from "../main-page/main-page.jsx";
@@ -11,14 +11,13 @@ import MyListPage from "../my-list-page/my-list-page.jsx";
 import LoadingPage from "../loading-page/loading-page.jsx";
 import PlayerPage from "../player-page/player-page.jsx";
 import SignInPage from "../sign-in-page/sign-in-page.jsx";
-import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
-import {getPromoMovie, getAddReviewStatus, getErrorPageStatus} from "../../store/reducer/data/selectors.js";
+import {getPromoMovie, getAddReviewStatus, getErrorPageStatus, getMovies} from "../../store/reducer/data/selectors.js";
 import {getAuthorizationStatus} from "../../store/reducer/user/selectors.js";
 import {AppRoute, ErrorPageStatus} from "../../utils/const.js";
 
 
 const App = (props) => {
-  const {promoMovie, activeMovie, authorizationStatus, errorPageStatus} = props;
+  const {promoMovie, movies, authorizationStatus, errorPageStatus} = props;
 
   return (
     <Router history={history}>
@@ -53,22 +52,29 @@ const App = (props) => {
           }}
         />;
         <Route exact path={`${AppRoute.MOVIE_PAGE}/:id`}
-          render={() => {
-            if (activeMovie || promoMovie) {
-              return <MoviePage authorizationStatus={authorizationStatus} />;
+          render={(propsRoute) => {
+            if (movies.length !== 0) {
+              return <MoviePage propsRoute={propsRoute} authorizationStatus={authorizationStatus} />;
             } else {
               return (
                 <LoadingPage authorizationStatus={authorizationStatus} />
               );
             }
           }} />;
-        <Route exact path={`${AppRoute.PLAYER_PAGE}/:id`}>
-          <PlayerPage />;
-        </Route>
+        <Route exact path={`${AppRoute.PLAYER_PAGE}/:id`}
+          render={(propsRoute) => {
+            if (movies.length !== 0) {
+              return <PlayerPage propsRoute={propsRoute} />;
+            } else {
+              return (
+                <LoadingPage authorizationStatus={authorizationStatus} />
+              );
+            }
+          }} />;
         <Route exact path={`${AppRoute.MOVIE_PAGE}/:id${AppRoute.ADD_REVIEW_PAGE}`}
-          render={() => {
-            if (activeMovie || promoMovie) {
-              return <AddReviewPage activeMovie={activeMovie || promoMovie} authorizationStatus={authorizationStatus} />;
+          render={(propsRoute) => {
+            if (movies.length !== 0) {
+              return <AddReviewPage propsRoute={propsRoute} authorizationStatus={authorizationStatus} />;
             } else {
               return (
                 <LoadingPage authorizationStatus={authorizationStatus} />
@@ -95,7 +101,7 @@ const App = (props) => {
 
 
 App.propTypes = {
-  activeMovie: movieNotRequiredTypes,
+  movies: moviesRequiredTypes,
   promoMovie: movieNotRequiredTypes,
   authorizationStatus: stringNotRequiredTypes,
   addReviewStatus: stringRequiredTypes,
@@ -105,7 +111,7 @@ App.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    activeMovie: getActiveMovie(state),
+    movies: getMovies(state),
     promoMovie: getPromoMovie(state),
     authorizationStatus: getAuthorizationStatus(state),
     addReviewStatus: getAddReviewStatus(state),

@@ -6,8 +6,7 @@ import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
 import SimilarMoviesList from "../similar-movies-list/similar-movies-list.jsx";
 import Tabs from "../tabs/tabs.jsx";
-import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
-import {getPromoMovie} from "../../store/reducer/data/selectors.js";
+import {getActiveMovieById} from "../../store/reducer/cinema/selectors.js";
 import {AppPages} from "../../utils/const.js";
 
 
@@ -46,7 +45,7 @@ const MoviePage = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <Tabs />
+              <Tabs activeMovie={activeMovie} />
             </div>
           </div>
         </div>
@@ -56,7 +55,7 @@ const MoviePage = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <SimilarMoviesList />
+          <SimilarMoviesList activeMovie={activeMovie} />
         </section>
 
         <PageFooter />
@@ -72,9 +71,9 @@ MoviePage.propTypes = {
 };
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    activeMovie: getActiveMovie(state) || getPromoMovie(state),
+    activeMovie: getActiveMovieById(state, ownProps),
   };
 };
 

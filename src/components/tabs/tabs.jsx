@@ -1,14 +1,12 @@
 import React from "react";
+import {connect} from "react-redux";
 import {stringNotRequiredTypes, funcRequiredTypes, movieNotRequiredTypes, reviewsRequiredTypes} from "../../types/types.js";
 import MovieOverview from "../movie-overview/movie-overview.jsx";
 import MovieDetails from "../movie-details/movie-details.jsx";
 import MovieReviews from "../movie-reviews/movie-reviews.jsx";
-import {TabsName} from "../../utils/const.js";
-import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import withActiveItem from "../../hocs/with-active-item/with-active-item.js";
-import {connect} from "react-redux";
-import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
-import {getPromoMovie, getReviews} from "../../store/reducer/data/selectors.js";
+import {getReviews} from "../../store/reducer/data/selectors.js";
+import {TabsName} from "../../utils/const.js";
 
 
 const ACTIVE_MOVIE_NAV_ITEM = `movie-nav__item--active`;
@@ -60,19 +58,11 @@ Tabs.propTypes = {
 
 
 const mapStateToProps = (state) => {
-  const currentMovie = getActiveMovie(state) || getPromoMovie(state);
   return {
-    activeMovie: currentMovie,
     reviews: getReviews(state),
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  onCardClick(activeMovie) {
-    dispatch(ActionCreator.changeActiveMovie(activeMovie));
-  },
-});
-
 
 export {Tabs};
-export default withActiveItem(connect(mapStateToProps, mapDispatchToProps)(Tabs));
+export default withActiveItem(connect(mapStateToProps, null)(Tabs));

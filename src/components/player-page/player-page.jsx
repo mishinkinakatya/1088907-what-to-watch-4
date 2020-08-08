@@ -1,10 +1,7 @@
 import React, {PureComponent} from "react";
-import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {movieRequiredTypes, boolRequiredTypes, funcRequiredTypes, numberRequiredTypes, stringRequiredTypes} from "../../types/types";
 import withPlayerPage from "../../hocs/with-player-page/with-player-page.js";
-import {getActiveMovie} from "../../store/reducer/cinema/selectors";
-import {getPromoMovie} from "../../store/reducer/data/selectors";
 import {AppRoute} from "../../utils/const";
 
 
@@ -99,12 +96,5 @@ PlayerPage.propTypes = {
 };
 
 
-const mapStateToProps = (state) => {
-  return {
-    activeMovie: getActiveMovie(state) || getPromoMovie(state),
-  };
-};
-
-
 export {PlayerPage};
-export default connect(mapStateToProps, null)(withPlayerPage(PlayerPage));
+export default (withPlayerPage(PlayerPage));

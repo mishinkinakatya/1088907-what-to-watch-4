@@ -1,5 +1,7 @@
 import React, {PureComponent, createRef} from "react";
+import {connect} from "react-redux";
 import {movieRequiredTypes} from "../../types/types";
+import {getActiveMovieById} from "../../store/reducer/cinema/selectors";
 import {calculateDurationInHMS} from "../../utils/fn";
 
 
@@ -126,7 +128,14 @@ const withPlayerPage = (Component) => {
     activeMovie: movieRequiredTypes,
   };
 
-  return WithPlayerPage;
+
+  const mapStateToProps = (state, ownProps) => {
+    return {
+      activeMovie: getActiveMovieById(state, ownProps),
+    };
+  };
+
+  return connect(mapStateToProps, null)(WithPlayerPage);
 };
 
 export default withPlayerPage;
