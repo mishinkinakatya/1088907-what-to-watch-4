@@ -16,6 +16,7 @@ const initialState = {
 
 export const Operations = {
   loadMovies: () => (dispatch, getState, api) => {
+    dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.LOADING));
     return api.get(`/films`)
     .then((response) => {
       dispatch(ActionCreator.loadMovies(response.data.map(createMovie)));
@@ -26,27 +27,33 @@ export const Operations = {
     });
   },
   loadReviews: (movieId) => (dispatch, getState, api) => {
+    dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.LOADING));
     return api.get(`/comments/${movieId}`)
     .then((response) => {
       dispatch(ActionCreator.loadReviews(response.data.map(createReview)));
+      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.SUCCESS));
     })
     .catch(() => {
       dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.FAIL));
     });
   },
   loadPromoMovie: () => (dispatch, getState, api) => {
+    dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.LOADING));
     return api.get(`/films/promo`)
     .then((response) => {
       dispatch(ActionCreator.loadPromoMovie(createMovie(response.data)));
+      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.SUCCESS));
     })
     .catch(() => {
       dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.FAIL));
     });
   },
   loadFaforite: () => (dispatch, getState, api) => {
+    dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.LOADING));
     return api.get(`/favorite`)
     .then((response) => {
       dispatch(ActionCreator.loadFaforite(response.data.map(createMovie)));
+      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.SUCCESS));
     })
     .catch(() => {
       dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.FAIL));
@@ -107,7 +114,7 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         addReviewStatus: action.payload,
       });
-    case ActionType.CHANGE_STATUS_OF_ERROR_PAGE:
+    case ActionType.CHANGE_LOADING_STATUS:
       return Object.assign({}, state, {
         loadingStatus: action.payload,
       });

@@ -28,6 +28,7 @@ const withPlayerPage = (Component) => {
     componentDidMount() {
       const video = this._videoRef.current;
       video.play();
+      video.controls = true;
 
       video.onloadeddata = () => {
         this.setState({
@@ -43,11 +44,13 @@ const withPlayerPage = (Component) => {
       video.poster = ``;
       video.onloadeddata = null;
       video.ontimeupdate = null;
+      video.controls = false;
     }
 
     componentDidUpdate() {
-      const video = this._videoRef.current;
       const {isPlaying} = this.state;
+      const video = this._videoRef.current;
+      video.controls = true;
 
       if (isPlaying) {
         video.play();

@@ -7,6 +7,8 @@ import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
 import ShowMoreButton from "../show-more-button/show-more-button.jsx";
 import {AppPages} from "../../utils/const.js";
+import {getPromoMovie} from "../../store/reducer/data/selectors.js";
+import {connect} from "react-redux";
 
 const MainPage = (props) => {
   const {promoMovie, authorizationStatus} = props;
@@ -66,4 +68,11 @@ MainPage.propTypes = {
 };
 
 
-export default MainPage;
+const mapStateToProps = (state) => {
+  return {
+    promoMovie: getPromoMovie(state),
+  };
+};
+
+export {MainPage};
+export default connect(mapStateToProps)(MainPage);

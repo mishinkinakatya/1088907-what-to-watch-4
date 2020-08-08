@@ -34,7 +34,7 @@ export const ActionCreator = {
   },
   changeLoadingStatus: (status) => {
     return {
-      type: ActionType.CHANGE_STATUS_OF_ERROR_PAGE,
+      type: ActionType.CHANGE_LOADING_STATUS,
       payload: status,
     };
   },
