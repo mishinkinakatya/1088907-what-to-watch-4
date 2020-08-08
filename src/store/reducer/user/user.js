@@ -20,8 +20,8 @@ export const Operations = {
       .then(() => {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
       })
-      .catch((err) => {
-        throw err;
+      .catch(() => {
+        dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
       });
   },
 

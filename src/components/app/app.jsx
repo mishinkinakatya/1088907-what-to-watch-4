@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import history from "../../history.js";
 import {movieNotRequiredTypes, stringNotRequiredTypes, stringRequiredTypes} from "../../types/types.js";
 import AddReviewPage from "../add-review-page/add-review-page.jsx";
+import ErrorPage from "../error-page/error-page.jsx";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 import MyListPage from "../my-list-page/my-list-page.jsx";
@@ -11,27 +12,35 @@ import LoadingPage from "../loading-page/loading-page.jsx";
 import PlayerPage from "../player-page/player-page.jsx";
 import SignInPage from "../sign-in-page/sign-in-page.jsx";
 import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
-import {getPromoMovie, getAddReviewStatus} from "../../store/reducer/data/selectors.js";
+import {getPromoMovie, getAddReviewStatus, getErrorPageStatus} from "../../store/reducer/data/selectors.js";
 import {getAuthorizationStatus} from "../../store/reducer/user/selectors.js";
-import {AppRoute} from "../../utils/const.js";
+import {AppRoute, ErrorPageStatus} from "../../utils/const.js";
 
 
 const App = (props) => {
-  const {promoMovie, activeMovie, authorizationStatus} = props;
+  const {promoMovie, activeMovie, authorizationStatus, errorPageStatus} = props;
 
   return (
     <Router history={history}>
       <Switch>
         <Route exact path={AppRoute.MAIN_PAGE}
           render={() => {
-            if (promoMovie) {
-              return <MainPage authorizationStatus={authorizationStatus} promoMovie={promoMovie} />;
-            }
+            if (errorPageStatus === ErrorPageStatus.SUCCESS) {
+              if (promoMovie) {
+                return <MainPage authorizationStatus={authorizationStatus} promoMovie={promoMovie} />;
+              }
 
-            return (
-              <LoadingPage authorizationStatus={authorizationStatus} />
-            );
-          }}
+              return (
+                <LoadingPage authorizationStatus={authorizationStatus} />
+              );
+            } else {
+              return (
+                <ErrorPage authorizationStatus={authorizationStatus} />
+              );
+
+            }
+          }
+          }
         />
         <Route exact path={AppRoute.SIGN_IN_PAGE}
           render={() => {
@@ -90,6 +99,7 @@ App.propTypes = {
   promoMovie: movieNotRequiredTypes,
   authorizationStatus: stringNotRequiredTypes,
   addReviewStatus: stringRequiredTypes,
+  errorPageStatus: stringRequiredTypes,
 };
 
 
@@ -99,6 +109,7 @@ const mapStateToProps = (state) => {
     promoMovie: getPromoMovie(state),
     authorizationStatus: getAuthorizationStatus(state),
     addReviewStatus: getAddReviewStatus(state),
+    errorPageStatus: getErrorPageStatus(state),
   };
 };
 

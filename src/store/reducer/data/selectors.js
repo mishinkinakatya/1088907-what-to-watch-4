@@ -26,6 +26,10 @@ export const getAddReviewStatus = (state) => {
   return state[NAME_SPACE].addReviewStatus;
 };
 
+export const getErrorPageStatus = (state) => {
+  return state[NAME_SPACE].errorPageStatus;
+};
+
 export const getAllGenres = createSelector(
     getMovies,
     (movies) => {

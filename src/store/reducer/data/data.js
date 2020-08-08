@@ -2,7 +2,7 @@ import React from "react";
 import {Redirect} from "react-router-dom";
 import {ActionCreator} from "../../actions/data/data.js";
 import {createMovie, createReview} from "../../../adapters/adapters.js";
-import {ActionType, SendingStatus, AppRoute} from "../../../utils/const.js";
+import {ActionType, SendingStatus, AppRoute, ErrorPageStatus} from "../../../utils/const.js";
 
 
 const initialState = {
@@ -11,6 +11,7 @@ const initialState = {
   reviews: [],
   favoriteMovies: [],
   addReviewStatus: SendingStatus.NO_SENDING,
+  errorPageStatus: ErrorPageStatus.SUCCESS,
 };
 
 export const Operations = {
@@ -18,24 +19,36 @@ export const Operations = {
     return api.get(`/films`)
     .then((response) => {
       dispatch(ActionCreator.loadMovies(response.data.map(createMovie)));
+    })
+    .catch(() => {
+      dispatch(ActionCreator.changeStatusOfErrorPage(ErrorPageStatus.ERROR));
     });
   },
   loadReviews: (movieId) => (dispatch, getState, api) => {
     return api.get(`/comments/${movieId}`)
     .then((response) => {
       dispatch(ActionCreator.loadReviews(response.data.map(createReview)));
+    })
+    .catch(() => {
+      dispatch(ActionCreator.changeStatusOfErrorPage(ErrorPageStatus.ERROR));
     });
   },
   loadPromoMovie: () => (dispatch, getState, api) => {
     return api.get(`/films/promo`)
     .then((response) => {
       dispatch(ActionCreator.loadPromoMovie(createMovie(response.data)));
+    })
+    .catch(() => {
+      dispatch(ActionCreator.changeStatusOfErrorPage(ErrorPageStatus.ERROR));
     });
   },
   loadFaforite: () => (dispatch, getState, api) => {
     return api.get(`/favorite`)
     .then((response) => {
       dispatch(ActionCreator.loadFaforite(response.data.map(createMovie)));
+    })
+    .catch(() => {
+      dispatch(ActionCreator.changeStatusOfErrorPage(ErrorPageStatus.ERROR));
     });
   },
   postReview: (movieId, reviewData) => (dispatch, getState, api) => {
@@ -92,6 +105,10 @@ export const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_STATUS_OF_SENDING_REVIEW:
       return Object.assign({}, state, {
         addReviewStatus: action.payload,
+      });
+    case ActionType.CHANGE_STATUS_OF_ERROR_PAGE:
+      return Object.assign({}, state, {
+        errorPageStatus: action.payload,
       });
   }
   return state;

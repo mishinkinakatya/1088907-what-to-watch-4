@@ -1,5 +1,6 @@
-import {MINUTES_ON_HOUR, SECONDS_ON_MINUTE} from "../utils/const.js";
 
+const SECONDS_ON_MINUTE = 60;
+const MINUTES_ON_HOUR = 60;
 const MONTHS_NAME = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
 
 const castDateTimeFormat = (value) => {

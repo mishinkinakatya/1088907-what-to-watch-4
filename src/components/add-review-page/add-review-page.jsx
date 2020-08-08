@@ -2,8 +2,14 @@ import React from "react";
 import {movieRequiredTypes, stringRequiredTypes, funcRequiredTypes, boolRequiredTypes, numberRequiredTypes, stringNotRequiredTypes} from "../../types/types";
 import PageHeader from "../page-header/page-header.jsx";
 import withAddReview from "../../hocs/with-add-review/with-add-review";
-import {Review, SendingStatus, AppPages} from "../../utils/const";
+import {SendingStatus, AppPages} from "../../utils/const";
 
+
+export const Review = {
+  MAX_COUNT_OF_RATING_STARS: 5,
+  MIN_LENGTH: 50,
+  MAX_LENGTH: 400,
+};
 
 const createRatingStarTemplate = (score, ratingScore) => {
   const isChecked = score === ratingScore;

@@ -18,12 +18,10 @@ export const ActionType = {
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   CHANGE_STATUS_OF_SENDING_REVIEW: `CHANGE_STATUS_OF_SENDING_REVIEW`,
   CHANGE_AUTH_INFO: `CHANGE_AUTH_INFO`,
+  CHANGE_STATUS_OF_ERROR_PAGE: `CHANGE_STATUS_OF_ERROR_PAGE`,
 };
 
 export const INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE = 8;
-
-export const SECONDS_ON_MINUTE = 60;
-export const MINUTES_ON_HOUR = 60;
 
 export const AuthorizationStatus = {
   AUTH: `AUTH`,
@@ -37,10 +35,9 @@ export const SendingStatus = {
   FAIL: `FAIL`,
 };
 
-export const Review = {
-  MAX_COUNT_OF_RATING_STARS: 5,
-  MIN_LENGTH: 50,
-  MAX_LENGTH: 400,
+export const ErrorPageStatus = {
+  SUCCESS: `SUCCESS`,
+  ERROR: `ERROR`,
 };
 
 export const AppRoute = {
