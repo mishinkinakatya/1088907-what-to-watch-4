@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
-import {movieTypes, onMyListButtonClickTypes} from "../../types/types";
+import {movieRequiredTypes, funcRequiredTypes} from "../../types/types";
 import {Operations as DataOperations} from "../../store/reducer/data/data.js";
 
 
@@ -39,8 +39,8 @@ const withFavoriteMovie = (Component) => {
   }
 
   WithFavoriteMovie.propTypes = {
-    movie: movieTypes,
-    onMyListButtonClick: onMyListButtonClickTypes,
+    movie: movieRequiredTypes,
+    onMyListButtonClick: funcRequiredTypes,
   };
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {onShowMoreButtonClickTypes, countMoviesOnMainPageTypes, moviesTypes} from "../../types/types";
+import {funcRequiredTypes, numberNotRequiredTypes, moviesRequiredTypes} from "../../types/types";
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {getMoviesListOfActiveGenre, getMaxCountOfVisibleMovies} from "../../store/reducer/cinema/selectors";
 
@@ -17,9 +17,9 @@ const ShowMoreButton = (props) => {
 
 
 ShowMoreButton.propTypes = {
-  movies: moviesTypes,
-  maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
-  onShowMoreButtonClick: onShowMoreButtonClickTypes,
+  movies: moviesRequiredTypes,
+  maxCountOfVisibleMovies: numberNotRequiredTypes,
+  onShowMoreButtonClick: funcRequiredTypes,
 };
 
 

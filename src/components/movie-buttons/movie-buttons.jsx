@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {movieTypes, authorizationStatusTypes, isFavoriteTypes, onMyListButtonClickTypes} from "../../types/types";
+import {movieRequiredTypes, stringNotRequiredTypes, boolRequiredTypes, funcRequiredTypes} from "../../types/types";
 import withFavoriteMovie from "../../hocs/with-favorite-movie/with-favorite-movie.jsx";
 import {AppRoute, AuthorizationStatus} from "../../utils/const";
 
@@ -37,10 +37,10 @@ const MovieButtons = (props) => {
 
 
 MovieButtons.propTypes = {
-  movie: movieTypes,
-  authorizationStatus: authorizationStatusTypes,
-  isFavorite: isFavoriteTypes,
-  onMyListButtonClick: onMyListButtonClickTypes,
+  movie: movieRequiredTypes,
+  authorizationStatus: stringNotRequiredTypes,
+  isFavorite: boolRequiredTypes,
+  onMyListButtonClick: funcRequiredTypes,
 };
 
 

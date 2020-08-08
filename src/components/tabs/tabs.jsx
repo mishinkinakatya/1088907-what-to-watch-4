@@ -1,5 +1,5 @@
 import React from "react";
-import {activeItemTypes, onItemClickTypes, activeMovieTypes, reviewsTypes} from "../../types/types.js";
+import {stringNotRequiredTypes, funcRequiredTypes, movieNotRequiredTypes, reviewsRequiredTypes} from "../../types/types.js";
 import MovieOverview from "../movie-overview/movie-overview.jsx";
 import MovieDetails from "../movie-details/movie-details.jsx";
 import MovieReviews from "../movie-reviews/movie-reviews.jsx";
@@ -52,10 +52,10 @@ const Tabs = (props) => {
 
 
 Tabs.propTypes = {
-  activeMovie: activeMovieTypes,
-  reviews: reviewsTypes,
-  activeItem: activeItemTypes,
-  onActiveItemEvent: onItemClickTypes,
+  activeMovie: movieNotRequiredTypes,
+  reviews: reviewsRequiredTypes,
+  activeItem: stringNotRequiredTypes,
+  onActiveItemEvent: funcRequiredTypes,
 };
 
 

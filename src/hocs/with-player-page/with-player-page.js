@@ -1,5 +1,5 @@
 import React, {PureComponent, createRef} from "react";
-import {movieTypes} from "../../types/types";
+import {movieRequiredTypes} from "../../types/types";
 import {calculateDurationInHMS} from "../../utils/fn";
 
 
@@ -123,7 +123,7 @@ const withPlayerPage = (Component) => {
   }
 
   WithPlayerPage.propTypes = {
-    activeMovie: movieTypes,
+    activeMovie: movieRequiredTypes,
   };
 
   return WithPlayerPage;

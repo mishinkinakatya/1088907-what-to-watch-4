@@ -1,5 +1,5 @@
 import React from "react";
-import {reviewsTypes} from "../../types/types.js";
+import {reviewsRequiredTypes} from "../../types/types.js";
 import {getDateInYYYYMMDD, getDateInMonthDDYYYY} from "../../utils/fn.js";
 
 
@@ -48,7 +48,7 @@ const MovieReviews = (props) => {
 
 
 MovieReviews.propTypes = {
-  reviews: reviewsTypes,
+  reviews: reviewsRequiredTypes,
 };
 
 export default MovieReviews;

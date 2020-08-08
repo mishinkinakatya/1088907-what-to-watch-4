@@ -1,5 +1,5 @@
 import React from "react";
-import {movieTypes, addReviewStatusTypes, onRatingScoreChangeTypes, isSubmitButtonDisabledTypes, onCommentChangeTypes, onSubmitClickTypes, ratingScoreTypes, authorizationStatusTypes} from "../../types/types";
+import {movieRequiredTypes, stringRequiredTypes, funcRequiredTypes, boolRequiredTypes, numberRequiredTypes, stringNotRequiredTypes} from "../../types/types";
 import PageHeader from "../page-header/page-header.jsx";
 import withAddReview from "../../hocs/with-add-review/with-add-review";
 import {Review, SendingStatus, AppPages} from "../../utils/const";
@@ -64,14 +64,14 @@ const AddReviewPage = (props) => {
 
 
 AddReviewPage.propTypes = {
-  activeMovie: movieTypes,
-  addReviewStatus: addReviewStatusTypes,
-  isSubmitButtonDisabled: isSubmitButtonDisabledTypes,
-  onRatingScoreChange: onRatingScoreChangeTypes,
-  onCommentChange: onCommentChangeTypes,
-  onSubmitClick: onSubmitClickTypes,
-  ratingScore: ratingScoreTypes,
-  authorizationStatus: authorizationStatusTypes,
+  activeMovie: movieRequiredTypes,
+  addReviewStatus: stringRequiredTypes,
+  isSubmitButtonDisabled: boolRequiredTypes,
+  onRatingScoreChange: funcRequiredTypes,
+  onCommentChange: funcRequiredTypes,
+  onSubmitClick: funcRequiredTypes,
+  ratingScore: numberRequiredTypes,
+  authorizationStatus: stringNotRequiredTypes,
 };
 
 export {AddReviewPage};

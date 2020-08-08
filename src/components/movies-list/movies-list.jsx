@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {moviesTypes, countMoviesOnMainPageTypes, onCardClickTypes, activePageTypes} from "../../types/types.js";
+import {moviesRequiredTypes, numberNotRequiredTypes, funcRequiredTypes, stringNotRequiredTypes} from "../../types/types.js";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {getMoviesListOfActiveGenre, getMaxCountOfVisibleMovies} from "../../store/reducer/cinema/selectors.js";
@@ -30,11 +30,11 @@ const MoviesList = (props) => {
 
 
 MoviesList.propTypes = {
-  movies: moviesTypes,
-  favoriteMovies: moviesTypes,
-  maxCountOfVisibleMovies: countMoviesOnMainPageTypes,
-  onCardClick: onCardClickTypes,
-  activePage: activePageTypes,
+  movies: moviesRequiredTypes,
+  favoriteMovies: moviesRequiredTypes,
+  maxCountOfVisibleMovies: numberNotRequiredTypes,
+  onCardClick: funcRequiredTypes,
+  activePage: stringNotRequiredTypes,
 };
 
 

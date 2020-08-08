@@ -1,5 +1,5 @@
 import React from "react";
-import {promoMovieTypes, authorizationStatusTypes} from "../../types/types.js";
+import {movieNotRequiredTypes, stringNotRequiredTypes} from "../../types/types.js";
 import GenresList from "../genres-list/genres-list.jsx";
 import MovieButtons from "../movie-buttons/movie-buttons.jsx";
 import MoviesList from "../movies-list/movies-list.jsx";
@@ -61,8 +61,8 @@ const MainPage = (props) => {
 
 
 MainPage.propTypes = {
-  promoMovie: promoMovieTypes.isRequired,
-  authorizationStatus: authorizationStatusTypes,
+  promoMovie: movieNotRequiredTypes.isRequired,
+  authorizationStatus: stringNotRequiredTypes,
 };
 
 

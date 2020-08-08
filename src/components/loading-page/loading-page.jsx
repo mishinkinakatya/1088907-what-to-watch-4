@@ -1,5 +1,5 @@
 import React from "react";
-import {authorizationStatusTypes} from "../../types/types.js";
+import {stringNotRequiredTypes} from "../../types/types.js";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
 
@@ -33,7 +33,7 @@ const LoadingPage = (props) => {
 
 
 LoadingPage.propTypes = {
-  authorizationStatus: authorizationStatusTypes,
+  authorizationStatus: stringNotRequiredTypes,
 };
 
 

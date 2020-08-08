@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import {authorizationStatusTypes, activePageTypes, movieNotRequiredTypes, authInfoTypes} from "../../types/types.js";
+import {stringNotRequiredTypes, movieNotRequiredTypes, authInfoNotRequiredTypes} from "../../types/types.js";
 import {getAuthInfo} from "../../store/reducer/user/selectors.js";
 import {AuthorizationStatus, AppRoute, AppPages} from "../../utils/const.js";
 
@@ -68,10 +68,10 @@ const PageHeader = (props) => {
 
 
 PageHeader.propTypes = {
-  authorizationStatus: authorizationStatusTypes,
-  activePage: activePageTypes,
+  authorizationStatus: stringNotRequiredTypes,
+  activePage: stringNotRequiredTypes,
   activeMovie: movieNotRequiredTypes,
-  authInfo: authInfoTypes,
+  authInfo: authInfoNotRequiredTypes,
 };
 
 const mapStateToProps = (state) => {

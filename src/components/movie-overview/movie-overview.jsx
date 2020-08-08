@@ -1,5 +1,5 @@
 import React from "react";
-import {movieTypes} from "../../types/types.js";
+import {movieRequiredTypes} from "../../types/types.js";
 
 
 const COUNT_VISIBLE_STARRINGS = 4;
@@ -53,7 +53,7 @@ const MovieOverview = (props) => {
 
 
 MovieOverview.propTypes = {
-  movie: movieTypes,
+  movie: movieRequiredTypes,
 };
 
 export default MovieOverview;

@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {movieTypes} from "../../types/types";
+import {movieRequiredTypes} from "../../types/types";
 
 
 const withSmallMovieCard = (Component) => {
@@ -32,7 +32,7 @@ const withSmallMovieCard = (Component) => {
   }
 
   WithSmallMovieCard.propTypes = {
-    movie: movieTypes,
+    movie: movieRequiredTypes,
   };
 
   return WithSmallMovieCard;

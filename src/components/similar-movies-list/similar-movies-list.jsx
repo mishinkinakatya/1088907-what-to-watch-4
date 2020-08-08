@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {moviesTypes, onCardClickTypes, movieTypes} from "../../types/types.js";
+import {moviesRequiredTypes, funcRequiredTypes, movieRequiredTypes} from "../../types/types.js";
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
 import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
@@ -31,9 +31,9 @@ const SimilarMoviesList = (props) => {
 
 
 SimilarMoviesList.propTypes = {
-  activeMovie: movieTypes,
-  movies: moviesTypes,
-  onCardClick: onCardClickTypes,
+  activeMovie: movieRequiredTypes,
+  movies: moviesRequiredTypes,
+  onCardClick: funcRequiredTypes,
 };
 
 

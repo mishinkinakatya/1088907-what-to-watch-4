@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {movieTypes, onCardMouseEventTypes, onCardClickTypes, isPlayingTypes} from "../../types/types.js";
+import {movieRequiredTypes, funcRequiredTypes, boolRequiredTypes} from "../../types/types.js";
 import VideoPlayer from "../video-player/video-player.jsx";
 import withSmallMovieCard from "../../hocs/with-small-movie-card/with-small-movie-card.js";
 import {AppRoute} from "../../utils/const.js";
@@ -46,10 +46,10 @@ const SmallMovieCard = (props) => {
 
 
 SmallMovieCard.propTypes = {
-  movie: movieTypes,
-  isPlaying: isPlayingTypes,
-  onCardMouseEvent: onCardMouseEventTypes,
-  onCardClick: onCardClickTypes,
+  movie: movieRequiredTypes,
+  isPlaying: boolRequiredTypes,
+  onCardMouseEvent: funcRequiredTypes,
+  onCardClick: funcRequiredTypes,
 };
 
 

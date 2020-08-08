@@ -1,8 +1,8 @@
-import React from "react";
-import {Switch, Route, Router} from "react-router-dom";
+import React, {Fragment} from "react";
+import {Switch, Route, Router, Link} from "react-router-dom";
 import {connect} from "react-redux";
 import history from "../../history.js";
-import {activeMovieTypes, promoMovieTypes, authorizationStatusTypes, addReviewStatusTypes} from "../../types/types.js";
+import {movieNotRequiredTypes, stringNotRequiredTypes, stringRequiredTypes} from "../../types/types.js";
 import AddReviewPage from "../add-review-page/add-review-page.jsx";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
@@ -67,6 +67,18 @@ const App = (props) => {
             }
           }}
         />
+        <Route
+          render={() => (
+            <Fragment>
+              <h1>
+                404.
+                <br />
+                <small>Page not found</small>
+              </h1>
+              <Link to={AppRoute.MAIN_PAGE}>Go to main page</Link>
+            </Fragment>
+          )}
+        />
       </Switch>
     </Router>
   );
@@ -74,10 +86,10 @@ const App = (props) => {
 
 
 App.propTypes = {
-  activeMovie: activeMovieTypes,
-  promoMovie: promoMovieTypes,
-  authorizationStatus: authorizationStatusTypes,
-  addReviewStatus: addReviewStatusTypes,
+  activeMovie: movieNotRequiredTypes,
+  promoMovie: movieNotRequiredTypes,
+  authorizationStatus: stringNotRequiredTypes,
+  addReviewStatus: stringRequiredTypes,
 };
 
 

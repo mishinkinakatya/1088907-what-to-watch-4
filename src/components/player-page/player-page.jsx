@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import {movieTypes, onFullScreenButtonClickTypes, renderVideoPlayerTypes, isPlayingTypes, onPlayPauseButtonClickTypes, currentTimeValueTypes, runTimeTypes, playerTimeValueTypes, togglerValueInPercentsTypes} from "../../types/types";
+import {movieRequiredTypes, boolRequiredTypes, funcRequiredTypes, numberRequiredTypes, stringRequiredTypes} from "../../types/types";
 import withPlayerPage from "../../hocs/with-player-page/with-player-page.js";
 import {getActiveMovie} from "../../store/reducer/cinema/selectors";
 import {getPromoMovie} from "../../store/reducer/data/selectors";
@@ -87,15 +87,15 @@ class PlayerPage extends PureComponent {
 }
 
 PlayerPage.propTypes = {
-  activeMovie: movieTypes,
-  isPlaying: isPlayingTypes,
-  renderVideoPlayer: renderVideoPlayerTypes,
-  onPlayPauseButtonClick: onPlayPauseButtonClickTypes,
-  onFullScreenButtonClick: onFullScreenButtonClickTypes,
-  currentTimeValue: currentTimeValueTypes,
-  runTime: runTimeTypes,
-  playerTimeValue: playerTimeValueTypes,
-  togglerValueInPercents: togglerValueInPercentsTypes,
+  activeMovie: movieRequiredTypes,
+  isPlaying: boolRequiredTypes,
+  renderVideoPlayer: funcRequiredTypes,
+  onPlayPauseButtonClick: funcRequiredTypes,
+  onFullScreenButtonClick: funcRequiredTypes,
+  currentTimeValue: numberRequiredTypes,
+  runTime: numberRequiredTypes,
+  playerTimeValue: stringRequiredTypes,
+  togglerValueInPercents: stringRequiredTypes,
 };
 
 

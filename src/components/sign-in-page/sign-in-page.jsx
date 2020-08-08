@@ -1,6 +1,6 @@
 import React, {PureComponent, createRef} from "react";
 import {connect} from "react-redux";
-import {onSignInClickTypes, isAuthorizationErrorTypes, onInputDataChangeTypes, authorizationStatusTypes} from "../../types/types.js";
+import {funcRequiredTypes, boolRequiredTypes, stringNotRequiredTypes} from "../../types/types.js";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
 import {ActionCreator} from "../../store/actions/user/user.js";
@@ -72,10 +72,10 @@ class SignInPage extends PureComponent {
 }
 
 SignInPage.propTypes = {
-  onSignInClick: onSignInClickTypes,
-  onInputDataChange: onInputDataChangeTypes,
-  isAuthorizationError: isAuthorizationErrorTypes,
-  authorizationStatus: authorizationStatusTypes,
+  onSignInClick: funcRequiredTypes,
+  onInputDataChange: funcRequiredTypes,
+  isAuthorizationError: boolRequiredTypes,
+  authorizationStatus: stringNotRequiredTypes,
 };
 
 

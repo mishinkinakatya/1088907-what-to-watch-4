@@ -1,5 +1,5 @@
 import React, {PureComponent, createRef} from "react";
-import {previewTypes, isPlayingTypes} from "../../types/types";
+import {stringRequiredTypes, boolRequiredTypes} from "../../types/types";
 
 
 const TIMEOUT = 1000;
@@ -53,8 +53,8 @@ const withPlayer = (Component) => {
   }
 
   WithPlayer.propTypes = {
-    preview: previewTypes,
-    isPlaying: isPlayingTypes,
+    preview: stringRequiredTypes,
+    isPlaying: boolRequiredTypes,
   };
 
   return WithPlayer;

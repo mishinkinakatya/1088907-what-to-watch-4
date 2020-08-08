@@ -1,5 +1,5 @@
 import React from "react";
-import {authorizationStatusTypes} from "../../types/types.js";
+import {stringNotRequiredTypes} from "../../types/types.js";
 import MoviesList from "../movies-list/movies-list.jsx";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
@@ -23,7 +23,7 @@ const MyListPage = (props) => {
 };
 
 MyListPage.propTypes = {
-  authorizationStatus: authorizationStatusTypes,
+  authorizationStatus: stringNotRequiredTypes,
 };
 
 

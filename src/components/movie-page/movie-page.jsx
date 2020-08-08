@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {movieTypes, authorizationStatusTypes} from "../../types/types.js";
+import {movieRequiredTypes, stringNotRequiredTypes} from "../../types/types.js";
 import MovieButtons from "../movie-buttons/movie-buttons.jsx";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
@@ -67,8 +67,8 @@ const MoviePage = (props) => {
 
 
 MoviePage.propTypes = {
-  activeMovie: movieTypes,
-  authorizationStatus: authorizationStatusTypes,
+  activeMovie: movieRequiredTypes,
+  authorizationStatus: stringNotRequiredTypes,
 };
 
 
