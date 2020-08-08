@@ -32,7 +32,7 @@ export const ActionCreator = {
       payload: status,
     };
   },
-  changeStatusOfErrorPage: (status) => {
+  changeLoadingStatus: (status) => {
     return {
       type: ActionType.CHANGE_STATUS_OF_ERROR_PAGE,
       payload: status,

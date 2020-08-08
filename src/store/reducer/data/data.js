@@ -2,7 +2,7 @@ import React from "react";
 import {Redirect} from "react-router-dom";
 import {ActionCreator} from "../../actions/data/data.js";
 import {createMovie, createReview} from "../../../adapters/adapters.js";
-import {ActionType, SendingStatus, AppRoute, ErrorPageStatus} from "../../../utils/const.js";
+import {ActionType, SendingStatus, AppRoute, LoadingStatus} from "../../../utils/const.js";
 
 
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
   reviews: [],
   favoriteMovies: [],
   addReviewStatus: SendingStatus.NO_SENDING,
-  errorPageStatus: ErrorPageStatus.SUCCESS,
+  loadingStatus: LoadingStatus.LOADING,
 };
 
 export const Operations = {
@@ -19,9 +19,10 @@ export const Operations = {
     return api.get(`/films`)
     .then((response) => {
       dispatch(ActionCreator.loadMovies(response.data.map(createMovie)));
+      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.SUCCESS));
     })
     .catch(() => {
-      dispatch(ActionCreator.changeStatusOfErrorPage(ErrorPageStatus.ERROR));
+      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.FAIL));
     });
   },
   loadReviews: (movieId) => (dispatch, getState, api) => {
@@ -30,7 +31,7 @@ export const Operations = {
       dispatch(ActionCreator.loadReviews(response.data.map(createReview)));
     })
     .catch(() => {
-      dispatch(ActionCreator.changeStatusOfErrorPage(ErrorPageStatus.ERROR));
+      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.FAIL));
     });
   },
   loadPromoMovie: () => (dispatch, getState, api) => {
@@ -39,7 +40,7 @@ export const Operations = {
       dispatch(ActionCreator.loadPromoMovie(createMovie(response.data)));
     })
     .catch(() => {
-      dispatch(ActionCreator.changeStatusOfErrorPage(ErrorPageStatus.ERROR));
+      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.FAIL));
     });
   },
   loadFaforite: () => (dispatch, getState, api) => {
@@ -48,7 +49,7 @@ export const Operations = {
       dispatch(ActionCreator.loadFaforite(response.data.map(createMovie)));
     })
     .catch(() => {
-      dispatch(ActionCreator.changeStatusOfErrorPage(ErrorPageStatus.ERROR));
+      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.FAIL));
     });
   },
   postReview: (movieId, reviewData) => (dispatch, getState, api) => {
@@ -108,7 +109,7 @@ export const reducer = (state = initialState, action) => {
       });
     case ActionType.CHANGE_STATUS_OF_ERROR_PAGE:
       return Object.assign({}, state, {
-        errorPageStatus: action.payload,
+        loadingStatus: action.payload,
       });
   }
   return state;

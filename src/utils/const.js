@@ -34,9 +34,10 @@ export const SendingStatus = {
   FAIL: `FAIL`,
 };
 
-export const ErrorPageStatus = {
+export const LoadingStatus = {
+  LOADING: `LOADING`,
   SUCCESS: `SUCCESS`,
-  ERROR: `ERROR`,
+  FAIL: `FAIL`,
 };
 
 export const AppRoute = {
