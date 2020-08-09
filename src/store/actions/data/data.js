@@ -32,9 +32,9 @@ export const ActionCreator = {
       payload: status,
     };
   },
-  changeLoadingStatus: (status) => {
+  changeFavoriteStatus: (status) => {
     return {
-      type: ActionType.CHANGE_LOADING_STATUS,
+      type: ActionType.CHANGE_FAVORITE_STATUS,
       payload: status,
     };
   },

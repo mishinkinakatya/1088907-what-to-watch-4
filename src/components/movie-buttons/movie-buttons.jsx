@@ -1,14 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {connect} from "react-redux";
-import {movieRequiredTypes, stringNotRequiredTypes, boolRequiredTypes, funcRequiredTypes} from "../../types/types";
+import {movieRequiredTypes, stringNotRequiredTypes, boolRequiredTypes, funcRequiredTypes, stringRequiredTypes} from "../../types/types";
 import withFavoriteMovie from "../../hocs/with-favorite-movie/with-favorite-movie.jsx";
-import {getAuthorizationStatus} from "../../store/reducer/user/selectors";
 import {AppRoute, AuthorizationStatus, AppPages} from "../../utils/const";
 
 
 const MovieButtons = (props) => {
   const {authorizationStatus, movie, isFavorite, onMyListButtonClick, activePage} = props;
+
   return (
     <div className="movie-card__buttons">
       <Link to={`${AppRoute.PLAYER_PAGE}/${movie.id}`} className="btn btn--play movie-card__button" type="button">
@@ -44,13 +43,9 @@ MovieButtons.propTypes = {
   isFavorite: boolRequiredTypes,
   onMyListButtonClick: funcRequiredTypes,
   activePage: stringNotRequiredTypes,
+  sendFavotiteStatus: stringRequiredTypes,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    authorizationStatus: getAuthorizationStatus(state),
-  };
-};
 
 export {MovieButtons};
-export default withFavoriteMovie(connect(mapStateToProps)(MovieButtons));
+export default withFavoriteMovie(MovieButtons);

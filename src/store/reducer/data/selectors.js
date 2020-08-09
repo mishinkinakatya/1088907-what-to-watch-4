@@ -26,8 +26,8 @@ export const getAddReviewStatus = (state) => {
   return state[NAME_SPACE].addReviewStatus;
 };
 
-export const getLoadingStatus = (state) => {
-  return state[NAME_SPACE].loadingStatus;
+export const getSendFavotiteStatus = (state) => {
+  return state[NAME_SPACE].sendFavotiteStatus;
 };
 
 export const getAllGenres = createSelector(

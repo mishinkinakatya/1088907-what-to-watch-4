@@ -1,6 +1,6 @@
 import {ActionCreator} from "../../actions/data/data.js";
 import {createMovie, createReview} from "../../../adapters/adapters.js";
-import {ActionType, SendingStatus, LoadingStatus} from "../../../utils/const.js";
+import {ActionType, SendingStatus} from "../../../utils/const.js";
 
 
 const initialState = {
@@ -9,52 +9,40 @@ const initialState = {
   reviews: [],
   favoriteMovies: [],
   addReviewStatus: SendingStatus.NO_SENDING,
-  loadingStatus: LoadingStatus.LOADING,
+  sendFavotiteStatus: SendingStatus.NO_SENDING,
 };
 
 export const Operations = {
   loadMovies: () => (dispatch, getState, api) => {
-    dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.LOADING));
     return api.get(`/films`)
     .then((response) => {
       dispatch(ActionCreator.loadMovies(response.data.map(createMovie)));
-      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.SUCCESS));
     })
     .catch(() => {
-      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.FAIL));
     });
   },
   loadReviews: (movieId) => (dispatch, getState, api) => {
-    dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.LOADING));
     return api.get(`/comments/${movieId}`)
     .then((response) => {
       dispatch(ActionCreator.loadReviews(response.data.map(createReview)));
-      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.SUCCESS));
     })
     .catch(() => {
-      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.FAIL));
     });
   },
   loadPromoMovie: () => (dispatch, getState, api) => {
-    dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.LOADING));
     return api.get(`/films/promo`)
     .then((response) => {
       dispatch(ActionCreator.loadPromoMovie(createMovie(response.data)));
-      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.SUCCESS));
     })
     .catch(() => {
-      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.FAIL));
     });
   },
   loadFaforite: () => (dispatch, getState, api) => {
-    dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.LOADING));
     return api.get(`/favorite`)
     .then((response) => {
       dispatch(ActionCreator.loadFaforite(response.data.map(createMovie)));
-      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.SUCCESS));
     })
     .catch(() => {
-      dispatch(ActionCreator.changeLoadingStatus(LoadingStatus.FAIL));
     });
   },
   postReview: (movieId, reviewData) => (dispatch, getState, api) => {
@@ -71,13 +59,15 @@ export const Operations = {
     });
   },
   postFavoriteStatusMovie: (movie, status) => (dispatch, getState, api) => {
+    dispatch(ActionCreator.changeFavoriteStatus(SendingStatus.SENDING));
     return api.post(`favorite/${movie.id}/${status ? 1 : 0}`, {
       movie,
     })
-    .then((response) => {
-      dispatch(ActionCreator.loadFaforite(response.data.map(createMovie)));
-      dispatch(ActionCreator.loadMovies(response.data.map(createMovie)));
-      dispatch(ActionCreator.loadPromoMovie(createMovie(response.data)));
+    .then(() => {
+      dispatch(ActionCreator.changeFavoriteStatus(SendingStatus.SUCCESS));
+    })
+    .catch(() => {
+      dispatch(ActionCreator.changeFavoriteStatus(SendingStatus.FAIL));
     });
   },
 };
@@ -104,9 +94,9 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         addReviewStatus: action.payload,
       });
-    case ActionType.CHANGE_LOADING_STATUS:
+    case ActionType.CHANGE_FAVORITE_STATUS:
       return Object.assign({}, state, {
-        loadingStatus: action.payload,
+        sendFavotiteStatus: action.payload,
       });
   }
   return state;
