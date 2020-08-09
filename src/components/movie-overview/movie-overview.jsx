@@ -1,5 +1,6 @@
 import React from "react";
 import {movieRequiredTypes} from "../../types/types.js";
+import {getRatingScoreWithFloatingPoint} from "../../utils/fn.js";
 
 
 const COUNT_VISIBLE_STARRINGS = 4;
@@ -33,7 +34,7 @@ const MovieOverview = (props) => {
   return (
     <React.Fragment>
       <div className="movie-rating">
-        <div className="movie-rating__score">{rating.score}</div>
+        <div className="movie-rating__score">{getRatingScoreWithFloatingPoint(rating.score)}</div>
         <p className="movie-rating__meta">
           <span className="movie-rating__level">{calculateRatingLevel(rating.score)}</span>
           <span className="movie-rating__count">{rating.count} ratings</span>

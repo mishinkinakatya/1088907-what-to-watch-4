@@ -41,13 +41,13 @@ const PageHeader = (props) => {
 
   return (
     <header className={HeaderClass[activePage]}>
-      <div className="logo">
-        <Link to={AppRoute.MAIN_PAGE} className="logo__link">
+      <Link to={AppRoute.MAIN_PAGE} className="logo__link">
+        <div className="logo">
           <span className="logo__letter logo__letter--1">W</span>
           <span className="logo__letter logo__letter--2">T</span>
           <span className="logo__letter logo__letter--3">W</span>
-        </Link>
-      </div>
+        </div>
+      </Link>
       {getHeaderSpecific(activePage, activeMovie)}
       {activePage !== AppPages.SIGN_IN_PAGE
         ? <div className="user-block">

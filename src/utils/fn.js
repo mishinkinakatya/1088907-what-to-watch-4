@@ -55,3 +55,11 @@ export const getDateInMonthDDYYYY = (dateInUTC) => {
 
   return `${MONTHS_NAME[Number(incomingDate.month) - 1]} ${incomingDate.date}, ${incomingDate.year}`;
 };
+
+export const getRatingScoreWithFloatingPoint = (score) => {
+  if (Math.trunc(score) === score && score !== 10) {
+    return `${score}.0`;
+  } else {
+    return score;
+  }
+};

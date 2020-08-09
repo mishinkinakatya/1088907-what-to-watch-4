@@ -1,12 +1,13 @@
 import React, {PureComponent, createRef} from "react";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 import {funcRequiredTypes, boolRequiredTypes} from "../../types/types.js";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
 import {ActionCreator} from "../../store/actions/user/user.js";
 import {Operations as UserOperations} from "../../store/reducer/user/user.js";
 import {getIsAuthorizationError} from "../../store/reducer/user/selectors.js";
-import {AppPages} from "../../utils/const.js";
+import {AppPages, AppRoute} from "../../utils/const.js";
 
 
 class SignInPage extends PureComponent {
@@ -59,7 +60,7 @@ class SignInPage extends PureComponent {
                 </div>
               </div>
               <div className="sign-in__submit">
-                <button className="sign-in__btn" type="submit" onClick={this.handleSignInClick}>Sign in</button>
+                <Link to={AppRoute.MAIN_PAGE} className="sign-in__btn" type="submit" onClick={this.handleSignInClick}>Sign in</Link>
               </div>
             </form>
           </div>

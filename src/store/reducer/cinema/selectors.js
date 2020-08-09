@@ -8,7 +8,7 @@ const NAME_SPACE = NameSpace.CINEMA;
 
 export const getActiveMovieById = (state, ownProps) => {
   const movies = getMovies(state);
-  const movieId = Number(ownProps.propsRoute.match.params.id);
+  const movieId = ownProps.propsRouteId;
   const activeMovie = movies.find((movie) => movie.id === movieId);
 
   return activeMovie;
