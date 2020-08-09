@@ -44,10 +44,10 @@ export const ActionCreator = {
       payload: status,
     };
   },
-  showLoadError: () => {
+  showLoadError: (err) => {
     return {
       type: ActionType.SHOW_LOAD_ERROR,
-      payload: true,
+      payload: err,
     };
   },
 };

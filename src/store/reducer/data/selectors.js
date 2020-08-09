@@ -30,8 +30,8 @@ export const getSendFavotiteStatus = (state) => {
   return state[NAME_SPACE].sendFavotiteStatus;
 };
 
-export const getIsLoadError = (state) => {
-  return state[NAME_SPACE].isLoadError;
+export const getLoadError = (state) => {
+  return state[NAME_SPACE].textOfError;
 };
 
 export const getAllGenres = createSelector(

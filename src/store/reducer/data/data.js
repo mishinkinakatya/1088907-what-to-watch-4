@@ -10,7 +10,7 @@ const initialState = {
   favoriteMovies: [],
   addReviewStatus: SendingStatus.NO_SENDING,
   sendFavotiteStatus: SendingStatus.NO_SENDING,
-  isLoadError: false,
+  textOfError: null,
 };
 
 export const Operations = {
@@ -19,8 +19,8 @@ export const Operations = {
     .then((response) => {
       dispatch(ActionCreator.loadMovies(response.data.map(createMovie)));
     })
-    .catch(() => {
-      dispatch(ActionCreator.showLoadError());
+    .catch((err) => {
+      dispatch(ActionCreator.showLoadError(err.message));
     });
   },
   loadReviews: (movieId) => (dispatch, getState, api) => {
@@ -28,8 +28,8 @@ export const Operations = {
     .then((response) => {
       dispatch(ActionCreator.loadReviews(response.data.map(createReview)));
     })
-    .catch(() => {
-      dispatch(ActionCreator.showLoadError());
+    .catch((err) => {
+      dispatch(ActionCreator.showLoadError(err.message));
     });
   },
   loadPromoMovie: () => (dispatch, getState, api) => {
@@ -37,8 +37,8 @@ export const Operations = {
     .then((response) => {
       dispatch(ActionCreator.loadPromoMovie(createMovie(response.data)));
     })
-    .catch(() => {
-      dispatch(ActionCreator.showLoadError());
+    .catch((err) => {
+      dispatch(ActionCreator.showLoadError(err.message));
     });
   },
   loadFaforite: () => (dispatch, getState, api) => {
@@ -46,8 +46,8 @@ export const Operations = {
     .then((response) => {
       dispatch(ActionCreator.loadFaforite(response.data.map(createMovie)));
     })
-    .catch(() => {
-      dispatch(ActionCreator.showLoadError());
+    .catch((err) => {
+      dispatch(ActionCreator.showLoadError(err.message));
     });
   },
   postReview: (movieId, reviewData) => (dispatch, getState, api) => {
@@ -105,7 +105,7 @@ export const reducer = (state = initialState, action) => {
       });
     case ActionType.SHOW_LOAD_ERROR:
       return Object.assign({}, state, {
-        isLoadError: action.payload,
+        textOfError: action.payload,
       });
   }
   return state;

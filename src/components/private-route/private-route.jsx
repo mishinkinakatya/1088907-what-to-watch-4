@@ -13,10 +13,10 @@ const PrivateRoute = (props) => {
     <Route
       path={path}
       exact={exact}
-      render={() => {
+      render={(propsRoute) => {
         return (
           authorizationStatus === AuthorizationStatus.AUTH
-            ? render()
+            ? render(propsRoute)
             : <Redirect to={AppRoute.SIGN_IN_PAGE} />
         );
       }}
