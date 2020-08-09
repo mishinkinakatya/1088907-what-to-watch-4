@@ -30,6 +30,9 @@ export const Operations = {
       email: authData.login,
       password: authData.password,
     })
+      .then((response) => {
+        dispatch(ActionCreator.changeAuthInfo(createAuthInfo(response.data)));
+      })
       .then(() => {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
       })

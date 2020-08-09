@@ -13,9 +13,9 @@ import PrivateRoute from "../private-route/private-route.jsx";
 import SignInPage from "../sign-in-page/sign-in-page.jsx";
 import {getMovies, getPromoMovie, getAddReviewStatus, getLoadError} from "../../store/reducer/data/selectors.js";
 import {getAuthorizationStatus} from "../../store/reducer/user/selectors.js";
-import {AppRoute, SendingStatus, AuthorizationStatus} from "../../utils/const.js";
 import {ActionCreator} from "../../store/actions/data/data.js";
 import {Operations} from "../../store/reducer/data/data.js";
+import {AppRoute, SendingStatus, AuthorizationStatus} from "../../utils/const.js";
 
 
 const App = (props) => {
@@ -44,8 +44,7 @@ const App = (props) => {
             <Route exact path={`${AppRoute.MOVIE_PAGE}/:id`}
               render={(propsRoute) => <MoviePage propsRouteId={Number(propsRoute.match.params.id)} />} />
             <Route exact path={`${AppRoute.PLAYER_PAGE}/:id`}
-              render={(propsRoute) => <PlayerPage propsRoute={Number(propsRoute.match.params.id)} />}
-            />
+              render={(propsRoute) => <PlayerPage propsRouteId={Number(propsRoute.match.params.id)} />} />
             <PrivateRoute exact path={AppRoute.MY_LIST_PAGE}
               render={() => <MyListPage />}
             />
