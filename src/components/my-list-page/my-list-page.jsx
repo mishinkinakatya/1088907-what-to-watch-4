@@ -7,6 +7,7 @@ import PageFooter from "../page-footer/page-footer.jsx";
 import {Operations} from "../../store/reducer/data/data.js";
 import {AppPages} from "../../utils/const.js";
 
+
 class MyListPage extends PureComponent {
   constructor(props) {
     super(props);
@@ -42,6 +43,7 @@ class MyListPage extends PureComponent {
 MyListPage.propTypes = {
   loadFavotite: funcRequiredTypes,
 };
+
 
 const mapDispatchToProps = (dispatch) => ({
   loadFavotite() {

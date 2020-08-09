@@ -31,11 +31,14 @@ const withSmallMovieCard = (Component) => {
     }
   }
 
+
   WithSmallMovieCard.propTypes = {
     movie: movieRequiredTypes,
   };
 
+
   return WithSmallMovieCard;
 };
+
 
 export default withSmallMovieCard;

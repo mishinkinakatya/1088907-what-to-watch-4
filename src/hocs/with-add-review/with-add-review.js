@@ -68,11 +68,13 @@ const withAddReview = (Component) => {
     }
   }
 
+
   WithAddReview.propTypes = {
     activeMovie: movieNotRequiredTypes,
     addReviewStatus: stringRequiredTypes,
     onReviewPost: funcRequiredTypes,
   };
+
 
   const mapStateToProps = (state) => ({
     addReviewStatus: getAddReviewStatus(state),
@@ -84,7 +86,9 @@ const withAddReview = (Component) => {
     }
   });
 
+
   return connect(mapStateToProps, mapDispatchToProps)(WithAddReview);
 };
+
 
 export default withAddReview;

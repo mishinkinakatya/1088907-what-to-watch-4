@@ -34,6 +34,7 @@ GenresList.propTypes = {
   onGenreClick: funcRequiredTypes,
 };
 
+
 const mapStateToProps = (state) => {
   return {
     activeGenre: getActiveGenre(state),
@@ -46,6 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.changeActiveGenre(activeGenre));
   },
 });
+
 
 export {GenresList};
 export default connect(mapStateToProps, mapDispatchToProps)(GenresList);

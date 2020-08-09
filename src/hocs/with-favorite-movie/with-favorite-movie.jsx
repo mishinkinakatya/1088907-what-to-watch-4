@@ -1,9 +1,10 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
-import {movieRequiredTypes, funcRequiredTypes, stringNotRequiredTypes} from "../../types/types";
+import {withRouter} from "react-router-dom";
+import {movieRequiredTypes, funcRequiredTypes, stringNotRequiredTypes, objectRequiredTypes} from "../../types/types";
 import {Operations as DataOperations} from "../../store/reducer/data/data.js";
 import {getAuthorizationStatus} from "../../store/reducer/user/selectors";
-import {AuthorizationStatus} from "../../utils/const";
+import {AuthorizationStatus, AppRoute} from "../../utils/const";
 import {getSendFavotiteStatus} from "../../store/reducer/data/selectors";
 
 
@@ -21,13 +22,15 @@ const withFavoriteMovie = (Component) => {
 
     handleButtonClick() {
       const {isFavorite} = this.state;
-      const {movie, onMyListButtonClick, authorizationStatus} = this.props;
+      const {movie, onMyListButtonClick, authorizationStatus, history} = this.props;
       if (authorizationStatus === AuthorizationStatus.AUTH) {
         this.setState({
           isFavorite: !isFavorite,
         });
 
         onMyListButtonClick(movie, !isFavorite);
+      } else {
+        history.push(AppRoute.SIGN_IN_PAGE);
       }
     }
 
@@ -42,10 +45,12 @@ const withFavoriteMovie = (Component) => {
     }
   }
 
+
   WithFavoriteMovie.propTypes = {
     movie: movieRequiredTypes,
     onMyListButtonClick: funcRequiredTypes,
     authorizationStatus: stringNotRequiredTypes,
+    history: objectRequiredTypes,
   };
 
 
@@ -62,7 +67,9 @@ const withFavoriteMovie = (Component) => {
     }
   });
 
-  return connect(mapStateToProps, mapDispatchToProps)(WithFavoriteMovie);
+
+  return connect(mapStateToProps, mapDispatchToProps)(withRouter(WithFavoriteMovie));
 };
+
 
 export default withFavoriteMovie;

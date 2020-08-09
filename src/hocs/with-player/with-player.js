@@ -52,12 +52,15 @@ const withPlayer = (Component) => {
     }
   }
 
+
   WithPlayer.propTypes = {
     preview: stringRequiredTypes,
     isPlaying: boolRequiredTypes,
   };
 
+
   return WithPlayer;
 };
+
 
 export default withPlayer;

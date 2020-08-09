@@ -57,4 +57,5 @@ MovieOverview.propTypes = {
   movie: movieRequiredTypes,
 };
 
+
 export default MovieOverview;

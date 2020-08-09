@@ -124,6 +124,7 @@ const withPlayerPage = (Component) => {
     }
   }
 
+
   WithPlayerPage.propTypes = {
     activeMovie: movieRequiredTypes,
   };
@@ -135,7 +136,9 @@ const withPlayerPage = (Component) => {
     };
   };
 
+
   return connect(mapStateToProps, null)(WithPlayerPage);
 };
+
 
 export default withPlayerPage;

@@ -32,10 +32,22 @@ export const ActionCreator = {
       payload: status,
     };
   },
-  changeFavoriteStatus: (status) => {
+  changeSendFavoriteStatus: (status) => {
     return {
-      type: ActionType.CHANGE_FAVORITE_STATUS,
+      type: ActionType.CHANGE_SEND_FAVORITE_STATUS,
       payload: status,
+    };
+  },
+  changeLoadFavoriteStatus: (status) => {
+    return {
+      type: ActionType.CHANGE_LOAD_FAVORITE_STATUS,
+      payload: status,
+    };
+  },
+  showLoadError: () => {
+    return {
+      type: ActionType.SHOW_LOAD_ERROR,
+      payload: true,
     };
   },
 };

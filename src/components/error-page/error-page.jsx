@@ -1,6 +1,7 @@
 import React from "react";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
+import {AppPages} from "../../utils/const.js";
 
 
 const ErrorPage = () => {
@@ -9,7 +10,7 @@ const ErrorPage = () => {
       <section className="movie-card">
         <h1 className="visually-hidden">WTW</h1>
 
-        <PageHeader />
+        <PageHeader activePage={AppPages.ERROR_PAGE} />
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">

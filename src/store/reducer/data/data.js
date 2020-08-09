@@ -10,6 +10,7 @@ const initialState = {
   favoriteMovies: [],
   addReviewStatus: SendingStatus.NO_SENDING,
   sendFavotiteStatus: SendingStatus.NO_SENDING,
+  isLoadError: false,
 };
 
 export const Operations = {
@@ -19,6 +20,7 @@ export const Operations = {
       dispatch(ActionCreator.loadMovies(response.data.map(createMovie)));
     })
     .catch(() => {
+      dispatch(ActionCreator.showLoadError());
     });
   },
   loadReviews: (movieId) => (dispatch, getState, api) => {
@@ -27,6 +29,7 @@ export const Operations = {
       dispatch(ActionCreator.loadReviews(response.data.map(createReview)));
     })
     .catch(() => {
+      dispatch(ActionCreator.showLoadError());
     });
   },
   loadPromoMovie: () => (dispatch, getState, api) => {
@@ -35,6 +38,7 @@ export const Operations = {
       dispatch(ActionCreator.loadPromoMovie(createMovie(response.data)));
     })
     .catch(() => {
+      dispatch(ActionCreator.showLoadError());
     });
   },
   loadFaforite: () => (dispatch, getState, api) => {
@@ -43,6 +47,7 @@ export const Operations = {
       dispatch(ActionCreator.loadFaforite(response.data.map(createMovie)));
     })
     .catch(() => {
+      dispatch(ActionCreator.showLoadError());
     });
   },
   postReview: (movieId, reviewData) => (dispatch, getState, api) => {
@@ -59,15 +64,15 @@ export const Operations = {
     });
   },
   postFavoriteStatusMovie: (movie, status) => (dispatch, getState, api) => {
-    dispatch(ActionCreator.changeFavoriteStatus(SendingStatus.SENDING));
+    dispatch(ActionCreator.changeSendFavoriteStatus(SendingStatus.SENDING));
     return api.post(`favorite/${movie.id}/${status ? 1 : 0}`, {
       movie,
     })
     .then(() => {
-      dispatch(ActionCreator.changeFavoriteStatus(SendingStatus.SUCCESS));
+      dispatch(ActionCreator.changeSendFavoriteStatus(SendingStatus.SUCCESS));
     })
     .catch(() => {
-      dispatch(ActionCreator.changeFavoriteStatus(SendingStatus.FAIL));
+      dispatch(ActionCreator.changeSendFavoriteStatus(SendingStatus.FAIL));
     });
   },
 };
@@ -94,9 +99,13 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         addReviewStatus: action.payload,
       });
-    case ActionType.CHANGE_FAVORITE_STATUS:
+    case ActionType.CHANGE_SEND_FAVORITE_STATUS:
       return Object.assign({}, state, {
         sendFavotiteStatus: action.payload,
+      });
+    case ActionType.SHOW_LOAD_ERROR:
+      return Object.assign({}, state, {
+        isLoadError: action.payload,
       });
   }
   return state;

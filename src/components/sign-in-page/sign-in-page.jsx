@@ -17,10 +17,10 @@ class SignInPage extends PureComponent {
     this.loginRef = createRef();
     this.passwordRef = createRef();
 
-    this.handleSignInClick = this.handleSignInClick.bind(this);
+    this._handleSignInClick = this._handleSignInClick.bind(this);
   }
 
-  handleSignInClick(evt) {
+  _handleSignInClick(evt) {
     const {onSignInClick} = this.props;
 
     evt.preventDefault();
@@ -60,7 +60,7 @@ class SignInPage extends PureComponent {
                 </div>
               </div>
               <div className="sign-in__submit">
-                <Link to={AppRoute.MAIN_PAGE} className="sign-in__btn" type="submit" onClick={this.handleSignInClick}>Sign in</Link>
+                <Link to={AppRoute.MAIN_PAGE} className="sign-in__btn" type="submit" onClick={this._handleSignInClick}>Sign in</Link>
               </div>
             </form>
           </div>
@@ -71,6 +71,7 @@ class SignInPage extends PureComponent {
     );
   }
 }
+
 
 SignInPage.propTypes = {
   onSignInClick: funcRequiredTypes,

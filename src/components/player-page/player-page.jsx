@@ -13,17 +13,6 @@ class PlayerPage extends PureComponent {
     this._renderPauseButton = this._renderPauseButton.bind(this);
   }
 
-  render() {
-    const {renderVideoPlayer} = this.props;
-
-    return (
-      <div className="player" >
-        {renderVideoPlayer()}
-        {this._renderVideoPlayerButtons()}
-      </div>
-    );
-  }
-
   _renderVideoPlayerButtons() {
     const {activeMovie, onFullScreenButtonClick, isPlaying, currentTimeValue, runTime, playerTimeValue, togglerValueInPercents} = this.props;
 
@@ -81,7 +70,20 @@ class PlayerPage extends PureComponent {
       </button>
     );
   }
+
+  render() {
+    const {renderVideoPlayer} = this.props;
+
+    return (
+      <div className="player" >
+        {renderVideoPlayer()}
+        {this._renderVideoPlayerButtons()}
+      </div>
+    );
+  }
+
 }
+
 
 PlayerPage.propTypes = {
   activeMovie: movieRequiredTypes,

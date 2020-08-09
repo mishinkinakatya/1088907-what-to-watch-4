@@ -51,4 +51,5 @@ MovieReviews.propTypes = {
   reviews: reviewsRequiredTypes,
 };
 
+
 export default MovieReviews;

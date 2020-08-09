@@ -6,6 +6,7 @@ import {getMoviesListOfActiveGenre, getMaxCountOfVisibleMovies} from "../../stor
 import {getFavoriteMovies} from "../../store/reducer/data/selectors.js";
 import {AppPages} from "../../utils/const.js";
 
+
 const MoviesList = (props) => {
   const {movies, favoriteMovies, activePage, maxCountOfVisibleMovies} = props;
 
@@ -41,6 +42,7 @@ const mapStateToProps = (state) => {
     favoriteMovies: getFavoriteMovies(state),
   };
 };
+
 
 export {MoviesList};
 export default connect(mapStateToProps, null)(MoviesList);

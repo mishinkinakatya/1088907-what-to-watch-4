@@ -45,4 +45,5 @@ MovieDetails.propTypes = {
   movie: movieRequiredTypes,
 };
 
+
 export default MovieDetails;

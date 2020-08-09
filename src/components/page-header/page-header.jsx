@@ -11,6 +11,8 @@ const HeaderClass = {
   [AppPages.MOVIE_PAGE]: `page-header movie-card__head`,
   [AppPages.SIGN_IN_PAGE]: `page-header user-page__head`,
   [AppPages.MY_LIST_PAGE]: `page-header user-page__head`,
+  [AppPages.ERROR_PAGE]: `page-header user-page__head`,
+  [AppPages.LOADING_PAGE]: `page-header user-page__head`,
   [AppPages.ADD_REVIEW_PAGE]: `page-header`,
 };
 
@@ -49,20 +51,27 @@ const PageHeader = (props) => {
         </div>
       </Link>
       {getHeaderSpecific(activePage, activeMovie)}
-      {activePage !== AppPages.SIGN_IN_PAGE
+      {activePage === AppPages.ERROR_PAGE
         ? <div className="user-block">
-          {authorizationStatus === AuthorizationStatus.AUTH
-            ? <Link to={AppRoute.MY_LIST_PAGE}>
-              <div className="user-block__avatar">
-                <img src={authInfo.avatarUrl} alt={authInfo.name} width="63" height="63" />
-              </div>
-            </Link>
-            : <Link to={AppRoute.SIGN_IN_PAGE} className="user-block__link">Sign in</Link>
-          }
+          <Link to={AppRoute.MAIN_PAGE} className="user-block__link">Close</Link>
         </div>
         : ``
       }
-    </header>
+      {
+        activePage !== AppPages.SIGN_IN_PAGE && activePage !== AppPages.ERROR_PAGE && activePage !== AppPages.LOADING_PAGE
+          ? <div className="user-block">
+            {authorizationStatus === AuthorizationStatus.AUTH
+              ? <Link to={AppRoute.MY_LIST_PAGE}>
+                <div className="user-block__avatar">
+                  <img src={authInfo.avatarUrl} alt={authInfo.name} width="63" height="63" />
+                </div>
+              </Link>
+              : <Link to={AppRoute.SIGN_IN_PAGE} className="user-block__link">Sign in</Link>
+            }
+          </div>
+          : ``
+      }
+    </header >
   );
 };
 
@@ -74,12 +83,14 @@ PageHeader.propTypes = {
   authInfo: authInfoNotRequiredTypes,
 };
 
+
 const mapStateToProps = (state) => {
   return {
     authInfo: getAuthInfo(state),
     authorizationStatus: getAuthorizationStatus(state),
   };
 };
+
 
 export {PageHeader};
 export default connect(mapStateToProps)(PageHeader);

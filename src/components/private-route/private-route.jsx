@@ -24,12 +24,14 @@ const PrivateRoute = (props) => {
   );
 };
 
+
 PrivateRoute.propTypes = {
   authorizationStatus: stringNotRequiredTypes,
   exact: boolRequiredTypes,
   path: stringRequiredTypes,
   render: funcRequiredTypes,
 };
+
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),
