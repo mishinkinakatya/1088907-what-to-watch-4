@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {MoviesList} from "./movies-list.jsx";
-import {moviesMock, countOfVisibleMoviesOnMainPageMock, activeGenreMock} from "../../mocks/test-data.js";
+import {moviesMock, countOfMaxCountOfVisibleMoviesMock} from "../../mocks/test-data.js";
 
 
 describe(`MovieList`, () => {
@@ -10,9 +10,7 @@ describe(`MovieList`, () => {
       .create(
           <MoviesList
             movies={moviesMock}
-            activeGenre={activeGenreMock}
-            maxCountOfVisibleMovies={countOfVisibleMoviesOnMainPageMock}
-            onCardClick={() => {}}
+            maxCountOfVisibleMovies={countOfMaxCountOfVisibleMoviesMock}
           />, {
             createNodeMock: () => {
               return {};

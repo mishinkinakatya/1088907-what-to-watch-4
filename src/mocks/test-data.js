@@ -1,19 +1,20 @@
 import {createRef} from "react";
 
+export const authInfoMock = {
+  id: 11,
+  email: `11@mail.ru`,
+  name: `Auth Name`,
+  avatarUrl: `Auth Avatar`,
+};
+
 export const movieMock = {
   id: 1,
   title: `Movie_title-1`,
   genre: `Genre`,
   year: 1111,
   runTimeInSec: 111 * 60,
-  poster: {
-    image: `Movie_image-1`,
-    title: `Movie_title-1`,
-  },
-  bgPoster: {
-    image: `Movie_image-1`,
-    title: `Movie_title-1`,
-  },
+  posterImage: `Movie_image-1`,
+  bgPosterImage: `Movie_image-1`,
   rating: {
     score: 1.1,
     count: 111
@@ -22,6 +23,10 @@ export const movieMock = {
   director: `Director of Movie_title-1.`,
   starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`, `Starring-5`],
   preview: `Preview of Movie_title.`,
+  movieLink: `Movie_link of Movie_title.`,
+  isFavorite: true,
+  previewImage: `Preview_Image of Movie_title.`,
+  bgColor: `#000101`,
 };
 
 export const moviesMock = [
@@ -31,14 +36,8 @@ export const moviesMock = [
     genre: `Genre-1`,
     year: 1111,
     runTimeInSec: 111 * 60,
-    poster: {
-      image: `Movie_image-1`,
-      title: `Movie_title-1`,
-    },
-    bgPoster: {
-      image: `Movie_image-1`,
-      title: `Movie_title-1`,
-    },
+    posterImage: `Movie_image-1`,
+    bgPosterImage: `Movie_image-1`,
     rating: {
       score: 1.1,
       count: 111
@@ -47,6 +46,10 @@ export const moviesMock = [
     director: `Director of Movie_title-1.`,
     starrings: [`Starring-1`, `Starring-2`, `Starring-3`],
     preview: `Preview of Movie_title-1.`,
+    movieLink: `Movie_link of Movie_title-1.`,
+    isFavorite: true,
+    previewImage: `Preview_Image of Movie_title-1.`,
+    bgColor: `#000101`,
   },
   {
     id: 22,
@@ -54,14 +57,8 @@ export const moviesMock = [
     genre: `Genre-2`,
     year: 2222,
     runTimeInSec: 222 * 60,
-    poster: {
-      image: `Movie_image-2`,
-      title: `Movie_title-2`,
-    },
-    bgPoster: {
-      image: `Movie_image-2`,
-      title: `Movie_title-2`,
-    },
+    posterImage: `Movie_image-2`,
+    bgPosterImage: `Movie_image-2`,
     rating: {
       score: 2.2,
       count: 222
@@ -70,6 +67,10 @@ export const moviesMock = [
     director: `Director of Movie_title-2.`,
     starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`],
     preview: `Preview of Movie_title-2.`,
+    movieLink: `Movie_link of Movie_title-2.`,
+    isFavorite: false,
+    previewImage: `Preview_Image of Movie_title-2.`,
+    bgColor: `#000202`,
   },
   {
     id: 33,
@@ -77,14 +78,8 @@ export const moviesMock = [
     genre: `Genre-1`,
     year: 3333,
     runTimeInSec: 333 * 60,
-    poster: {
-      image: `Movie_image-3`,
-      title: `Movie_title-3`,
-    },
-    bgPoster: {
-      image: `Movie_image-3`,
-      title: `Movie_title-3`,
-    },
+    posterImage: `Movie_image-3`,
+    bgPosterImage: `Movie_image-3`,
     rating: {
       score: 3.3,
       count: 333
@@ -93,6 +88,10 @@ export const moviesMock = [
     director: `Director of Movie_title-3.`,
     starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`, `Starring-5`],
     preview: `Preview of Movie_title-3.`,
+    movieLink: `Movie_link of Movie_title-3.`,
+    isFavorite: true,
+    previewImage: `Preview_Image of Movie_title-3.`,
+    bgColor: `#000303`,
   },
   {
     id: 44,
@@ -100,14 +99,8 @@ export const moviesMock = [
     genre: `Genre-4`,
     year: 4444,
     runTimeInSec: 444 * 60,
-    poster: {
-      image: `Movie_image-4`,
-      title: `Movie_title-4`,
-    },
-    bgPoster: {
-      image: `Movie_image-4`,
-      title: `Movie_title-4`,
-    },
+    posterImage: `Movie_image-4`,
+    bgPosterImage: `Movie_image-4`,
     rating: {
       score: 4.4,
       count: 444
@@ -116,6 +109,10 @@ export const moviesMock = [
     director: `Director of Movie_title-4.`,
     starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`, `Starring-5`],
     preview: `Preview of Movie_title-4.`,
+    movieLink: `Movie_link of Movie_title-4.`,
+    isFavorite: false,
+    previewImage: `Preview_Image of Movie_title-4.`,
+    bgColor: `#000404`,
   },
   {
     id: 55,
@@ -123,14 +120,8 @@ export const moviesMock = [
     genre: `Genre-5`,
     year: 5555,
     runTimeInSec: 555 * 60,
-    poster: {
-      image: `Movie_image-5`,
-      title: `Movie_title-5`,
-    },
-    bgPoster: {
-      image: `Movie_image-5`,
-      title: `Movie_title-5`,
-    },
+    posterImage: `Movie_image-5`,
+    bgPosterImage: `Movie_image-5`,
     rating: {
       score: 5.5,
       count: 555
@@ -139,6 +130,10 @@ export const moviesMock = [
     director: `Director of Movie_title-5.`,
     starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`, `Starring-5`],
     preview: `Preview of Movie_title-5.`,
+    movieLink: `Movie_link of Movie_title-5.`,
+    isFavorite: true,
+    previewImage: `Preview_Image of Movie_title-5.`,
+    bgColor: `#000505`,
   },
   {
     id: 66,
@@ -146,14 +141,8 @@ export const moviesMock = [
     genre: `Genre-6`,
     year: 6666,
     runTimeInSec: 666 * 60,
-    poster: {
-      image: `Movie_image-6`,
-      title: `Movie_title-6`,
-    },
-    bgPoster: {
-      image: `Movie_image-6`,
-      title: `Movie_title-6`,
-    },
+    posterImage: `Movie_image-6`,
+    bgPosterImage: `Movie_image-6`,
     rating: {
       score: 6.6,
       count: 666
@@ -162,6 +151,10 @@ export const moviesMock = [
     director: `Director of Movie_title-6.`,
     starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`, `Starring-5`],
     preview: `Preview of Movie_title-6.`,
+    movieLink: `Movie_link of Movie_title-6.`,
+    isFavorite: true,
+    previewImage: `Preview_Image of Movie_title-6.`,
+    bgColor: `#000606`,
   },
   {
     id: 77,
@@ -169,14 +162,8 @@ export const moviesMock = [
     genre: `Genre-7`,
     year: 7777,
     runTimeInSec: 777 * 60,
-    poster: {
-      image: `Movie_image-7`,
-      title: `Movie_title-7`,
-    },
-    bgPoster: {
-      image: `Movie_image-7`,
-      title: `Movie_title-7`,
-    },
+    posterImage: `Movie_image-7`,
+    bgPosterImage: `Movie_image-7`,
     rating: {
       score: 7.7,
       count: 777
@@ -185,6 +172,10 @@ export const moviesMock = [
     director: `Director of Movie_title-7.`,
     starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`, `Starring-5`],
     preview: `Preview of Movie_title-7.`,
+    movieLink: `Movie_link of Movie_title-7.`,
+    isFavorite: false,
+    previewImage: `Preview_Image of Movie_title-7.`,
+    bgColor: `#000707`,
   },
   {
     id: 88,
@@ -192,14 +183,8 @@ export const moviesMock = [
     genre: `Genre-8`,
     year: 8888,
     runTimeInSec: 888 * 60,
-    poster: {
-      image: `Movie_image-8`,
-      title: `Movie_title-8`,
-    },
-    bgPoster: {
-      image: `Movie_image-8`,
-      title: `Movie_title-8`,
-    },
+    posterImage: `Movie_image-8`,
+    bgPosterImage: `Movie_image-8`,
     rating: {
       score: 8.8,
       count: 888
@@ -208,6 +193,10 @@ export const moviesMock = [
     director: `Director of Movie_title-8.`,
     starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`, `Starring-5`],
     preview: `Preview of Movie_title-8.`,
+    movieLink: `Movie_link of Movie_title-8.`,
+    isFavorite: true,
+    previewImage: `Preview_Image of Movie_title-8.`,
+    bgColor: `#000808`,
   },
   {
     id: 99,
@@ -215,14 +204,8 @@ export const moviesMock = [
     genre: `Genre-9`,
     year: 9999,
     runTimeInSec: 999 * 60,
-    poster: {
-      image: `Movie_image-9`,
-      title: `Movie_title-9`,
-    },
-    bgPoster: {
-      image: `Movie_image-9`,
-      title: `Movie_title-9`,
-    },
+    posterImage: `Movie_image-9`,
+    bgPosterImage: `Movie_image-9`,
     rating: {
       score: 9.9,
       count: 999
@@ -231,6 +214,10 @@ export const moviesMock = [
     director: `Director of Movie_title-9.`,
     starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`, `Starring-5`],
     preview: `Preview of Movie_title-9.`,
+    movieLink: `Movie_link of Movie_title-9.`,
+    isFavorite: true,
+    previewImage: `Preview_Image of Movie_title-9.`,
+    bgColor: `#000909`,
   },
   {
     id: 1010,
@@ -238,14 +225,8 @@ export const moviesMock = [
     genre: `Genre-10`,
     year: 1010,
     runTimeInSec: 101 * 60,
-    poster: {
-      image: `Movie_image-10`,
-      title: `Movie_title-10`,
-    },
-    bgPoster: {
-      image: `Movie_image-10`,
-      title: `Movie_title-10`,
-    },
+    posterImage: `Movie_image-10`,
+    bgPosterImage: `Movie_image-10`,
     rating: {
       score: 10,
       count: 101
@@ -254,6 +235,10 @@ export const moviesMock = [
     director: `Director of Movie_title-10.`,
     starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`, `Starring-5`],
     preview: `Preview of Movie_title-10.`,
+    movieLink: `Movie_link of Movie_title-10.`,
+    isFavorite: false,
+    previewImage: `Preview_Image of Movie_title-10.`,
+    bgColor: `#001010`,
   },
   {
     id: 1111,
@@ -261,14 +246,8 @@ export const moviesMock = [
     genre: `Genre-11`,
     year: 1111,
     runTimeInSec: 111 * 60,
-    poster: {
-      image: `Movie_image-11`,
-      title: `Movie_title-11`,
-    },
-    bgPoster: {
-      image: `Movie_image-11`,
-      title: `Movie_title-11`,
-    },
+    posterImage: `Movie_image-11`,
+    bgPosterImage: `Movie_image-11`,
     rating: {
       score: 1.2,
       count: 111
@@ -277,6 +256,10 @@ export const moviesMock = [
     director: `Director of Movie_title-11.`,
     starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`, `Starring-5`],
     preview: `Preview of Movie_title-11.`,
+    movieLink: `Movie_link of Movie_title-11.`,
+    isFavorite: true,
+    previewImage: `Preview_Image of Movie_title-11.`,
+    bgColor: `#001111`,
   },
 ];
 
@@ -284,70 +267,80 @@ export const reviewsMock = [
   {
     movieId: 11,
     author: `Reviewer-1`,
-    dateUTC: new Date(`2011-01-01T14:13:56.123Z`),
+    authorId: 1,
+    dateUTC: `2011-01-01T14:13:56.123Z`,
     ratingScore: 1.0,
     comment: `Comment Author-1 to Movie-11.`,
   },
   {
     movieId: 11,
     author: `Reviewer-2`,
-    dateUTC: new Date(`2012-02-02T16:16:56.123Z`),
+    authorId: 2,
+    dateUTC: `2012-02-02T16:16:56.123Z`,
     ratingScore: 2.0,
     comment: `Comment Author-2 to Movie-11.`,
   },
   {
     movieId: 11,
     author: `Reviewer-3`,
-    dateUTC: new Date(`2013-03-03T03:03:56.123Z`),
+    authorId: 3,
+    dateUTC: `2013-03-03T03:03:56.123Z`,
     ratingScore: 3.0,
     comment: `Comment Author-3 to Movie-11.`,
   },
   {
     movieId: 11,
     author: `Reviewer-4`,
-    dateUTC: new Date(`2014-04-04T11:11:56.123Z`),
+    authorId: 4,
+    dateUTC: `2014-04-04T11:11:56.123Z`,
     ratingScore: 5.0,
     comment: `Comment Author-4 to Movie-11.`,
   },
   {
     movieId: 22,
     author: `Reviewer-1`,
-    dateUTC: new Date(`2015-05-05T17:17:56.123Z`),
+    authorId: 1,
+    dateUTC: `2015-05-05T17:17:56.123Z`,
     ratingScore: 1.0,
     comment: `Comment Author-1 to Movie-22.`,
   },
   {
     movieId: 22,
     author: `Reviewer-2`,
-    dateUTC: new Date(`2016-06-06T11:11:56.123Z`),
+    authorId: 2,
+    dateUTC: `2016-06-06T11:11:56.123Z`,
     ratingScore: 2.0,
     comment: `Comment Author-2 to Movie-22.`,
   },
   {
     movieId: 22,
     author: `Reviewer-3`,
-    dateUTC: new Date(`2017-07-07T06:06:56.123Z`),
+    authorId: 3,
+    dateUTC: `2017-07-07T06:06:56.123Z`,
     ratingScore: 3.0,
     comment: `Comment Author-3 to Movie-22.`,
   },
   {
     movieId: 22,
     author: `Reviewer-4`,
-    dateUTC: new Date(`2018-08-08T15:15:56.123Z`),
+    authorId: 4,
+    dateUTC: `2018-08-08T15:15:56.123Z`,
     ratingScore: 4.0,
     comment: `Comment Author-4 to Movie-22.`,
   },
   {
     movieId: 22,
     author: `Reviewer-5`,
-    dateUTC: new Date(`2019-09-09T14:14:56.123Z`),
+    authorId: 5,
+    dateUTC: `2019-09-09T14:14:56.123Z`,
     ratingScore: 5.0,
     comment: `Comment Author-5 to Movie-22.`,
   },
   {
     movieId: 33,
     author: `Reviewer-3`,
-    dateUTC: new Date(`2020-10-10T02:02:56.123Z`),
+    authorId: 3,
+    dateUTC: `2020-10-10T02:02:56.123Z`,
     ratingScore: 3.0,
     comment: `Comment Author-3 to Movie-33.`,
   },
@@ -359,14 +352,8 @@ export const promoMovieMock = {
   genre: `Genre`,
   year: 5555,
   runTimeInSec: 55 * 60,
-  poster: {
-    image: `Movie_image`,
-    title: `Movie_title`,
-  },
-  bgPoster: {
-    image: `Movie_image`,
-    title: `Movie_title`,
-  },
+  posterImage: `Movie_image`,
+  bgPosterImage: `Movie_image`,
   rating: {
     score: 5.5,
     count: 555
@@ -375,31 +362,11 @@ export const promoMovieMock = {
   director: `Director of Movie_title.`,
   starrings: [`Starring-1`, `Starring-2`, `Starring-3`, `Starring-4`, `Starring-5`, `Starring-6`],
   preview: `Preview of Movie_title.`,
+  movieLink: `Movie_link of Movie_title.`,
+  isFavorite: true,
+  previewImage: `Preview_Image of Movie_title.`,
+  bgColor: `#005555`,
 };
-
-export const promoMovieReviewsMock = [
-  {
-    movieId: 555,
-    author: `Reviewer-11`,
-    dateUTC: new Date(`2021-11-11T20:20:56.123Z`),
-    ratingScore: 10.0,
-    comment: `Comment Author-11 to Movie-555.`,
-  },
-  {
-    movieId: 555,
-    author: `Reviewer-22`,
-    dateUTC: new Date(`2022-12-12T10:10:56.123Z`),
-    ratingScore: 9.0,
-    comment: `Comment Author-22 to Movie-555.`,
-  },
-  {
-    movieId: 555,
-    author: `Reviewer-33`,
-    dateUTC: new Date(`2023-07-31T01:01:56.123Z`),
-    ratingScore: 8.0,
-    comment: `Comment Author-33 to Movie-555.`,
-  },
-];
 
 export const TabsNameMock = {
   OVERVIEW: `Overview`,
@@ -413,11 +380,8 @@ export const activeGenreMock = `Genre-2`;
 
 export const countMoviesOfActiveGenreMock = moviesMock.length;
 
-export const countOfVisibleMoviesOnMainPageMock = 8;
+export const countOfMaxCountOfVisibleMoviesMock = 8;
 
-export const posterMock = {
-  image: `Movie_image-1`,
-  title: `Movie_title-1`,
-};
+export const posterMock = `Movie_image-1`;
 
 export const videoRefMock = createRef();

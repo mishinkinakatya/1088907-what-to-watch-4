@@ -2,36 +2,31 @@ import React from "react";
 import renderer from "react-test-renderer";
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
-import {MoviePage} from "./movie-page.jsx";
-import {movieMock, moviesMock, reviewsMock, authInfoMock} from "../../mocks/test-data.js";
+import {SignInPage} from "./sign-in-page.jsx";
+import {authInfoMock} from "../../mocks/test-data.js";
 import NameSpace from "../../store/name-space.js";
-import {SendingStatus} from "../../utils/const.js";
 import {Router} from 'react-router-dom';
 import history from '../../history';
 
 
 const mockStore = configureStore([]);
 
-describe(`MoviePage`, () => {
-  it(`Render MoviePage`, () => {
+describe(`SignInPage`, () => {
+  it(`Render SignInPage`, () => {
     const store = mockStore({
-      [NameSpace.DATA]: {
-        movies: moviesMock,
-        reviews: reviewsMock,
-        sendFavotiteStatus: SendingStatus.NO_SENDING,
-      },
       [NameSpace.USER]: {
         authInfo: authInfoMock,
+        isAuthorizationError: false,
       },
     });
     const tree = renderer
       .create(
           <Router history={history}>
             <Provider store={store}>
-              <MoviePage
-                activeMovie={movieMock}
-                sendFavotiteStatus={SendingStatus.SUCCESS}
-                loadReviews={() => {}}
+              <SignInPage
+                onInputDataChange={() => {}}
+                onSignInClick={() => {}}
+                isAuthorizationError={false}
               />
             </Provider>
           </Router>, {
