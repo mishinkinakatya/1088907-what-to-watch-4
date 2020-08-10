@@ -26,9 +26,7 @@ Array [
       >
         WTW
       </h1>
-      <header
-        className="page-header movie-card__head"
-      >
+      <header>
         <a
           className="logo__link"
           href="/"
@@ -133,7 +131,6 @@ Array [
                 My list
               </span>
             </button>
-            
           </div>
         </div>
       </div>

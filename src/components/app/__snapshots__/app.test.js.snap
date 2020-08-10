@@ -146,7 +146,6 @@ Array [
                 My list
               </span>
             </button>
-            
           </div>
         </div>
       </div>
@@ -317,7 +316,6 @@ Array [
           </h3>
         </article>
       </div>
-      
     </section>
     <footer
       className="page-footer"

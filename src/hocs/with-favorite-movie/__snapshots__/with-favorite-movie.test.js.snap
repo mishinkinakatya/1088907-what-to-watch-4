@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withFavoriteMovie MockComponentWrapped Render withFavoriteMovie MockComponentWrapped 1`] = `<div />`;
