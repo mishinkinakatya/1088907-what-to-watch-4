@@ -1,6 +1,8 @@
+import React from "react";
+import {Redirect} from "react-router-dom";
 import {ActionCreator} from "../../actions/user/user.js";
 import {createAuthInfo} from "../../../adapters/adapters.js";
-import {ActionType, AuthorizationStatus} from "../../../utils/const.js";
+import {ActionType, AuthorizationStatus, AppRoute} from "../../../utils/const.js";
 
 
 const initialState = {
@@ -23,19 +25,24 @@ export const Operations = {
       });
   },
 
-  login: (authData, history) => (dispatch, getState, api) => {
+  login: (authData) => (dispatch, getState, api) => {
     return api.post(`/login`, {
       email: authData.login,
       password: authData.password,
     })
       .then((response) => {
         dispatch(ActionCreator.changeAuthInfo(createAuthInfo(response.data)));
-
-        let {from} = history.location.state || {from: {pathname: `/`}};
-        history.replace(from);
       })
       .then(() => {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+      })
+      .then(() => {
+        return (
+          <Redirect to={{
+            path: AppRoute.MAIN_PAGE,
+            state: {form: location}
+          }} />
+        );
       })
       .catch(() => {
         dispatch(ActionCreator.showAuthorizationError());

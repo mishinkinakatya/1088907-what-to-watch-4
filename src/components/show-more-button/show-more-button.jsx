@@ -8,10 +8,11 @@ import {getMoviesListOfActiveGenre, getMaxCountOfVisibleMovies} from "../../stor
 const ShowMoreButton = (props) => {
   const {movies, maxCountOfVisibleMovies, onShowMoreButtonClick} = props;
 
-  return movies.length > maxCountOfVisibleMovies &&
-    <div className="catalog__more">
+  return movies.length > maxCountOfVisibleMovies
+    ? <div className="catalog__more">
       <button className="catalog__button" type="button" onClick={onShowMoreButtonClick}>Show more</button>
-    </div>;
+    </div>
+    : ``;
 };
 
 
