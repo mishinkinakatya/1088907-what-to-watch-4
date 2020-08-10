@@ -47,6 +47,7 @@ exports[`SignInPage Render SignInPage 1`] = `
       action="#"
       className="sign-in__form"
     >
+      
       <div
         className="sign-in__fields"
       >

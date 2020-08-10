@@ -41,5 +41,6 @@ exports[`MovieButtons Render MovieButtons 1`] = `
       My list
     </span>
   </button>
+  
 </div>
 `;
