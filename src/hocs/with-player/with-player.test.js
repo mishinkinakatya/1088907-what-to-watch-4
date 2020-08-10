@@ -5,7 +5,7 @@ import history from '../../history';
 import {Router} from 'react-router-dom';
 
 
-const MockComponent = () => <video />;
+const MockComponent = () => <div />;
 const MockComponentWrapped = withPlayer(MockComponent);
 
 describe(`withPlayer MockComponentWrapped`, () => {
@@ -18,7 +18,10 @@ describe(`withPlayer MockComponentWrapped`, () => {
             />
           </Router>, {
             createNodeMock() {
-              return {};
+              // return {
+              //   videoRef: <video />
+              // };
+              return <video />;
             }
           }
       ).toJSON();

@@ -12,7 +12,7 @@ import {Router} from 'react-router-dom';
 
 const mockStore = configureStore([]);
 
-const MockComponent = () => <video />;
+const MockComponent = () => <div />;
 const MockComponentWrapped = withPlayerPage(MockComponent);
 
 describe(`withPlayerPage MockComponentWrapped`, () => {
@@ -31,7 +31,6 @@ describe(`withPlayerPage MockComponentWrapped`, () => {
           <Router history={history}>
             <Provider store={store}>
               <MockComponentWrapped
-                // videoRef={videoRefMock}
                 activeMovie={movieMock}
                 isPlaying={true}
                 currentTimeValue={20}
@@ -45,7 +44,10 @@ describe(`withPlayerPage MockComponentWrapped`, () => {
             </Provider>
           </Router>, {
             createNodeMock() {
-              return {};
+              return {
+                videoRef: <video />
+              };
+              // return <video />;
             }
           }
       ).toJSON();
