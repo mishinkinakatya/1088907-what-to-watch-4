@@ -38,12 +38,6 @@ export const ActionCreator = {
       payload: status,
     };
   },
-  changeLoadFavoriteStatus: (status) => {
-    return {
-      type: ActionType.CHANGE_LOAD_FAVORITE_STATUS,
-      payload: status,
-    };
-  },
   showLoadError: (err) => {
     return {
       type: ActionType.SHOW_LOAD_ERROR,

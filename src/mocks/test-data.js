@@ -346,6 +346,15 @@ export const reviewsMock = [
   },
 ];
 
+export const reviewMock = {
+  movieId: 11,
+  author: `Reviewer-1`,
+  authorId: 1,
+  dateUTC: `2011-01-01T14:13:56.123Z`,
+  ratingScore: 1.0,
+  comment: `Comment Author-1 to Movie-11.`,
+};
+
 export const promoMovieMock = {
   id: 555,
   title: `Movie_title`,
