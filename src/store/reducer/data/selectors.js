@@ -18,8 +18,20 @@ export const getPromoMovie = (state) => {
   return state[NAME_SPACE].promoMovie;
 };
 
+export const getFavoriteMovies = (state) => {
+  return state[NAME_SPACE].favoriteMovies;
+};
+
 export const getAddReviewStatus = (state) => {
   return state[NAME_SPACE].addReviewStatus;
+};
+
+export const getSendFavotiteStatus = (state) => {
+  return state[NAME_SPACE].sendFavotiteStatus;
+};
+
+export const getLoadError = (state) => {
+  return state[NAME_SPACE].textOfError;
 };
 
 export const getAllGenres = createSelector(

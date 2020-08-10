@@ -18,7 +18,7 @@ describe(`MockComponentWrappedComponent`, () => {
     const smallMovieCard = shallow(
         <MockComponentWrapped
           movie={movieMock}
-          onCardClick={() => {}}
+
           onCardMouseEvent={() => {}}
         />
     );

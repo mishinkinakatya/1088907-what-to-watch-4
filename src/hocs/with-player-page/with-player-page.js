@@ -1,5 +1,7 @@
 import React, {PureComponent, createRef} from "react";
-import {movieTypes} from "../../types/types";
+import {connect} from "react-redux";
+import {movieRequiredTypes} from "../../types/types";
+import {getActiveMovieById} from "../../store/reducer/cinema/selectors";
 import {calculateDurationInHMS} from "../../utils/fn";
 
 
@@ -10,11 +12,11 @@ const withPlayerPage = (Component) => {
 
       this._videoRef = createRef();
 
-      this._handleFullScreenButtonClick = this._handleFullScreenButtonClick.bind(this);
-      this._handlePlayPauseButtonClick = this._handlePlayPauseButtonClick.bind(this);
-      this._renderVideoPlayer = this._renderVideoPlayer.bind(this);
-      this._getPlayerTimeValue = this._getPlayerTimeValue.bind(this);
-      this._calculateTogglerValue = this._calculateTogglerValue.bind(this);
+      this.handleFullScreenButtonClick = this.handleFullScreenButtonClick.bind(this);
+      this.handlePlayPauseButtonClick = this.handlePlayPauseButtonClick.bind(this);
+      this.renderVideoPlayer = this.renderVideoPlayer.bind(this);
+      this.getPlayerTimeValue = this.getPlayerTimeValue.bind(this);
+      this.calculateTogglerValue = this.calculateTogglerValue.bind(this);
 
       this.state = {
         isPlaying: true,
@@ -44,8 +46,8 @@ const withPlayerPage = (Component) => {
     }
 
     componentDidUpdate() {
-      const video = this._videoRef.current;
       const {isPlaying} = this.state;
+      const video = this._videoRef.current;
 
       if (isPlaying) {
         video.play();
@@ -60,40 +62,20 @@ const withPlayerPage = (Component) => {
       };
     }
 
-    render() {
-      const {isPlaying, currentTimeValue, runTime} = this.state;
-
-      const playerTimeValue = this._getPlayerTimeValue();
-      const togglerValueInPercents = `${this._calculateTogglerValue()}%`;
-
-      return <Component
-        {...this.props}
-        videoRef={this._videoRef}
-        isPlaying={isPlaying}
-        currentTimeValue={currentTimeValue}
-        runTime={runTime}
-        renderVideoPlayer={this._renderVideoPlayer}
-        onFullScreenButtonClick={this._handleFullScreenButtonClick}
-        onPlayPauseButtonClick={this._handlePlayPauseButtonClick}
-        playerTimeValue={playerTimeValue}
-        togglerValueInPercents={togglerValueInPercents}
-      />;
-    }
-
-    _renderVideoPlayer() {
+    renderVideoPlayer() {
       const {activeMovie} = this.props;
 
       return (
         <video
           className="player__video"
           ref={this._videoRef}
-          poster={activeMovie.poster.image}
-          src={activeMovie.preview}
+          poster={activeMovie.posterImage}
+          src={activeMovie.movieLink}
         />
       );
     }
 
-    _getPlayerTimeValue() {
+    getPlayerTimeValue() {
       const {currentTimeValue, runTime} = this.state;
       const timeLeftInSec = runTime - currentTimeValue;
 
@@ -102,14 +84,14 @@ const withPlayerPage = (Component) => {
       return `${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`;
     }
 
-    _calculateTogglerValue() {
+    calculateTogglerValue() {
       const {currentTimeValue, runTime} = this.state;
 
       const togglerValue = currentTimeValue / runTime * 100;
       return togglerValue;
     }
 
-    _handlePlayPauseButtonClick() {
+    handlePlayPauseButtonClick() {
       const {isPlaying} = this.state;
 
       this.setState({
@@ -117,18 +99,47 @@ const withPlayerPage = (Component) => {
       });
     }
 
-    _handleFullScreenButtonClick() {
+    handleFullScreenButtonClick() {
       this._videoRef.current.requestFullscreen();
     }
 
+    render() {
+      const {isPlaying, currentTimeValue, runTime} = this.state;
+
+      const playerTimeValue = this.getPlayerTimeValue();
+      const togglerValueInPercents = `${this.calculateTogglerValue()}%`;
+
+      return <Component
+        {...this.props}
+        videoRef={this._videoRef}
+        isPlaying={isPlaying}
+        currentTimeValue={currentTimeValue}
+        runTime={runTime}
+        renderVideoPlayer={this.renderVideoPlayer}
+        onFullScreenButtonClick={this.handleFullScreenButtonClick}
+        onPlayPauseButtonClick={this.handlePlayPauseButtonClick}
+        playerTimeValue={playerTimeValue}
+        togglerValueInPercents={togglerValueInPercents}
+      />;
+    }
 
   }
 
+
   WithPlayerPage.propTypes = {
-    activeMovie: movieTypes,
+    activeMovie: movieRequiredTypes,
   };
 
-  return WithPlayerPage;
+
+  const mapStateToProps = (state, ownProps) => {
+    return {
+      activeMovie: getActiveMovieById(state, ownProps),
+    };
+  };
+
+
+  return connect(mapStateToProps, null)(WithPlayerPage);
 };
+
 
 export default withPlayerPage;

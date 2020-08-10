@@ -13,7 +13,7 @@ describe(`withSmallMovieCard MockComponentWrapped`, () => {
       .create((
         <MockComponentWrapped
           movie={movieMock}
-          onCardClick={() => {}}
+
           isPlaying={true}
           onCardMouseEvent={() => {}}
         />), {

@@ -1,117 +1,109 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import {connect} from "react-redux";
-import {movieTypes, onPlayButtonClickTypes, authorizationStatusTypes} from "../../types/types.js";
-import Tabs from "../tabs/tabs.jsx";
-import SimilarMoviesList from "../similar-movies-list/similar-movies-list.jsx";
-import {ActionCreator} from "../../store/actions/cinema/cinema.js";
-import {getActiveMovie} from "../../store/reducer/cinema/selectors.js";
-import {getPromoMovie} from "../../store/reducer/data/selectors.js";
+import {movieRequiredTypes, funcRequiredTypes, stringRequiredTypes} from "../../types/types.js";
+import ErrorPage from "../error-page/error-page.jsx";
+import MovieButtons from "../movie-buttons/movie-buttons.jsx";
 import PageHeader from "../page-header/page-header.jsx";
-import {AuthorizationStatus} from "../../utils/const.js";
+import PageFooter from "../page-footer/page-footer.jsx";
+import SimilarMoviesList from "../similar-movies-list/similar-movies-list.jsx";
+import Tabs from "../tabs/tabs.jsx";
+import {getActiveMovieById} from "../../store/reducer/cinema/selectors.js";
+import {Operations} from "../../store/reducer/data/data.js";
+import {getSendFavotiteStatus} from "../../store/reducer/data/selectors.js";
+import {AppPages, SendingStatus} from "../../utils/const.js";
 
 
-const MoviePage = (props) => {
-  const {activeMovie, onPlayButtonClick, authorizationStatus} = props;
+class MoviePage extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <React.Fragment>
-      <section className="movie-card movie-card--full">
-        <div className="movie-card__hero">
-          <div className="movie-card__bg">
-            <img src={activeMovie.bgPoster.image} alt={activeMovie.bgPoster.title} />
-          </div>
+  componentDidMount() {
+    const {activeMovie, loadReviews} = this.props;
+    loadReviews(activeMovie.id);
+  }
 
-          <h1 className="visually-hidden">WTW</h1>
+  componentDidUpdate() {
+    const {activeMovie, loadReviews} = this.props;
+    loadReviews(activeMovie.id);
+  }
 
-          <PageHeader authorizationStatus={authorizationStatus} />
+  render() {
+    const {activeMovie, sendFavotiteStatus} = this.props;
 
-          <div className="movie-card__wrap">
-            <div className="movie-card__desc">
-              <h2 className="movie-card__title">{activeMovie.title}</h2>
-              <p className="movie-card__meta">
-                <span className="movie-card__genre">{activeMovie.genre}</span>
-                <span className="movie-card__year">{activeMovie.year}</span>
-              </p>
+    return (
+      sendFavotiteStatus === SendingStatus.FAIL ?
+        <ErrorPage />
+        :
+        <React.Fragment>
+          <section className="movie-card movie-card--full" style={{background: activeMovie.bgColor}}>
+            <div className="movie-card__hero">
+              <div className="movie-card__bg">
+                <img src={activeMovie.bgPosterImage} alt={activeMovie.title} />
+              </div>
 
-              <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button" onClick={onPlayButtonClick}>
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
+              <h1 className="visually-hidden">WTW</h1>
 
-                {authorizationStatus === AuthorizationStatus.AUTH
-                  ? <a href="add-review.html" className="btn movie-card__button">Add review</a>
-                  : ``
-                }
+              <PageHeader activePage={AppPages.MOVIE_PAGE} />
 
+              <div className="movie-card__wrap">
+                <div className="movie-card__desc">
+                  <h2 className="movie-card__title">{activeMovie.title}</h2>
+                  <p className="movie-card__meta">
+                    <span className="movie-card__genre">{activeMovie.genre}</span>
+                    <span className="movie-card__year">{activeMovie.year}</span>
+                  </p>
+
+                  <MovieButtons movie={activeMovie} activePage={AppPages.MOVIE_PAGE} />
+                </div>
+              </div>
+            </div >
+
+            <div className="movie-card__wrap movie-card__translate-top">
+              <div className="movie-card__info">
+                <div className="movie-card__poster movie-card__poster--big">
+                  <img src={activeMovie.posterImage} alt={activeMovie.title} width="218" height="327" />
+                </div>
+
+                <div className="movie-card__desc">
+                  <Tabs activeMovie={activeMovie} />
+                </div>
               </div>
             </div>
+          </section >
+
+          <div className="page-content">
+            <section className="catalog catalog--like-this">
+              <h2 className="catalog__title">More like this</h2>
+
+              <SimilarMoviesList activeMovie={activeMovie} />
+            </section>
+
+            <PageFooter />
           </div>
-        </div >
-
-        <div className="movie-card__wrap movie-card__translate-top">
-          <div className="movie-card__info">
-            <div className="movie-card__poster movie-card__poster--big">
-              <img src={activeMovie.poster.image} alt={activeMovie.poster.title} width="218" height="327" />
-            </div>
-
-            <div className="movie-card__desc">
-              <Tabs />
-            </div>
-          </div>
-        </div>
-      </section >
-
-      <div className="page-content">
-        <section className="catalog catalog--like-this">
-          <h2 className="catalog__title">More like this</h2>
-
-          <SimilarMoviesList />
-        </section>
-
-        <footer className="page-footer">
-          <div className="logo">
-            <a href="main.html" className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
-      </div>
-    </React.Fragment>
-  );
-};
+        </React.Fragment>
+    );
+  }
+}
 
 
 MoviePage.propTypes = {
-  activeMovie: movieTypes,
-  onPlayButtonClick: onPlayButtonClickTypes,
-  authorizationStatus: authorizationStatusTypes,
+  activeMovie: movieRequiredTypes,
+  loadReviews: funcRequiredTypes,
+  sendFavotiteStatus: stringRequiredTypes,
 };
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    activeMovie: getActiveMovie(state) || getPromoMovie(state),
+    activeMovie: getActiveMovieById(state, ownProps),
+    sendFavotiteStatus: getSendFavotiteStatus(state),
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onPlayButtonClick() {
-    dispatch(ActionCreator.openVideoPlayerPage());
+  loadReviews(movieId) {
+    dispatch(Operations.loadReviews(movieId));
   },
 });
 

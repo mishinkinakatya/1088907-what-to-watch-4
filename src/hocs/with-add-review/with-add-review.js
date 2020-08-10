@@ -1,9 +1,9 @@
 import React, {PureComponent} from "react";
-import {getAddReviewStatus} from "../../store/reducer/data/selectors";
 import {connect} from "react-redux";
-import {SendingStatus} from "../../utils/const";
-import {addReviewStatusTypes, activeMovieTypes, onReviewPostTypes} from "../../types/types";
+import {stringRequiredTypes, movieNotRequiredTypes, funcRequiredTypes} from "../../types/types";
+import {getAddReviewStatus} from "../../store/reducer/data/selectors";
 import {Operations as DataOperations} from "../../store/reducer/data/data.js";
+import {SendingStatus} from "../../utils/const";
 
 
 const withAddReview = (Component) => {
@@ -68,11 +68,13 @@ const withAddReview = (Component) => {
     }
   }
 
+
   WithAddReview.propTypes = {
-    activeMovie: activeMovieTypes,
-    addReviewStatus: addReviewStatusTypes,
-    onReviewPost: onReviewPostTypes,
+    activeMovie: movieNotRequiredTypes,
+    addReviewStatus: stringRequiredTypes,
+    onReviewPost: funcRequiredTypes,
   };
+
 
   const mapStateToProps = (state) => ({
     addReviewStatus: getAddReviewStatus(state),
@@ -84,7 +86,9 @@ const withAddReview = (Component) => {
     }
   });
 
+
   return connect(mapStateToProps, mapDispatchToProps)(WithAddReview);
 };
+
 
 export default withAddReview;

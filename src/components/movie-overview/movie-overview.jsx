@@ -1,5 +1,6 @@
 import React from "react";
-import {movieTypes} from "../../types/types.js";
+import {movieRequiredTypes} from "../../types/types.js";
+import {getRatingScoreWithFloatingPoint} from "../../utils/fn.js";
 
 
 const COUNT_VISIBLE_STARRINGS = 4;
@@ -24,8 +25,7 @@ const calculateRatingLevel = (score) => {
 };
 
 const MovieOverview = (props) => {
-  const {movie} = props;
-  const {rating, description, director, starrings} = movie;
+  const {rating, description, director, starrings} = props.movie;
 
   const starringsList = starrings.length <= COUNT_VISIBLE_STARRINGS
     ? starrings.join(`, `)
@@ -34,7 +34,7 @@ const MovieOverview = (props) => {
   return (
     <React.Fragment>
       <div className="movie-rating">
-        <div className="movie-rating__score">{rating.score}</div>
+        <div className="movie-rating__score">{getRatingScoreWithFloatingPoint(rating.score)}</div>
         <p className="movie-rating__meta">
           <span className="movie-rating__level">{calculateRatingLevel(rating.score)}</span>
           <span className="movie-rating__count">{rating.count} ratings</span>
@@ -54,7 +54,8 @@ const MovieOverview = (props) => {
 
 
 MovieOverview.propTypes = {
-  movie: movieTypes,
+  movie: movieRequiredTypes,
 };
+
 
 export default MovieOverview;

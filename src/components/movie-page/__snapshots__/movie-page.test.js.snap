@@ -4,6 +4,11 @@ exports[`MoviePage Render MoviePage 1`] = `
 Array [
   <section
     className="movie-card movie-card--full"
+    style={
+      Object {
+        "background": "#000101",
+      }
+    }
   >
     <div
       className="movie-card__hero"
@@ -24,12 +29,13 @@ Array [
       <header
         className="page-header movie-card__head"
       >
-        <div
-          className="logo"
+        <a
+          className="logo__link"
+          href="/"
+          onClick={[Function]}
         >
-          <a
-            className="logo__link"
-            href="main.html"
+          <div
+            className="logo"
           >
             <span
               className="logo__letter logo__letter--1"
@@ -46,21 +52,20 @@ Array [
             >
               W
             </span>
-          </a>
-        </div>
+          </div>
+        </a>
+        
+        
         <div
           className="user-block"
         >
-          <div
-            className="user-block__avatar"
+          <a
+            className="user-block__link"
+            href="/login"
+            onClick={[Function]}
           >
-            <img
-              alt="User avatar"
-              height="63"
-              src="img/avatar.jpg"
-              width="63"
-            />
-          </div>
+            Sign in
+          </a>
         </div>
       </header>
       <div
@@ -91,8 +96,9 @@ Array [
           <div
             className="movie-card__buttons"
           >
-            <button
+            <a
               className="btn btn--play movie-card__button"
+              href="/player/1"
               onClick={[Function]}
               type="button"
             >
@@ -108,30 +114,26 @@ Array [
               <span>
                 Play
               </span>
-            </button>
+            </a>
             <button
               className="btn btn--list movie-card__button"
+              onClick={[Function]}
               type="button"
             >
               <svg
-                height="20"
-                viewBox="0 0 19 20"
-                width="19"
+                height="14"
+                viewBox="0 0 18 14"
+                width="18"
               >
                 <use
-                  xlinkHref="#add"
+                  xlinkHref="#in-list"
                 />
               </svg>
               <span>
                 My list
               </span>
             </button>
-            <a
-              className="btn movie-card__button"
-              href="add-review.html"
-            >
-              Add review
-            </a>
+            
           </div>
         </div>
       </div>
@@ -270,7 +272,8 @@ Array [
       >
         <a
           className="logo__link logo__link--light"
-          href="main.html"
+          href="/"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"

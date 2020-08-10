@@ -1,5 +1,6 @@
 import {ActionType} from "../../../utils/const.js";
 
+
 export const ActionCreator = {
   requireAuthorization: (status) => {
     return {
@@ -17,6 +18,12 @@ export const ActionCreator = {
     return {
       type: ActionType.CHANGE_STATUS_AUTHORIZATION_ERROR,
       payload: false,
+    };
+  },
+  changeAuthInfo: (authInfo) => {
+    return {
+      type: ActionType.CHANGE_AUTH_INFO,
+      payload: authInfo,
     };
   },
 };

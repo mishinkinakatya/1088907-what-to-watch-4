@@ -1,6 +1,6 @@
 import React from "react";
-import {reviewsTypes} from "../../types/types.js";
-import {getDateInYYYYMMDD, getDateInMonthDDYYYY} from "../../utils/fn.js";
+import {reviewsRequiredTypes} from "../../types/types.js";
+import {getDateInYYYYMMDD, getDateInMonthDDYYYY, getRatingScoreWithFloatingPoint} from "../../utils/fn.js";
 
 
 const createReviewTemplate = (review) => {
@@ -20,7 +20,7 @@ const createReviewTemplate = (review) => {
         </footer>
       </blockquote>
 
-      <div className="review__rating">{ratingScore.toString()}</div>
+      <div className="review__rating">{getRatingScoreWithFloatingPoint(ratingScore)}</div>
     </div>
   );
 };
@@ -48,7 +48,8 @@ const MovieReviews = (props) => {
 
 
 MovieReviews.propTypes = {
-  reviews: reviewsTypes,
+  reviews: reviewsRequiredTypes,
 };
+
 
 export default MovieReviews;

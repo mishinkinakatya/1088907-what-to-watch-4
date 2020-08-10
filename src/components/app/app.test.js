@@ -3,7 +3,9 @@ import renderer from "react-test-renderer";
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 import App from "./app.jsx";
-import {movieMock, promoMovieMock, activeGenreMock, allGenresMock, moviesMock, promoMovieReviewsMock, reviewsMock, countOfVisibleMoviesOnMainPageMock} from "../../mocks/test-data.js";
+import {promoMovieMock, activeGenreMock, moviesMock, reviewsMock, countOfMaxCountOfVisibleMoviesMock, authInfoMock} from "../../mocks/test-data.js";
+import NameSpace from "../../store/name-space.js";
+import {SendingStatus, AuthorizationStatus} from "../../utils/const.js";
 
 
 const mockStore = configureStore([]);
@@ -11,16 +13,24 @@ const mockStore = configureStore([]);
 describe(`App`, () => {
   it(`Render App`, () => {
     const store = mockStore({
-      activeMovie: movieMock,
-      promoMovie: promoMovieMock,
-      activeGenre: activeGenreMock,
-      allGenres: allGenresMock,
-      movie: movieMock,
-      movies: moviesMock,
-      promoMovieReviews: promoMovieReviewsMock,
-      reviews: reviewsMock,
-      maxCountOfVisibleMovies: countOfVisibleMoviesOnMainPageMock,
-      isVideoPlayerPageOpen: false,
+      [NameSpace.DATA]: {
+        movies: moviesMock,
+        promoMovie: promoMovieMock,
+        reviews: reviewsMock,
+        favoriteMovies: moviesMock.filter((movie) => movie.isFavorite === true),
+        addReviewStatus: SendingStatus.NO_SENDING,
+        sendFavotiteStatus: SendingStatus.NO_SENDING,
+        textOfError: null,
+      },
+      [NameSpace.CINEMA]: {
+        activeGenre: activeGenreMock,
+        maxCountOfVisibleMovies: countOfMaxCountOfVisibleMoviesMock,
+      },
+      [NameSpace.USER]: {
+        authInfo: authInfoMock,
+        authorizationStatus: AuthorizationStatus.AUTH,
+        isAuthorizationError: false,
+      },
     });
 
     const tree = renderer

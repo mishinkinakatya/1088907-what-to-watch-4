@@ -1,15 +1,24 @@
 import React from "react";
-import {movieTypes, addReviewStatusTypes, onRatingScoreChangeTypes, isSubmitButtonDisabledTypes, onCommentChangeTypes, onSubmitClickTypes, ratingScoreTypes} from "../../types/types";
+import {connect} from "react-redux";
+import {movieRequiredTypes, stringRequiredTypes, funcRequiredTypes, boolRequiredTypes, numberRequiredTypes} from "../../types/types";
+import PageHeader from "../page-header/page-header.jsx";
 import withAddReview from "../../hocs/with-add-review/with-add-review";
-import {Review, SendingStatus} from "../../utils/const";
+import {getActiveMovieById} from "../../store/reducer/cinema/selectors";
+import {SendingStatus, AppPages} from "../../utils/const";
 
+
+export const Review = {
+  MAX_COUNT_OF_RATING_STARS: 5,
+  MIN_LENGTH: 50,
+  MAX_LENGTH: 400,
+};
 
 const createRatingStarTemplate = (score, ratingScore) => {
   const isChecked = score === ratingScore;
 
   return (
     <React.Fragment key={score}>
-      <input className="rating__input" id={`star-${score}`} type="radio" name="rating" value={score} checked={isChecked} readOnly/>
+      <input className="rating__input" id={`star-${score}`} type="radio" name="rating" value={score} checked={isChecked} readOnly />
       <label className="rating__label" htmlFor={`star-${score}`}>Rating {score}</label>
     </React.Fragment>
   );
@@ -18,47 +27,22 @@ const createRatingStarTemplate = (score, ratingScore) => {
 const AddReviewPage = (props) => {
   const {activeMovie, isSubmitButtonDisabled, onRatingScoreChange, onCommentChange, onSubmitClick, addReviewStatus, ratingScore} = props;
   return (
-    <section className="movie-card movie-card--full">
+    <section className="movie-card movie-card--full" style={{background: activeMovie.bgColor}}>
       <div className="movie-card__header">
         <div className="movie-card__bg">
-          <img src={activeMovie.bgPoster.image} alt={activeMovie.title} />
+          <img src={activeMovie.bgPosterImage} alt={activeMovie.title} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <header className="page-header">
-          <div className="logo">
-            <a href="main.html" className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <nav className="breadcrumbs">
-            <ul className="breadcrumbs__list">
-              <li className="breadcrumbs__item">
-                <a href="movie-page.html" className="breadcrumbs__link">{activeMovie.title}</a>
-              </li>
-              <li className="breadcrumbs__item">
-                <a className="breadcrumbs__link">Add review</a>
-              </li>
-            </ul>
-          </nav>
-
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
-        </header>
+        <PageHeader activePage={AppPages.ADD_REVIEW_PAGE} activeMovie={activeMovie} />
 
         <div className="movie-card__poster movie-card__poster--small">
-          <img src={activeMovie.poster.image} alt={activeMovie.title} width="218" height="327" />
+          <img src={activeMovie.posterImage} alt={activeMovie.title} width="218" height="327" />
         </div>
       </div>
 
-      <div className="add-review">
+      <div className="add-review" style={{background: activeMovie.bgColor}}>
         <form action="#" className="add-review__form">
           <div className="rating">
             <div className="rating__stars" onChange={onRatingScoreChange} disabled={addReviewStatus === SendingStatus.SENDING}>
@@ -88,14 +72,21 @@ const AddReviewPage = (props) => {
 
 
 AddReviewPage.propTypes = {
-  activeMovie: movieTypes,
-  addReviewStatus: addReviewStatusTypes,
-  isSubmitButtonDisabled: isSubmitButtonDisabledTypes,
-  onRatingScoreChange: onRatingScoreChangeTypes,
-  onCommentChange: onCommentChangeTypes,
-  onSubmitClick: onSubmitClickTypes,
-  ratingScore: ratingScoreTypes,
+  activeMovie: movieRequiredTypes,
+  addReviewStatus: stringRequiredTypes,
+  isSubmitButtonDisabled: boolRequiredTypes,
+  onRatingScoreChange: funcRequiredTypes,
+  onCommentChange: funcRequiredTypes,
+  onSubmitClick: funcRequiredTypes,
+  ratingScore: numberRequiredTypes,
 };
 
 
-export default withAddReview(AddReviewPage);
+const mapStateToProps = (state, ownProps) => {
+  return {
+    activeMovie: getActiveMovieById(state, ownProps),
+  };
+};
+
+export {AddReviewPage};
+export default connect(mapStateToProps, null)(withAddReview(AddReviewPage));

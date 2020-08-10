@@ -1,10 +1,8 @@
 import React, {PureComponent} from "react";
-import {connect} from "react-redux";
-import {movieTypes, onExitButtonClickTypes, onFullScreenButtonClickTypes, renderVideoPlayerTypes, isVideoPlayerPageOpenTypes, isPlayingTypes, onPlayPauseButtonClickTypes, currentTimeValueTypes, runTimeTypes, playerTimeValueTypes, togglerValueInPercentsTypes} from "../../types/types";
-import {ActionCreator} from "../../store/actions/cinema/cinema.js";
+import {Link} from "react-router-dom";
+import {movieRequiredTypes, boolRequiredTypes, funcRequiredTypes, numberRequiredTypes, stringRequiredTypes} from "../../types/types";
 import withPlayerPage from "../../hocs/with-player-page/with-player-page.js";
-import {getActiveMovie, getIsVideoPlayerPageOpen} from "../../store/reducer/cinema/selectors";
-import {getPromoMovie} from "../../store/reducer/data/selectors";
+import {AppRoute} from "../../utils/const";
 
 
 class PlayerPage extends PureComponent {
@@ -15,23 +13,12 @@ class PlayerPage extends PureComponent {
     this._renderPauseButton = this._renderPauseButton.bind(this);
   }
 
-  render() {
-    const {renderVideoPlayer} = this.props;
-
-    return (
-      <div className="player" >
-        {renderVideoPlayer()}
-        {this._renderVideoPlayerButtons()}
-      </div>
-    );
-  }
-
   _renderVideoPlayerButtons() {
-    const {activeMovie, onExitButtonClick, onFullScreenButtonClick, isPlaying, currentTimeValue, runTime, playerTimeValue, togglerValueInPercents} = this.props;
+    const {activeMovie, onFullScreenButtonClick, isPlaying, currentTimeValue, runTime, playerTimeValue, togglerValueInPercents} = this.props;
 
     return (
       <React.Fragment>
-        <button type="button" className="player__exit" onClick={onExitButtonClick}>Exit</button>
+        <Link to={`${AppRoute.MOVIE_PAGE}/${activeMovie.id}`} type="button" className="player__exit">Exit</Link>
 
         <div className="player__controls">
           <div className="player__controls-row">
@@ -83,36 +70,33 @@ class PlayerPage extends PureComponent {
       </button>
     );
   }
+
+  render() {
+    const {renderVideoPlayer} = this.props;
+
+    return (
+      <div className="player" >
+        {renderVideoPlayer()}
+        {this._renderVideoPlayerButtons()}
+      </div>
+    );
+  }
+
 }
 
+
 PlayerPage.propTypes = {
-  activeMovie: movieTypes,
-  isVideoPlayerPageOpen: isVideoPlayerPageOpenTypes,
-  isPlaying: isPlayingTypes,
-  renderVideoPlayer: renderVideoPlayerTypes,
-  onPlayPauseButtonClick: onPlayPauseButtonClickTypes,
-  onFullScreenButtonClick: onFullScreenButtonClickTypes,
-  onExitButtonClick: onExitButtonClickTypes,
-  currentTimeValue: currentTimeValueTypes,
-  runTime: runTimeTypes,
-  playerTimeValue: playerTimeValueTypes,
-  togglerValueInPercents: togglerValueInPercentsTypes,
+  activeMovie: movieRequiredTypes,
+  isPlaying: boolRequiredTypes,
+  renderVideoPlayer: funcRequiredTypes,
+  onPlayPauseButtonClick: funcRequiredTypes,
+  onFullScreenButtonClick: funcRequiredTypes,
+  currentTimeValue: numberRequiredTypes,
+  runTime: numberRequiredTypes,
+  playerTimeValue: stringRequiredTypes,
+  togglerValueInPercents: stringRequiredTypes,
 };
-
-
-const mapStateToProps = (state) => {
-  return {
-    activeMovie: getActiveMovie(state) || getPromoMovie(state),
-    isVideoPlayerPageOpen: getIsVideoPlayerPageOpen(state),
-  };
-};
-
-const mapDispatchToProps = (dispatch) => ({
-  onExitButtonClick() {
-    dispatch(ActionCreator.closeVideoPlayerPage());
-  },
-});
 
 
 export {PlayerPage};
-export default connect(mapStateToProps, mapDispatchToProps)(withPlayerPage(PlayerPage));
+export default (withPlayerPage(PlayerPage));

@@ -1,5 +1,5 @@
 import React from "react";
-import {posterTypes, videoRefTypes} from "../../types/types";
+import {stringRequiredTypes, objectRequiredTypes} from "../../types/types";
 import withPlayer from "../../hocs/with-player/with-player.js";
 
 
@@ -10,15 +10,15 @@ const VideoPlayer = (props) => {
     <video
       className="player__video"
       ref={videoRef}
-      poster={poster.image}
+      poster={poster}
     />
   );
 };
 
 
 VideoPlayer.propTypes = {
-  poster: posterTypes,
-  videoRef: videoRefTypes,
+  poster: stringRequiredTypes,
+  videoRef: objectRequiredTypes,
 };
 
 export default withPlayer(VideoPlayer);

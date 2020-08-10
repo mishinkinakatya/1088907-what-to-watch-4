@@ -1,5 +1,6 @@
-import {MINUTES_ON_HOUR, SECONDS_ON_MINUTE} from "../utils/const.js";
 
+const SECONDS_ON_MINUTE = 60;
+const MINUTES_ON_HOUR = 60;
 const MONTHS_NAME = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
 
 const castDateTimeFormat = (value) => {
@@ -53,4 +54,12 @@ export const getDateInMonthDDYYYY = (dateInUTC) => {
   const incomingDate = calculateDateMonthYear(dateInUTC);
 
   return `${MONTHS_NAME[Number(incomingDate.month) - 1]} ${incomingDate.date}, ${incomingDate.year}`;
+};
+
+export const getRatingScoreWithFloatingPoint = (score) => {
+  if (Math.trunc(score) === score && score !== 10) {
+    return `${score}.0`;
+  } else {
+    return score;
+  }
 };

@@ -3,6 +3,5 @@
 exports[`VideoPlayer Render preview VideoPlayer 1`] = `
 <video
   className="player__video"
-  poster="Movie_image-1"
 />
 `;

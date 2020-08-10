@@ -1,47 +1,96 @@
 import React from "react";
 import {connect} from "react-redux";
-import {onSignInButtonClickTypes, authorizationStatusTypes} from "../../types/types.js";
-import {ActionCreator} from "../../store/actions/cinema/cinema.js";
-import {AuthorizationStatus} from "../../utils/const.js";
+import {Link} from "react-router-dom";
+import {stringNotRequiredTypes, movieNotRequiredTypes, authInfoNotRequiredTypes} from "../../types/types.js";
+import {getAuthInfo, getAuthorizationStatus} from "../../store/reducer/user/selectors.js";
+import {AuthorizationStatus, AppRoute, AppPages} from "../../utils/const.js";
+
+
+const HeaderClass = {
+  [AppPages.MAIN_PAGE]: `page-header movie-card__head`,
+  [AppPages.MOVIE_PAGE]: `page-header movie-card__head`,
+  [AppPages.SIGN_IN_PAGE]: `page-header user-page__head`,
+  [AppPages.MY_LIST_PAGE]: `page-header user-page__head`,
+  [AppPages.ERROR_PAGE]: `page-header user-page__head`,
+  [AppPages.LOADING_PAGE]: `page-header user-page__head`,
+  [AppPages.ADD_REVIEW_PAGE]: `page-header`,
+};
+
+const getHeaderSpecific = (activePage, activeMovie) => {
+  switch (activePage) {
+    case AppPages.SIGN_IN_PAGE:
+      return <h1 className="page-title user-page__title">Sign in</h1>;
+    case AppPages.MY_LIST_PAGE:
+      return <h1 className="page-title user-page__title">My list</h1>;
+    case AppPages.ADD_REVIEW_PAGE:
+      return <nav className="breadcrumbs">
+        <ul className="breadcrumbs__list">
+          <li className="breadcrumbs__item">
+            <Link to={`${AppRoute.MOVIE_PAGE}/${activeMovie.id}`} href="movie-page.html" className="breadcrumbs__link">{activeMovie.title}</Link>
+          </li>
+          <li className="breadcrumbs__item">
+            <a className="breadcrumbs__link">Add review</a>
+          </li>
+        </ul>
+      </nav>;
+    default:
+      return ``;
+  }
+};
 
 const PageHeader = (props) => {
-  const {authorizationStatus, onSignInButtonClick} = props;
+  const {authorizationStatus, activePage, activeMovie, authInfo} = props;
+
   return (
-    <header className="page-header movie-card__head">
-      <div className="logo">
-        <a className="logo__link">
+    <header className={HeaderClass[activePage]}>
+      <Link to={AppRoute.MAIN_PAGE} className="logo__link">
+        <div className="logo">
           <span className="logo__letter logo__letter--1">W</span>
           <span className="logo__letter logo__letter--2">T</span>
           <span className="logo__letter logo__letter--3">W</span>
-        </a>
-      </div>
-
-      {authorizationStatus === AuthorizationStatus.AUTH
+        </div>
+      </Link>
+      {getHeaderSpecific(activePage, activeMovie)}
+      {activePage === AppPages.ERROR_PAGE
         ? <div className="user-block">
-          <div className="user-block__avatar">
-            <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-          </div>
+          <Link to={AppRoute.MAIN_PAGE} className="user-block__link">Close</Link>
         </div>
-        : <div className="user-block">
-          <a href="#" className="user-block__link" onClick={onSignInButtonClick}>Sign in</a>
-        </div>
+        : ``
       }
-    </header>
+      {
+        activePage !== AppPages.SIGN_IN_PAGE && activePage !== AppPages.ERROR_PAGE && activePage !== AppPages.LOADING_PAGE
+          ? <div className="user-block">
+            {authorizationStatus === AuthorizationStatus.AUTH
+              ? <Link to={AppRoute.MY_LIST_PAGE}>
+                <div className="user-block__avatar">
+                  <img src={authInfo.avatarUrl} alt={authInfo.name} width="63" height="63" />
+                </div>
+              </Link>
+              : <Link to={AppRoute.SIGN_IN_PAGE} className="user-block__link">Sign in</Link>
+            }
+          </div>
+          : ``
+      }
+    </header >
   );
 };
 
 
 PageHeader.propTypes = {
-  onSignInButtonClick: onSignInButtonClickTypes,
-  authorizationStatus: authorizationStatusTypes,
+  authorizationStatus: stringNotRequiredTypes,
+  activePage: stringNotRequiredTypes,
+  activeMovie: movieNotRequiredTypes,
+  authInfo: authInfoNotRequiredTypes,
 };
 
 
-const mapDispatchToProps = (dispatch) => ({
-  onSignInButtonClick() {
-    dispatch(ActionCreator.openSignInPage());
-  },
-});
+const mapStateToProps = (state) => {
+  return {
+    authInfo: getAuthInfo(state),
+    authorizationStatus: getAuthorizationStatus(state),
+  };
+};
+
 
 export {PageHeader};
-export default connect(null, mapDispatchToProps)(PageHeader);
+export default connect(mapStateToProps)(PageHeader);

@@ -1,0 +1,355 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyListPage Render MyListPag 1`] = `
+<div
+  className="user-page"
+>
+  <header
+    className="page-header user-page__head"
+  >
+    <a
+      className="logo__link"
+      href="/"
+      onClick={[Function]}
+    >
+      <div
+        className="logo"
+      >
+        <span
+          className="logo__letter logo__letter--1"
+        >
+          W
+        </span>
+        <span
+          className="logo__letter logo__letter--2"
+        >
+          T
+        </span>
+        <span
+          className="logo__letter logo__letter--3"
+        >
+          W
+        </span>
+      </div>
+    </a>
+    <h1
+      className="page-title user-page__title"
+    >
+      My list
+    </h1>
+    
+    <div
+      className="user-block"
+    >
+      <a
+        className="user-block__link"
+        href="/login"
+        onClick={[Function]}
+      >
+        Sign in
+      </a>
+    </div>
+  </header>
+  <section
+    className="catalog"
+  >
+    <h2
+      className="catalog__title visually-hidden"
+    >
+      Catalog
+    </h2>
+    <div
+      className="catalog__movies-list"
+    >
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <a
+          href="/films/11"
+          onClick={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Preview_Image of Movie_title-1."
+            />
+            <img
+              alt="Movie_title-1"
+              height="175"
+              src="Movie_image-1"
+              width="280"
+            />
+          </div>
+        </a>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/11"
+            onClick={[Function]}
+          >
+            Movie_title-1
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <a
+          href="/films/33"
+          onClick={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Preview_Image of Movie_title-3."
+            />
+            <img
+              alt="Movie_title-3"
+              height="175"
+              src="Movie_image-3"
+              width="280"
+            />
+          </div>
+        </a>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/33"
+            onClick={[Function]}
+          >
+            Movie_title-3
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <a
+          href="/films/55"
+          onClick={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Preview_Image of Movie_title-5."
+            />
+            <img
+              alt="Movie_title-5"
+              height="175"
+              src="Movie_image-5"
+              width="280"
+            />
+          </div>
+        </a>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/55"
+            onClick={[Function]}
+          >
+            Movie_title-5
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <a
+          href="/films/66"
+          onClick={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Preview_Image of Movie_title-6."
+            />
+            <img
+              alt="Movie_title-6"
+              height="175"
+              src="Movie_image-6"
+              width="280"
+            />
+          </div>
+        </a>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/66"
+            onClick={[Function]}
+          >
+            Movie_title-6
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <a
+          href="/films/88"
+          onClick={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Preview_Image of Movie_title-8."
+            />
+            <img
+              alt="Movie_title-8"
+              height="175"
+              src="Movie_image-8"
+              width="280"
+            />
+          </div>
+        </a>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/88"
+            onClick={[Function]}
+          >
+            Movie_title-8
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <a
+          href="/films/99"
+          onClick={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Preview_Image of Movie_title-9."
+            />
+            <img
+              alt="Movie_title-9"
+              height="175"
+              src="Movie_image-9"
+              width="280"
+            />
+          </div>
+        </a>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/99"
+            onClick={[Function]}
+          >
+            Movie_title-9
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <a
+          href="/films/1111"
+          onClick={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              className="player__video"
+              poster="Preview_Image of Movie_title-11."
+            />
+            <img
+              alt="Movie_title-11"
+              height="175"
+              src="Movie_image-11"
+              width="280"
+            />
+          </div>
+        </a>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="/films/1111"
+            onClick={[Function]}
+          >
+            Movie_title-11
+          </a>
+        </h3>
+      </article>
+    </div>
+  </section>
+  <footer
+    className="page-footer"
+  >
+    <div
+      className="logo"
+    >
+      <a
+        className="logo__link logo__link--light"
+        href="/"
+        onClick={[Function]}
+      >
+        <span
+          className="logo__letter logo__letter--1"
+        >
+          W
+        </span>
+        <span
+          className="logo__letter logo__letter--2"
+        >
+          T
+        </span>
+        <span
+          className="logo__letter logo__letter--3"
+        >
+          W
+        </span>
+      </a>
+    </div>
+    <div
+      className="copyright"
+    >
+      <p>
+        © 2019 What to watch Ltd.
+      </p>
+    </div>
+  </footer>
+</div>
+`;

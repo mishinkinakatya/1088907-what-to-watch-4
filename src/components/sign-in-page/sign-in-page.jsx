@@ -1,9 +1,14 @@
 import React, {PureComponent, createRef} from "react";
-import {Operations as UserOperations} from "../../store/reducer/user/user.js";
 import {connect} from "react-redux";
-import {onSignInClickTypes, isAuthorizationErrorTypes, onInputDataChangeTypes} from "../../types/types.js";
-import {getIsAuthorizationError} from "../../store/reducer/user/selectors.js";
+import {Link} from "react-router-dom";
+import {funcRequiredTypes, boolRequiredTypes} from "../../types/types.js";
+import PageHeader from "../page-header/page-header.jsx";
+import PageFooter from "../page-footer/page-footer.jsx";
 import {ActionCreator} from "../../store/actions/user/user.js";
+import {Operations as UserOperations} from "../../store/reducer/user/user.js";
+import {getIsAuthorizationError} from "../../store/reducer/user/selectors.js";
+import {AppPages, AppRoute} from "../../utils/const.js";
+
 
 class SignInPage extends PureComponent {
   constructor(props) {
@@ -12,10 +17,10 @@ class SignInPage extends PureComponent {
     this.loginRef = createRef();
     this.passwordRef = createRef();
 
-    this.handleSignInClick = this.handleSignInClick.bind(this);
+    this._handleSignInClick = this._handleSignInClick.bind(this);
   }
 
-  handleSignInClick(evt) {
+  _handleSignInClick(evt) {
     const {onSignInClick} = this.props;
 
     evt.preventDefault();
@@ -32,17 +37,7 @@ class SignInPage extends PureComponent {
     return (
       <React.Fragment>
         <div className="user-page">
-          <header className="page-header user-page__head">
-            <div className="logo">
-              <a href="main.html" className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </a>
-            </div>
-
-            <h1 className="page-title user-page__title">Sign in</h1>
-          </header>
+          <PageHeader activePage={AppPages.SIGN_IN_PAGE} />
 
           <div className="sign-in user-page__content">
             <form action="#" className="sign-in__form">
@@ -65,34 +60,23 @@ class SignInPage extends PureComponent {
                 </div>
               </div>
               <div className="sign-in__submit">
-                <button className="sign-in__btn" type="submit" onClick={this.handleSignInClick}>Sign in</button>
+                <Link to={AppRoute.MAIN_PAGE} className="sign-in__btn" type="submit" onClick={this._handleSignInClick}>Sign in</Link>
               </div>
             </form>
           </div>
 
-          <footer className="page-footer">
-            <div className="logo">
-              <a href="main.html" className="logo__link logo__link--light">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </a>
-            </div>
-
-            <div className="copyright">
-              <p>© 2019 What to watch Ltd.</p>
-            </div>
-          </footer>
+          <PageFooter />
         </div>
       </React.Fragment>
     );
   }
 }
 
+
 SignInPage.propTypes = {
-  onSignInClick: onSignInClickTypes,
-  onInputDataChange: onInputDataChangeTypes,
-  isAuthorizationError: isAuthorizationErrorTypes,
+  onSignInClick: funcRequiredTypes,
+  onInputDataChange: funcRequiredTypes,
+  isAuthorizationError: boolRequiredTypes,
 };
 
 
@@ -111,4 +95,6 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
+
+export {SignInPage};
 export default connect(mapStateToProps, mapDispatchToProps)(SignInPage);

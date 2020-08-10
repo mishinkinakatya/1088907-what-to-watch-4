@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageHeader Render PageHeader 1`] = `
+<header
+  className="page-header user-page__head"
+>
+  <a
+    className="logo__link"
+    href="/"
+    onClick={[Function]}
+  >
+    <div
+      className="logo"
+    >
+      <span
+        className="logo__letter logo__letter--1"
+      >
+        W
+      </span>
+      <span
+        className="logo__letter logo__letter--2"
+      >
+        T
+      </span>
+      <span
+        className="logo__letter logo__letter--3"
+      >
+        W
+      </span>
+    </div>
+  </a>
+  <h1
+    className="page-title user-page__title"
+  >
+    My list
+  </h1>
+  
+  <div
+    className="user-block"
+  >
+    <a
+      href="/mylist"
+      onClick={[Function]}
+    >
+      <div
+        className="user-block__avatar"
+      >
+        <img
+          alt="Auth Name"
+          height="63"
+          src="Auth Avatar"
+          width="63"
+        />
+      </div>
+    </a>
+  </div>
+</header>
+`;

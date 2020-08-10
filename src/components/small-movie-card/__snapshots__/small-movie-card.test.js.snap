@@ -3,30 +3,35 @@
 exports[`SmallMovieCard Render SmallMovieCard 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
-  onClick={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
-  <div
-    className="small-movie-card__image"
+  <a
+    href="/films/1"
+    onClick={[Function]}
   >
-    <video
-      className="player__video"
-      poster="Movie_image-1"
-    />
-    <img
-      alt="Movie_title-1"
-      height="175"
-      src="Movie_image-1"
-      width="280"
-    />
-  </div>
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        className="player__video"
+        poster="Preview_Image of Movie_title."
+      />
+      <img
+        alt="Movie_title-1"
+        height="175"
+        src="Movie_image-1"
+        width="280"
+      />
+    </div>
+  </a>
   <h3
     className="small-movie-card__title"
   >
     <a
       className="small-movie-card__link"
-      href="movie-page.html"
+      href="/films/1"
+      onClick={[Function]}
     >
       Movie_title-1
     </a>

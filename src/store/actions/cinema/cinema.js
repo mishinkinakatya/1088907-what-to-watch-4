@@ -8,40 +8,10 @@ export const ActionCreator = {
       payload: newActiveGenre,
     };
   },
-  changeActiveMovie: (newActiveMovie) => {
-    return {
-      type: ActionType.CHANGE_ACTIVE_MOVIE,
-      payload: newActiveMovie,
-    };
-  },
   changeMaxCountOfVisibleMovies: () => {
     return {
       type: ActionType.CHANGE_MAX_COUNT_OF_VISIBLE_MOVIES,
       payload: INITIAL_COUNT_VISIBLE_MOVIES_ON_MAIN_PAGE,
-    };
-  },
-  openVideoPlayerPage: () => {
-    return {
-      type: ActionType.CHANGE_STATUS_VIDEO_PLAYER_PAGE,
-      payload: true,
-    };
-  },
-  closeVideoPlayerPage: () => {
-    return {
-      type: ActionType.CHANGE_STATUS_VIDEO_PLAYER_PAGE,
-      payload: false,
-    };
-  },
-  openSignInPage: () => {
-    return {
-      type: ActionType.CHANGE_STATUS_SIGN_IN_PAGE,
-      payload: true,
-    };
-  },
-  closeSignInPage: () => {
-    return {
-      type: ActionType.CHANGE_STATUS_SIGN_IN_PAGE,
-      payload: false,
     };
   },
 };

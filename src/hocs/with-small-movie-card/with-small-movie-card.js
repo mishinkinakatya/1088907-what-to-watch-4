@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {movieTypes, onCardClickTypes} from "../../types/types";
+import {movieRequiredTypes} from "../../types/types";
 
 
 const withSmallMovieCard = (Component) => {
@@ -31,12 +31,14 @@ const withSmallMovieCard = (Component) => {
     }
   }
 
+
   WithSmallMovieCard.propTypes = {
-    movie: movieTypes,
-    onCardClick: onCardClickTypes,
+    movie: movieRequiredTypes,
   };
+
 
   return WithSmallMovieCard;
 };
+
 
 export default withSmallMovieCard;

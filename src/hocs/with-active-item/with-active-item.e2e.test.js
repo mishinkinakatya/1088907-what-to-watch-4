@@ -21,7 +21,7 @@ describe(`withActiveItem MockComponentWrapped`, () => {
           movie={movieMock}
           reviews={reviewsMock}
           similarMovies={moviesMock}
-          onCardClick={() => {}}
+
         />
     );
 

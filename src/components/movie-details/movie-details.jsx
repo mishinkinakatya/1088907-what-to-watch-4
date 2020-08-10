@@ -1,5 +1,5 @@
 import React from "react";
-import {movieTypes} from "../../types/types.js";
+import {movieRequiredTypes} from "../../types/types.js";
 import {getPointDurationInHM} from "../../utils/fn.js";
 
 
@@ -42,7 +42,8 @@ const MovieDetails = (props) => {
 
 
 MovieDetails.propTypes = {
-  movie: movieTypes,
+  movie: movieRequiredTypes,
 };
+
 
 export default MovieDetails;

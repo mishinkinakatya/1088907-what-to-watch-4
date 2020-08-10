@@ -20,10 +20,28 @@ export const ActionCreator = {
       payload: promoMovie,
     };
   },
+  loadFaforite: (favouriteMovies) => {
+    return {
+      type: ActionType.LOAD_FAVORITE,
+      payload: favouriteMovies,
+    };
+  },
   changeStatusOfSendingReview: (status) => {
     return {
       type: ActionType.CHANGE_STATUS_OF_SENDING_REVIEW,
       payload: status,
+    };
+  },
+  changeSendFavoriteStatus: (status) => {
+    return {
+      type: ActionType.CHANGE_SEND_FAVORITE_STATUS,
+      payload: status,
+    };
+  },
+  showLoadError: (err) => {
+    return {
+      type: ActionType.SHOW_LOAD_ERROR,
+      payload: err,
     };
   },
 };

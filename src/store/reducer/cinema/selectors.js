@@ -1,25 +1,21 @@
-import NameSpace from "../../name-space.js";
 import {createSelector} from "reselect";
+import NameSpace from "../../name-space.js";
 import {getMovies} from "../data/selectors.js";
 import {DEFAULT_GENRE} from "../../../utils/const.js";
 
 
 const NAME_SPACE = NameSpace.CINEMA;
 
-export const getActiveMovie = (state) => {
-  return state[NAME_SPACE].activeMovie || state[NAME_SPACE].promoMovie;
+export const getActiveMovieById = (state, ownProps) => {
+  const movies = getMovies(state);
+  const movieId = ownProps.propsRouteId;
+  const activeMovie = movies.find((movie) => movie.id === movieId);
+
+  return activeMovie;
 };
 
 export const getActiveGenre = (state) => {
   return state[NAME_SPACE].activeGenre;
-};
-
-export const getIsVideoPlayerPageOpen = (state) => {
-  return state[NAME_SPACE].isVideoPlayerPageOpen;
-};
-
-export const getIsSignInPageOpen = (state) => {
-  return state[NAME_SPACE].isSignInPageOpen;
 };
 
 export const getMaxCountOfVisibleMovies = (state) => {
@@ -34,3 +30,4 @@ export const getMoviesListOfActiveGenre = createSelector(
       return moviesOfActiveGenre;
     }
 );
+

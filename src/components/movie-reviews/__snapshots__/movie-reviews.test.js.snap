@@ -28,16 +28,16 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2011-001-01"
+            dateTime="2011-01-01"
           >
-            undefined 01, 2011
+            January 01, 2011
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        1
+        1.0
       </div>
     </div>
     <div
@@ -61,16 +61,16 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2012-011-02"
+            dateTime="2012-02-02"
           >
-            undefined 02, 2012
+            February 02, 2012
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        2
+        2.0
       </div>
     </div>
     <div
@@ -94,16 +94,16 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2013-021-03"
+            dateTime="2013-03-03"
           >
-            undefined 03, 2013
+            March 03, 2013
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        3
+        3.0
       </div>
     </div>
     <div
@@ -127,16 +127,16 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2014-031-04"
+            dateTime="2014-04-04"
           >
-            undefined 04, 2014
+            April 04, 2014
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        5
+        5.0
       </div>
     </div>
     <div
@@ -160,16 +160,16 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2015-041-05"
+            dateTime="2015-05-05"
           >
-            undefined 05, 2015
+            May 05, 2015
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        1
+        1.0
       </div>
     </div>
   </div>
@@ -197,16 +197,16 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2016-051-06"
+            dateTime="2016-06-06"
           >
-            undefined 06, 2016
+            June 06, 2016
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        2
+        2.0
       </div>
     </div>
     <div
@@ -230,16 +230,16 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2017-061-07"
+            dateTime="2017-07-07"
           >
-            undefined 07, 2017
+            July 07, 2017
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        3
+        3.0
       </div>
     </div>
     <div
@@ -263,16 +263,16 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2018-071-08"
+            dateTime="2018-08-08"
           >
-            undefined 08, 2018
+            August 08, 2018
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        4
+        4.0
       </div>
     </div>
     <div
@@ -296,16 +296,16 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2019-081-09"
+            dateTime="2019-09-09"
           >
-            undefined 09, 2019
+            September 09, 2019
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        5
+        5.0
       </div>
     </div>
     <div
@@ -329,16 +329,16 @@ exports[`MovieReviews Render MovieReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime="2020-091-10"
+            dateTime="2020-10-10"
           >
-            undefined 10, 2020
+            October 10, 2020
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        3
+        3.0
       </div>
     </div>
   </div>

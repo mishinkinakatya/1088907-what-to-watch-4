@@ -1,7 +1,7 @@
 import React from "react";
-import {allGenresTypes, activeGenreTypes, onGenreClickTypes} from "../../types/types.js";
-import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {connect} from "react-redux";
+import {arrayOfStringRequiredTypes, stringRequiredTypes, funcRequiredTypes} from "../../types/types.js";
+import {ActionCreator} from "../../store/actions/cinema/cinema.js";
 import {getActiveGenre} from "../../store/reducer/cinema/selectors.js";
 import {getAllGenres} from "../../store/reducer/data/selectors.js";
 
@@ -29,10 +29,11 @@ const GenresList = (props) => {
 
 
 GenresList.propTypes = {
-  activeGenre: activeGenreTypes,
-  allGenres: allGenresTypes,
-  onGenreClick: onGenreClickTypes,
+  activeGenre: stringRequiredTypes,
+  allGenres: arrayOfStringRequiredTypes,
+  onGenreClick: funcRequiredTypes,
 };
+
 
 const mapStateToProps = (state) => {
   return {
@@ -46,6 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.changeActiveGenre(activeGenre));
   },
 });
+
 
 export {GenresList};
 export default connect(mapStateToProps, mapDispatchToProps)(GenresList);
