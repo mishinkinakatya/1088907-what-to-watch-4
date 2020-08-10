@@ -1,7 +1,7 @@
 import React, {PureComponent, createRef} from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import {funcRequiredTypes, boolRequiredTypes} from "../../types/types.js";
+import {funcRequiredTypes, boolRequiredTypes, objectRequiredTypes} from "../../types/types.js";
 import PageHeader from "../page-header/page-header.jsx";
 import PageFooter from "../page-footer/page-footer.jsx";
 import {ActionCreator} from "../../store/actions/user/user.js";
@@ -21,14 +21,14 @@ class SignInPage extends PureComponent {
   }
 
   _handleSignInClick(evt) {
-    const {onSignInClick} = this.props;
+    const {onSignInClick, history} = this.props;
 
     evt.preventDefault();
 
     onSignInClick({
       login: this.loginRef.current.value,
       password: this.passwordRef.current.value,
-    });
+    }, history);
   }
 
   render() {
@@ -42,11 +42,10 @@ class SignInPage extends PureComponent {
           <div className="sign-in user-page__content">
             <form action="#" className="sign-in__form">
 
-              {isAuthorizationError
-                ? <div className="sign-in__message">
+              {isAuthorizationError &&
+                <div className="sign-in__message">
                   <p>Please enter a valid email address</p>
                 </div>
-                : ``
               }
 
               <div className="sign-in__fields">
@@ -77,6 +76,7 @@ SignInPage.propTypes = {
   onSignInClick: funcRequiredTypes,
   onInputDataChange: funcRequiredTypes,
   isAuthorizationError: boolRequiredTypes,
+  history: objectRequiredTypes,
 };
 
 
@@ -87,8 +87,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onSignInClick(login) {
-    dispatch(UserOperations.login(login));
+  onSignInClick(login, history) {
+    dispatch(UserOperations.login(login, history));
   },
   onInputDataChange() {
     dispatch(ActionCreator.hideAuthorizationError());

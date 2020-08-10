@@ -28,9 +28,8 @@ const MovieButtons = (props) => {
         <span>My list</span>
       </button>
 
-      {authorizationStatus === AuthorizationStatus.AUTH && activePage === AppPages.MOVIE_PAGE
-        ? <Link to={`${AppRoute.MOVIE_PAGE}/${movie.id}${AppRoute.ADD_REVIEW_PAGE}`} className="btn movie-card__button">Add review</Link>
-        : ``
+      {authorizationStatus === AuthorizationStatus.AUTH && activePage === AppPages.MOVIE_PAGE &&
+        <Link to={`${AppRoute.MOVIE_PAGE}/${movie.id}${AppRoute.ADD_REVIEW_PAGE}`} className="btn movie-card__button">Add review</Link>
       }
     </div>
   );
