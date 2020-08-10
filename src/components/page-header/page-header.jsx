@@ -6,23 +6,15 @@ import {getAuthInfo, getAuthorizationStatus} from "../../store/reducer/user/sele
 import {AuthorizationStatus, AppRoute, AppPages} from "../../utils/const.js";
 
 
-const headerClasses = {
-  'page-header movie-card__head': [
-    AppPages.MAIN_PAGE,
-    AppPages.MAIN_PAGE,
-  ],
-  'page-header user-page__head': [
-    AppPages.SIGN_IN_PAGE,
-    AppPages.MY_LIST_PAGE,
-    AppPages.ERROR_PAGE,
-    AppPages.LOADING_PAGE,
-  ],
-  'page-header': [
-    AppPages.ADD_REVIEW_PAGE,
-  ]
+const HeaderClass = {
+  [AppPages.MAIN_PAGE]: `page-header movie-card__head`,
+  [AppPages.MOVIE_PAGE]: `page-header movie-card__head`,
+  [AppPages.SIGN_IN_PAGE]: `page-header user-page__head`,
+  [AppPages.MY_LIST_PAGE]: `page-header user-page__head`,
+  [AppPages.ERROR_PAGE]: `page-header user-page__head`,
+  [AppPages.LOADING_PAGE]: `page-header user-page__head`,
+  [AppPages.ADD_REVIEW_PAGE]: `page-header`,
 };
-
-const getClassModifer = (activePage) => Object.keys(headerClasses).find((cl) => headerClasses[cl].includes(activePage));
 
 const getHeaderSpecific = (activePage, activeMovie) => {
   switch (activePage) {
@@ -50,7 +42,7 @@ const PageHeader = (props) => {
   const {authorizationStatus, activePage, activeMovie, authInfo} = props;
 
   return (
-    <header className={getClassModifer(activePage)}>
+    <header className={HeaderClass[activePage]}>
       <Link to={AppRoute.MAIN_PAGE} className="logo__link">
         <div className="logo">
           <span className="logo__letter logo__letter--1">W</span>
@@ -74,13 +66,7 @@ const PageHeader = (props) => {
                   <img src={authInfo.avatarUrl} alt={authInfo.name} width="63" height="63" />
                 </div>
               </Link>
-              : <Link to={(location) => ({
-                pathname: AppRoute.SIGN_IN_PAGE,
-                state: {
-                  from: {pathname: location.pathname}
-                }
-              })
-              } className="user-block__link">Sign in</Link>
+              : <Link to={AppRoute.SIGN_IN_PAGE} className="user-block__link">Sign in</Link>
             }
           </div>
           : ``

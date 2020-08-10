@@ -2,7 +2,7 @@ import React from "react";
 import {Switch, Route, Router, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import history from "../../history.js";
-import {moviesRequiredTypes, movieNotRequiredTypes, stringRequiredTypes, stringNotRequiredTypes, funcRequiredTypes, boolRequiredTypes} from "../../types/types.js";
+import {moviesRequiredTypes, movieNotRequiredTypes, stringRequiredTypes, stringNotRequiredTypes, funcRequiredTypes} from "../../types/types.js";
 import AddReviewPage from "../add-review-page/add-review-page.jsx";
 import MainPage from "../main-page/main-page.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
@@ -12,37 +12,33 @@ import PlayerPage from "../player-page/player-page.jsx";
 import PrivateRoute from "../private-route/private-route.jsx";
 import SignInPage from "../sign-in-page/sign-in-page.jsx";
 import {getMovies, getPromoMovie, getAddReviewStatus, getLoadError} from "../../store/reducer/data/selectors.js";
-import {isAuth} from "../../store/reducer/user/selectors.js";
+import {getAuthorizationStatus} from "../../store/reducer/user/selectors.js";
 import {ActionCreator} from "../../store/actions/data/data.js";
 import {Operations} from "../../store/reducer/data/data.js";
-import {AppRoute, SendingStatus} from "../../utils/const.js";
+import {AppRoute, SendingStatus, AuthorizationStatus} from "../../utils/const.js";
 
-const ErrorMessage = (title, onClick) => {
-  return (
-    <div>
-      <h1>{title}</h1>
-      <button type="button" onClick={onClick}>Close</button>
-    </div>
-  );
-};
 
 const App = (props) => {
-  const {movies, promoMovie, addReviewStatus, userIsAuth, textOfError, onCloseButtonClick} = props;
+  const {movies, promoMovie, addReviewStatus, authorizationStatus, textOfError, onCloseButtonClick} = props;
 
   return (
-    textOfError ?
-      <ErrorMessage title={textOfError} onClick={onCloseButtonClick} /> :
+    textOfError ? <React.Fragment>
+      <div>
+        <h1>{textOfError}</h1>
+        <button type="button" onClick={onCloseButtonClick}>Close</button>
+      </div>
+    </React.Fragment> :
       <Router history={history}>
-        {movies && promoMovie ?
+        {movies.length !== 0 && promoMovie !== null ?
           <Switch>
             <Route exact path={AppRoute.MAIN_PAGE}
               render={() => <MainPage />}
             />
             <Route exact path={AppRoute.SIGN_IN_PAGE}
-              render={({history: historyApi}) => {
-                return userIsAuth
+              render={() => {
+                return authorizationStatus === AuthorizationStatus.AUTH
                   ? <Redirect to={AppRoute.MAIN_PAGE} />
-                  : <SignInPage history={historyApi} />;
+                  : <SignInPage />;
               }}
             />
             <Route exact path={`${AppRoute.MOVIE_PAGE}/:id`}
@@ -71,7 +67,7 @@ App.propTypes = {
   movies: moviesRequiredTypes,
   promoMovie: movieNotRequiredTypes,
   addReviewStatus: stringRequiredTypes,
-  userIsAuth: boolRequiredTypes,
+  authorizationStatus: stringRequiredTypes,
   textOfError: stringNotRequiredTypes,
   onCloseButtonClick: funcRequiredTypes,
 };
@@ -82,7 +78,7 @@ const mapStateToProps = (state) => {
     movies: getMovies(state),
     promoMovie: getPromoMovie(state),
     addReviewStatus: getAddReviewStatus(state),
-    userIsAuth: isAuth(state),
+    authorizationStatus: getAuthorizationStatus(state),
     textOfError: getLoadError(state),
   };
 };
